@@ -6,7 +6,7 @@
 ## 👩🏻‍💻 팀원 소개
 |나림|문서연|송하윤|장명지|최유진|
 |:-:|:-:|:-:|:-:|:-:|
-|<img src="https://avatars.githubusercontent.com/u/87795291?v=4" width="170px" />|<img src="https://avatars.githubusercontent.com/u/92535912?v=4" width="170px" />|<img src="https://avatars.githubusercontent.com/u/39684920?v=4" width="170px" />|<img src="https://avatars.githubusercontent.com/u/108226647?v=4" width="170px" />|<img src="https://avatars.githubusercontent.com/u/99077953?v=4" width="170px" />|
+|<img src="https://avatars.githubusercontent.com/u/87795291?v=4" width="200px" />|<img src="https://avatars.githubusercontent.com/u/92535912?v=4" width="200px" />|<img src="https://avatars.githubusercontent.com/u/39684920?v=4" width="200px" />|<img src="https://avatars.githubusercontent.com/u/108226647?v=4" width="200px" />|<img src="https://avatars.githubusercontent.com/u/99077953?v=4" width="200px" />|
 |[@R1mmm](https://github.com/R1mmm)|[@seoyeun0106](https://github.com/seoyeun0106)|[@hayounSong](https://github.com/hayounSong)|[@Dangpy](https://github.com/Dangpy)|[@choichoijin](https://github.com/choichoijin)|
 <br />
 
