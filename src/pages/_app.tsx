@@ -4,6 +4,10 @@ import { RecoilRoot } from 'recoil';
 import GlobalStyle from '@src/styles/globalStyle';
 import React from 'react';
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  import('../mocks');
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
 
