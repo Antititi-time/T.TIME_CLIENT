@@ -1,21 +1,16 @@
-import { useState } from 'react';
-import { Favorite } from '../mocks/types';
+import axios from 'axios';
+import { useQuery } from 'react-query';
+import { Favorite } from '@src/mocks/types';
 
 function Example() {
-  const [favoriteData, setFavoriteData] = useState<Favorite[] | null>(null);
-
-  const handleGetReviews = () => {
-    fetch('/favorite')
-      .then((res) => res.json())
-      .then(setFavoriteData);
-  };
+  const { data } = useQuery('favorite', () => axios.get('/favorite'));
 
   return (
     <div>
-      <button onClick={handleGetReviews}>유진s 페이보릿</button>
-      {favoriteData && (
+      <button>유진s 페이보릿</button>
+      {data && (
         <ul>
-          {favoriteData.map((data) => (
+          {data.data.map((data: Favorite) => (
             <li key={data.id}>
               <p>{data.mint}</p>
               <br />

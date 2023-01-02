@@ -3,6 +3,7 @@ import { Favorite } from './types';
 
 export const handlers = [
   rest.get('/favorite', (_req, res, ctx) => {
+    sleep(1000);
     return res(
       ctx.json<Favorite[]>([
         {
@@ -15,3 +16,9 @@ export const handlers = [
     );
   }),
 ];
+
+async function sleep(timeout: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
