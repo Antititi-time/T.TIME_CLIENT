@@ -2,6 +2,7 @@ import { rest } from 'msw';
 import { Favorite } from './types';
 
 export const handlers = [
+  //example.
   rest.get('/favorite', (_req, res, ctx) => {
     sleep(1000);
     return res(
