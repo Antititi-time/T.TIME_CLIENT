@@ -45,5 +45,5 @@ const StExample = styled.div`
 
 const StTitle = styled.h1`
   ${FONT_STYLES.PRETENDARD_R_14};
-  color: ${COLOR.ORANGE_3};
+  color: ${COLOR.ORANGE_TEXT};
 `;
