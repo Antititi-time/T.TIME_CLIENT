@@ -6,8 +6,13 @@ const GlobalStyle = createGlobalStyle`
   
   html,
   body {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 39rem;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    background-color: #F1EFEA;
   }
   
   #root {
