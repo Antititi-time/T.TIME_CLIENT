@@ -9,6 +9,7 @@ import { shareKakao } from './ShareKakao';
 export default function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
+
   const CopyLink = () => {
     try {
       alert('클립보드에 복사되었습니다.');
@@ -21,10 +22,7 @@ export default function InviteModal() {
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
     script.async = true;
     document.body.appendChild(script);
-    // document.body.removeChild(script);
-    // return () => document.body.removeChild(script);
   }, []);
-
   const onKakaoShare = () => {
     shareKakao(teamLink, teamCode, '개인결과');
   };
@@ -67,28 +65,27 @@ const STModal = styled.section`
   position: relative;
   width: 32.8rem;
   height: 45.3rem;
-  border-radius: 1.4rem;
   margin: 7.6rem 3.1rem 0rem 3.1rem;
+  border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
-
   overflow: hidden;
 `;
 const STModalHeader = styled.header`
-  font-style: ${FONT_STYLES.PRETENDARD_B_20};
+  display: block;
   width: 7rem;
   margin: 2.4rem 12.9rem 0rem 12.9rem;
-  display: block;
+  font-style: ${FONT_STYLES.PRETENDARD_B_20};
 `;
 const STInviteArticle = styled.article`
-  background-color: ${COLOR.IVORY_3};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 28.2rem;
   height: 12.4rem;
   margin: 2.2rem 2.3rem 0 2.3rem;
   border-radius: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: ${COLOR.IVORY_3};
 `;
 const STArticleTitle = styled.div`
   width: 22.6rem;
@@ -103,40 +100,40 @@ const STButtonZone = styled.article`
   margin: 4rem 2.3rem 4rem 2.3rem;
 `;
 const STCopyButton = styled.button`
+  display: flex;
+  align-items: center;
   width: 28.2rem;
   height: 4.8rem;
   border-radius: 10rem;
   background-color: ${COLOR.BLUE_1};
-  display: flex;
-  align-items: center;
 `;
 
 const STKakaoButton = styled.button`
-  width: 28.2rem;
-  height: 4.8rem;
-  border-radius: 10rem;
-  background-color: ${COLOR.ORANGE_1};
-  margin-top: 1.6rem;
   display: flex;
   align-items: center;
+  width: 28.2rem;
+  height: 4.8rem;
+  margin-top: 1.6rem;
+  border-radius: 10rem;
+  background-color: ${COLOR.ORANGE_1};
 `;
 
 const STButtonIcon = styled.img`
   margin-left: 1.8rem;
-  margin-right: 4.4rem;
+  margin-right: 4rem;
 `;
 
 const STButtonText = styled.span`
-  font-style: ${FONT_STYLES.NEXON_B_16};
   color: white;
+  font-style: ${FONT_STYLES.PRETENDARD_B_16};
+  font-weight: 700 !important;
 `;
 const STFooter = styled.footer`
-  height: 6.8rem;
-  margin-top: 4rem;
-  border-top: 1px solid #7e7e7e;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 6.8rem;
+  margin-top: 4rem;
+  border-top: 1px solid #7e7e7e;
   font-style: ${FONT_STYLES.NEXON_B_16};
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
