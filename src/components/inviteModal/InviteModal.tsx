@@ -27,7 +27,7 @@ export default function InviteModal() {
     shareKakao(teamLink, teamCode, '개인결과');
   };
   return (
-    <>
+    <StInviteModal>
       <StBackground>
         <StModal>
           <StModalHeader>공유하기</StModalHeader>
@@ -50,10 +50,11 @@ export default function InviteModal() {
           <StFooter>닫기</StFooter>
         </StModal>
       </StBackground>
-    </>
+    </StInviteModal>
   );
 }
 
+const StInviteModal = styled.div``;
 const StBackground = styled.main`
   width: 39rem;
   height: 100vh;
@@ -133,6 +134,6 @@ const StFooter = styled.footer`
   align-items: center;
   height: 6.8rem;
   margin-top: 4rem;
-  border-top: 1px solid ${COLOR.GRAY_7E};
+  border-top: 0.1rem solid ${COLOR.GRAY_7E};
   font-style: ${FONT_STYLES.NEXON_B_16};
 `;
