@@ -126,7 +126,6 @@ const STButtonIcon = styled.img`
 const STButtonText = styled.span`
   color: white;
   font-style: ${FONT_STYLES.PRETENDARD_B_16};
-  font-weight: 700 !important;
 `;
 const STFooter = styled.footer`
   display: flex;
