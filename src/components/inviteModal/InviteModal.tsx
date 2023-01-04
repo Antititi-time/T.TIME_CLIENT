@@ -133,6 +133,6 @@ const StFooter = styled.footer`
   align-items: center;
   height: 6.8rem;
   margin-top: 4rem;
-  border-top: 1px solid #7e7e7e;
+  border-top: 1px solid ${COLOR.GRAY_7E};
   font-style: ${FONT_STYLES.NEXON_B_16};
 `;
