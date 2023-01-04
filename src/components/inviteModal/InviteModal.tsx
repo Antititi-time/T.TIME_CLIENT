@@ -10,7 +10,7 @@ export default function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
-  const CopyLink = () => {
+  const copyLink = () => {
     try {
       alert('클립보드에 복사되었습니다.');
     } catch (error) {
@@ -35,18 +35,18 @@ export default function InviteModal() {
             <StArticleTitle>초대 링크</StArticleTitle>
             <StArticleLink>{teamLink}</StArticleLink>
           </StInviteArticle>
-          <StButtonZone>
+          <StButtonContainer>
             <CopyToClipboard text={teamLink}>
-              <StCopyButton onClick={() => CopyLink()}>
+              <StCopyButton onClick={() => copyLink()}>
                 <StButtonIcon src={icPaste.src} />
                 <StButtonText>초대링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton>
+            <StKakaoButton onClick={() => onKakaoShare()}>
               <StButtonIcon src={icKakao.src} />
-              <StButtonText onClick={() => onKakaoShare()}>카카오톡 공유하기</StButtonText>
+              <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
-          </StButtonZone>
+          </StButtonContainer>
           <StFooter>닫기</StFooter>
         </StModal>
       </StBackground>
@@ -96,7 +96,7 @@ const StArticleLink = styled.div`
   margin-top: 0.4rem;
   font-style: ${FONT_STYLES.NEXON_R_14};
 `;
-const StButtonZone = styled.article`
+const StButtonContainer = styled.div`
   margin: 4rem 2.3rem 4rem 2.3rem;
 `;
 const StCopyButton = styled.button`
