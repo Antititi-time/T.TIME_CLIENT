@@ -35,7 +35,7 @@ const Invite = styled.div`
   border: 0rem solid ${COLOR.ORANGE_1};
   border-radius: 10rem;
   background-color: ${COLOR.ORANGE_1};
-  ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.PRETENDARD_B_16};
 
   & > a,
   a:visited {

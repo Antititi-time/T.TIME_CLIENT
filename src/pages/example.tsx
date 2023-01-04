@@ -9,10 +9,24 @@ import { COLOR } from '@src/styles/color';
 
 function Example() {
   const { data } = useQuery('favorite', () => axios.get('/favorite'));
+  const handleLogIn = () => {
+    axios
+      .post('http://13.124.244.26:8000/auth/login/', {
+        username: 'clark',
+        email: 'clark@kookmin.ac.kr',
+        password: 'tjrwnsghks123',
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <StExample>
-      <StTitle>유진s 페이보릿</StTitle>
+      <StTitle onClick={handleLogIn}>유진s 페이보릿</StTitle>
       <ImageDiv src={imgTopLogo} alt="티타임" className="imgTopLogo" />
       {data && (
         <ul>
