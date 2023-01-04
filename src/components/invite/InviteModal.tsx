@@ -2,7 +2,18 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icKakao, icPaste } from '@src/assets/icons';
+import { useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 export default function InviteModal() {
+  const [teamCode, setTeamCode] = useState<string>('ttime');
+  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
+  const CopyLink = () => {
+    try {
+      alert('클립보드에 복사되었습니다.');
+    } catch (error) {
+      alert('클립보드 복사에 실패하였습니다.');
+    }
+  };
   return (
     <>
       <STBackGround>
@@ -10,13 +21,15 @@ export default function InviteModal() {
           <STModalHeader>공유하기</STModalHeader>
           <STInviteArticle>
             <STArticleTitle>초대 링크</STArticleTitle>
-            <STArticleLink>https:dkajdljflk/dkjsldjk</STArticleLink>
+            <STArticleLink>{teamLink}</STArticleLink>
           </STInviteArticle>
           <STButtonZone>
-            <STCopyButton>
-              <STButtonIcon src={icPaste.src} />
-              <STButtonText>초대링크 복사하기</STButtonText>
-            </STCopyButton>
+            <CopyToClipboard text={teamLink}>
+              <STCopyButton onClick={() => CopyLink()}>
+                <STButtonIcon src={icPaste.src} />
+                <STButtonText>초대링크 복사하기</STButtonText>
+              </STCopyButton>
+            </CopyToClipboard>
             <STKakaoButton>
               <STButtonIcon src={icKakao.src} />
               <STButtonText>카카오톡 공유하기</STButtonText>
