@@ -13,10 +13,10 @@ function LogoTop() {
 export default LogoTop;
 
 const StLogoTop = styled.div`
-  position: sticky;
-  display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  position: sticky;
   width: 100vw;
   height: 5.8rem;
   background: rgba(255, 255, 255, 0.5);

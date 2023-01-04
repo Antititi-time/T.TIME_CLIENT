@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
-import Chart from '@src/components/teamResult/Chart';
 
 function TeamResult() {
   return (

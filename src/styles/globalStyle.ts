@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
-    min-width: 39rem;
+    max-width: 39rem;
     min-height: 100vh;
     margin: 0 auto;
     position: relative;

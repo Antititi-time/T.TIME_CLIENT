@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Chart from './Chart';
+import DetailResult from './DetailResult';
 
 function TeamResult() {
   return (
@@ -26,6 +27,7 @@ function TeamResult() {
         </StTeamInfoDetail>
         <StDivder />
         <Chart />
+        <DetailResult />
       </StFrameContainer>
     </StFrame>
   );
@@ -55,7 +57,7 @@ const StTeamInfo = styled.div`
 
   & > h2 {
     color: ${COLOR.GRAY_7E};
-    ${FONT_STYLES.NEXON_B_16};
+    ${FONT_STYLES._R_12};
     margin-bottom: 1.2rem;
   }
 
@@ -90,11 +92,13 @@ const StTeamInfoDetail = styled.div`
   }
 
   & > p:nth-of-type(2) {
-    ${FONT_STYLES.PRETENDARD_EB_20};
+    ${FONT_STYLES.PRETENDARD_B_20};
 
     & > span:first-of-type {
+      ${FONT_STYLES.PRETENDARD_EB_20};
       color: ${COLOR.BLUE_TEXT};
     }
+    ${FONT_STYLES.PRETENDARD_EB_20};
     & > span:last-of-type {
       color: ${COLOR.ORANGE_TEXT};
     }
