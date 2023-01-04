@@ -1,3 +1,16 @@
 export const COLOR = {
+  WHITE_100: '#FFFFFF',
+  GRAY_EC: '#ECECEC',
+  GRAY_9E: '#9E9E9E',
+  GRAY_7E: '#7E7E7E',
+  BLACK: '#32302F',
   IVORY_1: '#FBF7ED',
+  IVORY_2: '#F1EFEA',
+  IVORY_3: '#ECE7DB',
+  BLUE_1: '#DBE6EE',
+  BLUE_2: '#6FAEDC',
+  BLUE_TEXT: '#3A83B6',
+  ORANGE_1: '#FFCCBC',
+  ORANGE_2: '#FF6C3D',
+  ORANGE_TEXT: '#FF4408',
 };
