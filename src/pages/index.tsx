@@ -25,7 +25,7 @@ function Home() {
 
 export default Home;
 
-const Invite = styled.button`
+const Invite = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,8 +35,12 @@ const Invite = styled.button`
   border: 0rem solid ${COLOR.ORANGE_1};
   border-radius: 10rem;
   background-color: ${COLOR.ORANGE_1};
-  color: ${COLOR.WHITE_100};
   ${FONT_STYLES.NEXON_B_16};
+
+  & > a,
+  a:visited {
+    color: ${COLOR.WHITE_100};
+  }
 `;
 
 const StLogo = styled.div`
