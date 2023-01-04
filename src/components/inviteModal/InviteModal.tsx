@@ -28,40 +28,40 @@ export default function InviteModal() {
   };
   return (
     <>
-      <STBackGround>
-        <STModal>
-          <STModalHeader>공유하기</STModalHeader>
-          <STInviteArticle>
-            <STArticleTitle>초대 링크</STArticleTitle>
-            <STArticleLink>{teamLink}</STArticleLink>
-          </STInviteArticle>
-          <STButtonZone>
+      <StBackground>
+        <StModal>
+          <StModalHeader>공유하기</StModalHeader>
+          <StInviteArticle>
+            <StArticleTitle>초대 링크</StArticleTitle>
+            <StArticleLink>{teamLink}</StArticleLink>
+          </StInviteArticle>
+          <StButtonZone>
             <CopyToClipboard text={teamLink}>
-              <STCopyButton onClick={() => CopyLink()}>
-                <STButtonIcon src={icPaste.src} />
-                <STButtonText>초대링크 복사하기</STButtonText>
-              </STCopyButton>
+              <StCopyButton onClick={() => CopyLink()}>
+                <StButtonIcon src={icPaste.src} />
+                <StButtonText>초대링크 복사하기</StButtonText>
+              </StCopyButton>
             </CopyToClipboard>
-            <STKakaoButton>
-              <STButtonIcon src={icKakao.src} />
-              <STButtonText onClick={() => onKakaoShare()}>카카오톡 공유하기</STButtonText>
-            </STKakaoButton>
-          </STButtonZone>
-          <STFooter>닫기</STFooter>
-        </STModal>
-      </STBackGround>
+            <StKakaoButton>
+              <StButtonIcon src={icKakao.src} />
+              <StButtonText onClick={() => onKakaoShare()}>카카오톡 공유하기</StButtonText>
+            </StKakaoButton>
+          </StButtonZone>
+          <StFooter>닫기</StFooter>
+        </StModal>
+      </StBackground>
     </>
   );
 }
 
-const STBackGround = styled.main`
+const StBackground = styled.main`
   width: 39rem;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   overflow: hidden;
 `;
-const STModal = styled.section`
+const StModal = styled.section`
   position: relative;
   width: 32.8rem;
   height: 45.3rem;
@@ -70,13 +70,13 @@ const STModal = styled.section`
   background-color: ${COLOR.IVORY_1};
   overflow: hidden;
 `;
-const STModalHeader = styled.header`
+const StModalHeader = styled.header`
   display: block;
   width: 7rem;
   margin: 2.4rem 12.9rem 0rem 12.9rem;
   font-style: ${FONT_STYLES.PRETENDARD_B_20};
 `;
-const STInviteArticle = styled.article`
+const StInviteArticle = styled.article`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,19 +87,19 @@ const STInviteArticle = styled.article`
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_3};
 `;
-const STArticleTitle = styled.div`
+const StArticleTitle = styled.div`
   width: 22.6rem;
   font-style: ${FONT_STYLES.PRETENDARD_B_14};
 `;
-const STArticleLink = styled.div`
+const StArticleLink = styled.div`
   width: 22.6rem;
   margin-top: 0.4rem;
   font-style: ${FONT_STYLES.NEXON_R_14};
 `;
-const STButtonZone = styled.article`
+const StButtonZone = styled.article`
   margin: 4rem 2.3rem 4rem 2.3rem;
 `;
-const STCopyButton = styled.button`
+const StCopyButton = styled.button`
   display: flex;
   align-items: center;
   width: 28.2rem;
@@ -108,7 +108,7 @@ const STCopyButton = styled.button`
   background-color: ${COLOR.BLUE_1};
 `;
 
-const STKakaoButton = styled.button`
+const StKakaoButton = styled.button`
   display: flex;
   align-items: center;
   width: 28.2rem;
@@ -118,16 +118,16 @@ const STKakaoButton = styled.button`
   background-color: ${COLOR.ORANGE_1};
 `;
 
-const STButtonIcon = styled.img`
+const StButtonIcon = styled.img`
   margin-left: 1.8rem;
   margin-right: 4rem;
 `;
 
-const STButtonText = styled.span`
+const StButtonText = styled.span`
   color: white;
   font-style: ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const STFooter = styled.footer`
+const StFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
