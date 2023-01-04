@@ -1,4 +1,10 @@
 import Head from 'next/head';
+import styled from 'styled-components';
+import { COLOR } from '@src/styles/color';
+import { FONT_STYLES } from '@src/styles/fontStyle';
+import Link from 'next/link';
+import ImageDiv from '@src/components/common/ImageDiv';
+import { logoIcon } from '@src/assets/icon';
 
 function Home() {
   return (
@@ -7,9 +13,41 @@ function Home() {
         <title>setting-practice</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>Home</div>
+      <StLogo>
+        <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
+      </StLogo>
+      <Link href="/invite">
+        <StInviteButton>
+          <p>초대장 만들기</p>
+        </StInviteButton>
+      </Link>
     </div>
   );
 }
 
 export default Home;
+
+const StInviteButton = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28.2rem;
+  height: 4.8rem;
+  margin: 57.2rem 5.4rem 3.9rem 5.4rem;
+  border: 0rem solid ${COLOR.ORANGE_1};
+  border-radius: 10rem;
+  background-color: ${COLOR.ORANGE_1};
+  color: ${COLOR.WHITE_100};
+  ${FONT_STYLES.NEXON_B_16};
+`;
+
+const StLogo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logoIcon {
+    position: absolute;
+    top: 25.8rem;
+  }
+`;
