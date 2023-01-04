@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { Favorite, Invite, TeamData } from './types';
+import { Favorite, Invite } from './types';
 
 export const handlers = [
   //example.
