@@ -7,7 +7,7 @@ export default function Invite() {
   return (
     <StContainer>
       <StTitle>초대장 만들기</StTitle>
-      <ImageDiv src="" alt="티타임" className="letterImg" />
+      <ImageDiv src="" alt="티타임" className="letterImg" layout="fill" />
       <StForm action="post">
         <TeamInfoBlank label="프로젝트 또는 팀 이름" placeholder="14자 이내로 입력해 주세요" />
         <TeamInfoBlank label="팀 인원 수" placeholder="팀의 인원 수를 입력해주세요" />
@@ -18,9 +18,9 @@ export default function Invite() {
 
 const StContainer = styled.div`
   display: flex;
-  text-align: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
   .letterImg {
     width: 16.8rem;
     height: 16.8rem;
@@ -28,11 +28,11 @@ const StContainer = styled.div`
   }
 `;
 const StTitle = styled.h1`
-  ${FONT_STYLES.PRETENDARD_B_20};
   margin-top: 1.9rem;
+  ${FONT_STYLES.PRETENDARD_B_20};
 `;
 const StForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2.4re;
+  gap: 2.4rem;
 `;

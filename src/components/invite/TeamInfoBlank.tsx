@@ -19,8 +19,8 @@ export default function TeamInfoBlank(props: labelProps) {
 }
 const StContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
   gap: 0.8rem;
   width: 29.4rem;
   height: 7.9rem;
@@ -36,17 +36,18 @@ const StIcon = styled.div`
   height: 2.3rem;
   border-radius: 50%;
 `;
+
 const StText = styled.p`
-  ${FONT_STYLES.NEXON_B_16}
-  color: ${COLOR.BLUE_TEXT}
+  color: ${COLOR.BLUE_TEXT};
+  font-style: ${FONT_STYLES.NEXON_B_16};
 `;
 
 const StInput = styled.input`
-  background: #ffffff;
-  border: 0.1rem solid #7e7e7e;
-  border-radius: 0.5rem;
+  width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.7rem;
   padding-left: 1.2rem;
-  width: 100%;
+  border: 0.1rem solid #7e7e7e;
+  border-radius: 0.5rem;
+  background: #ffffff;
 `;
