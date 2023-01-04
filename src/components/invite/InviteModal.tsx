@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icKakao, icPaste } from '@src/assets/icons';
-import { useState } from 'react';
+import { useState, useEffect, EffectCallback } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { shareKakao } from './ShareKakao';
+
 export default function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
@@ -13,6 +15,18 @@ export default function InviteModal() {
     } catch (error) {
       alert('클립보드 복사에 실패하였습니다.');
     }
+  };
+  useEffect((): void => {
+    const script: HTMLScriptElement = document.createElement('script');
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+    script.async = true;
+    document.body.appendChild(script);
+    // document.body.removeChild(script);
+    // return () => document.body.removeChild(script);
+  }, []);
+
+  const onKakaoShare = () => {
+    shareKakao(teamLink, teamCode, '개인결과');
   };
   return (
     <>
@@ -32,7 +46,7 @@ export default function InviteModal() {
             </CopyToClipboard>
             <STKakaoButton>
               <STButtonIcon src={icKakao.src} />
-              <STButtonText>카카오톡 공유하기</STButtonText>
+              <STButtonText onClick={() => onKakaoShare()}>카카오톡 공유하기</STButtonText>
             </STKakaoButton>
           </STButtonZone>
           <STFooter>닫기</STFooter>
