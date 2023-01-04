@@ -15,3 +15,7 @@ export type Invite = {
     teamCode: string;
   };
 };
+export type TeamData = {
+  teamName: string;
+  teamMember: number;
+};
