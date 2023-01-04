@@ -11,10 +11,10 @@ function Example() {
   const { data } = useQuery('favorite', () => axios.get('/favorite'));
   const handleLogIn = () => {
     axios
-      .post('http://13.124.244.26:8000/auth/login/', {
-        username: 'clark',
-        email: 'clark@kookmin.ac.kr',
-        password: 'tjrwnsghks123',
+      .post('', {
+        username: '',
+        email: '',
+        password: '',
       })
       .then(function (response) {
         console.log(response);
