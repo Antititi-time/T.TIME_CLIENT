@@ -16,18 +16,16 @@ function Home() {
       <StLogo>
         <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
       </StLogo>
-      <Link href="/invite">
-        <StInviteButton>
-          <p>초대장 만들기</p>
-        </StInviteButton>
-      </Link>
+      <Invite>
+        <Link href="/invite">초대장 만들기</Link>
+      </Invite>
     </div>
   );
 }
 
 export default Home;
 
-const StInviteButton = styled.a`
+const Invite = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
