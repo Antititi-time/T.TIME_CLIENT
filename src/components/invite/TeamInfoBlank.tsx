@@ -43,11 +43,18 @@ const StText = styled.p`
 `;
 
 const StInput = styled.input`
-  width: 100%;
-  padding-top: 1.5rem;
-  padding-bottom: 1.7rem;
-  padding-left: 1.2rem;
+  width: 121.428571429%;
+  padding-top: 1.82142856rem;
+  padding-bottom: 2.06428571rem;
+  padding-left: 1.45714285rem;
   border: 0.1rem solid #7e7e7e;
-  border-radius: 0.5rem;
+  border-radius: 0.60714286rem;
   background: #ffffff;
+
+  transform: scale(0.8235);
+  transform-origin: left top;
+
+  /* 여기를 추가합니다. */
+  margin-bottom: -10px;
+  margin-right: -33.333333333%;
 `;
