@@ -7,6 +7,7 @@ export const COLOR = {
   IVORY_1: '#FBF7ED',
   IVORY_2: '#F1EFEA',
   IVORY_3: '#ECE7DB',
+  IVORY_4: '#FFFCF5',
   BLUE_1: '#6FAEDC',
   BLUE_2: '#DBE6EE',
   BLUE_TEXT: '#3A83B6',
