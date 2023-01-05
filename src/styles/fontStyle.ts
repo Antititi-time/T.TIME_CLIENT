@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 type Font = {
-  font: 'Pretendard' | 'NEXON Lv1 Gothic OTF' | 'NEXON Lv1 Gothic Bold' | 'Century Gothic';
+  font: 'Pretendard' | 'NEXON Lv1 Gothic OTF' | 'NEXON Lv1 Gothic Bold';
   size: number;
   weight: 'R' | 'M' | 'SB' | 'B' | 'EB';
   height: number;
@@ -77,5 +77,4 @@ export const FONT_STYLES = {
   NEXON_B_16: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 16, weight: 'B', height: 14 }),
   NEXON_B_20: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 20, weight: 'B', height: 23 }),
   NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 22, weight: 'B', height: 25 }),
-  CENTURY_B_22: FONT({ font: 'Century Gothic', size: 22, weight: 'B', height: 27 }),
 };
