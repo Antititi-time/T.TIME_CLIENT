@@ -59,7 +59,7 @@ const StBackground = styled.main`
   width: 39rem;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0.2rem);
   overflow: hidden;
 `;
 const StModal = styled.section`

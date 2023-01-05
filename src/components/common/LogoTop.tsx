@@ -22,7 +22,7 @@ const StLogoTop = styled.div`
   width: 100vw;
   height: 5.8rem;
   background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0.5rem);
 
   .imgTopLogo {
     position: relative;
