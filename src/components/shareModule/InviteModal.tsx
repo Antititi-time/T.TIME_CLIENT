@@ -5,27 +5,16 @@ import { icKakao, icPaste } from '@src/assets/icons';
 import { useState, useEffect } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
+import { useCopyLink, useSetKakao } from './ShareModule';
 
-export default function InviteModal() {
+function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
-  const copyLink = () => {
-    try {
-      alert('클립보드에 복사되었습니다.');
-    } catch (error) {
-      alert('클립보드 복사에 실패하였습니다.');
-    }
-  };
-  useEffect((): void => {
-    const script: HTMLScriptElement = document.createElement('script');
-    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-    script.async = true;
-    document.body.appendChild(script);
+  useEffect(() => {
+    useSetKakao();
   }, []);
-  const onKakaoShare = () => {
-    shareKakao(teamLink, teamCode, '개인결과');
-  };
+
   return (
     <StInviteModal>
       <StBackground>
@@ -37,12 +26,12 @@ export default function InviteModal() {
           </StInviteArticle>
           <StButtonContainer>
             <CopyToClipboard text={teamLink}>
-              <StCopyButton onClick={() => copyLink()}>
+              <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
                 <StButtonText>초대링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton onClick={() => onKakaoShare()}>
+            <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '개인결과')}>
               <StButtonIcon src={icKakao.src} />
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
@@ -54,13 +43,23 @@ export default function InviteModal() {
   );
 }
 
-const StInviteModal = styled.div``;
+export default InviteModal;
+
+const StInviteModal = styled.div`
+  width: 100vw;
+`;
 const StBackground = styled.main`
-  width: 39rem;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
+<<<<<<< HEAD:src/components/inviteModal/InviteModal.tsx
   overflow: hidden;
+=======
+>>>>>>> ab8b842a5c245392606579218ed79a1b46a6dc22:src/components/shareModule/InviteModal.tsx
 `;
 const StModal = styled.section`
   position: relative;
@@ -69,7 +68,6 @@ const StModal = styled.section`
   margin: 7.6rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
-  overflow: hidden;
 `;
 const StModalHeader = styled.header`
   display: block;
@@ -128,10 +126,11 @@ const StButtonText = styled.span`
   color: white;
   font-style: ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const StFooter = styled.footer`
+const StFooter = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  width:100%;
   height: 6.8rem;
   margin-top: 4rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
