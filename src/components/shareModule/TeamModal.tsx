@@ -6,7 +6,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { copyLink, setKakao } from './ShareModule';
-export default function TeamModal() {
+function TeamModal() {
   const [teamCode, setTeamCode] = useState<string>('team');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
   useEffect((): void => {
@@ -35,6 +35,9 @@ export default function TeamModal() {
     </StTeamRecordModal>
   );
 }
+
+export default TeamModal;
+
 const StTeamRecordModal = styled.div`
   width: 100vh;
 `;

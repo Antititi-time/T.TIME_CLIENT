@@ -1,7 +1,7 @@
 import LogoTop from '@src/components/common/LogoTop';
 import TeamModal from '@src/components/shareModule/TeamModal';
 
-export default function Result() {
+function Result() {
   return (
     <>
       <LogoTop></LogoTop>
@@ -10,3 +10,4 @@ export default function Result() {
     </>
   );
 }
+export default Result;

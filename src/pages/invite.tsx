@@ -1,6 +1,6 @@
 import InviteModal from '@src/components/shareModule/InviteModal';
 
-export default function Invite() {
+function Invite() {
   return (
     <>
       <InviteModal></InviteModal>
@@ -8,3 +8,4 @@ export default function Invite() {
     </>
   );
 }
+export default Invite;

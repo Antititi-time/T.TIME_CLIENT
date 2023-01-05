@@ -7,7 +7,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
 import { copyLink, setKakao } from './ShareModule';
 
-export default function InviteModal() {
+function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
@@ -42,6 +42,8 @@ export default function InviteModal() {
     </StInviteModal>
   );
 }
+
+export default InviteModal;
 
 const StInviteModal = styled.div`
   width: 100vh;
