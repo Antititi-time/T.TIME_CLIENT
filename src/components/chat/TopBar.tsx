@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import { useState } from 'react';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 
 function TopBar() {
@@ -29,12 +28,12 @@ function TopBar() {
 export default TopBar;
 
 const StWrap = styled.div`
-  width: 100vh;
+  width: 100vw;
 `;
 
 const StTopBox = styled.div`
   position: fixed;
-  width: 39rem;
+  width: 100vw;
   height: 7rem;
   background-color: rgba(255, 252, 245, 0.8);
   backdrop-filter: blur(0.5rem);
