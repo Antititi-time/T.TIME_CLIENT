@@ -3,6 +3,7 @@ export const COLOR = {
   GRAY_EC: '#ECECEC',
   GRAY_9E: '#9E9E9E',
   GRAY_7E: '#7E7E7E',
+  GRAY_F9: '#F9F9F9',
   BLACK: '#32302F',
   IVORY_1: '#FBF7ED',
   IVORY_2: '#F1EFEA',

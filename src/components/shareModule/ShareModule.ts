@@ -5,7 +5,7 @@ export const useCopyLink = () => {
     alert('클립보드 복사에 실패하였습니다.');
   }
 };
-export const useSetKakao = () => {
+export const setKakao = () => {
   const script: HTMLScriptElement = document.createElement('script');
   script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
   script.async = true;
