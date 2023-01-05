@@ -6,6 +6,7 @@ import { useState } from 'react';
 function DetailResult() {
   const categoryList = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [currentTab, setCurrentTab] = useState(categoryList[0]);
+
   return (
     <StDetailResult>
       <h2>상세 결과</h2>
@@ -81,10 +82,10 @@ const StResultContainer = styled.div`
   position: relative;
   left: -0.3rem;
   width: 31.1rem;
-  //임시
+  //임시.
   height: 50rem;
-  background-color: ${COLOR.WHITE_100};
   border-radius: 1.2rem;
+  background-color: ${COLOR.WHITE_100};
 `;
 
 const StTab = styled.ul`
@@ -97,15 +98,15 @@ const StTabItem = styled.li<{ isActive: boolean }>`
   align-items: center;
   width: 6.2rem;
   height: 4.4rem;
-  ${FONT_STYLES.PRETENDARD_M_12};
   border-bottom: 0.2rem solid transparent;
+  ${FONT_STYLES.PRETENDARD_M_12};
   cursor: pointer;
 
   ${({ isActive }) =>
     isActive &&
     css`
-      color: ${COLOR.BLUE_TEXT};
       border-bottom: 0.2rem solid ${COLOR.BLUE_TEXT};
+      color: ${COLOR.BLUE_TEXT};
     `}
 `;
 
@@ -114,23 +115,23 @@ const StTextContainer = styled.div`
 `;
 
 const StCategoryTitle = styled.h3`
+  margin-bottom: 2.05rem;
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
-  margin-bottom: 2.05rem;
 `;
 
 const StQuestion = styled.p`
+  margin-bottom: 1.2rem;
   ${FONT_STYLES.NEXON_B_14};
   line-height: 2rem;
-  margin-bottom: 1.2rem;
 `;
 
 const StAnswerList = styled.div`
-  width: 28.9rem;
-  height: 17.6rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  width: 28.9rem;
+  height: 17.6rem;
 `;
 
 const StAnswerItem = styled.div`
@@ -144,8 +145,8 @@ const StName = styled.p`
   width: 5.8rem;
   height: 2.2rem;
   border-radius: 1.4rem;
-  ${FONT_STYLES.PRETENDARD_SB_12};
   background-color: ${COLOR.ORANGE_2};
+  ${FONT_STYLES.PRETENDARD_SB_12};
 `;
 
 const StAnswer = styled.div`
@@ -153,10 +154,10 @@ const StAnswer = styled.div`
   justify-content: center;
   align-items: center;
   width: 22.6rem;
-  margin-left: 0.4rem;
   min-height: 2.2rem;
-  background-color: ${COLOR.GRAY_F9};
+  margin-left: 0.4rem;
   border-radius: 0.8rem;
+  background-color: ${COLOR.GRAY_F9};
 
   & > span {
     ${FONT_STYLES.PRETENDARD_B_12};

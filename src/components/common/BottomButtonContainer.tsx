@@ -18,21 +18,21 @@ const StButtomButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.6rem;
   position: fixed;
+  gap: 1.6rem;
   bottom: 0;
   width: 100vw;
   height: 8.4rem;
-  background-color: white;
   border-radius: 1.2rem 1.2rem 0 0;
+  background-color: white;
 `;
 
 const StButton = styled.button`
-  width: 16rem;
-  height: 4.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 16rem;
+  height: 4.8rem;
   border-radius: 2.6rem;
   ${FONT_STYLES.NEXON_B_16};
 
