@@ -9,10 +9,24 @@ import { COLOR } from '@src/styles/color';
 
 function Example() {
   const { data } = useQuery('favorite', () => axios.get('/favorite'));
+  const handleLogIn = () => {
+    axios
+      .post('', {
+        username: '',
+        email: '',
+        password: '',
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <StExample>
-      <StTitle>유진s 페이보릿</StTitle>
+      <StTitle onClick={handleLogIn}>유진s 페이보릿</StTitle>
       <ImageDiv src={imgTopLogo} alt="티타임" className="imgTopLogo" />
       {data && (
         <ul>
