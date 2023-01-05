@@ -49,7 +49,6 @@ const StBackground = styled.main`
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
-  overflow: hidden;
 `;
 const StTeamModal = styled.section`
   width: 32.8rem;
@@ -57,7 +56,6 @@ const StTeamModal = styled.section`
   margin: 11.5rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
-  overflow: hidden;
 `;
 const StModalHeader = styled.header`
   display: block;
@@ -104,5 +102,4 @@ const StFooter = styled.footer`
   margin-top: 3rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
   font-style: ${FONT_STYLES.NEXON_B_16};
-  overflow: hidden;
 `;

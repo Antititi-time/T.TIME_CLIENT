@@ -56,7 +56,6 @@ const StBackground = styled.main`
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
-  overflow: hidden;
 `;
 const StModal = styled.section`
   position: relative;
@@ -65,7 +64,6 @@ const StModal = styled.section`
   margin: 7.6rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
-  overflow: hidden;
 `;
 const StModalHeader = styled.header`
   display: block;
