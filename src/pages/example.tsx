@@ -56,6 +56,7 @@ const StExample = styled.div`
   align-items: center;
 
   .imgTopLogo {
+    position: relative;
     width: 5.8rem;
     height: 3rem;
     margin: 1rem;
