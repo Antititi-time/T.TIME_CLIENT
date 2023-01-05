@@ -21,7 +21,6 @@ const StButtomButtonContainer = styled.div`
   position: fixed;
   gap: 1.6rem;
   bottom: 0;
-
   width: 100vw;
   height: 8.4rem;
   border-radius: 1.2rem 1.2rem 0 0;
