@@ -9,7 +9,7 @@ import { useCopyLink, useSetKakao } from './ShareModule';
 function TeamModal() {
   const [teamCode, setTeamCode] = useState<string>('team');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
-  useEffect((): void => {
+  useEffect(() => {
     useSetKakao();
   }, []);
   return (
@@ -94,7 +94,7 @@ const StButtonText = styled.span`
   color: white;
   font-style: ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const StFooter = styled.footer`
+const StFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

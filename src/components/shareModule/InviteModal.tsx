@@ -122,10 +122,11 @@ const StButtonText = styled.span`
   color: white;
   font-style: ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const StFooter = styled.footer`
+const StFooter = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  width:100%;
   height: 6.8rem;
   margin-top: 4rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
