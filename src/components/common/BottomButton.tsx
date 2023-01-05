@@ -23,8 +23,7 @@ const StBottomButton = styled.div<BottomButtonProps>`
   justify-content: center;
   align-items: center;
   width: ${(props) => props.width}rem;
-  padding-top: 1.3rem;
-  padding-bottom: 1.3rem;
+  padding: 1.3rem 0rem;
   border-radius: 10rem;
   background-color: ${(props) => props.color};
 `;
