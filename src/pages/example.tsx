@@ -6,6 +6,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgTopLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { COLOR } from '@src/styles/color';
+import BottomButton from '@src/components/common/BottomButton';
 
 function Example() {
   const { data } = useQuery('favorite', () => axios.get('/favorite'));
@@ -39,6 +40,10 @@ function Example() {
           ))}
         </ul>
       )}
+
+      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'안녕용'} />
+      <BottomButton width={16} color={COLOR.BLUE_1} text={'다음'} />
+      <BottomButton width={16} color={COLOR.ORANGE_1} text={'또또'} />
     </StExample>
   );
 }
