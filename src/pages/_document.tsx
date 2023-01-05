@@ -30,13 +30,6 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link
-            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard-dynamic-subset.css"
-            as="style"
-            crossOrigin=""
-            rel="stylesheet"></link>
-          <link href="https://fonts.cdnfonts.com/css/century-gothic" as="style" crossOrigin="" rel="stylesheet"></link>
-          <link href="https://www.cdnfonts.com/century-gothic.font" as="style" crossOrigin="" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />
