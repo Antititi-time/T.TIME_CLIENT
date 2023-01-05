@@ -25,8 +25,8 @@ const getFontWeight = (weight: Font['weight']) => {
 
 export const FONT = ({ font, size, weight, height }: Font) => css`
   @font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard-dynamic-subset.css');
     font-weight: normal;
     font-style: normal;
   }
