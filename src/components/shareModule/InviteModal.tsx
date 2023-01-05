@@ -46,11 +46,11 @@ function InviteModal() {
 export default InviteModal;
 
 const StInviteModal = styled.div`
-  width: 100vh;
+  width: 100vw;
 `;
 const StBackground = styled.main`
   position: fixed;
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
