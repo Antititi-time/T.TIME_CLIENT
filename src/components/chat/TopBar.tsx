@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 
 function TopBar() {
-  const [teamName, setTeamName] = useState<string>("'안티티티티티티티티티티티타임'");
+  const teamName = "'안티티티티티티티티티티티타임'";
   const today = new Date();
   const dayString = today.toLocaleDateString('ko-kr');
   const dayIndex = today.getDay();
@@ -15,22 +15,26 @@ function TopBar() {
   const day = week[dayIndex];
 
   return (
-    <div>
+    <StWrap>
       <StTopBox>
         <StTopBarText>{teamName} 의 티타임</StTopBarText>
         <StTopBarToday>
           {year}년 {month}월 {date}일 {day}요일
         </StTopBarToday>
       </StTopBox>
-    </div>
+    </StWrap>
   );
 }
 
 export default TopBar;
 
+const StWrap = styled.div`
+  width: 100vh;
+`;
+
 const StTopBox = styled.div`
   position: fixed;
-  width: 100vw;
+  width: 39rem;
   height: 7rem;
   background-color: rgba(255, 252, 245, 0.8);
   backdrop-filter: blur(0.5rem);
