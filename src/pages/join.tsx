@@ -18,7 +18,7 @@ function Join() {
             src={imgCenturyGothicLogo}
             alt="century_gothic_logo"
             className="imgCenturyGothicLogo"
-            layout="fill"></ImageDiv>
+            fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
@@ -33,7 +33,7 @@ function Join() {
           <StNickname>참여자 닉네임</StNickname>
         </StRowContainer>
         <StInputBox placeholder="닉네임을 입력해주세요"></StInputBox>
-        <StAlertComment>4글자 이내 한글로 입력해주세요</StAlertComment>
+        <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
     </StJoin>
   );
@@ -67,9 +67,9 @@ const StMainContainer = styled.div`
   padding: 3rem 2.4rem 3rem 2.4rem;
   margin-top: 2rem;
   margin-bottom: 2.9rem;
+  border-radius: 1.2rem;
   background-color: ${COLOR.WHITE_100};
   box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
-  border-radius: 1.2rem;
 
   .imgCenturyGothicLogo {
     position: relative;
@@ -90,7 +90,7 @@ const StRowContainer = styled.div`
 `;
 
 const StInviteComment = styled.p`
-  color: ${COLOR.ORANGE_2};
+  color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
 `;
 
@@ -121,15 +121,23 @@ const StNickname = styled.p`
 `;
 
 const StInputBox = styled.input`
-  padding: 1.2rem;
-  margin-bottom: 0.8rem;
+  width: 121.428571%; // 17/14 * 100
+  padding: 1.45714285rem; // 기존값1.2rem * 121.428571%
+  margin-bottom: 0.971428568rem; // 기존값0.8rem * 121.428571%
+  margin-right: -21.428571%;
   border: none;
-  border-bottom: 0.1rem solid ${COLOR.GRAY_7E};
+  border-radius: 0;
+  border-bottom: 0.121428571rem solid ${COLOR.GRAY_7E};
+  outline: none !important;
   background: none;
-  ${FONT_STYLES.NEXON_R_14};
+  ${FONT_STYLES.NEXON_R_16};
+  font-size: 1.7rem; // 17px 기준 줌인이 안 되므로 17로 지정
+  line-height: 2.18571428rem; // 기존값1.8rem * 121.428571%
+  transform: scale(0.82352941); // 14/17 * 100
+  transform-origin: left top;
 `;
 
-const StAlertComment = styled.p`
+const StNotice = styled.p`
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_R_12};
 `;
