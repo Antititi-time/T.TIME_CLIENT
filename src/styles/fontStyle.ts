@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 type Font = {
-  font: 'Pretendard' | 'NEXON Lv1 Gothic OTF' | 'Century Gothic';
+  font: 'Pretendard' | 'NEXON Lv1 Gothic OTF' | 'NEXON Lv1 Gothic Bold' | 'Century Gothic';
   size: number;
   weight: 'R' | 'M' | 'SB' | 'B' | 'EB';
   height: number;
@@ -39,6 +39,13 @@ export const FONT = ({ font, size, weight, height }: Font) => css`
   }
 
   @font-face {
+    font-family: 'NEXON Lv1 Gothic Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicBold.woff') format('woff');
+  }
+
+  @font-face {
     font-family: 'Century Gothic';
     src: url('https://fonts.cdnfonts.com/css/century-gothic') format('woff');
     font-weight: normal;
@@ -65,10 +72,10 @@ export const FONT_STYLES = {
   NEXON_R_13: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 13, weight: 'R', height: 14 }),
   NEXON_R_14: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 14, weight: 'R', height: 16 }),
   NEXON_R_16: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 16, weight: 'R', height: 18 }),
-  NEXON_B_12: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 12, weight: 'B', height: 14 }),
-  NEXON_B_14: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 14, weight: 'B', height: 16 }),
-  NEXON_B_16: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 16, weight: 'B', height: 14 }),
-  NEXON_B_20: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 20, weight: 'B', height: 23 }),
-  NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 22, weight: 'B', height: 25 }),
+  NEXON_B_12: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 12, weight: 'B', height: 14 }),
+  NEXON_B_14: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 14, weight: 'B', height: 16 }),
+  NEXON_B_16: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 16, weight: 'B', height: 14 }),
+  NEXON_B_20: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 20, weight: 'B', height: 23 }),
+  NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 22, weight: 'B', height: 25 }),
   CENTURY_B_22: FONT({ font: 'Century Gothic', size: 22, weight: 'B', height: 27 }),
 };
