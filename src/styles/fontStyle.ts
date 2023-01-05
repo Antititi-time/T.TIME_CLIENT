@@ -62,7 +62,9 @@ export const FONT = ({ font, size, weight, height }: Font) => css`
 export const FONT_STYLES = {
   PRETENDARD_R_14: FONT({ font: 'Pretendard', size: 14, weight: 'R', height: 22 }),
   PRETENDARD_M_12: FONT({ font: 'Pretendard', size: 12, weight: 'M', height: 14 }),
+  PRETENDARD_M_14: FONT({ font: 'Pretendard', size: 14, weight: 'M', height: 22 }),
   PRETENDARD_SB_12: FONT({ font: 'Pretendard', size: 12, weight: 'SB', height: 14 }),
+  PRETENDARD_SB_14: FONT({ font: 'Pretendard', size: 14, weight: 'SB', height: 14 }),
   PRETENDARD_B_12: FONT({ font: 'Pretendard', size: 12, weight: 'B', height: 14 }),
   PRETENDARD_B_14: FONT({ font: 'Pretendard', size: 14, weight: 'B', height: 22 }),
   PRETENDARD_B_16: FONT({ font: 'Pretendard', size: 16, weight: 'B', height: 22.4 }),
