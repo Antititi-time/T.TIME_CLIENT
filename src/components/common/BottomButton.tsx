@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
 
-type BottonButtonProps = {
+interface BottomButtonProps {
   width: number;
   color: string;
-  text: string;
-};
+  text?: string;
+}
 
-function BottomButton({ width, color, text }: BottonButtonProps) {
+function BottomButton({ width, color, text }: BottomButtonProps) {
   return (
     <StBottomButton width={width} color={color}>
       <StText>{text}</StText>
@@ -18,12 +18,7 @@ function BottomButton({ width, color, text }: BottonButtonProps) {
 
 export default BottomButton;
 
-interface StyledButtonProps {
-  readonly width: number;
-  readonly color: string;
-}
-
-const StBottomButton = styled.div<StyledButtonProps>`
+const StBottomButton = styled.div<BottomButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
