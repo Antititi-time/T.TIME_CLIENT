@@ -5,7 +5,7 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
       kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
     }
 
-    if (shareType == '개인결과') {
+    if (shareType === '개인결과') {
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
@@ -29,7 +29,7 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
         ],
       });
     }
-    if (shareType == '팀결과') {
+    if (shareType === '팀결과') {
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {

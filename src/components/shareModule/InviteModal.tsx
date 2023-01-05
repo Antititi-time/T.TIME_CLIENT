@@ -26,7 +26,7 @@ function InviteModal() {
           </StInviteArticle>
           <StButtonContainer>
             <CopyToClipboard text={teamLink}>
-              <StCopyButton onClick={() => copyLink()}>
+              <StCopyButton onClick={copyLink}>
                 <StButtonIcon src={icPaste.src} />
                 <StButtonText>초대링크 복사하기</StButtonText>
               </StCopyButton>
