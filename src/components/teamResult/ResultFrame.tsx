@@ -9,13 +9,9 @@ function TeamResult() {
     <StFrame>
       <StFrameContainer>
         <StTeamInfo>
-          <p>2023.01.04</p>
-          <h2>안티티티티티티티타임</h2>
-          <h1>
-            팀 <span>T</span>
-            <span>.</span>
-            time 결과
-          </h1>
+          <StDate>2023.01.04</StDate>
+          <StTeamName>안티티티티티티티타임</StTeamName>
+          <div>팀 결과</div>
         </StTeamInfo>
         <StTeamInfoDetail>
           <p>우리 팀은요..</p>
@@ -48,34 +44,18 @@ const StFrameContainer = styled.div`
   margin: 2.1rem 2.1rem;
 `;
 
-const StTeamInfo = styled.div`
-  & > p {
-    color: ${COLOR.GRAY_9E};
-    ${FONT_STYLES.PRETENDARD_M_12}
-    margin-bottom: 0.4rem;
-  }
+const StTeamInfo = styled.div``;
 
-  & > h2 {
-    color: ${COLOR.GRAY_7E};
-    ${FONT_STYLES._R_12};
-    margin-bottom: 1.2rem;
-  }
+const StDate = styled.p`
+  color: ${COLOR.GRAY_9E};
+  ${FONT_STYLES.PRETENDARD_M_12}
+  margin-bottom: 0.4rem;
+`;
 
-  & > h1 {
-    color: ${COLOR.BLACK};
-    ${FONT_STYLES.CENTURY_B_22}
-    margin-bottom: 3.5rem;
-
-    & > span:first-of-type {
-      ${FONT_STYLES.CENTURY_B_22}
-      color: ${COLOR.ORANGE_1};
-    }
-
-    & > span:last-of-type {
-      ${FONT_STYLES.CENTURY_B_22}
-      color: ${COLOR.BLUE_1};
-    }
-  }
+const StTeamName = styled.h2`
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.NEXON_B_16};
+  margin-bottom: 1.2rem;
 `;
 
 const StTeamInfoDetail = styled.div`
