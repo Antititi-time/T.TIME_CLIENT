@@ -2,28 +2,21 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icKakao, icPaste } from '@src/assets/icons';
-import { useState, useEffect } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
-
-function InviteModal() {
-  const [teamCode, setTeamCode] = useState<string>('ttime');
-  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
-
+function TeamModal() {
+  const [teamCode, setTeamCode] = useState<string>('team');
+  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
   useEffect(() => {
     setKakao();
   }, []);
-
   return (
-    <StInviteModal>
+    <StTeamRecordModal>
       <StBackground>
-        <StModal>
+        <StTeamModal>
           <StModalHeader>공유하기</StModalHeader>
-          <StInviteArticle>
-            <StArticleTitle>초대 링크</StArticleTitle>
-            <StArticleLink>{teamLink}</StArticleLink>
-          </StInviteArticle>
           <StButtonContainer>
             <CopyToClipboard text={teamLink}>
               <StCopyButton onClick={useCopyLink}>
@@ -31,21 +24,21 @@ function InviteModal() {
                 <StButtonText>초대링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '개인결과')}>
+            <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '팀결과')}>
               <StButtonIcon src={icKakao.src} />
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
           </StButtonContainer>
           <StFooter>닫기</StFooter>
-        </StModal>
+        </StTeamModal>
       </StBackground>
-    </StInviteModal>
+    </StTeamRecordModal>
   );
 }
 
-export default InviteModal;
+export default TeamModal;
 
-const StInviteModal = styled.div`
+const StTeamRecordModal = styled.div`
   width: 100vw;
 `;
 const StBackground = styled.main`
@@ -57,11 +50,10 @@ const StBackground = styled.main`
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
 `;
-const StModal = styled.section`
-  position: relative;
+const StTeamModal = styled.section`
   width: 32.8rem;
-  height: 45.3rem;
-  margin: 7.6rem 3.1rem 0rem 3.1rem;
+  height: 29.7rem;
+  margin: 11.5rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
 `;
@@ -71,28 +63,8 @@ const StModalHeader = styled.header`
   margin: 2.4rem 12.9rem 0rem 12.9rem;
   font-style: ${FONT_STYLES.PRETENDARD_B_20};
 `;
-const StInviteArticle = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 28.2rem;
-  height: 12.4rem;
-  margin: 2.2rem 2.3rem 0 2.3rem;
-  border-radius: 1.2rem;
-  background-color: ${COLOR.IVORY_3};
-`;
-const StArticleTitle = styled.div`
-  width: 22.6rem;
-  font-style: ${FONT_STYLES.PRETENDARD_B_14};
-`;
-const StArticleLink = styled.div`
-  width: 22.6rem;
-  margin-top: 0.4rem;
-  font-style: ${FONT_STYLES.NEXON_R_14};
-`;
 const StButtonContainer = styled.div`
-  margin: 4rem 2.3rem 4rem 2.3rem;
+  margin: 4rem 2.3rem 3rem 2.3rem;
 `;
 const StCopyButton = styled.button`
   display: flex;
@@ -122,13 +94,12 @@ const StButtonText = styled.span`
   color: white;
   font-style: ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const StFooter = styled.button`
+const StFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 6.8rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
   font-style: ${FONT_STYLES.NEXON_B_16};
 `;

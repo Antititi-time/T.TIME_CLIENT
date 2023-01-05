@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { logoIcon } from '@src/assets/icon';
+import { logoIcon } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 
 function LogoTop() {
