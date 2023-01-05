@@ -23,8 +23,41 @@ function DetailResult() {
           <StCategoryTitle>{currentTab}</StCategoryTitle>
           <StQuestion>Q1. 팀의 목표와 방향성에 대해 팀 모두가 동일하게 생각하고 있어요.</StQuestion>
           <StAnswerList>
-            <StName>가나다라</StName>
-            <StAnswer>5 팀에서 일할수록 점점 더 잘하고 싶어져요.</StAnswer>
+            <StAnswerItem>
+              <StName>가나다라</StName>
+              <StAnswer>
+                <span>5</span>
+                <p>팀에서 일할수록 점점 더 잘하고 싶어져요.</p>
+              </StAnswer>
+            </StAnswerItem>
+            <StAnswerItem>
+              <StName>가나다라</StName>
+              <StAnswer>
+                <span>5</span>
+                <p>팀에서 일할수록 점점 더 잘하고 싶어져요.</p>
+              </StAnswer>
+            </StAnswerItem>
+            <StAnswerItem>
+              <StName>가나다라</StName>
+              <StAnswer>
+                <span>5</span>
+                <p>팀에서 일할수록 점점 더 잘하고 싶어져요.</p>
+              </StAnswer>
+            </StAnswerItem>
+            <StAnswerItem>
+              <StName>가나다라</StName>
+              <StAnswer>
+                <span>5</span>
+                <p>팀에서 일할수록 점점 더 잘하고 싶어져요.</p>
+              </StAnswer>
+            </StAnswerItem>
+            <StAnswerItem>
+              <StName>가나다라</StName>
+              <StAnswer>
+                <span>5</span>
+                <p>팀에서 일할수록 점점 더 잘하고 싶어져요.</p>
+              </StAnswer>
+            </StAnswerItem>
           </StAnswerList>
         </StTextContainer>
       </StResultContainer>
@@ -39,6 +72,7 @@ const StDetailResult = styled.div`
 
   & > h2 {
     ${FONT_STYLES.NEXON_B_16};
+    line-height: 2.24rem;
     margin-bottom: 0.6rem;
   }
 `;
@@ -82,21 +116,54 @@ const StTextContainer = styled.div`
 const StCategoryTitle = styled.h3`
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
+  margin-bottom: 2.05rem;
 `;
 
 const StQuestion = styled.p`
   ${FONT_STYLES.NEXON_B_14};
-  font-weight: 900;
+  line-height: 2rem;
+  margin-bottom: 1.2rem;
 `;
 
 const StAnswerList = styled.div`
   width: 28.9rem;
+  height: 17.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+`;
+
+const StAnswerItem = styled.div`
+  display: flex;
 `;
 
 const StName = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.8rem;
+  height: 2.2rem;
+  border-radius: 1.4rem;
   ${FONT_STYLES.PRETENDARD_SB_12};
+  background-color: ${COLOR.ORANGE_2};
 `;
 
-const StAnswer = styled.p`
-  ${FONT_STYLES.PRETENDARD_M_12};
+const StAnswer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22.6rem;
+  margin-left: 0.4rem;
+  min-height: 2.2rem;
+  background-color: ${COLOR.GRAY_F9};
+  border-radius: 0.8rem;
+
+  & > span {
+    ${FONT_STYLES.PRETENDARD_B_12};
+  }
+
+  & > p {
+    margin-left: 0.8rem;
+    ${FONT_STYLES.PRETENDARD_M_12};
+  }
 `;

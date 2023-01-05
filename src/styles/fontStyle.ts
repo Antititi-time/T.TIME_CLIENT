@@ -46,7 +46,7 @@ export const FONT = ({ font, size, weight, height }: Font) => css`
   }
 
   font-family: ${font};
-  font-size: ${size}rem;
+  font-size: ${size}px;
   font-weight: ${getFontWeight(weight)};
   letter-spacing: -0.01em;
   line-height: ${height}px;
