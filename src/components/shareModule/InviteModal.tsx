@@ -5,14 +5,14 @@ import { icKakao, icPaste } from '@src/assets/icons';
 import { useState, useEffect } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
-import { useCopyLink, useSetKakao } from './ShareModule';
+import { useCopyLink, setKakao } from './ShareModule';
 
 function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
   useEffect(() => {
-    useSetKakao();
+    setKakao();
   }, []);
 
   return (
@@ -126,7 +126,7 @@ const StFooter = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   height: 6.8rem;
   margin-top: 4rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};

@@ -5,12 +5,12 @@ import { icKakao, icPaste } from '@src/assets/icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
-import { useCopyLink, useSetKakao } from './ShareModule';
+import { useCopyLink, setKakao } from './ShareModule';
 function TeamModal() {
   const [teamCode, setTeamCode] = useState<string>('team');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
   useEffect(() => {
-    useSetKakao();
+    setKakao();
   }, []);
   return (
     <StTeamRecordModal>
@@ -19,7 +19,7 @@ function TeamModal() {
           <StModalHeader>공유하기</StModalHeader>
           <StButtonContainer>
             <CopyToClipboard text={teamLink}>
-              <StCopyButton onClick={() => useCopyLink()}>
+              <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
                 <StButtonText>초대링크 복사하기</StButtonText>
               </StCopyButton>
