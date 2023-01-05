@@ -34,7 +34,7 @@ export const handlers = [
       ]),
     );
   }),
-  rest.get('/api/result/:userId', (_req, res, ctx) => {
+  rest.get('/api/result/ttime', (_req, res, ctx) => {
     sleep(1000);
     return res(
       ctx.json<UserData[]>([
