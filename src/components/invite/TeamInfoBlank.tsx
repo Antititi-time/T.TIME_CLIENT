@@ -1,10 +1,10 @@
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-type labelProps = {
+interface labelProps {
   label: string;
   placeholder: string;
-};
+}
 export default function TeamInfoBlank(props: labelProps) {
   const { label, placeholder } = props;
   return (
@@ -13,7 +13,7 @@ export default function TeamInfoBlank(props: labelProps) {
         <StIcon />
         <StText>{label}</StText>
       </StLabelWrapper>
-      <StInput type={'text'} placeholder={placeholder}></StInput>
+      <StInput placeholder={placeholder} />
     </StContainer>
   );
 }
