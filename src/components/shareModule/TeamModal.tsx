@@ -42,6 +42,8 @@ const StTeamRecordModal = styled.div`
   width: 100vw;
 `;
 const StBackground = styled.main`
+  display: flex;
+  justify-content: center;
   position: fixed;
   width: 100vw;
   height: 100vh;
