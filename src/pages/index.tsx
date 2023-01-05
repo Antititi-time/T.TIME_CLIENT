@@ -4,7 +4,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { logoIcon } from '@src/assets/icon';
+import { logoIcon } from '@src/assets/icons';
 
 function Home() {
   return (
