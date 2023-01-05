@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 function MyResult() {
   const { isLoading, isError, data, error } = useQuery('myResult', () => {
-    axios.get('/api/result/ttime');
+    axios.get('');
   });
   useEffect(() => {
     console.log(data);
