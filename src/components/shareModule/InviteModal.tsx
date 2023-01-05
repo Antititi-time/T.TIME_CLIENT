@@ -47,6 +47,7 @@ export default InviteModal;
 
 const StInviteModal = styled.div`
   width: 100vw;
+  touch-action: none;
 `;
 const StBackground = styled.main`
   display: flex;
