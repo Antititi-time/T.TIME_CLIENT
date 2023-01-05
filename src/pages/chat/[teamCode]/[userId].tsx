@@ -1,7 +1,7 @@
 import TopBar from '@src/components/chat/TopBar';
 
 function Chat() {
-  return <TopBar></TopBar>;
+  return <TopBar />;
 }
 
 export default Chat;
