@@ -5,17 +5,14 @@ import { icKakao, icPaste } from '@src/assets/icons';
 import { useState, useEffect } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
-import { copyLink } from './ShareModule';
+import { copyLink, setKakao } from './ShareModule';
 
 export default function InviteModal() {
   const [teamCode, setTeamCode] = useState<string>('ttime');
   const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
   useEffect((): void => {
-    const script: HTMLScriptElement = document.createElement('script');
-    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-    script.async = true;
-    document.body.appendChild(script);
+    setKakao();
   }, []);
 
   return (
@@ -51,7 +48,7 @@ const StBackground = styled.main`
   width: 39rem;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0.2rem);
   overflow: hidden;
 `;
 const StModal = styled.section`

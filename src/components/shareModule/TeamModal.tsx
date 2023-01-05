@@ -5,15 +5,12 @@ import { icKakao, icPaste } from '@src/assets/icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
-import { copyLink } from './ShareModule';
+import { copyLink, setKakao } from './ShareModule';
 export default function TeamModal() {
-  const [teamCode, setTeamCode] = useState<string>('ttime');
-  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
+  const [teamCode, setTeamCode] = useState<string>('team');
+  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
   useEffect((): void => {
-    const script: HTMLScriptElement = document.createElement('script');
-    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-    script.async = true;
-    document.body.appendChild(script);
+    setKakao();
   }, []);
   return (
     <StTeamRecordModal>
