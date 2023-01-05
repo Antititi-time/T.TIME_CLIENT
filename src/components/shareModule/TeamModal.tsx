@@ -35,12 +35,15 @@ export default function TeamModal() {
     </StTeamRecordModal>
   );
 }
-const StTeamRecordModal = styled.div``;
+const StTeamRecordModal = styled.div`
+  width: 100vh;
+`;
 const StBackground = styled.main`
-  width: 39rem;
+  position: fixed;
+  width: 100vh;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0.2rem);
   overflow: hidden;
 `;
 const StTeamModal = styled.section`

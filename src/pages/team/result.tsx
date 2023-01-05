@@ -6,6 +6,7 @@ export default function Result() {
     <>
       <LogoTop></LogoTop>
       <TeamModal />
+      <div>dsafasdfawd fasdf adsf asdf asdf asdf asd fsadf adsf ads async function (params:type) {}</div>
     </>
   );
 }

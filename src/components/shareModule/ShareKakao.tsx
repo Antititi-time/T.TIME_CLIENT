@@ -9,7 +9,7 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: `‘${teamName}’팀 초대장이 도착했어요!`,
+          title: `${teamName}팀 초대장이 도착했어요!`,
           description: '초대장을 열고, 티타임에 입장해보세요.☕️',
 
           imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,
@@ -33,7 +33,7 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: `‘${teamName}’팀의 티타임 결과를 확인하세요.`,
+          title: `${teamName}팀의 티타임 결과를 확인하세요.`,
           description: '팀 결과를 통해 팀원들의 속마음을 확인해보세요.☕️',
 
           imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,

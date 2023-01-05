@@ -43,13 +43,16 @@ export default function InviteModal() {
   );
 }
 
-const StInviteModal = styled.div``;
+const StInviteModal = styled.div`
+  width: 100vh;
+`;
 const StBackground = styled.main`
-  width: 39rem;
+  width: 100vh;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
   overflow: hidden;
+  position: fixed;
 `;
 const StModal = styled.section`
   position: relative;
