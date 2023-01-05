@@ -50,7 +50,8 @@ const StInput = styled.input`
   border: 0.1rem solid #7e7e7e;
   border-radius: 0.60714286rem;
   background: #ffffff;
-
+  font-size: 1.7rem;
+  font-style: ${FONT_STYLES.NEXON_B_16};
   transform: scale(0.8235);
   transform-origin: left top;
 
