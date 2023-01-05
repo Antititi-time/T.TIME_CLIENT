@@ -28,7 +28,7 @@ function Example() {
   return (
     <StExample>
       <StTitle onClick={handleLogIn}>유진s 페이보릿</StTitle>
-      <ImageDiv src={imgTopLogo} alt="티타임" className="imgTopLogo" />
+      <ImageDiv src={imgTopLogo} alt="티타임" className="imgTopLogo" fill={true} />
       {data && (
         <ul>
           {data.data.map((data: Favorite) => (
