@@ -47,6 +47,7 @@ function TeamResult() {
 export default TeamResult;
 
 const StFrame = styled.div`
+  z-index: 1;
   width: 34.6rem;
   height: 100%;
   margin-top: 2.6rem;

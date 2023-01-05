@@ -14,6 +14,7 @@ function BottomButtonContainer() {
 export default BottomButtonContainer;
 
 const StButtomButtonContainer = styled.div`
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

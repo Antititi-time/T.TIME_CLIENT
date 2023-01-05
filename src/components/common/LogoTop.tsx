@@ -13,6 +13,7 @@ function LogoTop() {
 export default LogoTop;
 
 const StLogoTop = styled.div`
+  z-index: 1;
   justify-content: center;
   align-items: center;
   display: flex;
