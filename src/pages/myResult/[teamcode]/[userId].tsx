@@ -9,8 +9,8 @@ import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '../../../hooks/SetConstantIndex';
-import GraphContainer from '@src/components/myResult/GraphContainer';
 import { logoIcon } from '@src/assets/icons';
+import ResultGraph from '@src/components/myResult/ResultGraph';
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
@@ -61,7 +61,7 @@ function MyResult() {
             <article>
               <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
               <StGraphContainer>
-                <GraphContainer></GraphContainer>
+                <ResultGraph />
               </StGraphContainer>
             </article>
             <StCardFooter>
@@ -79,35 +79,35 @@ function MyResult() {
 export default MyResult;
 
 const StMyResult = styled.div`
-  width: 100vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  width: 100vw;
 `;
 const StWarningMessage = styled.header`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   width: 19.7rem;
   margin: 2.2rem 9.7rem 1.2rem 9.7rem;
-  font-size: ${FONT_STYLES.PRETENDARD_M_12};
   color: ${COLOR.GRAY_9E};
+  font-style: ${FONT_STYLES.PRETENDARD_M_12};
   .warn {
     margin-bottom: 0.6rem;
-    font-style: ${FONT_STYLES.PRETENDARD_B_12};
     color: ${COLOR.ORANGE_1};
+    font-style: ${FONT_STYLES.PRETENDARD_B_12};
   }
 `;
 const StResultCard = styled.main`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   width: 34.6rem;
   height: 104.4rem;
-  background-color: ${COLOR.IVORY_1};
-  border-radius: 1.4rem;
-  margin: 0rem 2.2rem 6rem 2.2rem;
   padding: 2.5rem 2.2rem 0rem 2.2rem;
+  margin: 0rem 2.2rem 6rem 2.2rem;
+  border-radius: 1.4rem;
+  background-color: ${COLOR.IVORY_1};
 `;
 const StInfoContainer = styled.div`
   width: 100%;
@@ -143,39 +143,39 @@ const StUserImage = styled.img`
 `;
 const StResultTitle = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   width: 18.2rem;
   height: 4.2rem;
-  font-style: ${FONT_STYLES.PRETENDARD_EB_20};
   color: ${COLOR.ORANGE_TEXT};
+  font-style: ${FONT_STYLES.PRETENDARD_EB_20};
   .feedback {
-    font-style: ${FONT_STYLES.PRETENDARD_B_12};
-    color: ${COLOR.BLUE_TEXT};
     margin-bottom: 0.4rem;
+    color: ${COLOR.BLUE_TEXT};
+    font-style: ${FONT_STYLES.PRETENDARD_B_12};
   }
 `;
 const StResultDetail = styled.div`
+  color: ${COLOR.BLACK};
   font-style: ${FONT_STYLES.PRETENDARD_R_14};
   white-space: nowrap;
-  color: ${COLOR.BLACK};
   .highlight {
     font-style: ${FONT_STYLES.PRETENDARD_B_14};
   }
 `;
 const StRecommendText = styled.article`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: 1.8rem 0 4.4rem 0;
-  padding: 1.6rem 1.1rem 1.6rem 1.1rem;
+  flex-direction: column;
   width: 30.4rem;
   height: 13.2rem;
-  background-color: ${COLOR.IVORY_3};
+  padding: 1.6rem 1.1rem 1.6rem 1.1rem;
+  margin: 1.8rem 0 4.4rem 0;
   border-radius: 1.4rem;
+  background-color: ${COLOR.IVORY_3};
+  color: ${COLOR.BLACK};
   font-style: ${FONT_STYLES.PRETENDARD_M_12};
   line-height: 2.2rem;
-  color: ${COLOR.BLACK};
 `;
 const StGraphTitle = styled.p`
   width: 30.4rem;
@@ -185,22 +185,22 @@ const StGraphTitle = styled.p`
 const StGraphContainer = styled.article`
   width: 30.4rem;
   height: 15rem;
-  background-color: ${COLOR.IVORY_3};
-  border-radius: 1.4rem;
-  margin: 1rem 0 4.6rem 0;
   padding: 2.5rem 1.5rem 2.5rem 2rem;
+  margin: 1rem 0 4.6rem 0;
+  border-radius: 1.4rem;
+  background-color: ${COLOR.IVORY_3};
 `;
 const StCardFooter = styled.footer`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 14.1rem;
+  height: 5.6rem;
+  color: ${COLOR.BLACK};
+  font-style: ${FONT_STYLES.NEXON_R_12};
   img {
     width: 5.8rem;
     height: 3rem;
     margin-bottom: 1.2rem;
   }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 14.1rem;
-  height: 5.6rem;
-  font-style: ${FONT_STYLES.NEXON_R_12};
-  color: ${COLOR.BLACK};
 `;
