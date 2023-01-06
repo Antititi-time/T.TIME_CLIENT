@@ -37,7 +37,7 @@ const StContainer = styled.div`
 `;
 const StTitle = styled.h1`
   margin-top: 1.9rem;
-  font-style: ${FONT_STYLES.PRETENDARD_B_16};
+  ${FONT_STYLES.PRETENDARD_B_16};
 `;
 const StForm = styled.form`
   display: flex;
