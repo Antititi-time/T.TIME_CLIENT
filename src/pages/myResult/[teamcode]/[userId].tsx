@@ -2,57 +2,67 @@ import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icDots } from '@src/assets/icons';
+import { UserData } from '@src/mocks/types';
+
 function MyResult() {
-  const { isLoading, isError, data, error } = useQuery('myResult', () => {
-    axios.get('');
-  });
+  const [resultData, setResultData] = useState<UserData>();
+  const { data } = useQuery('userData', () => axios.get('/api/result/ttime'));
+
   useEffect(() => {
-    console.log(data);
-  }, []);
+    setResultData(data?.data[0]);
+    console.log(resultData);
+  }, [data]);
+
   return (
     <>
       <LogoTop />
-      <StMyResult>
-        <StWarningMessage>
-          <div className="warn">잠깐!</div>
-          카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
-        </StWarningMessage>
-        <StResultCard>
-          <StInfoContainer>
-            <p className="date">2023.01.31</p>
-            <p className="teamName">&#39;안티티티티티티티티타임&#39;</p>
-            <div className="resultTitle">
-              <p>
-                <span className="userName">송하윤</span> 님의
-              </p>
-              <p>개인 T.time 결과</p>
-            </div>
-          </StInfoContainer>
-          <StUserImage />
-          <StResultTitle>
-            <p className="feedback">동기부여 부족</p>
-            <p>재충전 부족한 마카롱</p>
-          </StResultTitle>
-          <StDotsImage src={icDots.src}></StDotsImage>
-          <StResultDetail>
-            <p>동기부여 가 부족한 당신! 재충전이 필요한 마카롱이네요!</p>
-            <p>달달한 마카롱 한입으로 재충전해보시는 것은 어떨까요?</p>
-          </StResultDetail>
-          <StRecommendText>
-            <p>• 비전을 갖고 목표를 세워요.</p>
-            <p>• 미래에 집중하세요.</p>
-            <p>• 내가 이미 미래에 성공을 이룬 것처럼 행동해보세요.</p>
-            <p>• 재충전의 시간을 보내보세요.</p>
-          </StRecommendText>
-          <StGraphTitle></StGraphTitle>
-          <StGraphContainer></StGraphContainer>
-          <StCardFooter></StCardFooter>
-        </StResultCard>
-      </StMyResult>
+      {resultData ? (
+        <StMyResult>
+          <StWarningMessage>
+            <div className="warn">잠깐!</div>
+            카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
+          </StWarningMessage>
+          <StResultCard>
+            <StInfoContainer>
+              <p className="date">{resultData.date}</p>
+              <p className="teamName">&#39;{resultData.teamName}&#39;</p>
+              <div className="resultTitle">
+                <p>
+                  <span className="userName">{resultData.nickname}</span> 님의
+                </p>
+                <p>개인 T.time 결과</p>
+              </div>
+            </StInfoContainer>
+            <StUserImage />
+            <StResultTitle>
+              <p className="feedback">동기부여 부족</p>
+              <p>재충전 부족한 마카롱</p>
+            </StResultTitle>
+            <StDotsImage src={icDots.src}></StDotsImage>
+            <StResultDetail>
+              <p>동기부여 가 부족한 당신! 재충전이 필요한 마카롱이네요!</p>
+              <p>달달한 마카롱 한입으로 재충전해보시는 것은 어떨까요?</p>
+            </StResultDetail>
+            <StRecommendText>
+              <p>• 비전을 갖고 목표를 세워요.</p>
+              <p>• 미래에 집중하세요.</p>
+              <p>• 내가 이미 미래에 성공을 이룬 것처럼 행동해보세요.</p>
+              <p>• 재충전의 시간을 보내보세요.</p>
+            </StRecommendText>
+            <article>
+              <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
+              <StGraphContainer></StGraphContainer>
+            </article>
+            <StCardFooter></StCardFooter>
+          </StResultCard>
+        </StMyResult>
+      ) : (
+        <>로딩중</>
+      )}
     </>
   );
 }
@@ -136,7 +146,7 @@ const StResultTitle = styled.div`
   }
 `;
 const StResultDetail = styled.div`
-  font-style: ${FONT_STYLES.PRETENDARD_M_14};
+  font-style: ${FONT_STYLES.PRETENDARD_R_14};
   white-space: nowrap;
   color: ${COLOR.BLACK};
   .highlight {
@@ -157,6 +167,17 @@ const StRecommendText = styled.article`
   line-height: 2.2rem;
   color: ${COLOR.BLACK};
 `;
-const StGraphTitle = styled.div``;
-const StGraphContainer = styled.article``;
+const StGraphTitle = styled.p`
+  width: 30.4rem;
+
+  font-style: ${FONT_STYLES.NEXON_B_16};
+`;
+const StGraphContainer = styled.article`
+  width: 30.4rem;
+  height: 15rem;
+  background-color: ${COLOR.IVORY_3};
+  border-radius: 1.4rem;
+  margin: 1rem 0 4.6rem 0;
+  padding: 2.5rem 1.5rem 2.5rem 2rem;
+`;
 const StCardFooter = styled.footer``;

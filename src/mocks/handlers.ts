@@ -35,40 +35,34 @@ export const handlers = [
     );
   }),
   rest.get('/api/result/ttime', (_req, res, ctx) => {
-    sleep(1000);
     return res(
       ctx.json<UserData[]>([
         {
-          status: 200,
-          success: true,
-          message: '개인 결과 뷰 조회 성공',
-          data: {
-            date: new Date('2023-01-05T08:18:52.489Z'),
-            teamName: '안티티티타임',
-            nickname: '채영',
-            result: [
-              {
-                questionType: 'A',
-                score: 10,
-              },
-              {
-                questionType: 'C',
-                score: 8,
-              },
-              {
-                questionType: 'E',
-                score: 7,
-              },
-              {
-                questionType: 'B',
-                score: 5,
-              },
-              {
-                questionType: 'D',
-                score: 2,
-              },
-            ],
-          },
+          date: '2023-01-05',
+          teamName: '안티티티타임',
+          nickname: '채영',
+          result: [
+            {
+              questionType: 'A',
+              score: 10,
+            },
+            {
+              questionType: 'C',
+              score: 8,
+            },
+            {
+              questionType: 'E',
+              score: 7,
+            },
+            {
+              questionType: 'B',
+              score: 5,
+            },
+            {
+              questionType: 'D',
+              score: 2,
+            },
+          ],
         },
       ]),
     );
