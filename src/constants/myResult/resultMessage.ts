@@ -1,5 +1,6 @@
-export const RESULT_CHARACTER = {
-  a: {
+export const RESULT_MESSAGE = [
+  {
+    input: 'A',
     result: '협업',
     feedback: '협업 부족',
     title: '다양한 재료가 필요한 타르트',
@@ -15,7 +16,8 @@ export const RESULT_CHARACTER = {
       '뛰어난 팀은 서로 감추지 않아요. 비난을 두려워하지 않고 약점을 인정해요.',
     ],
   },
-  b: {
+  {
+    input: 'B',
     result: '개인생활',
     feedback: '개인생활 부족',
     title: '겉바속촉을 꿈꾸는 까눌레',
@@ -31,7 +33,8 @@ export const RESULT_CHARACTER = {
       '효율이란 일을 제대로 하는 것이고, 효과란 올바른 일을 하는 것이에요.',
     ],
   },
-  c: {
+  {
+    input: 'C',
     result: '건강',
     feedback: '건강 부족',
     title: '눈물 젖은 소금빵',
@@ -47,7 +50,8 @@ export const RESULT_CHARACTER = {
       '충분한 수면을 취해주세요.',
     ],
   },
-  d: {
+  {
+    input: 'D',
     result: '동기부여',
     feedback: '동기부여 부족',
     title: '재충전이 필요한 마카롱',
@@ -63,7 +67,8 @@ export const RESULT_CHARACTER = {
       '재충전의 시간을 보내보세요. ',
     ],
   },
-  e: {
+  {
+    input: 'E',
     result: '성장',
     feedback: '성장 부족',
     title: '번쩍 성장을 꿈꾸는 에클레어',
@@ -79,4 +84,4 @@ export const RESULT_CHARACTER = {
       '용기를 가지고 자신의 마음과 직관을 따르세요. ',
     ],
   },
-};
+];
