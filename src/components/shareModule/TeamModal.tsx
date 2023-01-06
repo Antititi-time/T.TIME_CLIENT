@@ -7,8 +7,8 @@ import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 function TeamModal() {
-  const [teamCode, setTeamCode] = useState<string>('team');
-  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
+  const [teamCode] = useState<string>('team');
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
   useEffect(() => {
     setKakao();
   }, []);

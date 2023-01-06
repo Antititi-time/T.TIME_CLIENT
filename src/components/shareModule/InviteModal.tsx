@@ -8,8 +8,8 @@ import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 
 function InviteModal() {
-  const [teamCode, setTeamCode] = useState<string>('ttime');
-  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
+  const [teamCode] = useState<string>('ttime');
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
   useEffect(() => {
     setKakao();

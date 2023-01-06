@@ -9,6 +9,7 @@ import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '../../../hooks/SetConstantIndex';
+import GraphContainer from '@src/components/myResult/GraphContainer';
 
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
@@ -59,7 +60,9 @@ function MyResult() {
             </StRecommendText>
             <article>
               <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
-              <StGraphContainer></StGraphContainer>
+              <StGraphContainer>
+                <GraphContainer></GraphContainer>
+              </StGraphContainer>
             </article>
             <StCardFooter></StCardFooter>
           </StResultCard>
