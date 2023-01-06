@@ -19,6 +19,7 @@ function MyResult() {
   useEffect(() => {
     setResultData(data?.data[0]);
     const inputData = setConstantIndex(data?.data[0].result[4].questionType);
+
     setResultCharacter(inputData);
   }, [data]);
 
@@ -61,7 +62,7 @@ function MyResult() {
             <article>
               <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
               <StGraphContainer>
-                <ResultGraph />
+                <ResultGraph data={resultData.result} />
               </StGraphContainer>
             </article>
             <StCardFooter>
