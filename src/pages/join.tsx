@@ -5,6 +5,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
+import BottomButton from '@src/components/common/BottomButton';
 
 function Join() {
   return (
@@ -35,6 +36,7 @@ function Join() {
         <StInputBox placeholder="닉네임을 입력해주세요"></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
+      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
     </StJoin>
   );
 }
@@ -45,8 +47,9 @@ const StJoin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 39rem;
-  height: 100vh;
+  min-width: 39rem;
+  width: 100vw;
+  padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
 `;
 
@@ -112,6 +115,7 @@ const StInputContainer = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   width: 29.4rem;
+  margin-bottom: 3rem;
 `;
 
 const StNickname = styled.p`

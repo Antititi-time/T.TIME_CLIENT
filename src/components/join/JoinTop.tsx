@@ -13,7 +13,8 @@ const StJoinTop = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 39rem;
+  min-width: 39rem;
+  width: 100vw;
   height: 5.8rem;
   background-color: ${COLOR.WHITE_100};
   backdrop-filter: blur(5px);
