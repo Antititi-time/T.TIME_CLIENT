@@ -39,7 +39,7 @@ const StIcon = styled.div`
 
 const StText = styled.p`
   color: ${COLOR.BLUE_TEXT};
-  font-style: ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.NEXON_B_16};
 `;
 
 const StInput = styled.input`
@@ -51,11 +51,8 @@ const StInput = styled.input`
   border-radius: 0.60714286rem;
   background: #ffffff;
   font-size: 1.7rem;
-  font-style: ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.NEXON_R_16};
+  color: ${COLOR.GRAY_7E};
   transform: scale(0.8235);
   transform-origin: left top;
-
-  /* 여기를 추가합니다. */
-  margin-bottom: -10px;
-  margin-right: -33.333333333%;
 `;

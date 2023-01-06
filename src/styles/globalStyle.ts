@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     max-width: 100vw;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     margin: 0 auto;
     position: relative;
     background-color: #F1EFEA;

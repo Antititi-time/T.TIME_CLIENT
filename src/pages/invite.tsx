@@ -25,7 +25,7 @@ const StContainer = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
   text-align: center;
   .letterImg {
