@@ -10,7 +10,7 @@ import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '../../../hooks/SetConstantIndex';
 import GraphContainer from '@src/components/myResult/GraphContainer';
-
+import { logoIcon } from '@src/assets/icons';
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
@@ -64,7 +64,10 @@ function MyResult() {
                 <GraphContainer></GraphContainer>
               </StGraphContainer>
             </article>
-            <StCardFooter></StCardFooter>
+            <StCardFooter>
+              <img src={logoIcon.src} />
+              나와 팀 함께 성장하는 시간
+            </StCardFooter>
           </StResultCard>
         </StMyResult>
       ) : (
@@ -187,4 +190,17 @@ const StGraphContainer = styled.article`
   margin: 1rem 0 4.6rem 0;
   padding: 2.5rem 1.5rem 2.5rem 2rem;
 `;
-const StCardFooter = styled.footer``;
+const StCardFooter = styled.footer`
+  img {
+    width: 5.8rem;
+    height: 3rem;
+    margin-bottom: 1.2rem;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14.1rem;
+  height: 5.6rem;
+  font-style: ${FONT_STYLES.NEXON_R_12};
+  color: ${COLOR.BLACK};
+`;
