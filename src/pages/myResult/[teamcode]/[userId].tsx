@@ -7,14 +7,18 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
+import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
+import { setConstantIndex } from '../../../hooks/SetConstantIndex';
 
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
+  const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => axios.get('/api/result/ttime'));
 
   useEffect(() => {
     setResultData(data?.data[0]);
-    console.log(resultData);
+    const inputData = setConstantIndex(data?.data[0].result[4].questionType);
+    setResultCharacter(inputData);
   }, [data]);
 
   return (
@@ -37,21 +41,21 @@ function MyResult() {
                 <p>개인 T.time 결과</p>
               </div>
             </StInfoContainer>
-            <StUserImage />
+            <StUserImage src={RESULT_MESSAGE[resultCharacter].imageUrl} />
             <StResultTitle>
-              <p className="feedback">동기부여 부족</p>
-              <p>재충전 부족한 마카롱</p>
+              <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
+              <p>{RESULT_MESSAGE[resultCharacter].title}</p>
             </StResultTitle>
             <StDotsImage src={icDots.src}></StDotsImage>
             <StResultDetail>
-              <p>동기부여 가 부족한 당신! 재충전이 필요한 마카롱이네요!</p>
-              <p>달달한 마카롱 한입으로 재충전해보시는 것은 어떨까요?</p>
+              {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
+                <p key={text}>{text}</p>
+              ))}
             </StResultDetail>
             <StRecommendText>
-              <p>• 비전을 갖고 목표를 세워요.</p>
-              <p>• 미래에 집중하세요.</p>
-              <p>• 내가 이미 미래에 성공을 이룬 것처럼 행동해보세요.</p>
-              <p>• 재충전의 시간을 보내보세요.</p>
+              {RESULT_MESSAGE[resultCharacter].recommendText.map((text: string) => (
+                <p key={text}>• {text}</p>
+              ))}
             </StRecommendText>
             <article>
               <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
