@@ -19,3 +19,13 @@ export type TeamData = {
   teamName: string;
   teamMember: number;
 };
+export type TeamScore = {
+  grade: number;
+  questionType: string;
+};
+export type TeamScoreResponse = {
+  status: number;
+  success: boolean;
+  message: string;
+  data: TeamScore[];
+};

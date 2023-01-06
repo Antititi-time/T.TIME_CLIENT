@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { Favorite, Invite } from './types';
+import { Favorite, Invite, TeamScoreResponse } from './types';
 
 export const handlers = [
   //example.
@@ -31,6 +31,41 @@ export const handlers = [
             teamMember: 11,
             teamCode: 'ndd93w',
           },
+        },
+      ]),
+    );
+  }),
+  rest.post('/api/result/team/score/teamId', (_req, res, ctx) => {
+    sleep(1000);
+
+    return res(
+      ctx.json<TeamScoreResponse[]>([
+        {
+          status: 200,
+          success: true,
+          message: '팀 결과 항목별 평균 점수 조회 성공',
+          data: [
+            {
+              grade: 69,
+              questionType: 'b',
+            },
+            {
+              grade: 68,
+              questionType: 'e',
+            },
+            {
+              grade: 68,
+              questionType: 'd',
+            },
+            {
+              grade: 67,
+              questionType: 'a',
+            },
+            {
+              grade: 62,
+              questionType: 'c',
+            },
+          ],
         },
       ]),
     );
