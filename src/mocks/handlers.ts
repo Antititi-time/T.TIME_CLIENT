@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { Favorite, Invite } from './types';
+import { Favorite, Invite, ChatData } from './types';
 
 export const handlers = [
   //example.
@@ -30,6 +30,25 @@ export const handlers = [
             teamName: 's',
             teamMember: 11,
             teamCode: 'ndd93w',
+          },
+        },
+      ]),
+    );
+  }),
+  rest.post('/api/team/teamId', (_req, res, ctx) => {
+    sleep(1000);
+
+    return res(
+      ctx.json<ChatData[]>([
+        {
+          status: 200,
+          success: true,
+          message: '유저 정보 입력 성공',
+          data: {
+            id: 1,
+            user_Id: 1,
+            team_Id: 2,
+            is_completed: false,
           },
         },
       ]),

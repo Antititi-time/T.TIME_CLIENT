@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import axios from 'axios';
 import { COLOR } from '@src/styles/color';
 import JoinTop from '@src/components/join/JoinTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -7,9 +8,10 @@ import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { ChangeEvent, useState } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 function Join() {
+  const router = useRouter();
   const [nickname, setNickname] = useState<string>('');
 
   const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,17 +19,25 @@ function Join() {
   };
 
   const handleNickSubmit = () => {
-    console.log(nickname);
+    axios
+      .post('/api/team/teamId', {
+        nickname: nickname,
+      })
+      .then((response) => {
+        console.log(response);
+        router.push({
+          pathname: `/chat/${response.data.team_Id}/${response.data.user_Id}`,
+          query: { teamName: '나림이네팀' },
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     // 명지언니가 채팅에서
     // import { useRouter } from 'next/router';
     // const router = useRouter();
     // console.log(router.query.teamName);
     // 이런식으로 사용하면 됨!
-
-    Router.push({
-      pathname: '/chat/teamCode/userId',
-      query: { teamName: '나림이네팀' },
-    });
   };
 
   return (

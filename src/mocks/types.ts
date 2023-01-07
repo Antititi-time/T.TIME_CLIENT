@@ -19,3 +19,14 @@ export type TeamData = {
   teamName: string;
   teamMember: number;
 };
+export type ChatData = {
+  status: number;
+  success: boolean;
+  message: string;
+  data: {
+    id: number;
+    user_Id: number;
+    team_Id: number;
+    is_completed: boolean;
+  };
+};
