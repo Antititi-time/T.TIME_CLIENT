@@ -1,20 +1,28 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
 interface graphData {
   result: Array<{ questionType: string; score: number }>;
 }
-
+interface graphWidth {
+  data: number;
+}
+type tdd = {
+  fun: (props: graphWidth) => number;
+};
 function ResultGraph({ result }: graphData) {
+  console.log;
   return (
     <>
       {result.map((data) => (
         <>
           <StGraphContent>
             <StGraphName>{filterQuestionType(data.questionType)}</StGraphName>
-            <StGraphBar>
-              <progress id="progress" value={data.score} max="10"></progress>
+            <StGraphBar data={data.score}>
+              <div className="progress">
+                <div className="progressValue"></div>
+              </div>
             </StGraphBar>
             <StGraphScore>{data.score}</StGraphScore>
           </StGraphContent>
@@ -36,20 +44,37 @@ const StGraphName = styled.p`
   margin-right: 1.5rem;
   white-space: nowrap;
 `;
-const StGraphBar = styled.div`
-  #progress {
+
+const big = (x: tdd) => keyframes`
+  from {
+    width: 0px;
+  }
+  to {
+    width: ${x}rem;
+  }
+`;
+const StGraphBar = styled.div<graphWidth>`
+  display: flex;
+  align-items: center;
+
+  .progress {
     appearance: none;
     width: 18.4rem;
     height: 0.6rem;
     margin-right: 1.4rem;
-  }
-  #progress::-webkit-progress-bar {
     background: ${COLOR.IVORY_6};
     border-radius: 1.4rem;
   }
-  #progress::-webkit-progress-value {
+
+  .progressValue {
+    width: ${(props: graphWidth) => props.data * 1.84}rem;
     border-radius: 1.4rem;
+    height: 0.6rem;
     background: ${COLOR.BLUE_1};
+    z-index: 3;
+
+    animation-name: ${big((props: graphWidth) => props.data)};
+    animation-duration: 4s;
   }
 `;
 const StGraphScore = styled.p`
