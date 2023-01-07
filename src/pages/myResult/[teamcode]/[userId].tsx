@@ -114,7 +114,7 @@ const StResultCard = styled.main`
   margin: 0rem 2.2rem 6rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
 const StInfoContainer = styled.div`
   width: 100%;
@@ -181,7 +181,7 @@ const StRecommendText = styled.article`
   height: 13.2rem;
   padding: 1.6rem 1.1rem 1.6rem 1.1rem;
   margin: 1.8rem 0 4.4rem 0;
-  border: 2px solid ${COLOR.IVORY_3};
+  border: 0.2rem solid ${COLOR.IVORY_3};
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_5};
   color: ${COLOR.BLACK};
@@ -200,7 +200,7 @@ const StGraphContainer = styled.article`
   padding: 2.5rem 1.5rem 2.5rem 2rem;
   margin: 1rem 0 4.6rem 0;
   border-radius: 1.4rem;
-  border: 2px solid ${COLOR.IVORY_3};
+  border: 0.2rem solid ${COLOR.IVORY_3};
   background-color: ${COLOR.IVORY_5};
 `;
 const StCardFooter = styled.footer`

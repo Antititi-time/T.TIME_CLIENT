@@ -10,11 +10,10 @@ interface graphWidth {
 }
 
 function ResultGraph({ result }: graphData) {
-  console.log;
   return (
     <>
       {result.map((data) => (
-        <>
+        
           <StGraphContent>
             <StGraphName>{filterQuestionType(data.questionType)}</StGraphName>
             <StGraphBar data={data.score}>
@@ -24,7 +23,7 @@ function ResultGraph({ result }: graphData) {
             </StGraphBar>
             <StGraphScore>{data.score}</StGraphScore>
           </StGraphContent>
-        </>
+        
       ))}
     </>
   );
@@ -45,7 +44,7 @@ const StGraphName = styled.p`
 
 const graphAnimation = () => keyframes`
   from {
-    width: 0px;
+    width: 0;
   }
 `;
 const StGraphBar = styled.div<graphWidth>`
