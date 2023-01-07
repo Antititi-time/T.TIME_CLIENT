@@ -1,26 +1,28 @@
 import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 // import ImageDiv from '@src/components/common/ImageDiv';
-import TeamInfoBlank from '@src/components/invite/TeamInfoBlank';
+import TeamInput from '@src/components/invite/TeamInput';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
 
-export default function Invite() {
+function Invite() {
   return (
-    <StContainer>
+    <StInvite>
       <StTitle>초대장 만들기</StTitle>
       {/* <ImageDiv src="" alt="초대장이미지" className="letterImg" layout="fill" /> */}
       <div className="letterImg"></div>
       <StForm action="post">
-        <TeamInfoBlank label="프로젝트 또는 팀 이름" placeholder="14자 이내로 입력해 주세요" />
-        <TeamInfoBlank label="팀 인원 수" placeholder="팀의 인원 수를 입력해주세요" />
+        <TeamInput label="프로젝트 또는 팀 이름" placeholder="14자 이내로 입력해 주세요" />
+        <TeamInput label="팀 인원 수" placeholder="팀의 인원 수를 입력해주세요" />
       </StForm>
       <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
-    </StContainer>
+    </StInvite>
   );
 }
 
-const StContainer = styled.div`
+export default Invite;
+
+const StInvite = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
