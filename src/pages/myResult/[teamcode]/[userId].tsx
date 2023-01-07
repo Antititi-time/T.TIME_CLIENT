@@ -8,19 +8,21 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
-import { setConstantIndex } from '../../../hooks/SetConstantIndex';
+import { setConstantIndex } from '../../../hooks/setConstantIndex';
 import { logoIcon } from '@src/assets/icons';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const { data } = useQuery('userData', () => axios.get('/api/result/ttime'));
+  const { data } = useQuery('userData', () => axios.get('http://3.34.173.2:8000/api/result/20'));
 
   useEffect(() => {
-    setResultData(data?.data[0]);
-    const inputData = setConstantIndex(data?.data[0].result[4].questionType);
+    setResultData(data?.data.data);
+    // console.log(resultData);
+    const inputData = setConstantIndex(data?.data.data.result[4].questionType);
+    // console.log(inputData);
 
-    setResultCharacter(inputData);
+    setResultCharacter(inputData - 1);
   }, [data]);
 
   return (
