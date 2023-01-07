@@ -5,19 +5,22 @@ interface labelProps {
   label: string;
   placeholder: string;
 }
-export default function TeamInfoBlank(props: labelProps) {
+function TeamInput(props: labelProps) {
   const { label, placeholder } = props;
   return (
-    <StContainer>
+    <StTeamInput>
       <StLabelWrapper>
         <StIcon />
         <StText>{label}</StText>
       </StLabelWrapper>
       <StInput placeholder={placeholder} />
-    </StContainer>
+    </StTeamInput>
   );
 }
-const StContainer = styled.div`
+
+export default TeamInput;
+
+const StTeamInput = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -52,7 +55,12 @@ const StInput = styled.input`
   background: #ffffff;
   font-size: 1.7rem;
   ${FONT_STYLES.NEXON_R_16};
-  color: ${COLOR.GRAY_7E};
   transform: scale(0.8235);
   transform-origin: left top;
+  &::placeholder {
+    color: ${COLOR.GRAY_7E};
+  }
+  :focus {
+    outline: none;
+  }
 `;
