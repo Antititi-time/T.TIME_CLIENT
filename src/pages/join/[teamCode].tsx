@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import axios from 'axios';
 import { COLOR } from '@src/styles/color';
 import JoinTop from '@src/components/join/JoinTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -9,10 +8,32 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/router';
+import { enterChat } from '@src/services';
+import { useMutation } from 'react-query';
+import { TeamData } from '@src/mocks/types';
 
 function Join() {
   const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
   const [nickname, setNickname] = useState<string>('');
+
+  const getData = useMutation(
+    () =>
+      enterChat(Number(teamCode), {
+        nickname: nickname,
+      }),
+    {
+      onSuccess: (response: TeamData) => {
+        router.push({
+          pathname: `/chat/${response?.team_Id}/${response?.user_Id}`,
+          query: { teamName: response?.teamName },
+        });
+      },
+      onError: (error) => {
+        console.log(error);
+      },
+    },
+  );
 
   const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
     const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
@@ -28,25 +49,7 @@ function Join() {
   };
 
   const handleNickSubmit = () => {
-    axios
-      .post('/api/team/teamId', {
-        nickname: nickname,
-      })
-      .then((response) => {
-        console.log(response);
-        router.push({
-          pathname: `/chat/${response.data.team_Id}/${response.data.user_Id}`,
-          query: { teamName: '나림이네팀' },
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // 명지언니가 채팅에서
-    // import { useRouter } from 'next/router';
-    // const router = useRouter();
-    // console.log(router.query.teamName);
-    // 이런식으로 사용하면 됨!
+    getData.mutate();
   };
 
   return (
