@@ -15,7 +15,16 @@ function Join() {
   const [nickname, setNickname] = useState<string>('');
 
   const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setNickname(e.target.value);
+    const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
+    if (e.target.value.length < 5) {
+      if (korean.test(e.currentTarget.value) == false && e.target.value != '') {
+        alert('한글만 입력 가능합니다');
+      } else {
+        setNickname(e.target.value);
+      }
+    } else {
+      alert('최대 4자 까지 입력 가능합니다');
+    }
   };
 
   const handleNickSubmit = () => {
@@ -61,7 +70,10 @@ function Join() {
           <ImageDiv src={icJoinRound} alt="icon_join_round" className="icJoinRound"></ImageDiv>
           <StNickname>참여자 닉네임</StNickname>
         </StRowContainer>
-        <StInputBox placeholder="닉네임을 입력해주세요" onChange={(e) => handleNickChange(e)}></StInputBox>
+        <StInputBox
+          placeholder="닉네임을 입력해주세요"
+          onChange={(e) => handleNickChange(e)}
+          value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
       <StButtonContainer onClick={handleNickSubmit}>
