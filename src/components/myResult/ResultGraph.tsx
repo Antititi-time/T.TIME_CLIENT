@@ -1,10 +1,30 @@
+import styled from 'styled-components';
+
 interface graphData {
-  data: Array<{ questionType: string; score: number }>;
+  result: Array<{ questionType: string; score: number }>;
 }
 
-function ResultGraph({ data }: graphData) {
-  console.log(data);
-  return <>그래프에요</>;
+function ResultGraph({ result }: graphData) {
+  return (
+    <>
+      {result.map((data) => (
+        <>
+          <StGraphContent>
+            <StGraphName>{data.questionType}</StGraphName>
+            <StGraphBar></StGraphBar>
+            <StGraphScore>{data.score}</StGraphScore>
+          </StGraphContent>
+        </>
+      ))}
+    </>
+  );
 }
 
 export default ResultGraph;
+
+const StGraphContent = styled.div`
+  display: flex;
+`;
+const StGraphName = styled.p``;
+const StGraphBar = styled.div``;
+const StGraphScore = styled.p``;

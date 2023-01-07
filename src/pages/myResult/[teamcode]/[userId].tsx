@@ -62,7 +62,7 @@ function MyResult() {
             <article>
               <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
               <StGraphContainer>
-                <ResultGraph data={resultData.result} />
+                <ResultGraph result={resultData.result} />
               </StGraphContainer>
             </article>
             <StCardFooter>
