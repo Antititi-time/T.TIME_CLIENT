@@ -1,7 +1,6 @@
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -11,17 +10,20 @@ import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { logoIcon } from '@src/assets/icons';
 import ResultGraph from '@src/components/myResult/ResultGraph';
+import { getMyResult } from '@src/services';
+import { useRouter } from 'next/router';
+// import Router from 'next/router';
 function MyResult() {
+  const router = useRouter();
+  const userId = router.query.userId;
+
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const { data } = useQuery('userData', () => axios.get('http://3.34.173.2:8000/api/result/21'));
+  const { data } = useQuery('userData', () => getMyResult(parseInt(userId as string, 10)));
 
   useEffect(() => {
-    setResultData(data?.data.data);
-    // console.log(resultData);
-    const inputData = setConstantIndex(data?.data.data.result[4].questionType);
-    // console.log(inputData);
-
+    setResultData(data);
+    const inputData = setConstantIndex(data?.result[4].questionType);
     setResultCharacter(inputData);
   }, [data]);
 
