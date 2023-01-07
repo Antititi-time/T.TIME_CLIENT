@@ -197,7 +197,7 @@ const StCardFooter = styled.footer`
   flex-direction: column;
   width: 14.1rem;
   height: 5.6rem;
-  color: ${COLOR.BLACK};
+  color: ${COLOR.GRAY_7E};
   font-style: ${FONT_STYLES.NEXON_R_12};
   img {
     width: 5.8rem;
