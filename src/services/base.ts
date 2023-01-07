@@ -2,19 +2,15 @@ import axios from 'axios';
 
 type Methods = 'get' | 'post' | 'delete' | 'put';
 
-interface apiType {
-  url: string;
-  data?: object;
-  params?: object;
-  method: Methods;
-  headers?: object;
-}
-
 interface apiDataType {
   url: string;
   data?: object;
   params?: object;
   headers?: object;
+}
+
+interface apiType extends apiDataType {
+  method: Methods;
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
