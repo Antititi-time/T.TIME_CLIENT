@@ -7,11 +7,13 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { useEffect, useState } from 'react';
-import type { ChartData, ChartOptions } from 'chart.js';
+import type { ChartOptions } from 'chart.js';
 
 ChartJS.register();
 
 function Chart() {
+  const { data } = useQuery('favorite', () => axios.post('/api/result/team/score/teamId'));
+  const [teamScoreList, setTeamScoreList] = useState<number[]>();
   interface ChartElementsCustomType {
     elements: {
       point: {
@@ -19,42 +21,12 @@ function Chart() {
       };
     };
   }
-  // interface ChartScalesCustomType {
-  //   scales: {
-  //     r: {
-  //       ticks: {
-  //         stepSize: number;
-  //         display: boolean;
-  //       };
-  //       grid: {
-  //         color: string;
-  //       };
-  //       pointLabels: {
-  //         font: {
-  //           size: number;
-  //           weight: string;
-  //           family: string;
-  //         };
-  //         color: string;
-  //       };
-  //       angleLines: {
-  //         display: boolean;
-  //       };
-  //       suggestedMin: number;
-  //       suggestedMax: number;
-  //       backgroundColor?: string;
-  //     };
-  //   };
-  // }
-
-  const { data } = useQuery('favorite', () => axios.post('/api/result/team/score/teamId'));
-  const [teamScoreList, setTeamScoreList] = useState<number[]>();
 
   useEffect(() => {
     setTeamScoreList(data?.data[0].data.map((data: TeamScore) => data.grade));
   }, [data]);
 
-  const chartData: ChartData<'radar'> = {
+  const chartData = {
     labels: ['협업', '성장', '동기부여', '개인생활', '건강'],
     datasets: [
       {
@@ -96,6 +68,7 @@ function Chart() {
         },
         suggestedMin: 0,
         suggestedMax: 100,
+        backgroundColor: 'white',
       },
     },
     plugins: {
@@ -107,10 +80,10 @@ function Chart() {
 
   return (
     <StChart>
-      <h2>
+      <StTitle>
         항목별
         <br />팀 평균 그래프
-      </h2>
+      </StTitle>
       <StRadar>
         <Radar data={chartData} options={chartOptions} />
       </StRadar>
@@ -120,12 +93,13 @@ function Chart() {
 
 export default Chart;
 
-const StChart = styled.div`
-  & > h2 {
-    ${FONT_STYLES.NEXON_B_16};
-    line-height: 2.24rem;
-    margin-top: 3rem;
-  }
+const StChart = styled.div``;
+
+const StTitle = styled.h2`
+  margin-top: 3rem;
+  color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_B_16};
+  line-height: 2.24rem;
 `;
 
 const StRadar = styled.div`
