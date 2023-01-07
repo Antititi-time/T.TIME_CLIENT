@@ -43,7 +43,7 @@ const StGraphName = styled.p`
   white-space: nowrap;
 `;
 
-const big = () => keyframes`
+const graphAnimation = () => keyframes`
   from {
     width: 0px;
   }
@@ -67,7 +67,7 @@ const StGraphBar = styled.div<graphWidth>`
     height: 0.6rem;
     background: ${COLOR.BLUE_1};
     z-index: 3;
-    animation-name: ${() => big()};
+    animation-name: ${() => graphAnimation()};
     animation-duration: 4s;
   }
 `;
