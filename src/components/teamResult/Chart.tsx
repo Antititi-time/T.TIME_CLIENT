@@ -3,71 +3,50 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { TeamScore } from '@src/mocks/types';
 import { Radar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  LineElement,
-  PointElement,
-  Tooltip,
-  Legend,
-  RadialLinearScale,
-  ArcElement,
-  BarElement,
-  BarController,
-  BubbleController,
-  DoughnutController,
-  LineController,
-  PieController,
-  PolarAreaController,
-  RadarController,
-  ScatterController,
-  CategoryScale,
-  LinearScale,
-  LogarithmicScale,
-  TimeScale,
-  TimeSeriesScale,
-  Decimation,
-  Filler,
-  Title,
-  SubTitle,
-} from 'chart.js/auto';
+import { Chart as ChartJS } from 'chart.js/auto';
 import { COLOR } from '@src/styles/color';
-import type { ChartData } from 'chart.js';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { useEffect, useState } from 'react';
+import type { ChartData, ChartOptions } from 'chart.js';
 
-interface ChartProps {
-  data: ChartData<'radar'>;
-  options: ChartData<'radar'>;
-}
-
-ChartJS.register(
-  LineElement,
-  PointElement,
-  Tooltip,
-  Legend,
-  RadialLinearScale,
-  ArcElement,
-  BarElement,
-  BarController,
-  BubbleController,
-  DoughnutController,
-  LineController,
-  PieController,
-  PolarAreaController,
-  RadarController,
-  ScatterController,
-  CategoryScale,
-  LinearScale,
-  LogarithmicScale,
-  TimeScale,
-  TimeSeriesScale,
-  Decimation,
-  Filler,
-  Title,
-  SubTitle,
-);
+ChartJS.register();
 
 function Chart() {
+  interface ChartElementsCustomType {
+    elements: {
+      point: {
+        pointBackgroundColor: string;
+      };
+    };
+  }
+  // interface ChartScalesCustomType {
+  //   scales: {
+  //     r: {
+  //       ticks: {
+  //         stepSize: number;
+  //         display: boolean;
+  //       };
+  //       grid: {
+  //         color: string;
+  //       };
+  //       pointLabels: {
+  //         font: {
+  //           size: number;
+  //           weight: string;
+  //           family: string;
+  //         };
+  //         color: string;
+  //       };
+  //       angleLines: {
+  //         display: boolean;
+  //       };
+  //       suggestedMin: number;
+  //       suggestedMax: number;
+  //       backgroundColor?: string;
+  //     };
+  //   };
+  // }
+
   const { data } = useQuery('favorite', () => axios.post('/api/result/team/score/teamId'));
   const [teamScoreList, setTeamScoreList] = useState<number[]>();
 
@@ -75,17 +54,17 @@ function Chart() {
     setTeamScoreList(data?.data[0].data.map((data: TeamScore) => data.grade));
   }, [data]);
 
-  const chartData = {
+  const chartData: ChartData<'radar'> = {
     labels: ['협업', '성장', '동기부여', '개인생활', '건강'],
     datasets: [
       {
         label: '팀 점수',
-        data: teamScoreList,
+        data: teamScoreList ? teamScoreList : [0],
         backgroundColor: 'rgba(255, 108, 61, 0.2)',
       },
     ],
   };
-  const options = {
+  const chartOptions: ChartOptions<'radar'> & ChartElementsCustomType = {
     elements: {
       line: {
         borderWidth: 2,
@@ -104,11 +83,10 @@ function Chart() {
         grid: {
           color: COLOR.GRAY_9E,
         },
-        //협업, 건강, 성장, ,,,
         pointLabels: {
           font: {
             size: 12,
-            weight: 700,
+            weight: '700',
             family: 'Pretendard',
           },
           color: 'black',
@@ -118,7 +96,6 @@ function Chart() {
         },
         suggestedMin: 0,
         suggestedMax: 100,
-        backgroundColor: 'white',
       },
     },
     plugins: {
@@ -126,9 +103,6 @@ function Chart() {
         display: false,
       },
     },
-    // animation: {
-    //   duration: 0,
-    // },
   };
 
   return (
@@ -138,7 +112,7 @@ function Chart() {
         <br />팀 평균 그래프
       </h2>
       <StRadar>
-        <Radar data={chartData} options={options} />
+        <Radar data={chartData} options={chartOptions} />
       </StRadar>
     </StChart>
   );
