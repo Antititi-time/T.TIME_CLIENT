@@ -1,14 +1,14 @@
 export const filterQuestionType = (questionType: string) => {
   switch (questionType) {
-    case 'A':
+    case 'a':
       return '협업';
-    case 'B':
+    case 'b':
       return '동기부여';
-    case 'C':
+    case 'c':
       return '성장';
-    case 'D':
+    case 'd':
       return '개인생활';
-    case 'E':
+    case 'e':
       return '건강';
   }
 };

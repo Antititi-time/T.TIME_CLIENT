@@ -26,23 +26,23 @@ export type UserData = {
   result: [
     {
       questionType: string;
-      score: number;
+      grade: number;
     },
     {
       questionType: string;
-      score: number;
+      grade: number;
     },
     {
       questionType: string;
-      score: number;
+      grade: number;
     },
     {
       questionType: string;
-      score: number;
+      grade: number;
     },
     {
       questionType: string;
-      score: number;
+      grade: number;
     },
   ];
 };

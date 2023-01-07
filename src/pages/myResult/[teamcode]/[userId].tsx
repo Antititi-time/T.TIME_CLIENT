@@ -14,13 +14,13 @@ import ResultGraph from '@src/components/myResult/ResultGraph';
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const { data } = useQuery('userData', () => axios.get('http://3.34.173.2:8000/api/result/20'));
+  const { data } = useQuery('userData', () => axios.get('http://3.34.173.2:8000/api/result/21'));
 
   useEffect(() => {
     setResultData(data?.data.data);
     // console.log(resultData);
     const inputData = setConstantIndex(data?.data.data.result[4].questionType);
-    console.log(inputData);
+    // console.log(inputData);
 
     setResultCharacter(inputData);
   }, [data]);

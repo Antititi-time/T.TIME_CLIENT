@@ -1,24 +1,16 @@
 export const setConstantIndex = (input: string) => {
-  let index = 0;
   switch (input) {
     case 'a':
-      index = 0;
-      break;
+      return 0;
     case 'b':
-      index = 1;
-      break;
+      return 1;
     case 'c':
-      index = 2;
-      break;
+      return 2;
     case 'd':
-      index = 3;
-      break;
+      return 3;
     case 'e':
-      index = 4;
-      break;
+      return 4;
     default:
-      index = 5;
-      break;
+      return 5;
   }
-  return index;
 };
