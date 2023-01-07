@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import JoinTop from '@src/components/join/JoinTop';
+import TextTop from '@src/components/common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
+import useManageScroll from '@src/hooks/UseManageScroll';
 
 function Join() {
+  useManageScroll();
   return (
     <StJoin>
-      <JoinTop />
+      <TextTop text={'티타임 참여하기'} />
       <StAsset />
       <StMainContainer>
         <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
@@ -44,6 +46,8 @@ const StJoin = styled.div`
   flex-direction: column;
   align-items: center;
   min-width: 39rem;
+  min-height: 100vh;
+  min-height: calc(var(--vh) * 100);
   width: 100vw;
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
@@ -52,7 +56,7 @@ const StJoin = styled.div`
 const StAsset = styled.div`
   width: 16rem;
   height: 11rem;
-  margin-top: 2.7rem;
+  margin-top: 8.5rem;
   background-color: ${COLOR.IVORY_3};
 `;
 
