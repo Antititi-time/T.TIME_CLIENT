@@ -46,9 +46,8 @@ const StJoin = styled.div`
   flex-direction: column;
   align-items: center;
   min-width: 39rem;
-  min-height: 100vh;
-  min-height: calc(var(--vh) * 100);
   width: 100vw;
+  min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
 `;
