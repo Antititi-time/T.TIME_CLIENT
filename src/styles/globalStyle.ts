@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     max-width: 100vw;
     min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
     margin: 0 auto;
     position: relative;
     background-color: #F1EFEA;
@@ -18,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   #root {
     margin: 0 auto;
   }
-  
+ 
   html {
     font-size: 62.5%;
   }
