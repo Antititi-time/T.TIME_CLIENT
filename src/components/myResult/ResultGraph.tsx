@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { filterQuestionType } from '@src/hooks/filterQuestionType';
+import { filterQuestionType } from '@src/hooks/FilterQuestionType';
 interface graphData {
   result: Array<{ questionType: string; grade: number }>;
 }
@@ -15,7 +15,7 @@ function ResultGraph({ result }: graphData) {
     <>
       {result?.map((data) => (
         <StGraphContent key={data.questionType}>
-          <StGraphName>{filterQuestionType(data.questionType)}</StGraphName>
+          <StGraphName>{() => filterQuestionType(data.questionType)}</StGraphName>
           <StGraphBar data={data.grade}>
             <div className="progress">
               <div className="progressValue"></div>
@@ -44,14 +44,12 @@ const StGraphName = styled.p`
 const graphAnimation = () => keyframes`
   from {
     width: 0;
-  }
-`;
+  }`;
 const StGraphBar = styled.div<graphWidth>`
   display: flex;
   align-items: center;
 
   .progress {
-    appearance: none;
     width: 18.4rem;
     height: 0.6rem;
     margin-right: 1.4rem;
@@ -64,8 +62,8 @@ const StGraphBar = styled.div<graphWidth>`
     border-radius: 1.4rem;
     height: 0.6rem;
     background: ${COLOR.BLUE_1};
-    z-index: 3;
-    animation-name: ${() => graphAnimation()};
+    z-index: 1;
+    animation-name: ${graphAnimation};
     animation-duration: 4s;
   }
 `;

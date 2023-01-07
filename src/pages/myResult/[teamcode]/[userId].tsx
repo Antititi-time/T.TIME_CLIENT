@@ -26,12 +26,7 @@ function MyResult() {
   }, [data]);
 
   return (
-    <>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
-      />
+    <StmyResultPage>
       <LogoTop />
       {resultData ? (
         <StMyResult>
@@ -81,10 +76,12 @@ function MyResult() {
       ) : (
         <>로딩중</>
       )}
-    </>
+    </StmyResultPage>
   );
 }
 export default MyResult;
+
+const StmyResultPage = styled.div``;
 
 const StMyResult = styled.div`
   display: flex;
