@@ -167,7 +167,7 @@ const StResultTitle = styled.div`
 const StResultDetail = styled.div`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_R_14};
-  font-size: 1.3rem !important;
+  font-size: 1.3rem;
   p {
     display: flex;
     justify-content: center;
@@ -181,12 +181,12 @@ const StRecommendText = styled.article`
   height: 13.2rem;
   padding: 1.6rem 1.1rem 1.6rem 1.1rem;
   margin: 1.8rem 0 4.4rem 0;
+  border: 2px solid ${COLOR.IVORY_3};
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_5};
   color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_M_12};
   line-height: 2.2rem;
-  border: 2px solid ${COLOR.IVORY_3};
   white-space: nowrap;
 `;
 const StGraphTitle = styled.p`

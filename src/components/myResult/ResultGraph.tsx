@@ -1,32 +1,12 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
+import { filterQuestionType } from '@src/hooks/FilterQuestionType';
 interface graphData {
   result: Array<{ questionType: string; score: number }>;
 }
 
 function ResultGraph({ result }: graphData) {
-  const filterQuestionType = (questionType: string) => {
-    let output = '';
-    switch (questionType) {
-      case 'A':
-        output = '협업';
-        break;
-      case 'B':
-        output = '동기부여';
-        break;
-      case 'C':
-        output = '성장';
-        break;
-      case 'D':
-        output = '개인생활';
-        break;
-      case 'E':
-        output = '건강';
-        break;
-    }
-    return output;
-  };
   return (
     <>
       {result.map((data) => (
