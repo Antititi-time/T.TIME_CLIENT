@@ -167,6 +167,11 @@ const StResultTitle = styled.div`
 const StResultDetail = styled.div`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_R_14};
+  font-size: 1.3rem !important;
+  p {
+    display: flex;
+    justify-content: center;
+  }
 `;
 const StRecommendText = styled.article`
   display: flex;
