@@ -6,8 +6,30 @@ import { imgCenturyGothicLogo } from '@src/assets/images';
 import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
+import { ChangeEvent, useState } from 'react';
+import Router from 'next/router';
 
 function Join() {
+  const [nickname, setNickname] = useState<string>('');
+
+  const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setNickname(e.target.value);
+  };
+
+  const handleNickSubmit = () => {
+    console.log(nickname);
+    // 명지언니가 채팅에서
+    // import { useRouter } from 'next/router';
+    // const router = useRouter();
+    // console.log(router.query.teamName);
+    // 이런식으로 사용하면 됨!
+
+    Router.push({
+      pathname: '/chat/teamCode/userId',
+      query: { teamName: '나림이네팀' },
+    });
+  };
+
   return (
     <StJoin>
       <JoinTop />
@@ -29,10 +51,12 @@ function Join() {
           <ImageDiv src={icJoinRound} alt="icon_join_round" className="icJoinRound"></ImageDiv>
           <StNickname>참여자 닉네임</StNickname>
         </StRowContainer>
-        <StInputBox placeholder="닉네임을 입력해주세요"></StInputBox>
+        <StInputBox placeholder="닉네임을 입력해주세요" onChange={(e) => handleNickChange(e)}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+      <StButtonContainer onClick={handleNickSubmit}>
+        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+      </StButtonContainer>
     </StJoin>
   );
 }
@@ -140,3 +164,5 @@ const StNotice = styled.p`
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_R_12};
 `;
+
+const StButtonContainer = styled.button``;
