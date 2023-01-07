@@ -7,12 +7,12 @@ interface TextTopProps {
 }
 
 function TextTop({ text }: TextTopProps) {
-  return <StJoinTop>{text}</StJoinTop>;
+  return <StTextTop>{text}</StTextTop>;
 }
 
 export default TextTop;
 
-const StJoinTop = styled.div`
+const StTextTop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
