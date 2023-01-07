@@ -61,7 +61,7 @@ function Chart() {
             weight: '700',
             family: 'Pretendard',
           },
-          color: 'black',
+          color: COLOR.BLACK,
         },
         angleLines: {
           display: false,
