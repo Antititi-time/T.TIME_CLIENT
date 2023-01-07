@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { filterQuestionType } from '@src/hooks/FilterQuestionType';
+import { filterQuestionType } from '@src/hooks/filterQuestionType';
 interface graphData {
   result: Array<{ questionType: string; grade: number }>;
 }
@@ -10,21 +10,18 @@ interface graphWidth {
 }
 
 function ResultGraph({ result }: graphData) {
-  console.log(result);
   return (
     <>
       {result?.map((data) => (
-        <>
-          <StGraphContent>
-            <StGraphName>{filterQuestionType(data.questionType)}</StGraphName>
-            <StGraphBar data={data.grade}>
-              <div className="progress">
-                <div className="progressValue"></div>
-              </div>
-            </StGraphBar>
-            <StGraphScore>{data.grade}</StGraphScore>
-          </StGraphContent>
-        </>
+        <StGraphContent key={data.questionType}>
+          <StGraphName>{filterQuestionType(data.questionType)}</StGraphName>
+          <StGraphBar data={data.grade}>
+            <div className="progress">
+              <div className="progressValue"></div>
+            </div>
+          </StGraphBar>
+          <StGraphScore>{data.grade}</StGraphScore>
+        </StGraphContent>
       ))}
     </>
   );
