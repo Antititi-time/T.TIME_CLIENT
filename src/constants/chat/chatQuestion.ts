@@ -1,151 +1,158 @@
 import { testEmotion } from '@src/assets/icons';
+import { D_icon1, D_icon2 } from '@src/assets/icons';
 
 export const CHAT_QUESTION_LIST = [
   {
-    questionType: 'A',
+    questionType: 'start',
     questionNumber: 1,
     choiceQuestion: [
-      { testEmotion },
+      D_icon1,
       '티타임은 팀과 개인에 대해 솔직하게 묻고 답하는 시간이에요.',
-      '차 한잔 마시면서, 최대한 편하게 답변해주시면 돼요.',
-      '답변은 수정이 불가하니 신중하게 답변해주세요.😊',
+      '차 한잔 마시면서, 최대한 편하게 답변\n해주시면 돼요.',
+      '답변은 수정이 불가하니 신중하게\n답변해주세요.😊',
       '이제 티타임 시작해볼게요!',
-      '먼저 당신의 일상이 궁금해요.',
-      '업무외에 본인 생활을 즐기고 있나요?',
+    ],
+  },
+  {
+    questionType: 'D',
+    questionNumber: 1,
+    choiceQuestion: [
+      D_icon2,
+      '먼저 당신의 일상이 궁금해요. 업무 외에\n본인 생활을 즐기고 있나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'A',
+    questionType: 'D',
     questionNumber: 1,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'A',
+    questionType: 'D',
     questionNumber: 2,
     choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '그렇게 느끼셨군요!',
       '몸/마음/정신이 건강하다고 느끼시나요?.',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'A',
+    questionType: 'D',
     questionNumber: 2,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'B',
+    questionType: 'E',
     questionNumber: 1,
     choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '그렇다면 본인만의 스트레스 해소법이 있나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'B',
+    questionType: 'E',
     questionNumber: 1,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'B',
+    questionType: 'E',
     questionNumber: 1,
     choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '현재 배우고 성장하고 있다고 느끼시나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
+    questionType: 'E',
+    questionNumber: 2,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  },
+  {
+    questionType: 'C',
+    questionNumber: 1,
+    choiceQuestion: [
+      testEmotion,
+      '최근에 작업한 결과물에 만족하고 있나요?',
+      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+    ],
+  },
+  {
+    questionType: 'C',
+    questionNumber: 1,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  },
+  {
+    questionType: 'C',
+    questionNumber: 2,
+    choiceQuestion: [
+      testEmotion,
+      '최근에 작업한 결과물에 만족하고 있나요?',
+      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+    ],
+  },
+  {
+    questionType: 'C',
+    questionNumber: 2,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  },
+  {
     questionType: 'B',
-    questionNumber: 2,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
-  },
-  {
-    questionType: 'C',
     questionNumber: 1,
     choiceQuestion: [
-      { testEmotion },
-      '최근에 작업한 결과물에 만족하고 있나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'C',
-    questionNumber: 1,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
-  },
-  {
-    questionType: 'C',
-    questionNumber: 2,
-    choiceQuestion: [
-      { testEmotion },
-      '최근에 작업한 결과물에 만족하고 있나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'C',
-    questionNumber: 2,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
-  },
-  {
-    questionType: 'D',
-    questionNumber: 1,
-    choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '현재 업무가 본인의 목표(꿈)을 달성하는데 도움이 된다고 생각하시나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'D',
+    questionType: 'B',
     questionNumber: 1,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'D',
+    questionType: 'B',
     questionNumber: 2,
     choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '현재의 업무를 더 잘하기 위한 노력을 한적이 있나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'D',
+    questionType: 'B',
     questionNumber: 2,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'E',
+    questionType: 'A',
     questionNumber: 1,
     choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '팀의 목표와 방향성에 대해 분명하게 알고 있나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'E',
+    questionType: 'A',
     questionNumber: 1,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'E',
+    questionType: 'A',
     questionNumber: 2,
     choiceQuestion: [
-      { testEmotion },
+      testEmotion,
       '팀에서 본인의 의견을 제시하는거에 있어서 주저하거나 망설인 경험이 있나요?',
       `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
     ],
   },
   {
-    questionType: 'E',
+    questionType: 'A',
     questionNumber: 2,
-    inputQuestion: `그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`,
+    inputQuestion: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
     questionType: 'End',
