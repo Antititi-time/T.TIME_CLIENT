@@ -8,9 +8,7 @@ interface graphData {
 interface graphWidth {
   data: number;
 }
-type tdd = {
-  fun: (props: graphWidth) => number;
-};
+
 function ResultGraph({ result }: graphData) {
   console.log;
   return (
@@ -45,12 +43,9 @@ const StGraphName = styled.p`
   white-space: nowrap;
 `;
 
-const big = (x: tdd) => keyframes`
+const big = () => keyframes`
   from {
     width: 0px;
-  }
-  to {
-    width: ${x}rem;
   }
 `;
 const StGraphBar = styled.div<graphWidth>`
@@ -72,8 +67,7 @@ const StGraphBar = styled.div<graphWidth>`
     height: 0.6rem;
     background: ${COLOR.BLUE_1};
     z-index: 3;
-
-    animation-name: ${big((props: graphWidth) => props.data)};
+    animation-name: ${() => big()};
     animation-duration: 4s;
   }
 `;
