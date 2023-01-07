@@ -25,6 +25,11 @@ function MyResult() {
 
   return (
     <>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+      />
       <LogoTop />
       {resultData ? (
         <StMyResult>
@@ -92,11 +97,11 @@ const StWarningMessage = styled.header`
   width: 19.7rem;
   margin: 2.2rem 9.7rem 1.2rem 9.7rem;
   color: ${COLOR.GRAY_9E};
-  font-style: ${FONT_STYLES.PRETENDARD_M_12};
+  ${FONT_STYLES.PRETENDARD_M_12};
   .warn {
     margin-bottom: 0.6rem;
     color: ${COLOR.ORANGE_1};
-    font-style: ${FONT_STYLES.PRETENDARD_B_12};
+    ${FONT_STYLES.PRETENDARD_B_12};
   }
 `;
 const StResultCard = styled.main`
@@ -104,29 +109,31 @@ const StResultCard = styled.main`
   align-items: center;
   flex-direction: column;
   width: 34.6rem;
-  height: 104.4rem;
-  padding: 2.5rem 2.2rem 0rem 2.2rem;
+  min-height: 104.4rem;
+  padding: 2.5rem 2.2rem 0.8rem 2.2rem;
   margin: 0rem 2.2rem 6rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 `;
 const StInfoContainer = styled.div`
   width: 100%;
   .date {
-    font-style: ${FONT_STYLES.PRETENDARD_M_12};
+    ${FONT_STYLES.PRETENDARD_M_12};
     color: ${COLOR.GRAY_9E};
   }
   .teamName {
-    font-style: ${FONT_STYLES.NEXON_B_16};
+    ${FONT_STYLES.NEXON_B_16};
     color: ${COLOR.GRAY_7E};
     margin: 0.8rem 0 1.2rem 0;
   }
   .resultTitle {
-    font-style: ${FONT_STYLES.NEXON_B_22};
+    ${FONT_STYLES.NEXON_B_22};
     color: ${COLOR.BLACK};
   }
   .resultTitle p {
     margin-bottom: 0.5rem;
+    white-space: nowrap;
   }
   .userName {
     color: ${COLOR.BLUE_TEXT};
@@ -149,20 +156,17 @@ const StResultTitle = styled.div`
   width: 18.2rem;
   height: 4.2rem;
   color: ${COLOR.ORANGE_TEXT};
-  font-style: ${FONT_STYLES.PRETENDARD_EB_20};
+  ${FONT_STYLES.PRETENDARD_EB_20};
+  white-space: nowrap;
   .feedback {
     margin-bottom: 0.4rem;
     color: ${COLOR.BLUE_TEXT};
-    font-style: ${FONT_STYLES.PRETENDARD_B_12};
+    ${FONT_STYLES.PRETENDARD_B_12};
   }
 `;
 const StResultDetail = styled.div`
   color: ${COLOR.BLACK};
-  font-style: ${FONT_STYLES.PRETENDARD_R_14};
-  white-space: nowrap;
-  .highlight {
-    font-style: ${FONT_STYLES.PRETENDARD_B_14};
-  }
+  ${FONT_STYLES.PRETENDARD_R_14};
 `;
 const StRecommendText = styled.article`
   display: flex;
@@ -173,15 +177,17 @@ const StRecommendText = styled.article`
   padding: 1.6rem 1.1rem 1.6rem 1.1rem;
   margin: 1.8rem 0 4.4rem 0;
   border-radius: 1.4rem;
-  background-color: ${COLOR.IVORY_3};
+  background-color: ${COLOR.IVORY_5};
   color: ${COLOR.BLACK};
-  font-style: ${FONT_STYLES.PRETENDARD_M_12};
+  ${FONT_STYLES.PRETENDARD_M_12};
   line-height: 2.2rem;
+  border: 2px solid ${COLOR.IVORY_3};
+  white-space: nowrap;
 `;
 const StGraphTitle = styled.p`
   width: 30.4rem;
-
-  font-style: ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.NEXON_B_16};
+  white-space: nowrap;
 `;
 const StGraphContainer = styled.article`
   width: 30.4rem;
@@ -189,7 +195,8 @@ const StGraphContainer = styled.article`
   padding: 2.5rem 1.5rem 2.5rem 2rem;
   margin: 1rem 0 4.6rem 0;
   border-radius: 1.4rem;
-  background-color: ${COLOR.IVORY_3};
+  border: 2px solid ${COLOR.IVORY_3};
+  background-color: ${COLOR.IVORY_5};
 `;
 const StCardFooter = styled.footer`
   display: flex;
@@ -198,7 +205,7 @@ const StCardFooter = styled.footer`
   width: 14.1rem;
   height: 5.6rem;
   color: ${COLOR.GRAY_7E};
-  font-style: ${FONT_STYLES.NEXON_R_12};
+  ${FONT_STYLES.NEXON_R_12};
   img {
     width: 5.8rem;
     height: 3rem;

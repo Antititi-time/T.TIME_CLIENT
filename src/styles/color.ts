@@ -9,6 +9,8 @@ export const COLOR = {
   IVORY_2: '#F1EFEA',
   IVORY_3: '#ECE7DB',
   IVORY_4: '#FFFCF5',
+  IVORY_5: '#F4EFE2',
+  IVORY_6: '#E2DDD1',
   BLUE_1: '#6FAEDC',
   BLUE_2: '#DBE6EE',
   BLUE_TEXT: '#3A83B6',
