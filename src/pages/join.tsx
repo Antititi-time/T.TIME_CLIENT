@@ -15,11 +15,7 @@ function Join() {
       <StMainContainer>
         <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
         <StRowContainer>
-          <ImageDiv
-            src={imgCenturyGothicLogo}
-            alt="century_gothic_logo"
-            className="imgCenturyGothicLogo"
-            fill></ImageDiv>
+          <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
@@ -68,8 +64,7 @@ const StMainContainer = styled.div`
   width: 29.4rem;
   height: 20.8rem;
   padding: 3rem 2.4rem 3rem 2.4rem;
-  margin-top: 2rem;
-  margin-bottom: 2.9rem;
+  margin: 2rem 0rem 2.9rem 0rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.WHITE_100};
   box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
@@ -127,8 +122,8 @@ const StNickname = styled.p`
 const StInputBox = styled.input`
   width: 121.428571%; // 17/14 * 100
   padding: 1.45714285rem; // 기존값1.2rem * 121.428571%
-  margin-bottom: 0.971428568rem; // 기존값0.8rem * 121.428571%
-  margin-right: -21.428571%;
+  margin-bottom: 0.971428568rem;
+  margin-right: -21.428571%; // bottom 기존값0.8rem * 121.428571%
   border: none;
   border-radius: 0;
   border-bottom: 0.121428571rem solid ${COLOR.GRAY_7E};

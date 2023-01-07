@@ -17,7 +17,7 @@ const StJoinTop = styled.div`
   width: 100vw;
   height: 5.8rem;
   background-color: ${COLOR.WHITE_100};
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0.5rem);
   opacity: 0.8;
   ${FONT_STYLES.PRETENDARD_B_20}
 `;
