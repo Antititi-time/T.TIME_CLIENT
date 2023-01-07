@@ -8,7 +8,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
-import { setConstantIndex } from '../../../hooks/setConstantIndex';
+import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { logoIcon } from '@src/assets/icons';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 function MyResult() {
@@ -20,9 +20,9 @@ function MyResult() {
     setResultData(data?.data.data);
     // console.log(resultData);
     const inputData = setConstantIndex(data?.data.data.result[4].questionType);
-    // console.log(inputData);
+    console.log(inputData);
 
-    setResultCharacter(inputData - 1);
+    setResultCharacter(inputData);
   }, [data]);
 
   return (

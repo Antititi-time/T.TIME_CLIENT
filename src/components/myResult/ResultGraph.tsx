@@ -10,6 +10,7 @@ interface graphWidth {
 }
 
 function ResultGraph({ result }: graphData) {
+  console.log(result);
   return (
     <>
       {result?.map((data) => (
