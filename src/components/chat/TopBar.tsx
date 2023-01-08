@@ -14,22 +14,16 @@ function TopBar() {
   const day = weekList[dayIndex];
 
   return (
-    <StWrap>
-      <StTopBox>
-        <StTopBarText>{teamName} 의 티타임</StTopBarText>
-        <StTopBarToday>
-          {year}년 {month}월 {date}일 {day}요일
-        </StTopBarToday>
-      </StTopBox>
-    </StWrap>
+    <StTopBox>
+      <StTopBarText>{teamName} 의 티타임</StTopBarText>
+      <StTopBarToday>
+        {year}년 {month}월 {date}일 {day}요일
+      </StTopBarToday>
+    </StTopBox>
   );
 }
 
 export default TopBar;
-
-const StWrap = styled.div`
-  width: 100vw;
-`;
 
 const StTopBox = styled.div`
   position: fixed;
@@ -37,7 +31,7 @@ const StTopBox = styled.div`
   height: 7rem;
   background-color: rgba(255, 252, 245, 0.8);
   backdrop-filter: blur(0.5rem);
-  z-index: 5;
+  z-index: 1;
 `;
 
 const StTopBarText = styled.p`

@@ -26,7 +26,7 @@ function ChatBody() {
               return (
                 <>
                   <AdminProfile />
-                  <ImageDiv key={question} src={question} alt="choice" className="Emoticon" />
+                  <ImageDiv key={question} src={question} alt="주최자 이모티콘" className="emoticon" />
                 </>
               );
             } else {
@@ -39,7 +39,7 @@ function ChatBody() {
               return (
                 <>
                   <AdminProfile />
-                  <ImageDiv key={question} src={question} alt="choice" className="Emoticon" />
+                  <ImageDiv key={question} src={question} alt="주최자 이모티콘" className="emoticon" />
                 </>
               );
             } else {
@@ -57,8 +57,8 @@ export default ChatBody;
 const StChatBody = styled.div`
   margin-top: 8.1rem;
   white-space: pre-line;
-  z-index: 1;
-  .Emoticon {
+  z-index: 0;
+  .emoticon {
     margin: -1.5rem 18rem 1.2rem 6.2rem;
   }
 `;
@@ -67,8 +67,8 @@ const StAdminChat = styled.div`
   display: inline-block;
   width: auto;
   height: 100%;
-  margin: 0 7.3rem 0.6rem 6.2rem;
   padding: 0.8rem 1.2rem;
+  margin: 0 7.3rem 0.6rem 6.2rem;
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
@@ -81,8 +81,8 @@ const StInputQuestion = styled.div`
   top: -1.5rem;
   width: auto;
   height: 100%;
-  margin: 0 7.3rem 0.6rem 6.2rem;
   padding: 0.8rem 1.2rem;
+  margin: 0 7.3rem 0.6rem 6.2rem;
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
