@@ -2,14 +2,16 @@ import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
 import BottomButtonContainer from '@src/components/common/BottomButtonContainer';
+import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
 
 function TeamResult() {
   return (
     <StTeamResult>
       <LogoTop />
-      <ResultFrame />
-      <BottomButtonContainer />
-      <StBackground />
+      <UnfinishedResult />
+      {/* <ResultFrame /> */}
+      {/* <BottomButtonContainer /> */}
+      {/* <StBackground /> */}
     </StTeamResult>
   );
 }
