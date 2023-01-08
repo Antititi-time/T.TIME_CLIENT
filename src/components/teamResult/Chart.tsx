@@ -14,7 +14,7 @@ ChartJS.register();
 function Chart() {
   const router = useRouter();
   const teamCode = Number(router.asPath.split('/')[2]);
-  const { data } = useQuery('favorite', () => getTeamChartResult(teamCode), {
+  const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamCode), {
     enabled: !!teamCode,
   });
   interface ChartElementsCustomType {

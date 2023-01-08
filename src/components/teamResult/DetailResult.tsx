@@ -2,10 +2,17 @@ import styled, { css } from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { useState } from 'react';
+import { getTeamDetailResult } from '@src/services';
+import { useQuery } from 'react-query';
 
 function DetailResult() {
   const categoryList = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [currentTab, setCurrentTab] = useState(categoryList[0]);
+  const { data } = useQuery('teamDetailResult', () => getTeamDetailResult(729262811, 'a'));
+  // const [questionOneList, setQuestionOneList] = useState([]);
+  // const [questionTwoList, setQuestionTwoList] = useState([]);
+
+  console.log(data);
 
   return (
     <StDetailResult>

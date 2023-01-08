@@ -1,5 +1,5 @@
 import { api } from './base';
-import { TeamData } from './types';
+import { TeamData, RequestTeamDetailResult } from './types';
 
 export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
@@ -12,6 +12,11 @@ export const getTeamResult = async (teamId: number) => {
 
 export const getTeamChartResult = async (teamId: number) => {
   const { data } = await api.get({ url: `/api/result/team/score/${teamId}` });
+  return { data };
+};
+
+export const getTeamDetailResult = async (teamId: number, type: string) => {
+  const { data } = await api.get({ url: `/api/result/team/${teamId}/detail?type=${type}` });
   return { data };
 };
 
