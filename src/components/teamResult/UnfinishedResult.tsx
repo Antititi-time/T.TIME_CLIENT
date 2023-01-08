@@ -6,7 +6,12 @@ import { imgCenturyGothicLogo } from '@src/assets/images';
 import BottomButton from '../common/BottomButton';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useCopyLink } from '../shareModule/ShareModule';
-function UnfinishedResult() {
+import { useState } from 'react';
+interface simpleType {
+  teamcode: number;
+}
+function UnfinishedResult(teamcode: simpleType) {
+  const [joinLink] = useState(`http://192.168.0.134:3000/join/${teamcode.teamcode}`);
   return (
     <StResultCard>
       <StDate>2023.01.08</StDate>
@@ -20,7 +25,7 @@ function UnfinishedResult() {
       <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
       <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
       <StCurrentStatus>현재 완료한 팀원 수: 00/00명</StCurrentStatus>
-      <CopyToClipboard text="ss">
+      <CopyToClipboard text={joinLink}>
         <StButtonContainer onClick={useCopyLink}>
           <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
         </StButtonContainer>
@@ -33,11 +38,11 @@ export default UnfinishedResult;
 const StResultCard = styled.main`
   width: 34.6rem;
   height: 53.7rem;
-  border-radius: 1.4rem;
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-  background-color: ${COLOR.IVORY_1};
-  margin: 2.9rem 2.2rem 2.9rem 2.2rem;
   padding: 2.5rem 2.1rem 0.8rem 2.1rem;
+  margin: 2.9rem 2.2rem 2.9rem 2.2rem;
+  border-radius: 1.4rem;
+  background-color: ${COLOR.IVORY_1};
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
 const StDate = styled.p`
   margin-bottom: 1.2rem;
@@ -69,8 +74,8 @@ const StUnfinishImage = styled.img`
 `;
 const StInfoTitle = styled.p`
   width: 100%;
-  text-align: center;
   color: ${COLOR.BLACK};
+  text-align: center;
   ${FONT_STYLES.PRETENDARD_B_20};
 `;
 const StInfoDetail = styled.p`

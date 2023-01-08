@@ -8,7 +8,7 @@ import { useQuery } from 'react-query';
 
 function SimpleResult() {
   const { data } = useQuery('teamResult', () => getTeamResult(729262811));
-  console.log(data);
+
   return (
     <div>
       <StTeamInfo>
