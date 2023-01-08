@@ -27,13 +27,15 @@ function ConfirmInvite() {
         </StListContainer>
       </StInvitationContainer>
       {isConfirmed ? (
-        <BottomButton width={28.2} color={COLOR.BLUE_1} text={'초대장 공유하기'} />
+        <StBtnWrapper>
+          <BottomButton width={28.2} color={COLOR.BLUE_1} text={'초대장 공유하기'} />
+        </StBtnWrapper>
       ) : (
         <StMessage>위 정보로 티타임 초대장을 만드시겠습니까?</StMessage>
       )}
-      <StBtnWrapper onClick={() => setIsconfirmed(true)}>
+      <StConfirmBtn onClick={() => setIsconfirmed(true)}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
-      </StBtnWrapper>
+      </StConfirmBtn>
     </StConfirmInvite>
   );
 }
@@ -62,7 +64,7 @@ const StInvitationContainer = styled.article`
   width: 29.4rem;
   height: 38.6rem;
   padding: 40px 24px 38px;
-  margin: 8.2rem 0 7.1rem;
+  margin-top: 8.2rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1.3rem rgba(100, 98, 94, 0.1);
@@ -103,10 +105,17 @@ const StList = styled.li`
 `;
 
 const StMessage = styled.p`
+  margin-top: 7.1rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_R_14};
 `;
 
 const StBtnWrapper = styled.div`
+  margin-top: 3.9rem;
+  cursor: pointer;
+`;
+
+const StConfirmBtn = styled.div`
   margin-top: 1.6rem;
+  cursor: pointer;
 `;
