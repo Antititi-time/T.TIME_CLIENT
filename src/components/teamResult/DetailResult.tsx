@@ -73,10 +73,10 @@ const StDetailResult = styled.div`
 `;
 
 const StTitle = styled.h2`
+  margin-bottom: 0.6rem;
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_16};
   line-height: 2.24rem;
-  margin-bottom: 0.6rem;
 `;
 
 const StResultContainer = styled.div`
