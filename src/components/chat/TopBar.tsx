@@ -37,6 +37,7 @@ const StTopBox = styled.div`
   height: 7rem;
   background-color: rgba(255, 252, 245, 0.8);
   backdrop-filter: blur(0.5rem);
+  z-index: 5;
 `;
 
 const StTopBarText = styled.p`
