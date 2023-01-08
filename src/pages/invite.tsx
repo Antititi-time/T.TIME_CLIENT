@@ -1,15 +1,17 @@
 import styled from 'styled-components';
-import { FONT_STYLES } from '@src/styles/fontStyle';
 // import ImageDiv from '@src/components/common/ImageDiv';
 import TeamInput from '@src/components/invite/TeamInput';
+import TextTop from '@src/components/common/TextTop';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
+import useManageScroll from '@src/hooks/UseManageScroll';
 
 function Invite() {
+  useManageScroll();
   return (
     <StInvite>
-      <StTitle>초대장 만들기</StTitle>
       {/* <ImageDiv src="" alt="초대장이미지" className="letterImg" layout="fill" /> */}
+      <TextTop text={'초대장 만들기'} />
       <div className="letterImg"></div>
       <StForm action="post">
         <TeamInput label="프로젝트 또는 팀 이름" placeholder="14자 이내로 입력해 주세요" />
@@ -27,20 +29,19 @@ const StInvite = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100vw;
+  min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
   text-align: center;
   .letterImg {
     width: 16.8rem;
     height: 16.8rem;
-    margin: 4.7rem 0;
+    margin-top: 9rem;
+    margin-bottom: 4.7rem;
     background-color: aliceblue;
   }
 `;
-const StTitle = styled.h1`
-  margin-top: 1.9rem;
-  ${FONT_STYLES.PRETENDARD_B_16};
-`;
+
 const StForm = styled.form`
   display: flex;
   flex-direction: column;
