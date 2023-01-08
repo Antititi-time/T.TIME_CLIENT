@@ -11,15 +11,18 @@ import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { logoIcon } from '@src/assets/icons';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
-import { useRouter } from 'next/router';
-// import Router from 'next/router';
-function MyResult() {
-  const router = useRouter();
-  const userId = router.query.userId;
-
+interface ctxType {
+  query: {
+    userId: string;
+  };
+}
+interface userIdType {
+  userId: number;
+}
+function MyResult({ userId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const { data } = useQuery('userData', () => getMyResult(parseInt(userId as string, 10)));
+  const { data } = useQuery('userData', () => getMyResult(userId));
 
   useEffect(() => {
     setResultData(data);
@@ -33,7 +36,7 @@ function MyResult() {
       {resultData ? (
         <StMyResult>
           <StWarningMessage>
-            <div className="warn">잠깐!</div>
+            <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
           <StResultCard>
@@ -99,7 +102,7 @@ const StWarningMessage = styled.header`
   margin: 2.2rem 9.7rem 1.2rem 9.7rem;
   color: ${COLOR.GRAY_9E};
   ${FONT_STYLES.PRETENDARD_M_12};
-  .warn {
+  p {
     margin-bottom: 0.6rem;
     color: ${COLOR.ORANGE_1};
     ${FONT_STYLES.PRETENDARD_B_12};
@@ -218,3 +221,7 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
+export async function getServerSideProps(ctx: ctxType) {
+  const userId = parseInt(ctx.query.userId);
+  return { props: { userId } };
+}
