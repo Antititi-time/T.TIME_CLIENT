@@ -16,4 +16,4 @@ export { default as D_icon3 } from './D_icon3.svg';
 export { default as E_icon1 } from './E_icon1.svg';
 export { default as E_icon2 } from './E_icon2.svg';
 export { default as End_icon } from './End_icon.svg';
-export { default as icDots} from './icn_dots.svg';
+export { default as icDots } from './icn_dots.svg';
