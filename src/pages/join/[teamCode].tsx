@@ -19,6 +19,16 @@ function Join() {
   const teamCode = router.asPath.split('/')[2];
   const [nickname, setNickname] = useState<string>('');
 
+  interface IApiError {
+    response: {
+      data: {
+        message: string;
+        status: number;
+        success: boolean;
+      };
+    };
+  }
+
   const getData = useMutation(
     () =>
       enterChat(Number(teamCode), {
@@ -31,8 +41,10 @@ function Join() {
           query: { teamName: response?.teamName },
         });
       },
-      onError: (error) => {
-        console.log(error);
+      onError: (error: IApiError) => {
+        if (error.response.data.message === '중복된 닉네임입니다.') {
+          alert('닉네임은 중복이 불가해요.');
+        }
       },
     },
   );
@@ -41,12 +53,12 @@ function Join() {
     const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
     if (e.target.value.length < 5) {
       if (korean.test(e.currentTarget.value) == false && e.target.value != '') {
-        alert('한글만 입력 가능합니다');
+        alert('닉네임은 한글만 입력 가능해요.');
       } else {
         setNickname(e.target.value);
       }
     } else {
-      alert('최대 4자 까지 입력 가능합니다');
+      alert('닉네임은 최대 4자까지 입력 가능해요.');
     }
   };
 
