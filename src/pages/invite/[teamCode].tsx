@@ -47,18 +47,17 @@ const StConfirmInvite = styled.div`
 
 const StInvitationContainer = styled.article`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px 38px;
-  margin-top: 8.2rem;
-  margin-bottom: 7.1rem;
-  gap: 10px;
-  box-shadow: 0px 2px 13px rgba(100, 98, 94, 0.1);
-  border-radius: 1.2rem;
+  flex-direction: column;
+  gap: 1rem;
   width: 29.4rem;
   height: 38.6rem;
+  padding: 40px 24px 38px;
+  margin: 8.2rem 0 7.1rem;
+  border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_1};
+  box-shadow: 0 0.2rem 1.3rem rgba(100, 98, 94, 0.1);
   .imgCenturyGothicLogo {
     position: relative;
     width: 7.2rem;
@@ -83,20 +82,20 @@ const StInviteComment = styled.p`
 `;
 
 const StListContainer = styled.ol`
-  margin-top: 2rem;
   list-style-type: disc;
+  margin-top: 2rem;
 `;
 
 const StList = styled.li`
+  color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_R_16};
   &:not(:last-child) {
     margin-bottom: 1.2rem;
   }
-  color: ${COLOR.BLACK};
-  ${FONT_STYLES.NEXON_R_16};
 `;
 
 const StMessage = styled.p`
-  color: ${COLOR.GRAY_7E};
   margin-bottom: 1.6rem;
+  color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_R_14};
 `;
