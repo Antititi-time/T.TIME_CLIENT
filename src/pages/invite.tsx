@@ -9,14 +9,34 @@ import Link from 'next/link';
 
 function Invite() {
   useManageScroll();
+  const validator = {
+    teamName: {
+      regEx: /^.{0,14}$/,
+      alertMsg: '팀 이름은 최대 14까지 입력 가능해요',
+    },
+    teamMember: {
+      regEx: /^[0-9]+$/,
+      alertMsg: '팀 인원 수는 숫자만 입력 가능해요',
+    },
+  };
   return (
     <StInvite>
       {/* <ImageDiv src="" alt="초대장이미지" className="letterImg" layout="fill" /> */}
-      <TextTop text={'초대장 만들기'} />
+      <TextTop text="초대장 만들기" />
       <div className="letterImg"></div>
       <StForm action="post">
-        <TeamInput label="프로젝트 또는 팀 이름" placeholder="14자 이내로 입력해 주세요" />
-        <TeamInput label="팀 인원 수" placeholder="팀의 인원 수를 입력해주세요" />
+        <TeamInput
+          label="프로젝트 또는 팀 이름"
+          placeholder="14자 이내로 입력해 주세요"
+          validation={validator.teamName.regEx}
+          alertMsg={validator.teamName.alertMsg}
+        />
+        <TeamInput
+          label="팀 인원 수"
+          placeholder="팀의 인원 수를 입력해주세요"
+          validation={validator.teamMember.regEx}
+          alertMsg={validator.teamMember.alertMsg}
+        />
       </StForm>
       <Link href="/invite/3">
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />

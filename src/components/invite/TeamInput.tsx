@@ -1,19 +1,34 @@
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
+import React, { useState } from 'react';
 interface labelProps {
   label: string;
   placeholder: string;
+  validation: RegExp;
+  alertMsg: string;
 }
 function TeamInput(props: labelProps) {
-  const { label, placeholder } = props;
+  const { label, placeholder, validation, alertMsg } = props;
+  const [inputVal, setInputVal] = useState<string>('');
+  const validate = (e: React.FormEvent<HTMLInputElement>) => {
+    if (!validation.test((e.target as HTMLInputElement).value)) alert(alertMsg);
+    else {
+      setInputVal((e.target as HTMLInputElement).value);
+    }
+  };
   return (
     <StTeamInput>
       <StLabelWrapper>
         <StIcon />
         <StText>{label}</StText>
       </StLabelWrapper>
-      <StInput placeholder={placeholder} />
+      <StInput
+        value={inputVal}
+        placeholder={placeholder}
+        pattern={JSON.stringify(validation)}
+        onInput={(e) => validate(e)}
+      />
     </StTeamInput>
   );
 }
