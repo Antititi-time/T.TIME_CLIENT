@@ -54,6 +54,7 @@ const StTeamName = styled.p`
 
 const StTeamResultText = styled.div`
   display: flex;
+  color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_22}
 
   .logo {
@@ -86,10 +87,12 @@ const StTeamInfoDetail = styled.div`
 
   & > p:first-of-type {
     margin-bottom: 0.6rem;
+    color: ${COLOR.BLACK};
     ${FONT_STYLES.PRETENDARD_B_14};
   }
 
   & > p:nth-of-type(2) {
+    color: ${COLOR.BLACK};
     ${FONT_STYLES.PRETENDARD_B_20};
 
     & > span {

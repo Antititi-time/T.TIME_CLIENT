@@ -7,8 +7,8 @@ import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 function TeamModal() {
-  const [teamCode, setTeamCode] = useState<string>('team');
-  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
+  const [teamCode] = useState<string>('team');
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
   useEffect(() => {
     setKakao();
   }, []);
@@ -40,6 +40,7 @@ export default TeamModal;
 
 const StTeamRecordModal = styled.div`
   width: 100vw;
+  touch-action: none;
 `;
 const StBackground = styled.main`
   display: flex;
@@ -59,9 +60,10 @@ const StTeamModal = styled.section`
 `;
 const StModalHeader = styled.header`
   display: block;
-  width: 7rem;
+  width: 8rem;
   margin: 2.4rem 12.9rem 0rem 12.9rem;
-  font-style: ${FONT_STYLES.PRETENDARD_B_20};
+  white-space: wrap;
+  ${FONT_STYLES.PRETENDARD_B_20};
 `;
 const StButtonContainer = styled.div`
   margin: 4rem 2.3rem 3rem 2.3rem;
@@ -92,7 +94,7 @@ const StButtonIcon = styled.img`
 
 const StButtonText = styled.span`
   color: white;
-  font-style: ${FONT_STYLES.PRETENDARD_B_16};
+  ${FONT_STYLES.PRETENDARD_B_16};
 `;
 const StFooter = styled.div`
   display: flex;
@@ -101,5 +103,5 @@ const StFooter = styled.div`
   height: 6.8rem;
   margin-top: 3rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
-  font-style: ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.NEXON_B_16};
 `;
