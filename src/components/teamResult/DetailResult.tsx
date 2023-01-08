@@ -9,7 +9,7 @@ function DetailResult() {
 
   return (
     <StDetailResult>
-      <h2>상세 결과</h2>
+      <StTitle>상세 결과</StTitle>
       <StResultContainer>
         <StTab>
           {categoryList.map((category) => {
@@ -70,12 +70,13 @@ export default DetailResult;
 
 const StDetailResult = styled.div`
   height: 100%;
+`;
 
-  & > h2 {
-    ${FONT_STYLES.NEXON_B_16};
-    line-height: 2.24rem;
-    margin-bottom: 0.6rem;
-  }
+const StTitle = styled.h2`
+  margin-bottom: 0.6rem;
+  color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_B_16};
+  line-height: 2.24rem;
 `;
 
 const StResultContainer = styled.div`
@@ -122,6 +123,7 @@ const StCategoryTitle = styled.h3`
 
 const StQuestion = styled.p`
   margin-bottom: 1.2rem;
+  color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_14};
   line-height: 2rem;
 `;
@@ -132,6 +134,7 @@ const StAnswerList = styled.div`
   gap: 0.6rem;
   width: 28.9rem;
   height: 17.6rem;
+  color: ${COLOR.BLACK};
 `;
 
 const StAnswerItem = styled.div`
