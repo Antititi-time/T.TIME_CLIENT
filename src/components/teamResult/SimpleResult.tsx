@@ -3,8 +3,12 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
+import { getTeamResult } from '@src/services';
+import { useQuery } from 'react-query';
 
 function SimpleResult() {
+  const { data } = useQuery('teamResult', () => getTeamResult(729262811));
+  console.log(data);
   return (
     <div>
       <StTeamInfo>
