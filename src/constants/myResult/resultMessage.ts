@@ -5,18 +5,18 @@ import { imgSaltbread } from '@src/assets/images';
 import { imgMakarong } from '@src/assets/images';
 export const RESULT_MESSAGE = [
   {
-    input: 'A', 
+    input: 'A',
     result: '협업',
     feedback: '협업 부족',
     title: '다양한 재료가 필요한 타르트',
-    imageUrl: imgTart.src,
+    imageUrl: imgTart,
     resultDetail: [
       '협업이 부족하다고 느끼는 당신!',
       '다양한 재료가 필요한 타르트네요~',
       '다양한 맛의 타르트를 먹으며 협업에 가까워져 보아요!',
     ],
     recommendText: [
-      "팀워크의 좋은 점은 언제나 나를 지지해 줄 수 있는\n누군가가 있다는 거예요.",
+      '팀워크의 좋은 점은 언제나 나를 지지해 줄 수 있는\n누군가가 있다는 거예요.',
       '열정적인 팀과 함께라면 무엇이든 이뤄낼 수 있어요.',
       '동료에게 도움을 요청하세요. 빨리 그리고 자주 말이죠.',
       '뛰어난 팀은 서로 감추지 않아요.\n비난을 두려워하지 않고 약점을 인정해요.',
@@ -27,7 +27,7 @@ export const RESULT_MESSAGE = [
     result: '동기부여',
     feedback: '동기부여 부족',
     title: '재충전이 필요한 마카롱',
-    imageUrl: imgMakarong.src,
+    imageUrl: imgMakarong,
     resultDetail: [
       '동기부여가 부족한 당신!',
       '재충전이 필요한 마카롱이네요!',
@@ -45,7 +45,7 @@ export const RESULT_MESSAGE = [
     result: '성장',
     feedback: '성장 부족',
     title: '번쩍 성장을 꿈꾸는 에클레어',
-    imageUrl: imgEclair.src,
+    imageUrl: imgEclair,
     resultDetail: [
       '더 큰 성장을 꿈꾸는 당신! ',
       '번쩍 성장을 꿈꾸는 에클레어네요!',
@@ -63,7 +63,7 @@ export const RESULT_MESSAGE = [
     result: '개인생활',
     feedback: '개인생활 부족',
     title: '겉바속촉을 꿈꾸는 까눌레',
-    imageUrl: imgCanele.src,
+    imageUrl: imgCanele,
     resultDetail: [
       '개인생활을 많이 못 챙기고 있는 당신!',
       '겉바속촉을 꿈꾸는 까눌레군요!',
@@ -81,7 +81,7 @@ export const RESULT_MESSAGE = [
     result: '건강',
     feedback: '건강 부족',
     title: '눈물 젖은 소금빵',
-    imageUrl: imgSaltbread.src,
+    imageUrl: imgSaltbread,
     resultDetail: [
       '심리적/육체적으로 많이 지쳐있는 당신!',
       '눈물 젖은 소금빵이네요!',

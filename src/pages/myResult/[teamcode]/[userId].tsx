@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { useEffect, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
+import ImageDiv from '@src/components/common/ImageDiv';
 import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
@@ -24,7 +25,7 @@ function MyResult({ userId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
-
+  console.log(data);
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4].questionType);
@@ -51,12 +52,21 @@ function MyResult({ userId }: userIdType) {
                 <p>개인 T.time 결과</p>
               </div>
             </StInfoContainer>
-            <StUserImage src={RESULT_MESSAGE[resultCharacter].imageUrl} />
+            <StUserImage>
+              <ImageDiv
+                src={RESULT_MESSAGE[resultCharacter].imageUrl}
+                alt="userImage"
+                className="userImage"
+                fill={false}
+              />
+            </StUserImage>
             <StResultTitle>
               <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
               <p>{RESULT_MESSAGE[resultCharacter].title}</p>
             </StResultTitle>
-            <StDotsImage src={icDots.src}></StDotsImage>
+            <StDotsImage>
+              <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
+            </StDotsImage>
             <StResultDetail>
               {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
                 <p key={text}>{text}</p>
@@ -144,12 +154,16 @@ const StInfoContainer = styled.div`
     color: ${COLOR.BLUE_TEXT};
   }
 `;
-const StDotsImage = styled.img`
+const StDotsImage = styled.div`
   width: 2.2rem;
   height: 0.4rem;
   margin: 2.3rem 0 1.2rem 0;
 `;
-const StUserImage = styled.img`
+const StUserImage = styled.div`
+  .userImage img {
+    width: 30rem;
+    height: 20rem;
+  }
   width: 30rem;
   height: 20rem;
   margin: 6.2rem 7.6rem 5rem 7.6rem;
@@ -182,7 +196,6 @@ const StRecommendText = styled.article`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* align-items: center; */
   width: 30.4rem;
   height: auto;
   padding: 1.6rem 1.1rem 1.6rem 1.1rem;
