@@ -19,3 +19,30 @@ export type TeamData = {
   teamName: string;
   teamMember: number;
 };
+export type UserData = {
+  date: string;
+  teamName: string;
+  nickname: string;
+  result: [
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+  ];
+};
