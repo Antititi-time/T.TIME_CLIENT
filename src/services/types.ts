@@ -18,6 +18,19 @@ export type Invite = {
 export type TeamData = {
   teamName: string;
   teamMember: number;
+  teamId: number;
+  userId: number;
+};
+export type ChatData = {
+  status: number;
+  success: boolean;
+  message: string;
+  data: {
+    id: number;
+    user_Id: number;
+    team_Id: number;
+    is_completed: boolean;
+  };
 };
 export type TeamScore = {
   grade: number;
