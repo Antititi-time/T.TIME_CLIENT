@@ -62,10 +62,6 @@ function Join() {
     }
   };
 
-  const handleNickSubmit = () => {
-    getData.mutate();
-  };
-
   return (
     <StJoin>
       <TextTop text={'티타임 참여하기'} />
@@ -93,7 +89,7 @@ function Join() {
           value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <StButtonContainer onClick={handleNickSubmit}>
+      <StButtonContainer onClick={() => getData.mutate()}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
       </StButtonContainer>
     </StJoin>
