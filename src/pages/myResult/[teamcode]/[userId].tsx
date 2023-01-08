@@ -150,8 +150,8 @@ const StDotsImage = styled.img`
   margin: 2.3rem 0 1.2rem 0;
 `;
 const StUserImage = styled.img`
-  width: 14.8rem;
-  height: 16.4rem;
+  width: 30rem;
+  height: 20rem;
   margin: 6.2rem 7.6rem 5rem 7.6rem;
 `;
 const StResultTitle = styled.div`
@@ -182,8 +182,9 @@ const StRecommendText = styled.article`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  /* align-items: center; */
   width: 30.4rem;
-  height: 13.2rem;
+  height: auto;
   padding: 1.6rem 1.1rem 1.6rem 1.1rem;
   margin: 1.8rem 0 4.4rem 0;
   border: 0.2rem solid ${COLOR.IVORY_3};
@@ -191,8 +192,12 @@ const StRecommendText = styled.article`
   background-color: ${COLOR.IVORY_5};
   color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_M_12};
-  line-height: 2.2rem;
-  white-space: nowrap;
+  line-height: 1.8rem;
+
+  p {
+    margin: 0.35rem 0rem 0.35rem 0.9rem;
+    text-indent: -0.9rem;
+  }
 `;
 const StGraphTitle = styled.p`
   width: 30.4rem;
