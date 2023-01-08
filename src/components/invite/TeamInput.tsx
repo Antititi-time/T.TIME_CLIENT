@@ -12,9 +12,10 @@ function TeamInput(props: labelProps) {
   const { label, placeholder, validation, alertMsg } = props;
   const [inputVal, setInputVal] = useState<string>('');
   const validate = (e: React.FormEvent<HTMLInputElement>) => {
-    if (!validation.test((e.target as HTMLInputElement).value)) alert(alertMsg);
+    const value = (e.target as HTMLInputElement).value;
+    if (!validation.test(value) && value !== '') alert(alertMsg);
     else {
-      setInputVal((e.target as HTMLInputElement).value);
+      setInputVal(value);
     }
   };
   return (
