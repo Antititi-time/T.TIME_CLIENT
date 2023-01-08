@@ -6,25 +6,18 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
-import { SimpleResultData } from '@src/services/types';
-import { useState } from 'react';
 
 function SimpleResult() {
-  const [simpleResult, setSimpleResult] = useState<SimpleResultData>({});
-  const { data } = useQuery('teamResult', () => getTeamResult(729262811), {
-    onSuccess() {
-      setSimpleResult(data?.data);
-    },
-  });
-  const { date, teamName, good, bad } = simpleResult;
+  const { data } = useQuery('teamResult', () => getTeamResult(729262811));
   const handleDate = (date: string) => {
-    return date.replaceAll('-', '.');
+    return date && date.replaceAll('-', '.');
   };
+  const { date, teamName, good, bad } = data?.data || {};
   return (
     <div>
       <StTeamInfo>
         <StDate>{handleDate(date)}</StDate>
-        <StTeamName>{teamName}</StTeamName>
+        <StTeamName>&#39;{teamName}&#39;</StTeamName>
         <StTeamResultText>
           <p>팀</p>
           <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
