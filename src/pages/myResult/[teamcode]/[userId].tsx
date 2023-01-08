@@ -115,7 +115,7 @@ const StResultCard = styled.main`
   flex-direction: column;
   width: 34.6rem;
   min-height: 104.4rem;
-  padding: 2.5rem 2.2rem 0.8rem 2.2rem;
+  padding: 2.5rem 2.2rem 3rem 2.2rem;
   margin: 0rem 2.2rem 6rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
@@ -193,10 +193,11 @@ const StRecommendText = styled.article`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_M_12};
   line-height: 1.8rem;
-
+  white-space: pre-wrap;
   p {
     margin: 0.35rem 0rem 0.35rem 0.9rem;
     text-indent: -0.9rem;
+    white-space: pre-wrap;
   }
 `;
 const StGraphTitle = styled.p`

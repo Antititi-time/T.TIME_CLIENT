@@ -64,7 +64,7 @@ const StGraphBar = styled.div<graphWidth>`
     background: ${COLOR.BLUE_1};
     z-index: 1;
     animation-name: ${graphAnimation};
-    animation-duration: 4s;
+    animation-duration: 6s;
   }
 `;
 const StGraphScore = styled.p`
