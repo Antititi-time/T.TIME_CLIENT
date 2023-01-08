@@ -84,7 +84,7 @@ function MyResult({ userId }: userIdType) {
               </StGraphContainer>
             </article>
             <StCardFooter>
-              <img src={imgTopLogo.src} />
+              <ImageDiv src={imgTopLogo} alt="logo" fill={false} />
               나와 팀 함께 성장하는 시간
             </StCardFooter>
           </StResultCard>
