@@ -6,8 +6,10 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
+import { useState } from 'react';
 function ConfirmInvite() {
   useManageScroll();
+  const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
   return (
     <StConfirmInvite>
       <TextTop text={'초대장 만들기'} />
@@ -24,8 +26,14 @@ function ConfirmInvite() {
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
       </StInvitationContainer>
-      <StMessage>위 정보로 티타임 초대장을 만드시겠습니까?</StMessage>
-      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'확인'} />
+      {isConfirmed ? (
+        <BottomButton width={28.2} color={COLOR.BLUE_1} text={'초대장 공유하기'} />
+      ) : (
+        <StMessage>위 정보로 티타임 초대장을 만드시겠습니까?</StMessage>
+      )}
+      <StBtnWrapper onClick={() => setIsconfirmed(true)}>
+        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
+      </StBtnWrapper>
     </StConfirmInvite>
   );
 }
@@ -95,7 +103,10 @@ const StList = styled.li`
 `;
 
 const StMessage = styled.p`
-  margin-bottom: 1.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_R_14};
+`;
+
+const StBtnWrapper = styled.div`
+  margin-top: 1.6rem;
 `;

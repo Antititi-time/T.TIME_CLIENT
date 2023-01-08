@@ -26,6 +26,7 @@ const StBottomButton = styled.div<BottomButtonProps>`
   padding: 1.3rem 0rem;
   border-radius: 10rem;
   background-color: ${(props) => props.color};
+  cursor: pointer;
 `;
 
 const StText = styled.p`
