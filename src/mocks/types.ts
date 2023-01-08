@@ -31,3 +31,40 @@ export type ChatData = {
     is_completed: boolean;
   };
 };
+export type TeamScore = {
+  grade: number;
+  questionType: string;
+};
+export type TeamScoreResponse = {
+  status: number;
+  success: boolean;
+  message: string;
+  data: TeamScore[];
+};
+export type UserData = {
+  date: string;
+  teamName: string;
+  nickname: string;
+  result: [
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+  ];
+};

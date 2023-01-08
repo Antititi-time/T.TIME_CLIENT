@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { Favorite, Invite, ChatData } from './types';
+import { Favorite, Invite, UserData, TeamScoreResponse } from './types';
 
 export const handlers = [
   //example.
@@ -35,21 +35,70 @@ export const handlers = [
       ]),
     );
   }),
-  rest.post('/api/team/teamId', (_req, res, ctx) => {
+  rest.get('/api/result/ttime', (_req, res, ctx) => {
+    return res(
+      ctx.json<UserData[]>([
+        {
+          date: '2023-01-05',
+          teamName: '안티티티타임',
+          nickname: '채영',
+          result: [
+            {
+              questionType: 'A',
+              grade: 10,
+            },
+            {
+              questionType: 'C',
+              grade: 8,
+            },
+            {
+              questionType: 'E',
+              grade: 7,
+            },
+            {
+              questionType: 'B',
+              grade: 5,
+            },
+            {
+              questionType: 'D',
+              grade: 2,
+            },
+          ],
+        },
+      ]),
+    );
+  }),
+  rest.post('/api/result/team/score/teamId', (_req, res, ctx) => {
     sleep(1000);
 
     return res(
-      ctx.json<ChatData[]>([
+      ctx.json<TeamScoreResponse[]>([
         {
           status: 200,
           success: true,
-          message: '유저 정보 입력 성공',
-          data: {
-            id: 1,
-            user_Id: 1,
-            team_Id: 2,
-            is_completed: false,
-          },
+          message: '팀 결과 항목별 평균 점수 조회 성공',
+          data: [
+            {
+              grade: 69,
+              questionType: 'b',
+            },
+            {
+              grade: 68,
+              questionType: 'e',
+            },
+            {
+              grade: 68,
+              questionType: 'd',
+            },
+            {
+              grade: 67,
+              questionType: 'a',
+            },
+            {
+              grade: 62,
+              questionType: 'c',
+            },
+          ],
         },
       ]),
     );

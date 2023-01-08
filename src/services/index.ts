@@ -14,3 +14,9 @@ export const enterChat = async (teamId: number, body: object): Promise<TeamData>
   const { data } = await api.post({ url: `/api/team/${teamId}`, data: body });
   return data;
 };
+
+export const getMyResult = async (userId: number) => {
+  const { data } = await api.get({ url: `/api/result/${userId}` });
+  // console.log(data);
+  return data;
+};
