@@ -77,12 +77,12 @@ const StTeamResultText = styled.div`
 
 const StImageContainer = styled.div`
   display: flex;
-  gap: 1.6rem;
-  margin: 5.2rem 0 3.3rem 2.4rem;
+  gap: 1.2rem;
+  margin: 5.2rem 0 2.8rem 2.1rem;
 
   & > div {
-    width: 12rem;
-    height: 12rem;
+    width: 12.5rem;
+    height: 12.5rem;
     background-color: ${COLOR.GRAY_9E};
   }
 `;

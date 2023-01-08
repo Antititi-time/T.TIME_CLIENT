@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
-import { TeamScore, TeamScoreResponse } from '@src/mocks/types';
+import { TeamScore } from '@src/mocks/types';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import { COLOR } from '@src/styles/color';
@@ -8,7 +8,6 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import type { ChartOptions } from 'chart.js';
 import { getTeamChartResult } from '@src/services';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 ChartJS.register();
 
