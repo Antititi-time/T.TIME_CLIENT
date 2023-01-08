@@ -1,19 +1,23 @@
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
-import axios from 'axios';
-import { TeamScore } from '@src/mocks/types';
+import { TeamScore, TeamScoreResponse } from '@src/mocks/types';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { useEffect, useState } from 'react';
 import type { ChartOptions } from 'chart.js';
+import { getTeamChartResult } from '@src/services';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 ChartJS.register();
 
 function Chart() {
-  const { data } = useQuery('favorite', () => axios.post('/api/result/team/score/teamId'));
-  const [teamScoreList, setTeamScoreList] = useState<number[]>();
+  const router = useRouter();
+  const teamCode = Number(router.asPath.split('/')[2]);
+  const { data } = useQuery('favorite', () => getTeamChartResult(teamCode), {
+    enabled: !!teamCode,
+  });
   interface ChartElementsCustomType {
     elements: {
       point: {
@@ -22,20 +26,34 @@ function Chart() {
     };
   }
 
-  useEffect(() => {
-    setTeamScoreList(data?.data[0].data.map((data: TeamScore) => data.grade));
-  }, [data]);
+  //a, b, c, d, e 순으로 지정.
+  const setInOrder = (data: TeamScore[]) => {
+    data.sort(function (a: TeamScore, b: TeamScore) {
+      return a.questionType < b.questionType ? -1 : a.questionType > b.questionType ? 1 : 0;
+    });
+    return data.map((item: TeamScore) => item.grade);
+  };
+
+  //chart 데이터 순서(a, c, b, d, e)에 맞게 지정.
+  const setInChartOrder = (array: number[]) => {
+    const newArray = array.splice(3);
+    newArray?.unshift(array[1]);
+    newArray?.unshift(array[2]);
+    newArray?.unshift(array[0]);
+    return newArray;
+  };
 
   const chartData = {
     labels: ['협업', '성장', '동기부여', '개인생활', '건강'],
     datasets: [
       {
         label: '팀 점수',
-        data: teamScoreList ? teamScoreList : [0],
+        data: data && setInChartOrder(setInOrder(data.data)),
         backgroundColor: 'rgba(255, 108, 61, 0.2)',
       },
     ],
   };
+
   const chartOptions: ChartOptions<'radar'> & ChartElementsCustomType = {
     elements: {
       line: {
