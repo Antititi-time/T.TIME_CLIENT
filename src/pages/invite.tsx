@@ -36,6 +36,7 @@ function Invite() {
           placeholder="팀의 인원 수를 입력해주세요"
           validation={validator.teamMember.regEx}
           alertMsg={validator.teamMember.alertMsg}
+          pattern="\d*"
         />
       </StForm>
       <Link href="/invite/3">

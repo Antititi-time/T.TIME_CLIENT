@@ -6,10 +6,11 @@ interface labelProps {
   label: string;
   placeholder: string;
   validation: RegExp;
+  pattern?: string;
   alertMsg: string;
 }
 function TeamInput(props: labelProps) {
-  const { label, placeholder, validation, alertMsg } = props;
+  const { label, placeholder, validation, alertMsg, pattern } = props;
   const [inputVal, setInputVal] = useState<string>('');
   const validate = (e: React.FormEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
@@ -24,12 +25,7 @@ function TeamInput(props: labelProps) {
         <StIcon />
         <StText>{label}</StText>
       </StLabelWrapper>
-      <StInput
-        value={inputVal}
-        placeholder={placeholder}
-        pattern={JSON.stringify(validation)}
-        onInput={(e) => validate(e)}
-      />
+      <StInput value={inputVal} placeholder={placeholder} pattern={pattern} onInput={(e) => validate(e)} />
     </StTeamInput>
   );
 }
