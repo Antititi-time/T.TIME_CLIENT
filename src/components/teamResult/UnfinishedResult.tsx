@@ -4,6 +4,8 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import BottomButton from '../common/BottomButton';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { useCopyLink } from '../shareModule/ShareModule';
 function UnfinishedResult() {
   return (
     <StResultCard>
@@ -18,9 +20,11 @@ function UnfinishedResult() {
       <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
       <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
       <StCurrentStatus>현재 완료한 팀원 수: 00/00명</StCurrentStatus>
-      <StButtonContainer>
-        <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
-      </StButtonContainer>
+      <CopyToClipboard text="ss">
+        <StButtonContainer onClick={useCopyLink}>
+          <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
+        </StButtonContainer>
+      </CopyToClipboard>
     </StResultCard>
   );
 }
