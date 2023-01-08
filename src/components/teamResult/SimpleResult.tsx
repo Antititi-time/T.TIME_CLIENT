@@ -6,9 +6,12 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
+import { useRouter } from 'next/router';
 
 function SimpleResult() {
-  const { data } = useQuery('teamResult', () => getTeamResult(729262811));
+  const router = useRouter();
+  const teamCode = Number(router.asPath.split('/')[2]);
+  const { data } = useQuery('teamResult', () => getTeamResult(teamCode), { enabled: !!teamCode });
   const handleDate = (date: string) => {
     return date && date.replaceAll('-', '.');
   };

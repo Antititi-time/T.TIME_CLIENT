@@ -56,10 +56,3 @@ export type UserData = {
     },
   ];
 };
-
-export type SimpleResultData = {
-  date: string;
-  teamName: string;
-  good: string;
-  bad: string;
-};
