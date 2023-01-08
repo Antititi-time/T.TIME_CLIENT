@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { Favorite, Invite, TeamScoreResponse } from './types';
+import { Favorite, Invite, UserData, TeamScoreResponse } from './types';
 
 export const handlers = [
   //example.
@@ -31,6 +31,39 @@ export const handlers = [
             teamMember: 11,
             teamCode: 'ndd93w',
           },
+        },
+      ]),
+    );
+  }),
+  rest.get('/api/result/ttime', (_req, res, ctx) => {
+    return res(
+      ctx.json<UserData[]>([
+        {
+          date: '2023-01-05',
+          teamName: '안티티티타임',
+          nickname: '채영',
+          result: [
+            {
+              questionType: 'A',
+              grade: 10,
+            },
+            {
+              questionType: 'C',
+              grade: 8,
+            },
+            {
+              questionType: 'E',
+              grade: 7,
+            },
+            {
+              questionType: 'B',
+              grade: 5,
+            },
+            {
+              questionType: 'D',
+              grade: 2,
+            },
+          ],
         },
       ]),
     );

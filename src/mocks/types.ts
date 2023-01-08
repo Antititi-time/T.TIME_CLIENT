@@ -29,3 +29,30 @@ export type TeamScoreResponse = {
   message: string;
   data: TeamScore[];
 };
+export type UserData = {
+  date: string;
+  teamName: string;
+  nickname: string;
+  result: [
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+    {
+      questionType: string;
+      grade: number;
+    },
+  ];
+};

@@ -2,22 +2,27 @@ import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
 
-function JoinTop() {
-  return <StJoinTop>티타임 참여하기</StJoinTop>;
+interface TextTopProps {
+  text: string;
 }
 
-export default JoinTop;
+function TextTop({ text }: TextTopProps) {
+  return <StTextTop>{text}</StTextTop>;
+}
 
-const StJoinTop = styled.div`
+export default TextTop;
+
+const StTextTop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
   flex-direction: column;
   min-width: 39rem;
   width: 100vw;
   height: 5.8rem;
-  background-color: ${COLOR.WHITE_100};
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(0.5rem);
-  opacity: 0.8;
+  color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_B_20}
 `;
