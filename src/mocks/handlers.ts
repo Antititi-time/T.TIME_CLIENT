@@ -1,5 +1,6 @@
 import { rest } from 'msw';
-import { Favorite, Invite, UserData } from './types';
+import { Favorite, Invite, UserData, TeamScoreResponse } from './types';
+
 export const handlers = [
   //example.
   rest.get('/favorite', (_req, res, ctx) => {
@@ -44,23 +45,58 @@ export const handlers = [
           result: [
             {
               questionType: 'A',
-              score: 10,
+              grade: 10,
             },
             {
               questionType: 'C',
-              score: 8,
+              grade: 8,
             },
             {
               questionType: 'E',
-              score: 7,
+              grade: 7,
             },
             {
               questionType: 'B',
-              score: 5,
+              grade: 5,
             },
             {
               questionType: 'D',
-              score: 2,
+              grade: 2,
+            },
+          ],
+        },
+      ]),
+    );
+  }),
+  rest.post('/api/result/team/score/teamId', (_req, res, ctx) => {
+    sleep(1000);
+
+    return res(
+      ctx.json<TeamScoreResponse[]>([
+        {
+          status: 200,
+          success: true,
+          message: '팀 결과 항목별 평균 점수 조회 성공',
+          data: [
+            {
+              grade: 69,
+              questionType: 'b',
+            },
+            {
+              grade: 68,
+              questionType: 'e',
+            },
+            {
+              grade: 68,
+              questionType: 'd',
+            },
+            {
+              grade: 67,
+              questionType: 'a',
+            },
+            {
+              grade: 62,
+              questionType: 'c',
             },
           ],
         },
