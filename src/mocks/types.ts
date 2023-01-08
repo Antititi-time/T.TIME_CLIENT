@@ -17,8 +17,8 @@ export type Invite = {
 };
 export type TeamData = {
   teamName: string;
-  team_Id: number;
-  user_Id: number;
+  teamId: number;
+  userId: number;
 };
 export type ChatData = {
   status: number;

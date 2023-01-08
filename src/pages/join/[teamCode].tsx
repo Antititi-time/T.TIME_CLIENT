@@ -25,7 +25,7 @@ function Join() {
     {
       onSuccess: (response: TeamData) => {
         router.push({
-          pathname: `/chat/${response?.team_Id}/${response?.user_Id}`,
+          pathname: `/chat/${response?.teamId}/${response?.userId}`,
           query: { teamName: response?.teamName },
         });
       },
