@@ -8,7 +8,8 @@ import { icDots } from '@src/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '@src/hooks/SetConstantIndex';
-import { logoIcon } from '@src/assets/icons';
+import { imgTopLogo } from '@src/assets/images';
+// import { logoIcon } from '@src/assets/icons';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 interface ctxType {
@@ -73,7 +74,7 @@ function MyResult({ userId }: userIdType) {
               </StGraphContainer>
             </article>
             <StCardFooter>
-              <img src={logoIcon.src} />
+              <img src={imgTopLogo.src} />
               나와 팀 함께 성장하는 시간
             </StCardFooter>
           </StResultCard>
