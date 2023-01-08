@@ -1,5 +1,5 @@
 import { api } from './base';
-import { TeamData } from '@src/mocks/types';
+import { TeamData } from './types';
 
 export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
