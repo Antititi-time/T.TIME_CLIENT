@@ -25,7 +25,7 @@ function MyResult({ userId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
-  console.log(data);
+
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4].questionType);
