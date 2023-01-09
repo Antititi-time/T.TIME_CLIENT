@@ -69,3 +69,10 @@ export type UserData = {
     },
   ];
 };
+export type TeamDetailResult = {
+  answer: string;
+  grade: number;
+  nickname: string;
+  questionNumber: number;
+  questionType: string;
+};

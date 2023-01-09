@@ -16,7 +16,7 @@ function SimpleResult() {
     return date && date.replaceAll('-', '.');
   };
   const handleCategory = (category: string) => {
-    const charCode = category.charCodeAt(category.length - 1);
+    const charCode = category?.charCodeAt(category.length - 1);
     const consonantCode = (charCode - 44032) % 28;
     if (consonantCode === 0) {
       return '가';
