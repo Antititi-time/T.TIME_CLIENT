@@ -8,7 +8,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { useCopyLink } from '../shareModule/ShareModule';
 import { useRouter } from 'next/router';
 
-interface completeDateType {
+interface completeDataType {
   completeData: {
     completed: boolean;
     completedNumber: number;
@@ -16,10 +16,12 @@ interface completeDateType {
   };
 }
 
-function UnfinishedResult({ completeData }: completeDateType) {
+function UnfinishedResult({ completeData }: completeDataType) {
   const router = useRouter();
+  console.log(router.asPath.split('/')[3]);
   const teamCode = Number(router.asPath.split('/')[2]);
-  const joinLink = `http://192.168.0.134:3000/join/${teamCode}`;
+  const userCode = router.asPath.split('/')[3];
+  const resultLink = `http://192.168.0.134:3000/teamResult/${teamCode}/${userCode}`;
   const date = new Date();
   const year = date.getFullYear();
   let month: string | number = date.getMonth() + 1;
@@ -43,7 +45,7 @@ function UnfinishedResult({ completeData }: completeDateType) {
       <StCurrentStatus>
         현재 완료한 팀원 수: {completeData?.completedNumber}/{completeData?.totalNumber}명
       </StCurrentStatus>
-      <CopyToClipboard text={joinLink}>
+      <CopyToClipboard text={resultLink}>
         <StButtonContainer onClick={useCopyLink}>
           <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
         </StButtonContainer>
@@ -57,7 +59,7 @@ const StResultCard = styled.main`
   width: 34.6rem;
   height: 53.7rem;
   padding: 2.5rem 2.1rem 0.8rem 2.1rem;
-  margin: 2.9rem 2.2rem 2.9rem 2.2rem;
+  margin: 2.9rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
