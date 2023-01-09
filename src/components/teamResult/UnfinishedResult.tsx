@@ -18,7 +18,7 @@ interface completeDateType {
 
 function UnfinishedResult({ completeData }: completeDateType) {
   const router = useRouter();
-  const teamCode = router.query.userId;
+  const teamCode = Number(router.asPath.split('/')[2]);
   const joinLink = `http://192.168.0.134:3000/join/${teamCode}`;
   const date = new Date();
   const year = date.getFullYear();
