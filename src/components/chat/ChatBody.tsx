@@ -9,53 +9,61 @@ import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
 import WatchMyResult from './WatchMyResultButton';
+import { useState, useEffect } from 'react';
 
 function ChatBody() {
+  const [chat, setChat] = useState(['']);
+  const [index, setIndex] = useState(0);
+  const [textCount, setTextCount] = useState(0);
+  const [input, setInput] = useState(false);
+  const [test, setTest] = useState('');
+
+  useEffect(() => {
+    console.log(index);
+    setTimeout(() => {
+      if (textCount < CHAT_QUESTION_LIST[index].questions.length) {
+        const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
+        setChat(newlist);
+        setTextCount(textCount + 1);
+      }
+    }, 1000);
+    if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
+      setInput(true);
+      setTextCount(0);
+      // setindex(index + 1);
+    }
+  }, [chat, index]);
+
   return (
     <StChatBody>
-      <WatchMyResult />
-      <FirstChoiceAnswer />
-      <InputAnswer />
-      <ChoiceAnswer />
       <ChatStartTalk />
-      {CHAT_QUESTION_LIST.map((questions) => {
-        if (questions.inputQuestion) {
-          return questions.inputQuestion.map((question, index) => {
-            return (
-              <>
-                <AdminProfile />
-                <StInputQuestion key={index}>{question}</StInputQuestion>
-              </>
-            );
-          });
-        } else if (questions.choiceQuestion) {
-          return questions.choiceQuestion?.map((question, index) => {
-            if (typeof question !== 'string') {
-              return (
-                <>
-                  <AdminProfile />
-                  <ImageDiv key={question} src={question} alt="주최자 이모티콘" className="emoticon" />
-                </>
-              );
-            } else {
-              return <StAdminChat key={index}>{question}</StAdminChat>;
-            }
-          });
-        } else {
-          return questions.question?.map((question, index) => {
-            if (typeof question !== 'string') {
-              return (
-                <>
-                  <AdminProfile />
-                  <ImageDiv key={question} src={question} alt="주최자 이모티콘" className="emoticon" />
-                </>
-              );
-            } else {
-              return <StAdminChat key={index}>{question}</StAdminChat>;
-            }
-          });
-        }
+      {chat.map((questions: string, index: number) => {
+        return typeof questions !== 'string' ? (
+          <>
+            <AdminProfile />
+            <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" />
+          </>
+        ) : questions.includes('1점') ? (
+          <>
+            <AdminProfile />
+            <StInputQuestion key={index}>{questions}</StInputQuestion>
+          </>
+        ) : (
+          <>
+            <StAdminChat key={index}>{questions}</StAdminChat>
+          </>
+        );
       })}
+
+      {input == false ? (
+        <></>
+      ) : chat[chat.length - 1].includes('한문장') ? (
+        <InputAnswer />
+      ) : chat[chat.length - 1].includes('이제') ? (
+        <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} />
+      ) : (
+        <ChoiceAnswer />
+      )}
     </StChatBody>
   );
 }
@@ -65,7 +73,7 @@ export default ChatBody;
 const StChatBody = styled.div`
   margin-top: 8.1rem;
   white-space: pre-line;
-  z-index: 1;
+  z-index: 0;
   .emoticon {
     margin: -1.5rem 18rem 1.2rem 6.2rem;
   }
