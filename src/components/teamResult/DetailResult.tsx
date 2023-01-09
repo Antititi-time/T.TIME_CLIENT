@@ -50,7 +50,7 @@ function DetailResult() {
               {questionOneList.map((answer, index) => {
                 return (
                   <StAnswerItem key={index}>
-                    <StName max={answer.grade === 5} min={answer.grade === 1}>
+                    <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
                       {answer.nickname}
                     </StName>
                     <StAnswer>
@@ -66,7 +66,7 @@ function DetailResult() {
               {questionTwoList.map((answer, index) => {
                 return (
                   <StAnswerItem key={index}>
-                    <StName max={answer.grade === 5} min={answer.grade === 1}>
+                    <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
                       {answer.nickname}
                     </StName>
                     <StAnswer>
@@ -165,7 +165,7 @@ const StAnswerItem = styled.div`
   display: flex;
 `;
 
-const StName = styled.p<{ max: boolean; min: boolean }>`
+const StName = styled.p<{ maxStyle: boolean; minStyle: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,8 +173,8 @@ const StName = styled.p<{ max: boolean; min: boolean }>`
   height: 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.GRAY_F9};
-  background-color: ${({ max }) => max && COLOR.ORANGE_2};
-  background-color: ${({ min }) => min && COLOR.BLUE_2};
+  background-color: ${({ maxStyle }) => maxStyle && COLOR.ORANGE_2};
+  background-color: ${({ minStyle }) => minStyle && COLOR.BLUE_2};
   ${FONT_STYLES.PRETENDARD_SB_12};
 `;
 
