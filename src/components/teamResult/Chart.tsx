@@ -66,7 +66,7 @@ function Chart() {
     scales: {
       r: {
         ticks: {
-          stepSize: 25,
+          stepSize: 2.5,
           display: false,
         },
         grid: {
@@ -84,7 +84,7 @@ function Chart() {
           display: false,
         },
         suggestedMin: 0,
-        suggestedMax: 100,
+        suggestedMax: 10,
         backgroundColor: 'white',
       },
     },

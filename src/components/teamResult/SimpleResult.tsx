@@ -15,6 +15,15 @@ function SimpleResult() {
   const handleDate = (date: string) => {
     return date && date.replaceAll('-', '.');
   };
+  const handleCategory = (category: string) => {
+    const charCode = category.charCodeAt(category.length - 1);
+    const consonantCode = (charCode - 44032) % 28;
+    if (consonantCode === 0) {
+      return '가';
+    }
+    return '이';
+  };
+
   const { date, teamName, good, bad } = data?.data || {};
   return (
     <div>
@@ -34,9 +43,11 @@ function SimpleResult() {
       <StTeamInfoDetail>
         <p>우리 팀은요..</p>
         <p>
-          <span style={{ color: COLOR.BLUE_TEXT }}>{filterQuestionType(good)}</span>가 가장 뛰어나고,
+          <span style={{ color: COLOR.BLUE_TEXT }}>{filterQuestionType(good)}</span>
+          {handleCategory(good)} 가장 뛰어나고,
           <br />
-          <span style={{ color: COLOR.ORANGE_TEXT }}>{filterQuestionType(bad)}</span>이 가장 필요해요.
+          <span style={{ color: COLOR.ORANGE_TEXT }}>{filterQuestionType(bad)}</span>
+          {handleCategory(bad)} 가장 필요해요.
         </p>
       </StTeamInfoDetail>
     </div>
