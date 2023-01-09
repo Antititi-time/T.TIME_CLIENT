@@ -7,7 +7,10 @@ import { imgCenturyGothicLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+
 function ConfirmInvite() {
+  const router = useRouter();
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
   return (
@@ -21,7 +24,7 @@ function ConfirmInvite() {
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
-          <StList>총 OO명</StList>
+          <StList>총 {router.query.teamNum}명</StList>
           <StList>질문 개수: 12개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>

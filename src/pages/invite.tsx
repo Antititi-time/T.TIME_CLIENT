@@ -7,11 +7,30 @@ import { COLOR } from '@src/styles/color';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useState } from 'react';
 import router from 'next/router';
+import { useMutation } from 'react-query';
+import { getTeamInfo } from '@src/services';
+import { TeamInfoData } from '@src/services/types';
 
 function Invite() {
+  useManageScroll();
+
   const [teamName, setTeamName] = useState<string>('');
   const [teamMember, setTeamMember] = useState<string>('');
-  useManageScroll();
+  const saveData = useMutation(() => getTeamInfo({ teamName: teamName.trim(), teamMember: Number(teamMember) }), {
+    onSuccess: (response: TeamInfoData) => {
+      console.log(response);
+      router.push({
+        pathname: `/invite/${response?.id}`,
+        query: { teamNum: response?.teamMember, teamCode: response?.id },
+      });
+    },
+    onError: (error) => {
+      // if (error.response.data.message === '') {
+      //   alert('닉네임은 중복이 불가해요.');
+      // }
+      console.log(error);
+    },
+  });
   const validator = {
     teamName: {
       regEx: /^.{0,14}$/,
@@ -23,7 +42,13 @@ function Invite() {
     },
   };
   const toNext = () => {
-    teamMember.trim() && teamName.trim() ? router.push('/invite/3') : alert('팀 이름과 팀 인원 수를 입력해주세요');
+    if (!teamName.trim()) {
+      alert('프로젝트/팀명 입력은 필수에요.');
+    } else if (!teamMember.trim()) {
+      alert('팀 인원 수 입력은 필수에요.');
+    } else {
+      saveData.mutate();
+    }
   };
   return (
     <StInvite>
