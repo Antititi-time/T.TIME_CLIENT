@@ -6,9 +6,11 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
+import { useRouter } from 'next/router';
 function TeamModal() {
-  const [teamCode] = useState<string>('team');
-  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
+  const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/teamResult/${teamCode}/noUser`);
   useEffect(() => {
     setKakao();
   }, []);
@@ -21,7 +23,7 @@ function TeamModal() {
             <CopyToClipboard text={teamLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
-                <StButtonText>초대링크 복사하기</StButtonText>
+                <StButtonText>링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
             <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '팀결과')}>
