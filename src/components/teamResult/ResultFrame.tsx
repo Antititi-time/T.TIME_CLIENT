@@ -7,13 +7,17 @@ import { imgTopLogo } from '@src/assets/images';
 import SimpleResult from './SimpleResult';
 import ImageDiv from '@src/components/common/ImageDiv';
 
-function TeamResult() {
+interface TeamResultProps {
+  teamCode: number;
+}
+
+function TeamResult({ teamCode }: TeamResultProps) {
   return (
     <StFrame>
-      <SimpleResult />
+      <SimpleResult teamCode={teamCode} />
       <StDivder />
-      <Chart />
-      <DetailResult />
+      <Chart teamCode={teamCode} />
+      <DetailResult teamCode={teamCode} />
       <StLogoContainer>
         <ImageDiv src={imgTopLogo} alt="T.time" className="imgTopLogo" fill={true} />
         <p>나와 팀 함께 성장하는 시간</p>

@@ -7,13 +7,14 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import type { ChartOptions } from 'chart.js';
 import { getTeamChartResult } from '@src/services';
-import { useRouter } from 'next/router';
 
 ChartJS.register();
 
-function Chart() {
-  const router = useRouter();
-  const teamCode = Number(router.asPath.split('/')[2]);
+interface TeamResultProps {
+  teamCode: number;
+}
+
+function Chart({ teamCode }: TeamResultProps) {
   const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamCode), {
     enabled: !!teamCode,
   });

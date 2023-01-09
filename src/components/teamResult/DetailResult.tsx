@@ -8,14 +8,18 @@ import { TeamDetailResult } from '@src/services/types';
 import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
 
-function DetailResult() {
+interface TeamResultProps {
+  teamCode: number;
+}
+
+function DetailResult({ teamCode }: TeamResultProps) {
   type CategoryType = '협업' | '동기부여' | '성장' | '개인생활' | '건강';
   const categoryList: CategoryType[] = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState<CategoryType>('협업');
   const { data, refetch } = useQuery('teamDetailResult', () =>
-    getTeamDetailResult(729262811, filterQuestionCategory(currentTab)),
+    getTeamDetailResult(teamCode, filterQuestionCategory(currentTab)),
   );
 
   useEffect(() => {
@@ -49,35 +53,31 @@ function DetailResult() {
           <StQuestionAnswerContainer>
             <StQuestion>Q1. {QUESTION_TEXT[currentTab][0]}</StQuestion>
             <StAnswerList>
-              {questionOneList.map((answer, index) => {
-                return (
-                  <StAnswerItem key={index}>
-                    <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
-                      {answer.nickname}
-                    </StName>
-                    <StAnswer>
-                      <span>{answer.grade}</span>
-                      <p>{answer.answer}</p>
-                    </StAnswer>
-                  </StAnswerItem>
-                );
-              })}
+              {questionOneList.map((answer, index) => (
+                <StAnswerItem key={index}>
+                  <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
+                    {answer.nickname}
+                  </StName>
+                  <StAnswer>
+                    <span>{answer.grade}</span>
+                    <p>{answer.answer}</p>
+                  </StAnswer>
+                </StAnswerItem>
+              ))}
             </StAnswerList>
             <StQuestion>Q2. {QUESTION_TEXT[currentTab][1]}</StQuestion>
             <StAnswerList>
-              {questionTwoList.map((answer, index) => {
-                return (
-                  <StAnswerItem key={index}>
-                    <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
-                      {answer.nickname}
-                    </StName>
-                    <StAnswer>
-                      <span>{answer.grade}</span>
-                      <p>{answer.answer}</p>
-                    </StAnswer>
-                  </StAnswerItem>
-                );
-              })}
+              {questionTwoList.map((answer, index) => (
+                <StAnswerItem key={index}>
+                  <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
+                    {answer.nickname}
+                  </StName>
+                  <StAnswer>
+                    <span>{answer.grade}</span>
+                    <p>{answer.answer}</p>
+                  </StAnswer>
+                </StAnswerItem>
+              ))}
             </StAnswerList>
           </StQuestionAnswerContainer>
         </StTextContainer>

@@ -6,7 +6,6 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
-import { useRouter } from 'next/router';
 import {
   imgTartPositive,
   imgTartNegative,
@@ -20,9 +19,11 @@ import {
   imgSaltbreadNegative,
 } from '@src/assets/images';
 
-function SimpleResult() {
-  const router = useRouter();
-  const teamCode = Number(router.asPath.split('/')[2]);
+interface TeamResultProps {
+  teamCode: number;
+}
+
+function SimpleResult({ teamCode }: TeamResultProps) {
   const { data } = useQuery('teamResult', () => getTeamResult(teamCode), {
     enabled: !!teamCode,
   });
