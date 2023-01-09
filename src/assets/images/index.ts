@@ -1,3 +1,13 @@
 export { default as imgTopLogo } from './img_top_logo.png';
 export { default as imgCenturyGothicLogo } from './img_century_gothic_logo.png';
 export { default as imgKakaoShare } from './img_kakao_share.png';
+export { default as imgCanelePositive } from './img_canele_positive.png';
+export { default as imgCaneleNegative } from './img_canele_negative.png';
+export { default as imgEclairPositive } from './img_eclair_positive.png';
+export { default as imgEclairNegative } from './img_eclair_negative.png';
+export { default as imgMacaronPositive } from './img_eclair_positive.png';
+export { default as imgMacaronNegative } from './img_eclair_negative.png';
+export { default as imgSaltbreadPositive } from './img_eclair_positive.png';
+export { default as imgSaltbreadNegative } from './img_eclair_negative.png';
+export { default as imgTartPositive } from './img_eclair_positive.png';
+export { default as imgTartNegative } from './img_eclair_negative.png';
