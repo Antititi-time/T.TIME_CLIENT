@@ -9,6 +9,7 @@ import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
 
 function DetailResult() {
+  type CategoryType = '협업' | '동기부여' | '성장' | '개인생활' | '건강';
   const categoryList: CategoryType[] = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
@@ -16,8 +17,6 @@ function DetailResult() {
   const { data, refetch } = useQuery('teamDetailResult', () =>
     getTeamDetailResult(729262811, filterQuestionCategory(currentTab)),
   );
-
-  type CategoryType = '협업' | '동기부여' | '성장' | '개인생활' | '건강';
 
   useEffect(() => {
     setQuestionOneList([]);

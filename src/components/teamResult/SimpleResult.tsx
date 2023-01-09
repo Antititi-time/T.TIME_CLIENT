@@ -7,11 +7,22 @@ import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
 import { useRouter } from 'next/router';
+import { IMAGE_SRC } from '@src/constants/teamResult/imageSrc';
 
 function SimpleResult() {
   const router = useRouter();
   const teamCode = Number(router.asPath.split('/')[2]);
-  const { data } = useQuery('teamResult', () => getTeamResult(teamCode), { enabled: !!teamCode });
+  type test = {
+    data: {
+      date: string;
+      teamName: string;
+      good: string;
+      bad: string;
+    };
+  };
+  const { data } = useQuery<test>('teamResult', () => getTeamResult(teamCode), {
+    enabled: !!teamCode,
+  });
   const handleDate = (date: string) => {
     return date && date.replaceAll('-', '.');
   };
@@ -24,21 +35,19 @@ function SimpleResult() {
     return '이';
   };
 
-  const { date, teamName, good, bad } = data?.data || {};
+  const { date, teamName, good, bad } = data?.data || { date: '', teamName: '', good: '', bad: '' };
   return (
-    <div>
-      <StTeamInfo>
-        <StDate>{handleDate(date)}</StDate>
-        <StTeamName>&#39;{teamName}&#39;</StTeamName>
-        <StTeamResultText>
-          <p>팀</p>
-          <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
-          <p>결과</p>
-        </StTeamResultText>
-      </StTeamInfo>
+    <StSimpleResult>
+      <StDate>{handleDate(date)}</StDate>
+      <StTeamName>&#39;{teamName}&#39;</StTeamName>
+      <StTeamResultText>
+        <p>팀</p>
+        <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
+        <p>결과</p>
+      </StTeamResultText>
       <StImageContainer>
-        <div></div>
-        <div></div>
+        <ImageDiv src={IMAGE_SRC.positive[good]} alt="testt" className="emoticon" fill={true} />
+        <ImageDiv src={IMAGE_SRC.negative[bad]} alt="testt" className="emoticon" fill={true} />
       </StImageContainer>
       <StTeamInfoDetail>
         <p>우리 팀은요..</p>
@@ -50,13 +59,13 @@ function SimpleResult() {
           {handleCategory(bad)} 가장 필요해요.
         </p>
       </StTeamInfoDetail>
-    </div>
+    </StSimpleResult>
   );
 }
 
 export default SimpleResult;
 
-const StTeamInfo = styled.div``;
+const StSimpleResult = styled.div``;
 
 const StDate = styled.p`
   margin-bottom: 0.8rem;
@@ -91,10 +100,10 @@ const StImageContainer = styled.div`
   gap: 1.2rem;
   margin: 5.2rem 0 2.8rem 2.1rem;
 
-  & > div {
+  .emoticon {
+    position: relative;
     width: 12.5rem;
     height: 12.5rem;
-    background-color: ${COLOR.GRAY_9E};
   }
 `;
 

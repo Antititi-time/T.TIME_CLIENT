@@ -3,7 +3,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Chart from './Chart';
 import DetailResult from './DetailResult';
-import { logoIcon } from '@src/assets/icons';
+import { imgTopLogo } from '@src/assets/images';
 import SimpleResult from './SimpleResult';
 import ImageDiv from '@src/components/common/ImageDiv';
 
@@ -15,7 +15,7 @@ function TeamResult() {
       <Chart />
       <DetailResult />
       <StLogoContainer>
-        <ImageDiv src={logoIcon} alt="T.time" className="logoIcon" fill={true} />
+        <ImageDiv src={imgTopLogo} alt="T.time" className="imgTopLogo" fill={true} />
         <p>나와 팀 함께 성장하는 시간</p>
       </StLogoContainer>
     </StFrame>
@@ -50,7 +50,7 @@ const StLogoContainer = styled.div`
   ${FONT_STYLES.NEXON_R_12};
   color: ${COLOR.GRAY_7E};
 
-  .logoIcon {
+  .imgTopLogo {
     position: relative;
     width: 5.8rem;
     height: 3rem;
