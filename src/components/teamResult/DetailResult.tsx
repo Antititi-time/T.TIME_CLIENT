@@ -18,14 +18,18 @@ function DetailResult({ teamCode }: TeamResultProps) {
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState<CategoryType>('협업');
-  const { data, refetch } = useQuery('teamDetailResult', () =>
-    getTeamDetailResult(teamCode, filterQuestionCategory(currentTab)),
+  const { data } = useQuery(
+    ['teamDetailResult', currentTab],
+    () => getTeamDetailResult(teamCode, filterQuestionCategory(currentTab)),
+    {
+      enabled: !!teamCode,
+      keepPreviousData: true,
+    },
   );
 
   useEffect(() => {
     setQuestionOneList([]);
     setQuestionTwoList([]);
-    refetch();
     data?.data.map((answer: TeamDetailResult) => {
       if (answer.questionNumber === 1) {
         setQuestionOneList((prev) => [...prev, answer]);
@@ -33,7 +37,9 @@ function DetailResult({ teamCode }: TeamResultProps) {
         setQuestionTwoList((prev) => [...prev, answer]);
       }
     });
-  }, [data, currentTab, refetch]);
+  }, [data, currentTab]);
+
+  console.log(teamCode);
 
   return (
     <StDetailResult>
