@@ -1,16 +1,70 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import JoinTop from '@src/components/join/JoinTop';
+import TextTop from '@src/components/common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
+import { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/router';
+import { enterChat } from '@src/services';
+import { useMutation } from 'react-query';
+import { TeamData } from '@src/mocks/types';
+import useManageScroll from '@src/hooks/UseManageScroll';
 
 function Join() {
+  useManageScroll();
+  const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
+  const [nickname, setNickname] = useState<string>('');
+
+  interface IApiError {
+    response: {
+      data: {
+        message: string;
+        status: number;
+        success: boolean;
+      };
+    };
+  }
+
+  const getData = useMutation(
+    () =>
+      enterChat(Number(teamCode), {
+        nickname: nickname,
+      }),
+    {
+      onSuccess: (response: TeamData) => {
+        router.push({
+          pathname: `/chat/${response?.teamId}/${response?.userId}`,
+          query: { teamName: response?.teamName },
+        });
+      },
+      onError: (error: IApiError) => {
+        if (error.response.data.message === '중복된 닉네임입니다.') {
+          alert('닉네임은 중복이 불가해요.');
+        }
+      },
+    },
+  );
+
+  const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
+    if (e.target.value.length < 5) {
+      if (korean.test(e.currentTarget.value) == false && e.target.value != '') {
+        alert('닉네임은 한글만 입력 가능해요.');
+      } else {
+        setNickname(e.target.value);
+      }
+    } else {
+      alert('닉네임은 최대 4자까지 입력 가능해요.');
+    }
+  };
+
   return (
     <StJoin>
-      <JoinTop />
+      <TextTop text={'티타임 참여하기'} />
       <StAsset />
       <StMainContainer>
         <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
@@ -29,10 +83,15 @@ function Join() {
           <ImageDiv src={icJoinRound} alt="icon_join_round" className="icJoinRound"></ImageDiv>
           <StNickname>참여자 닉네임</StNickname>
         </StRowContainer>
-        <StInputBox placeholder="닉네임을 입력해주세요"></StInputBox>
+        <StInputBox
+          placeholder="닉네임을 입력해주세요"
+          onChange={(e) => handleNickChange(e)}
+          value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+      <StButtonContainer onClick={() => getData.mutate()}>
+        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+      </StButtonContainer>
     </StJoin>
   );
 }
@@ -45,6 +104,7 @@ const StJoin = styled.div`
   align-items: center;
   min-width: 39rem;
   width: 100vw;
+  min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
 `;
@@ -52,7 +112,7 @@ const StJoin = styled.div`
 const StAsset = styled.div`
   width: 16rem;
   height: 11rem;
-  margin-top: 2.7rem;
+  margin-top: 8.5rem;
   background-color: ${COLOR.IVORY_3};
 `;
 
@@ -140,3 +200,5 @@ const StNotice = styled.p`
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_R_12};
 `;
+
+const StButtonContainer = styled.button``;

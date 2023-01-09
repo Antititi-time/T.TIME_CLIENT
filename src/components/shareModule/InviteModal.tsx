@@ -8,8 +8,8 @@ import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 
 function InviteModal() {
-  const [teamCode, setTeamCode] = useState<string>('ttime');
-  const [teamLink, setTeamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
+  const [teamCode] = useState<string>('ttime');
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
 
   useEffect(() => {
     setKakao();
@@ -47,6 +47,7 @@ export default InviteModal;
 
 const StInviteModal = styled.div`
   width: 100vw;
+  touch-action: none;
 `;
 const StBackground = styled.main`
   display: flex;
@@ -69,7 +70,7 @@ const StModalHeader = styled.header`
   display: block;
   width: 7rem;
   margin: 2.4rem 12.9rem 0rem 12.9rem;
-  font-style: ${FONT_STYLES.PRETENDARD_B_20};
+  ${FONT_STYLES.PRETENDARD_B_20};
 `;
 const StInviteArticle = styled.article`
   display: flex;
@@ -84,12 +85,12 @@ const StInviteArticle = styled.article`
 `;
 const StArticleTitle = styled.div`
   width: 22.6rem;
-  font-style: ${FONT_STYLES.PRETENDARD_B_14};
+  ${FONT_STYLES.PRETENDARD_B_14};
 `;
 const StArticleLink = styled.div`
   width: 22.6rem;
   margin-top: 0.4rem;
-  font-style: ${FONT_STYLES.NEXON_R_14};
+  ${FONT_STYLES.NEXON_R_14};
 `;
 const StButtonContainer = styled.div`
   margin: 4rem 2.3rem 4rem 2.3rem;
@@ -120,7 +121,7 @@ const StButtonIcon = styled.img`
 
 const StButtonText = styled.span`
   color: white;
-  font-style: ${FONT_STYLES.PRETENDARD_B_16};
+  ${FONT_STYLES.PRETENDARD_B_16};
 `;
 const StFooter = styled.button`
   display: flex;
@@ -130,5 +131,5 @@ const StFooter = styled.button`
   height: 6.8rem;
   margin-top: 4rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
-  font-style: ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.NEXON_B_16};
 `;

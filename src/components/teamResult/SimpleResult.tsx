@@ -3,8 +3,12 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
+import { getTeamResult } from '@src/services';
+import { useQuery } from 'react-query';
 
 function SimpleResult() {
+  const { data } = useQuery('teamResult', () => getTeamResult(729262811));
+
   return (
     <div>
       <StTeamInfo>
@@ -50,6 +54,7 @@ const StTeamName = styled.p`
 
 const StTeamResultText = styled.div`
   display: flex;
+  color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_22}
 
   .logo {
@@ -82,10 +87,12 @@ const StTeamInfoDetail = styled.div`
 
   & > p:first-of-type {
     margin-bottom: 0.6rem;
+    color: ${COLOR.BLACK};
     ${FONT_STYLES.PRETENDARD_B_14};
   }
 
   & > p:nth-of-type(2) {
+    color: ${COLOR.BLACK};
     ${FONT_STYLES.PRETENDARD_B_20};
 
     & > span {
