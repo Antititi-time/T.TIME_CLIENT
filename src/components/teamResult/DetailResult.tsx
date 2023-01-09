@@ -5,16 +5,19 @@ import { useEffect, useState } from 'react';
 import { getTeamDetailResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
-import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
+import { filterQuestionCategory, filterCategoryIndex } from '@src/hooks/FilterQuestionType';
+import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
 
 function DetailResult() {
   const categoryList = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
-  const [currentTab, setCurrentTab] = useState(categoryList[0]);
+  const [currentTab, setCurrentTab] = useState<CategoryType>('협업');
   const { data, refetch } = useQuery('teamDetailResult', () =>
     getTeamDetailResult(729262811, filterQuestionCategory(currentTab)),
   );
+
+  type CategoryType = '협업' | '동기부여' | '성장' | '개인생활' | '건강';
 
   useEffect(() => {
     setQuestionOneList([]);
@@ -45,7 +48,7 @@ function DetailResult() {
         <StTextContainer>
           <StCategoryTitle>{currentTab}</StCategoryTitle>
           <StQuestionAnswerContainer>
-            <StQuestion>Q1. 팀의 목표와 방향성에 대해 팀 모두가 동일하게 생각하고 있어요.</StQuestion>
+            <StQuestion>Q1. {QUESTION_TEXT[currentTab][0]}</StQuestion>
             <StAnswerList>
               {questionOneList.map((answer, index) => {
                 return (
@@ -61,7 +64,7 @@ function DetailResult() {
                 );
               })}
             </StAnswerList>
-            <StQuestion>Q2. 팀의 목표와 방향성에 대해 팀 모두가 동일하게 생각하고 있어요.</StQuestion>
+            <StQuestion>Q2. {QUESTION_TEXT[currentTab][1]}</StQuestion>
             <StAnswerList>
               {questionTwoList.map((answer, index) => {
                 return (
