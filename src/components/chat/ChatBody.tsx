@@ -8,10 +8,12 @@ import ChatStartTalk from './ChatStartTalk';
 import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
+import WatchMyResult from './WatchMyResultButton';
 
 function ChatBody() {
   return (
     <StChatBody>
+      <WatchMyResult />
       <FirstChoiceAnswer />
       <InputAnswer />
       <ChoiceAnswer />

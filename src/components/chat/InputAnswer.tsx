@@ -18,10 +18,11 @@ function InputAnswer() {
     event.preventDefault();
     console.log(value);
   };
+
   return (
     <StForm onSubmit={onSubmit}>
       <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="ButtonLogo" />
-      <StInput onChange={onChange} value={value} placeholder="답변을 입력해주세요."></StInput>
+      <StInput maxLength={100} onChange={onChange} value={value} placeholder="답변을 입력해주세요."></StInput>
       <button>
         <ImageDiv src={SubmitButton} alt="전송 버튼" className="SubmitButton" />
       </button>
@@ -39,7 +40,7 @@ const StForm = styled.form`
   width: 39rem;
   height: 6.4rem;
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   .ButtonLogo {
@@ -65,6 +66,7 @@ const StInput = styled.input`
   background: ${COLOR.GRAY_EC};
   font-size: 1.7rem;
   ${FONT_STYLES.NEXON_R_16};
+  outline: none;
   &::placeholder {
     color: ${COLOR.GRAY_7E};
     padding-left: 1.383rem;
