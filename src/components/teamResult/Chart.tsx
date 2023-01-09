@@ -25,7 +25,6 @@ function Chart() {
     };
   }
 
-  //a, b, c, d, e 순으로 지정.
   const setInOrder = (data: TeamScore[]) => {
     data.sort(function (a: TeamScore, b: TeamScore) {
       return a.questionType < b.questionType ? -1 : a.questionType > b.questionType ? 1 : 0;
@@ -33,7 +32,6 @@ function Chart() {
     return data.map((item: TeamScore) => item.grade);
   };
 
-  //chart 데이터 순서(a, c, b, d, e)에 맞게 지정.
   const setInChartOrder = (array: number[]) => {
     const newArray = array.splice(3);
     newArray?.unshift(array[1]);

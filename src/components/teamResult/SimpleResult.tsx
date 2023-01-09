@@ -23,20 +23,14 @@ import {
 function SimpleResult() {
   const router = useRouter();
   const teamCode = Number(router.asPath.split('/')[2]);
-  type test = {
-    data: {
-      date: string;
-      teamName: string;
-      good: string;
-      bad: string;
-    };
-  };
-  const { data } = useQuery<test>('teamResult', () => getTeamResult(teamCode), {
+  const { data } = useQuery('teamResult', () => getTeamResult(teamCode), {
     enabled: !!teamCode,
   });
+
   const handleDate = (date: string) => {
     return date && date.replaceAll('-', '.');
   };
+
   const handleCategory = (category: string) => {
     const charCode = category?.charCodeAt(category.length - 1);
     const consonantCode = (charCode - 44032) % 28;
@@ -80,7 +74,7 @@ function SimpleResult() {
     }
   };
 
-  const { date, teamName, good, bad } = data?.data || { date: '', teamName: '', good: '', bad: '' };
+  const { date, teamName, good, bad } = data?.data || {};
   return (
     <StSimpleResult>
       <StDate>{handleDate(date)}</StDate>
