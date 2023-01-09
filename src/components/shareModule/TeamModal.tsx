@@ -7,7 +7,11 @@ import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 import { useRouter } from 'next/router';
-function TeamModal() {
+import { Dispatch, SetStateAction } from 'react';
+interface sharePropsType {
+  setModalState: Dispatch<SetStateAction<boolean>>;
+}
+function TeamModal({ setModalState }: sharePropsType) {
   const router = useRouter();
   const teamCode = router.asPath.split('/')[2];
   const [teamLink] = useState<string>(`http://192.168.0.134:3000/teamResult/${teamCode}/noUser`);
@@ -31,7 +35,7 @@ function TeamModal() {
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
           </StButtonContainer>
-          <StFooter>닫기</StFooter>
+          <StFooter onClick={() => setModalState(false)}>닫기</StFooter>
         </StTeamModal>
       </StBackground>
     </StTeamRecordModal>
@@ -99,7 +103,8 @@ const StButtonText = styled.span`
   color: white;
   ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const StFooter = styled.div`
+const StFooter = styled.button`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

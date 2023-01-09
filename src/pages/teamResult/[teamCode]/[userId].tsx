@@ -8,7 +8,7 @@ function TeamResult() {
   const [modalState, setModalState] = useState(false);
   return (
     <StTeamResult>
-      {modalState ? <TeamModal /> : null}
+      {modalState ? <TeamModal setModalState={setModalState} /> : null}
       <LogoTop />
       <ResultFrame />
       <BottomButtonContainer isUser={true} setModalState={setModalState} />
