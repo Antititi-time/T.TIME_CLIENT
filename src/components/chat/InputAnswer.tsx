@@ -13,10 +13,12 @@ function InputAnswer() {
 
   const handleResizeTextHeight = () => {
     if (textarea.current != null) {
+      console.log(textarea.current.scrollHeight);
       if (textarea.current.scrollHeight > 96) {
         textarea.current.style.height = 96 * 0.1 + 'rem';
         textarea.current.style.overflow = 'scroll';
       } else {
+        textarea.current.style.height = '4rem';
         textarea.current.style.height = textarea.current.scrollHeight * 0.1 + 'rem';
         textarea.current.style.overflow = 'hidden';
       }
@@ -96,6 +98,7 @@ const StInput = styled.textarea`
   font-size: 1.7rem;
   overflow: hidden;
   outline: none;
+  resize: none;
   ${FONT_STYLES.NEXON_R_16};
   &::placeholder {
     color: ${COLOR.GRAY_7E};
