@@ -13,7 +13,6 @@ function InputAnswer() {
 
   const handleResizeTextHeight = () => {
     if (textarea.current != null) {
-      console.log(textarea.current.scrollHeight);
       if (textarea.current.scrollHeight > 96) {
         textarea.current.style.height = 96 * 0.1 + 'rem';
         textarea.current.style.overflow = 'scroll';
@@ -33,7 +32,7 @@ function InputAnswer() {
 
   return (
     <StForm onSubmit={onSubmit}>
-      <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="ButtonLogo" />
+      <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="buttonLogo" />
       <StInput
         ref={textarea}
         rows={1}
@@ -63,20 +62,19 @@ const StForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   position: fixed;
-  width: 39rem;
+  width: 100vw;
   height: auto;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   z-index: 4;
-  .ButtonLogo {
+  .buttonLogo {
     width: 2.4rem;
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
   }
 
-  .SubmitButton {
+  .submitButton {
     position: absolute;
     bottom: 2.7rem;
     right: 2.3rem;
@@ -89,8 +87,7 @@ const StInput = styled.textarea`
   height: 4rem;
   bottom: 2.4rem;
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;
-  margin-bottom: 2.5rem;
-  margin-top: 0.8rem;
+  margin: 0.8rem 0 2.5rem 0;
   border: 0.1rem solid ${COLOR.GRAY_EC};
   border-radius: 2.6rem;
   color: ${COLOR.GRAY_7E};
