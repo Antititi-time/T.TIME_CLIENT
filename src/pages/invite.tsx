@@ -5,9 +5,12 @@ import TextTop from '@src/components/common/TextTop';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import useManageScroll from '@src/hooks/UseManageScroll';
-import Link from 'next/link';
+import { useState } from 'react';
+import router from 'next/router';
 
 function Invite() {
+  const [teamName, setTeamName] = useState<string>('');
+  const [teamMember, setTeamMember] = useState<string>('');
   useManageScroll();
   const validator = {
     teamName: {
@@ -18,6 +21,9 @@ function Invite() {
       regEx: /^[0-9]+$/,
       alertMsg: '팀 인원 수는 숫자만 입력 가능해요',
     },
+  };
+  const toNext = () => {
+    teamMember.trim() && teamName.trim() ? router.push('/invite/3') : alert('팀 이름과 팀 인원 수를 입력해주세요');
   };
   return (
     <StInvite>
@@ -30,6 +36,8 @@ function Invite() {
           placeholder="14자 이내로 입력해 주세요"
           validation={validator.teamName.regEx}
           alertMsg={validator.teamName.alertMsg}
+          inputVal={teamName}
+          setInput={setTeamName}
         />
         <TeamInput
           label="팀 인원 수"
@@ -37,11 +45,13 @@ function Invite() {
           validation={validator.teamMember.regEx}
           alertMsg={validator.teamMember.alertMsg}
           pattern="\d*"
+          inputVal={teamMember}
+          setInput={setTeamMember}
         />
       </StForm>
-      <Link href="/invite/3">
+      <div onClick={toNext}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
-      </Link>
+      </div>
     </StInvite>
   );
 }
