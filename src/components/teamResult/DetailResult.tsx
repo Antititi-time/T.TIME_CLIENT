@@ -136,7 +136,7 @@ const StTextContainer = styled.div`
 `;
 
 const StCategoryTitle = styled.h3`
-  margin-bottom: 2.05rem;
+  margin-bottom: 2rem;
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
 `;
