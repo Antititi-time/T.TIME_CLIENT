@@ -10,8 +10,9 @@ import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction } from 'react';
 interface sharePropsType {
   setModalState: Dispatch<SetStateAction<boolean>>;
+  teamName: string;
 }
-function TeamModal({ setModalState }: sharePropsType) {
+function TeamModal({ setModalState }: sharePropsType, { teamName }: sharePropsType) {
   const router = useRouter();
   const teamCode = router.asPath.split('/')[2];
   const [teamLink] = useState<string>(`http://192.168.0.134:3000/teamResult/${teamCode}/noUser`);
@@ -30,7 +31,7 @@ function TeamModal({ setModalState }: sharePropsType) {
                 <StButtonText>결과링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '팀결과')}>
+            <StKakaoButton onClick={() => shareKakao(teamLink, teamName, '팀결과')}>
               <StButtonIcon src={icKakao.src} />
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>

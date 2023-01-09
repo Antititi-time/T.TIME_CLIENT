@@ -33,7 +33,7 @@ function TeamResult() {
   });
   return (
     <StTeamResult>
-      {modalState ? <TeamModal setModalState={setModalState} /> : null}
+      {modalState ? <TeamModal teamName={data.teamName} setModalState={setModalState} /> : null}
       <LogoTop />
       {!data?.completed ? (
         <>
