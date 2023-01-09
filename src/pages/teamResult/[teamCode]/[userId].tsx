@@ -2,23 +2,42 @@ import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
 import BottomButtonContainer from '@src/components/teamResult/BottomButtonContainer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TeamModal from '@src/components/shareModule/TeamModal';
+import { useRouter } from 'next/router';
 function TeamResult() {
   const [modalState, setModalState] = useState(false);
+  const [isUser, setIsUser] = useState(false);
+
+  const router = useRouter();
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    setUserId(router.asPath.split('/')[3]);
+  }, [router.asPath]);
+  useEffect(() => {
+    if (userId != '[userId]' && userId) {
+      const localId = localStorage.getItem('userId');
+      if (userId != 'noUser') {
+        setIsUser(true);
+      } else if (localId) {
+        setIsUser(true);
+        setUserId(localId);
+      }
+    }
+  }, [userId]);
+
   return (
     <StTeamResult>
       {modalState ? <TeamModal setModalState={setModalState} /> : null}
       <LogoTop />
       <ResultFrame />
-      <BottomButtonContainer isUser={true} setModalState={setModalState} />
+      <BottomButtonContainer isUser={isUser} setModalState={setModalState} />
       <StBackground />
     </StTeamResult>
   );
 }
-
 export default TeamResult;
-
 const StTeamResult = styled.div`
   display: flex;
   flex-direction: column;
