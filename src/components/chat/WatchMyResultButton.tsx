@@ -16,10 +16,10 @@ const StWatchMyResultButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
   width: 39rem;
   height: 7.6rem;
-  position: fixed;
-  z-index: 1;
   bottom: 0;
+  z-index: 1;
   background-color: ${COLOR.WHITE_100};
 `;
