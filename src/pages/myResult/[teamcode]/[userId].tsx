@@ -10,7 +10,6 @@ import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { imgTopLogo } from '@src/assets/images';
-// import { logoIcon } from '@src/assets/icons';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 interface ctxType {
