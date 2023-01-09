@@ -5,26 +5,29 @@ import { useEffect, useState } from 'react';
 import { getTeamDetailResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
+import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 
 function DetailResult() {
   const categoryList = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState(categoryList[0]);
-  const { data } = useQuery('teamDetailResult', () => getTeamDetailResult(729262811, 'a'));
+  const { data, refetch } = useQuery('teamDetailResult', () =>
+    getTeamDetailResult(729262811, filterQuestionCategory(currentTab)),
+  );
 
   useEffect(() => {
-    data?.data.forEach((answer: TeamDetailResult) => {
+    setQuestionOneList([]);
+    setQuestionTwoList([]);
+    refetch();
+    data?.data.map((answer: TeamDetailResult) => {
       if (answer.questionNumber === 1) {
         setQuestionOneList((prev) => [...prev, answer]);
       } else {
         setQuestionTwoList((prev) => [...prev, answer]);
       }
     });
-  }, [data]);
-
-  console.log(questionOneList);
-  console.log(questionTwoList);
+  }, [data, currentTab, refetch]);
 
   return (
     <StDetailResult>
@@ -44,9 +47,9 @@ function DetailResult() {
           <StQuestionAnswerContainer>
             <StQuestion>Q1. 팀의 목표와 방향성에 대해 팀 모두가 동일하게 생각하고 있어요.</StQuestion>
             <StAnswerList>
-              {questionOneList.map((answer) => {
+              {questionOneList.map((answer, index) => {
                 return (
-                  <StAnswerItem key={answer.nickname}>
+                  <StAnswerItem key={index}>
                     <StName max={answer.grade === 5} min={answer.grade === 1}>
                       {answer.nickname}
                     </StName>
@@ -60,9 +63,9 @@ function DetailResult() {
             </StAnswerList>
             <StQuestion>Q2. 팀의 목표와 방향성에 대해 팀 모두가 동일하게 생각하고 있어요.</StQuestion>
             <StAnswerList>
-              {questionTwoList.map((answer) => {
+              {questionTwoList.map((answer, index) => {
                 return (
-                  <StAnswerItem key={answer.nickname}>
+                  <StAnswerItem key={index}>
                     <StName max={answer.grade === 5} min={answer.grade === 1}>
                       {answer.nickname}
                     </StName>
