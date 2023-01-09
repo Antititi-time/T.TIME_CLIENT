@@ -3,16 +3,22 @@ import { COLOR } from '@src/styles/color';
 import BottomButton from '../common/BottomButton';
 import { SetStateAction } from 'react';
 import { Dispatch } from 'react';
+import Link from 'next/link';
 interface buttonPropsType {
   isUser: boolean;
   setModalState: Dispatch<SetStateAction<boolean>>;
+  userId: string;
+  teamId: string;
 }
-function BottomButtonContainer({ isUser, setModalState }: buttonPropsType) {
+function BottomButtonContainer({ isUser, setModalState, userId, teamId }: buttonPropsType) {
+  const myResultUrl = `/myResult/${teamId}/${userId}`;
   return (
     <StButtomButtonContainer>
       {isUser ? (
         <>
-          <BottomButton width={16} color={COLOR.BLUE_1} text={'내 결과 다시보기'} />
+          <Link href={myResultUrl}>
+            <BottomButton width={16} color={COLOR.BLUE_1} text={'내 결과 다시보기'} />
+          </Link>
           <BottomButton onClick={() => setModalState(true)} width={16} color={COLOR.ORANGE_1} text={'공유하기'} />
         </>
       ) : (

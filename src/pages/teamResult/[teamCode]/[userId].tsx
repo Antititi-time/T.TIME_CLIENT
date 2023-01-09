@@ -12,7 +12,7 @@ function TeamResult() {
   const [modalState, setModalState] = useState(false);
   const [isUser, setIsUser] = useState(false);
   const router = useRouter();
-  const teamCode = Number(router.asPath.split('/')[2]);
+  const teamId = router.asPath.split('/')[2];
   const [userId, setUserId] = useState('');
   useEffect(() => {
     setUserId(router.asPath.split('/')[3]);
@@ -28,8 +28,8 @@ function TeamResult() {
       }
     }
   }, [userId]);
-  const { data } = useQuery('teamResult', () => getCompleted(teamCode), {
-    enabled: !!teamCode,
+  const { data } = useQuery('teamResult', () => getCompleted(Number(teamId)), {
+    enabled: !!teamId,
   });
   return (
     <StTeamResult>
@@ -38,7 +38,7 @@ function TeamResult() {
       {!data?.completed ? (
         <>
           <ResultFrame />
-          <BottomButtonContainer isUser={isUser} setModalState={setModalState} />
+          <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
           <StBackground />
         </>
       ) : (
