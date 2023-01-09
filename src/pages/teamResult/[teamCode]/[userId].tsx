@@ -4,14 +4,16 @@ import ResultFrame from '@src/components/teamResult/ResultFrame';
 import BottomButtonContainer from '@src/components/teamResult/BottomButtonContainer';
 import { useState, useEffect } from 'react';
 import TeamModal from '@src/components/shareModule/TeamModal';
+import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
 import { useRouter } from 'next/router';
-function TeamResult() {
+import { useQuery } from 'react-query';
+import { getCompleted } from '../../../services/index';
   const [modalState, setModalState] = useState(false);
   const [isUser, setIsUser] = useState(false);
 
   const router = useRouter();
+  const teamCode = Number(router.asPath.split('/')[2]);
   const [userId, setUserId] = useState('');
-
   useEffect(() => {
     setUserId(router.asPath.split('/')[3]);
   }, [router.asPath]);
@@ -26,14 +28,22 @@ function TeamResult() {
       }
     }
   }, [userId]);
-
+  const { data } = useQuery('teamResult', () => getCompleted(teamCode), {
+    enabled: !!teamCode,
+  });
   return (
     <StTeamResult>
       {modalState ? <TeamModal setModalState={setModalState} /> : null}
       <LogoTop />
-      <ResultFrame />
+      {data?.completed ? (
+        <>
+          <ResultFrame />
       <BottomButtonContainer isUser={isUser} setModalState={setModalState} />
-      <StBackground />
+          <StBackground />
+        </>
+      ) : (
+        <UnfinishedResult completeData={data} />
+      )}
     </StTeamResult>
   );
 }
