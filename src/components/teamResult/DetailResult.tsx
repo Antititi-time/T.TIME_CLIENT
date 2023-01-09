@@ -190,11 +190,14 @@ const StAnswer = styled.div`
   background-color: ${COLOR.GRAY_F9};
 
   & > span {
+    height: 100%;
+    padding: 0.4rem 0;
     margin-left: 0.8rem;
     ${FONT_STYLES.PRETENDARD_B_12};
   }
 
   & > p {
+    padding: 0.4rem 0.8rem 0.4rem 0;
     margin-left: 0.8rem;
     ${FONT_STYLES.PRETENDARD_M_12};
   }
