@@ -37,7 +37,7 @@ function TeamResult() {
       <LogoTop />
       {!data?.completed ? (
         <>
-          <ResultFrame />
+          <ResultFrame teamCode={teamCode} />
           <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
           <StBackground />
         </>
