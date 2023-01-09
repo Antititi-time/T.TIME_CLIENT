@@ -6,15 +6,34 @@ import { imgCenturyGothicLogo } from '@src/assets/images';
 import BottomButton from '../common/BottomButton';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useCopyLink } from '../shareModule/ShareModule';
-import { useState } from 'react';
-interface simpleType {
-  teamcode: number;
+import { useRouter } from 'next/router';
+
+interface completeDateType {
+  completeData: {
+    completed: boolean;
+    completedNumber: number;
+    totalNumber: number;
+  };
 }
-function UnfinishedResult(teamcode: simpleType) {
-  const [joinLink] = useState(`http://192.168.0.134:3000/join/${teamcode.teamcode}`);
+
+function UnfinishedResult({ completeData }: completeDateType) {
+  const router = useRouter();
+  const teamCode = router.query.userId;
+  const joinLink = `http://192.168.0.134:3000/join/${teamCode}`;
+  const date = new Date();
+  const year = date.getFullYear();
+  let month: string | number = date.getMonth() + 1;
+  let day: string | number = date.getDate();
+  if (month < 10) {
+    month = '0' + month;
+  }
+  if (day < 10) {
+    day = '0' + day;
+  }
+
   return (
     <StResultCard>
-      <StDate>2023.01.08</StDate>
+      <StDate>{year + '.' + month + '.' + day}</StDate>
       <StTeamName>‘안티티티티티티티티티티티타임’</StTeamName>
       <StTeamResultText>
         <p>팀</p>
@@ -24,7 +43,9 @@ function UnfinishedResult(teamcode: simpleType) {
       <StUnfinishImage src=" " />
       <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
       <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
-      <StCurrentStatus>현재 완료한 팀원 수: 00/00명</StCurrentStatus>
+      <StCurrentStatus>
+        현재 완료한 팀원 수: {completeData?.completedNumber}/{completeData?.totalNumber}명
+      </StCurrentStatus>
       <CopyToClipboard text={joinLink}>
         <StButtonContainer onClick={useCopyLink}>
           <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
@@ -98,7 +119,7 @@ const StCurrentStatus = styled.p`
   ${FONT_STYLES.PRETENDARD_R_14}
 `;
 const StButtonContainer = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
 `;

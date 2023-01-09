@@ -20,3 +20,8 @@ export const getMyResult = async (userId: number) => {
   // console.log(data);
   return data;
 };
+export const getCompleted = async (teamId: number) => {
+  const { data } = await api.get({ url: `/api/team/check/${teamId}` });
+
+  return data;
+};

@@ -2,16 +2,25 @@ import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
 import BottomButtonContainer from '@src/components/common/BottomButtonContainer';
-// import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
+import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
+import { useQuery } from 'react-query';
+import { getCompleted } from '../../../services/index';
 
 function TeamResult() {
+  const { data } = useQuery('teamResult', () => getCompleted(729262811));
+
   return (
     <StTeamResult>
       <LogoTop />
-      {/* <UnfinishedResult teamcode={1} /> */}
-      <ResultFrame />
-      <BottomButtonContainer />
-      <StBackground />
+      {data?.completed ? (
+        <>
+          <ResultFrame />
+          <BottomButtonContainer />
+          <StBackground />
+        </>
+      ) : (
+        <UnfinishedResult completeData={data} />
+      )}
     </StTeamResult>
   );
 }
