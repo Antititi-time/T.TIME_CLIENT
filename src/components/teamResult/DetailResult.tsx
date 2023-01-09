@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 import { getTeamDetailResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
-import { filterQuestionCategory, filterCategoryIndex } from '@src/hooks/FilterQuestionType';
+import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
 
 function DetailResult() {
-  const categoryList = ['협업', '동기부여', '성장', '개인생활', '건강'];
+  const categoryList: CategoryType[] = ['협업', '동기부여', '성장', '개인생활', '건강'];
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState<CategoryType>('협업');

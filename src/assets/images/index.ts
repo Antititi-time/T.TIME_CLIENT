@@ -11,3 +11,8 @@ export { default as imgSaltbreadPositive } from './img_eclair_positive.png';
 export { default as imgSaltbreadNegative } from './img_eclair_negative.png';
 export { default as imgTartPositive } from './img_eclair_positive.png';
 export { default as imgTartNegative } from './img_eclair_negative.png';
+export { default as imgCanele } from './img_canele.png';
+export { default as imgEclair } from './img_eclair.png';
+export { default as imgMakarong } from './img_makarong.png';
+export { default as imgSaltbread } from './img_saltbread.png';
+export { default as imgTart } from './img_tart.png';
