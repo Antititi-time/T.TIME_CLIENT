@@ -8,7 +8,7 @@ interface buttonPropsType {
   isUser: boolean;
   setModalState: Dispatch<SetStateAction<boolean>>;
   userId: string;
-  teamId: string;
+  teamId: number;
 }
 function BottomButtonContainer({ isUser, setModalState, userId, teamId }: buttonPropsType) {
   const myResultUrl = `/myResult/${teamId}/${userId}`;

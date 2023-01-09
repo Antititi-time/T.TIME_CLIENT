@@ -18,7 +18,6 @@ interface completeDataType {
 
 function UnfinishedResult({ completeData }: completeDataType) {
   const router = useRouter();
-  console.log(router.asPath.split('/')[3]);
   const teamCode = Number(router.asPath.split('/')[2]);
   const userCode = router.asPath.split('/')[3];
   const resultLink = `http://192.168.0.134:3000/teamResult/${teamCode}/${userCode}`;
