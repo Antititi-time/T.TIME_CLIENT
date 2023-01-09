@@ -65,7 +65,7 @@ export default ChatBody;
 const StChatBody = styled.div`
   margin-top: 8.1rem;
   white-space: pre-line;
-  z-index: 1;
+  z-index: 0;
   .emoticon {
     margin: -1.5rem 18rem 1.2rem 6.2rem;
   }
