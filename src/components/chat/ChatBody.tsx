@@ -11,6 +11,7 @@ import FirstChoiceAnswer from './FirstChoiceAnswer';
 import WatchMyResult from './WatchMyResultButton';
 
 function ChatBody() {
+  const UserAnswer = '아ㅓ라어ㅏㅓ아러아렁ㄴ런아ㅣ러ㅓ아런아ㅓ라ㅣ너라넝라ㅣㅓㄴ아ㅣ러ㅏㅓㄹㄴ아ㅣㅓㄹ란이ㅓ라ㅣㄴ';
   return (
     <StChatBody>
       <WatchMyResult />
@@ -25,6 +26,11 @@ function ChatBody() {
               <>
                 <AdminProfile />
                 <StInputQuestion key={index}>{question}</StInputQuestion>
+                <StAnswerWrapper>
+                  <StAnswer>
+                    <StPosition>{UserAnswer}</StPosition>
+                  </StAnswer>
+                </StAnswerWrapper>
               </>
             );
           });
@@ -61,6 +67,41 @@ function ChatBody() {
 }
 
 export default ChatBody;
+const StAnswerWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+`;
+
+const StPosition = styled.div`
+  display: inline-block;
+`;
+
+const StAnswer = styled.div`
+  display: inline-block;
+  position: relative;
+  max-width: 23.1rem;
+  width: auto;
+  height: auto;
+  padding: 0.8rem 1.2rem;
+
+  /* margin: 1.6rem 0rem 0rem 6.2rem; */
+  border-radius: 1rem;
+  background-color: ${COLOR.ORANGE_2};
+  color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_R_14};
+  margin-right: 1.2rem;
+  :after {
+    position: absolute;
+    top: -0.67rem;
+    right: -0.7rem;
+    transform: rotate(46deg);
+    border-top: 0rem solid transparent;
+    border-left: 0rem solid transparent;
+    border-right: 1.5rem solid transparent;
+    border-bottom: 1.5rem solid ${COLOR.ORANGE_2};
+    content: '';
+  }
+`;
 
 const StChatBody = styled.div`
   display: flex;
