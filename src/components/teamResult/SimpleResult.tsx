@@ -7,7 +7,18 @@ import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
 import { useRouter } from 'next/router';
-import { IMAGE_SRC } from '@src/constants/teamResult/imageSrc';
+import {
+  imgTartPositive,
+  imgTartNegative,
+  imgMacaronPositive,
+  imgMacaronNegative,
+  imgEclairPositive,
+  imgEclairNegative,
+  imgCanelePositive,
+  imgCaneleNegative,
+  imgSaltbreadPositive,
+  imgSaltbreadNegative,
+} from '@src/assets/images';
 
 function SimpleResult() {
   const router = useRouter();
@@ -35,6 +46,40 @@ function SimpleResult() {
     return '이';
   };
 
+  const handleImgSrc = (isGood: boolean, category: string) => {
+    if (isGood) {
+      switch (category) {
+        case 'a':
+          return imgTartPositive;
+        case 'b':
+          return imgMacaronPositive;
+        case 'c':
+          return imgEclairPositive;
+        case 'd':
+          return imgCanelePositive;
+        case 'e':
+          return imgSaltbreadPositive;
+        default:
+          return imgTartPositive;
+      }
+    } else {
+      switch (category) {
+        case 'a':
+          return imgTartNegative;
+        case 'b':
+          return imgMacaronNegative;
+        case 'c':
+          return imgEclairNegative;
+        case 'd':
+          return imgCaneleNegative;
+        case 'e':
+          return imgSaltbreadNegative;
+        default:
+          return imgTartNegative;
+      }
+    }
+  };
+
   const { date, teamName, good, bad } = data?.data || { date: '', teamName: '', good: '', bad: '' };
   return (
     <StSimpleResult>
@@ -46,8 +91,8 @@ function SimpleResult() {
         <p>결과</p>
       </StTeamResultText>
       <StImageContainer>
-        <ImageDiv src={IMAGE_SRC.positive[good]} alt="testt" className="emoticon" fill={true} />
-        <ImageDiv src={IMAGE_SRC.negative[bad]} alt="testt" className="emoticon" fill={true} />
+        <ImageDiv src={handleImgSrc(true, good)} alt="testt" className="emoticon" fill={true} />
+        <ImageDiv src={handleImgSrc(false, bad)} alt="testt" className="emoticon" fill={true} />
       </StImageContainer>
       <StTeamInfoDetail>
         <p>우리 팀은요..</p>
