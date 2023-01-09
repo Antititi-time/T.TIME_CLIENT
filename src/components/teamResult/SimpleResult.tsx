@@ -136,7 +136,6 @@ const StTeamResultText = styled.div`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_22}
   line-height: 2.64rem;
-
   .logo {
     position: relative;
     width: 7.2rem;
@@ -149,7 +148,6 @@ const StImageContainer = styled.div`
   display: flex;
   gap: 1.2rem;
   margin: 5.2rem 0 2.8rem 2.1rem;
-
   .emoticon {
     position: relative;
     width: 12.5rem;
@@ -164,17 +162,14 @@ const StTeamInfoDetail = styled.div`
   width: 100%;
   margin-bottom: 5.2rem;
   text-align: center;
-
   & > p:first-of-type {
     margin-bottom: 0.6rem;
     color: ${COLOR.BLACK};
     ${FONT_STYLES.PRETENDARD_B_14};
   }
-
   & > p:nth-of-type(2) {
     color: ${COLOR.BLACK};
     ${FONT_STYLES.PRETENDARD_B_20};
-
     & > span {
       ${FONT_STYLES.PRETENDARD_EB_20};
     }
