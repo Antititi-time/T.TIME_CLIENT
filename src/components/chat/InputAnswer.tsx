@@ -8,8 +8,15 @@ import React, { useState, useRef } from 'react';
 
 function InputAnswer() {
   const textarea = useRef<HTMLTextAreaElement>(null);
-  const countTextNumber = '000';
+  // const countTextNumber = '000';
   const [value, setValue] = useState('');
+  const [text, setText] = useState(0);
+
+  const handleCountText = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    if (event.currentTarget.value.length >= 0) {
+      setText(event.currentTarget.value.length);
+    }
+  };
 
   const handleResizeTextHeight = () => {
     if (textarea.current != null) {
@@ -36,14 +43,17 @@ function InputAnswer() {
       <StInput
         ref={textarea}
         rows={1}
-        maxLength={100}
-        onChange={handleResizeTextHeight}
+        maxLength={99}
+        onChange={(event) => {
+          handleResizeTextHeight();
+          handleCountText(event);
+        }}
         placeholder="답변을 입력해주세요."
         className="inputBox"></StInput>
       <button>
         <ImageDiv src={SubmitButton} alt="전송 버튼" className="SubmitButton" />
       </button>
-      <StCountTextNumber> {countTextNumber} / 100자 </StCountTextNumber>
+      <StCountTextNumber> {text} / 100자 </StCountTextNumber>
     </StForm>
   );
 }
@@ -52,8 +62,8 @@ export default InputAnswer;
 
 const StCountTextNumber = styled.div`
   position: absolute;
-  right: 3.2rem;
-  bottom: 0.7rem;
+  right: 2rem;
+  bottom: 0.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
 `;
