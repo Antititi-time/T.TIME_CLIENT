@@ -27,7 +27,7 @@ function TeamModal({ setModalState }: sharePropsType) {
             <CopyToClipboard text={teamLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
-                <StButtonText>링크 복사하기</StButtonText>
+                <StButtonText>결과링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
             <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '팀결과')}>
