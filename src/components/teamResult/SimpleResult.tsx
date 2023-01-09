@@ -5,10 +5,11 @@ import { imgCenturyGothicLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
+import { useState } from 'react';
 
 function SimpleResult() {
   const { data } = useQuery('teamResult', () => getTeamResult(729262811));
-  console.log(data);
+
   return (
     <div>
       <StTeamInfo>

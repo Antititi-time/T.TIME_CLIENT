@@ -41,6 +41,7 @@ export default TeamModal;
 const StTeamRecordModal = styled.div`
   width: 100vw;
   touch-action: none;
+  z-index: 2;
 `;
 const StBackground = styled.main`
   display: flex;

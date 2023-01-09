@@ -2,10 +2,13 @@ import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
 import BottomButtonContainer from '@src/components/common/BottomButtonContainer';
-
+import { useState } from 'react';
+import TeamModal from '@src/components/shareModule/TeamModal';
 function TeamResult() {
+  const [modalState, setModalState] = useState(false);
   return (
     <StTeamResult>
+      {modalState ? <TeamModal /> : null}
       <LogoTop />
       <ResultFrame />
       <BottomButtonContainer />
