@@ -32,12 +32,13 @@ export default ResultGraph;
 
 const StGraphContent = styled.div`
   display: flex;
+  justify-content: space-around;
   margin-bottom: 0.7rem;
 `;
-const StGraphName = styled.p`
+const StGraphName = styled.div`
   ${FONT_STYLES.PRETENDARD_SB_12};
   width: 4.2rem;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   white-space: nowrap;
 `;
 
@@ -64,7 +65,7 @@ const StGraphBar = styled.div<graphWidth>`
     background: ${COLOR.BLUE_1};
     z-index: 1;
     animation-name: ${graphAnimation};
-    animation-duration: 4s;
+    animation-duration: 6s;
   }
 `;
 const StGraphScore = styled.p`
