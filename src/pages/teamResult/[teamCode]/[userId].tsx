@@ -20,7 +20,7 @@ function TeamResult() {
       <LogoTop />
       {data?.completed ? (
         <>
-          <ResultFrame />
+          <ResultFrame teamCode={teamCode} />
           <BottomButtonContainer />
           <StBackground />
         </>

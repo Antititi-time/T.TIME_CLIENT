@@ -34,7 +34,7 @@ const StButton = styled.button`
   width: 16rem;
   height: 4.8rem;
   border-radius: 2.6rem;
-  ${FONT_STYLES.NEXON_B_16};
+  ${FONT_STYLES.PRETENDARD_B_16};
 
   &:first-child {
     background-color: ${COLOR.BLUE_1};
