@@ -19,7 +19,7 @@ function BottomButton({ width, color, text, onClick }: BottomButtonProps) {
 
 export default BottomButton;
 
-const StBottomButton = styled.button<BottomButtonProps>`
+const StBottomButton = styled.div<BottomButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
