@@ -53,10 +53,15 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQues
   );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setChat((prev) => prev.concat(`A${value}`));
-    setIndex(index + 1);
-    setInput(false);
-    getData.mutate();
+
+    if (value.length < 1) {
+      alert('답변을 입력해주세요!');
+    } else {
+      setChat((prev) => prev.concat(`A${value}`));
+      setIndex(index + 1);
+      setInput(false);
+      getData.mutate();
+    }
   };
 
   return (
