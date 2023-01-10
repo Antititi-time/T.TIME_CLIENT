@@ -5,12 +5,17 @@ import { COLOR } from '@src/styles/color';
 import { onDownload } from './ImgDownload';
 interface BottomBtnProps {
   id: string;
+  teamId: string;
+  userId: string;
 }
 
-function BottomBtnContainer({ id }: BottomBtnProps) {
+function BottomBtnContainer({ id, teamId, userId }: BottomBtnProps) {
+  useEffect(() => {
+    console.log(document.getElementById(id));
+  }, []);
   return (
     <StButtomBtnContainer>
-      <Link href="#">
+      <Link href={`/teamResult/${teamId}/${userId}`}>
         <BottomButton width={16} color={COLOR.BLUE_1} text={'전체 결과 보기'} />
       </Link>
       <StButtonContainer>
