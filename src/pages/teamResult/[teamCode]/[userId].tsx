@@ -40,14 +40,14 @@ function TeamResult() {
       {data ? (
         !data?.completed ? (
           <>
-            <ResultFrame teamCode={teamCode} />
-            <BottomButtonContainer />
+            {modalState ? <TeamModal teamName={data?.data?.teamName} setModalState={setModalState} /> : <></>}
+            <ResultFrame teamCode={teamId} />
+            <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
           </>
         ) : (
           <UnfinishedResult completeData={data} />
         )
-
       ) : (
         <LoadingView />
       )}
