@@ -15,9 +15,10 @@ interface InputQuestionType {
   setInput: Dispatch<SetStateAction<boolean>>;
   teamCode: string;
   setChat: Dispatch<SetStateAction<string[]>>;
+  grade: number;
 }
 
-function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQuestionType) {
+function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
@@ -46,7 +47,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQues
       questionType: CHAT_QUESTION_LIST[index].questionType,
       questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
       answer: value,
-      grade: 1,
+      grade: grade,
       teamId: Number(teamCode),
     }),
   );
