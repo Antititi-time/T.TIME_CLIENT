@@ -17,7 +17,7 @@ const StWatchMyResultButton = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 39rem;
+  width: 100vw;
   height: 7.6rem;
   bottom: 0;
   z-index: 1;
