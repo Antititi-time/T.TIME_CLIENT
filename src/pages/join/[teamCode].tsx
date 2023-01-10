@@ -3,7 +3,6 @@ import { COLOR } from '@src/styles/color';
 import TextTop from '@src/components/common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo, imgJoin } from '@src/assets/images';
-import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { ChangeEvent, useState } from 'react';
@@ -93,10 +92,7 @@ function Join() {
         </StListContainer>
       </StMainContainer>
       <StInputContainer>
-        <StRowContainer>
-          <ImageDiv src={icJoinRound} alt="icon_join_round" className="icJoinRound"></ImageDiv>
-          <StNickname>참여자 닉네임</StNickname>
-        </StRowContainer>
+        <StNickname>참여자 닉네임</StNickname>
         <StInputBox
           placeholder="닉네임을 입력해주세요"
           onChange={(e) => handleNickChange(e)}
@@ -138,7 +134,7 @@ const StMainContainer = styled.div`
   width: 29.4rem;
   height: 20.8rem;
   padding: 3rem 2.4rem 3rem 2.4rem;
-  margin: 2rem 0rem 2.9rem 0rem;
+  margin: 2rem 0rem 3.2rem 0rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.WHITE_100};
   box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
@@ -188,7 +184,7 @@ const StInputContainer = styled.div`
 `;
 
 const StNickname = styled.p`
-  margin-left: 0.8rem;
+  margin: 0 0 0.5rem 0.8rem;
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_16};
 `;
