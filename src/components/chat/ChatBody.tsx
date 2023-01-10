@@ -8,17 +8,24 @@ import ChatStartTalk from './ChatStartTalk';
 import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
-// import WatchMyResult from './WatchMyResultButton';
-import { useState, useEffect } from 'react';
+import WatchMyResultButton from './WatchMyResultButton';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 function ChatBody() {
-  const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const [chat, setChat] = useState<string[]>([]);
   const [index, setIndex] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
+  const [end, setEnd] = useState(false);
+  const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
+
+  // useEffect(() => {
+  //   scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  // }, [chat]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,65 +33,82 @@ function ChatBody() {
         const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
         setChat(newlist);
         setTextCount(textCount + 1);
+        if (scrollRef.current !== null) {
+          scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        }
       }
-    }, 1000);
+    }, 500);
     if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
-      setInput(true);
-      setTextCount(0);
-      // setindex(index + 1);
+      if (scrollRef.current !== null) {
+        scrollRef.current.style.paddingBottom = '7.2rem';
+        scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      }
+      if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+        setEnd(true);
+      } else {
+        setInput(true);
+        setTextCount(0);
+      }
     }
   }, [chat, index]);
 
   return (
-    <StChatBody>
-      {/* <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} /> */}
+    <ChatWrapper ref={scrollRef}>
+      <StChatBody>
+        {/* <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} /> */}
+        <ChatStartTalk />
+        {chat.map((questions: string, index: number) => {
+          return typeof questions !== 'string' ? (
+            <>
+              <AdminProfile />
+              <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" />
+            </>
+          ) : questions[0] == 'A' ? (
+            <StAnswerWrapper>
+              <StAnswer>
+                <StPosition>{questions.substring(1)}</StPosition>
+              </StAnswer>
+            </StAnswerWrapper>
+          ) : questions.includes('한문장') ? (
+            <StInputQuestion key={index}>{questions}</StInputQuestion>
+          ) : (
+            <StAdminChat key={index}>{questions}</StAdminChat>
+          );
+        })}
+        {end && <WatchMyResultButton />}
 
-      <ChatStartTalk />
-      {chat.map((questions: string, index: number) => {
-        return typeof questions !== 'string' ? (
-          <>
-            <AdminProfile />
-            <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" />
-          </>
-        ) : questions[0] == 'A' ? (
-          <StAnswerWrapper>
-            <StAnswer>
-              <StPosition>{questions.substring(1)}</StPosition>
-            </StAnswer>
-          </StAnswerWrapper>
-        ) : questions.includes('한문장') ? (
-          <StInputQuestion key={index}>{questions}</StInputQuestion>
+        {input == false ? (
+          <></>
+        ) : chat[chat.length - 1].includes('한문장') ? (
+          <InputAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
+        ) : chat[chat.length - 1].includes('이제') ? (
+          <FirstChoiceAnswer
+            setIndex={setIndex}
+            setInput={setInput}
+            index={index}
+            teamCode={teamCode}
+            setChat={setChat}
+          />
         ) : (
-          <StAdminChat key={index}>{questions}</StAdminChat>
-        );
-      })}
-
-      {input == false ? (
-        <></>
-      ) : chat[chat.length - 1].includes('한문장') ? (
-        <InputAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
-      ) : chat[chat.length - 1].includes('이제') ? (
-        <FirstChoiceAnswer
-          setIndex={setIndex}
-          setInput={setInput}
-          index={index}
-          teamCode={teamCode}
-          setChat={setChat}
-        />
-      ) : (
-        <ChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
-      )}
-    </StChatBody>
+          <ChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
+        )}
+      </StChatBody>
+    </ChatWrapper>
   );
 }
 
 export default ChatBody;
 
+const ChatWrapper = styled.div`
+  /* margin-bottom: 25rem; */
+`;
+
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 8.1rem;
-  padding-bottom: 7rem;
+  /* padding-bottom: 7.6rem; */
+  margin-top: 8.2rem;
+  /* padding-bottom: 18.2rem; */
   white-space: pre-line;
   z-index: 0;
   .emoticon {
@@ -107,11 +131,11 @@ const StAdminChat = styled.div`
 const StInputQuestion = styled.div`
   display: inline-block;
   position: relative;
-  top: -1.5rem;
+  top: -0.8rem;
   width: auto;
   height: 100%;
   padding: 0.8rem 1.2rem;
-  margin: 0 7.3rem 0.6rem 6.2rem;
+  margin: 1rem 7.3rem 0rem 6.2rem;
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
@@ -132,6 +156,7 @@ const StInputQuestion = styled.div`
 const StAnswerWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  margin-top: 1.6rem;
 `;
 
 const StPosition = styled.div`
@@ -145,6 +170,7 @@ const StAnswer = styled.div`
   width: auto;
   height: auto;
   padding: 0.8rem 1.2rem;
+  margin-bottom: 1.8rem;
 
   /* margin: 1.6rem 0rem 0rem 6.2rem; */
   border-radius: 1rem;

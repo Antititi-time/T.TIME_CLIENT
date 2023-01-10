@@ -19,7 +19,7 @@ interface choiceType {
 
 function ChoiceAnswer({ setIndex, index, setInput, teamCode, setChat }: choiceType) {
   const numbers = [Button1, Button2, Button3, Button4, Button5];
-  const handleChoiceBtn = (index: any) => {
+  const handleChoiceBtn = (index: number) => {
     setIndex((prev) => prev + 1);
     setInput(false);
     setChat((prev) => prev.concat(`A ${index + 1}점`));
@@ -27,7 +27,7 @@ function ChoiceAnswer({ setIndex, index, setInput, teamCode, setChat }: choiceTy
 
   return (
     <StChoiceInput>
-      {numbers.map((Item: any, index: any) => (
+      {numbers.map((Item: string, index: number) => (
         <StSelectButton key={index} onClick={() => handleChoiceBtn(index)}>
           <ImageDiv src={Item} alt={`버튼 ${index}번`} />
         </StSelectButton>

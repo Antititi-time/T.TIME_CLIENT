@@ -23,7 +23,7 @@ const StAdminChatText = styled.p`
   width: auto;
   height: 100%;
   padding: 0.8rem 1.2rem;
-  margin: 0 7.3rem 0.6rem 6.2rem;
+  margin: 0rem 7.3rem 0.6rem 6.2rem;
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};

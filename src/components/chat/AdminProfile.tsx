@@ -23,7 +23,7 @@ const StProfileName = styled.span`
 const StAdminProfile = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
   .adminProfileImg {
     margin-left: 1.6rem;
   }
