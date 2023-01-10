@@ -53,7 +53,6 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQues
   );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(value);
     setChat((prev) => prev.concat(`A${value}`));
     setIndex(index + 1);
     setInput(false);

@@ -27,7 +27,7 @@ export const enterChat = async (teamId: number, body: object): Promise<TeamData>
 
 export const getMyResult = async (userId: number) => {
   const { data } = await api.get({ url: `/api/result/${userId}` });
-  // console.log(data);
+
   return data;
 };
 export const getCompleted = async (teamId: number) => {
@@ -36,7 +36,6 @@ export const getCompleted = async (teamId: number) => {
   return data;
 };
 export const postAnswer = async (teamId: number, body: object) => {
-  console.log(body);
   const { data } = await api.post({ url: `/api/chat/${teamId}`, data: body });
 
   return data;
