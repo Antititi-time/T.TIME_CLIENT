@@ -4,6 +4,7 @@ import useManageScroll from '@src/hooks/UseManageScroll';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
+import { imgInvitation } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { useState } from 'react';
@@ -17,7 +18,7 @@ function ConfirmInvite() {
     <StConfirmInvite>
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
-        <div className="invitationImg"></div>
+        <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
         <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
@@ -51,10 +52,10 @@ const StConfirmInvite = styled.div`
   width: 100vw;
   min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
-  .invitationImg {
+  .invitationImg img {
     width: 12.8rem;
     height: 12.8rem;
-    background-color: #e6dfdd;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -66,7 +67,7 @@ const StInvitationContainer = styled.article`
   gap: 1rem;
   width: 29.4rem;
   height: 38.6rem;
-  padding: 40px 24px 38px;
+  padding: 4rem 2.4rem 3.8rem;
   margin-top: 8.2rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_1};

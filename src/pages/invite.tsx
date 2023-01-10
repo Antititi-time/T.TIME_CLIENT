@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-// import ImageDiv from '@src/components/common/ImageDiv';
+import ImageDiv from '@src/components/common/ImageDiv';
+import { imgLetter } from '@src/assets/images/index';
 import TeamInput from '@src/components/invite/TeamInput';
 import TextTop from '@src/components/common/TextTop';
 import BottomButton from '@src/components/common/BottomButton';
@@ -18,17 +19,13 @@ function Invite() {
   const [teamMember, setTeamMember] = useState<string>('');
   const saveData = useMutation(() => getTeamInfo({ teamName: teamName.trim(), teamMember: Number(teamMember) }), {
     onSuccess: (response: TeamInfoData) => {
-      console.log(response);
       router.push({
         pathname: `/invite/${response?.id}`,
         query: { teamNum: response?.teamMember, teamCode: response?.id },
       });
     },
-    onError: (error) => {
-      // if (error.response.data.message === '') {
-      //   alert('닉네임은 중복이 불가해요.');
-      // }
-      console.log(error);
+    onError: () => {
+      alert('초대장을 만드는데 실패했어요');
     },
   });
   const validator = {
@@ -52,9 +49,8 @@ function Invite() {
   };
   return (
     <StInvite>
-      {/* <ImageDiv src="" alt="초대장이미지" className="letterImg" layout="fill" /> */}
       <TextTop text="초대장 만들기" />
-      <div className="letterImg"></div>
+      <ImageDiv src={imgLetter} alt="편지이미지" className="letterImg" />
       <StForm action="post">
         <TeamInput
           label="프로젝트 또는 팀 이름"
@@ -92,12 +88,11 @@ const StInvite = styled.div`
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
   text-align: center;
-  .letterImg {
+  .letterImg img {
     width: 16.8rem;
     height: 16.8rem;
     margin-top: 9rem;
-    margin-bottom: 4.7rem;
-    background-color: aliceblue;
+    margin-bottom: 4rem;
   }
 `;
 
