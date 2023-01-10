@@ -42,21 +42,22 @@ function InputAnswer({ setIndex, index, setInput, teamId, setChat }: InputQuesti
     }
   };
 
+  const getData = useMutation(() =>
+    postAnswer(36, {
+      questionType: CHAT_QUESTION_LIST[index].questionType,
+      questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
+      answer: value,
+      grade: 1,
+      teamId: Number(teamId),
+    }),
+  );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(value);
-    // const body = {
-    //   questionType: CHAT_QUESTION_LIST[index].questionType,
-    //   questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
-    //   anser: value,
-    //   team: teamId,
-    // };
-    // const getData = useMutation(() => enterChat(Number(teamId), body));
-    // console.log(mutate, data);
     setChat((prev) => prev.concat(`A${value}`));
     setIndex(index + 1);
     setInput(false);
-    // setValue('0');
+    getData.mutate();
   };
 
   return (
@@ -73,7 +74,7 @@ function InputAnswer({ setIndex, index, setInput, teamId, setChat }: InputQuesti
         }}
         placeholder="답변을 입력해주세요."
         className="inputBox"></StInput>
-      <button>
+      <button onClick={() => {}}>
         <ImageDiv src={SubmitButton} alt="전송 버튼" className="SubmitButton" />
       </button>
       <StCountTextNumber> {text} / 100자 </StCountTextNumber>
