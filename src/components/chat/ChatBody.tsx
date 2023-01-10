@@ -21,7 +21,6 @@ function ChatBody() {
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
   const [end, setEnd] = useState(false);
-  const [grade, setGrade] = useState(0);
   const router = useRouter();
   const teamCode = router.asPath.split('/')[2];
   const userCode = router.asPath.split('/')[3];
@@ -73,10 +72,7 @@ function ChatBody() {
               </StAnswer>
             </StAnswerWrapper>
           ) : questions.includes('한문장') ? (
-            <>
-              <AdminProfile />
-              <StInputQuestion key={index}>{questions}</StInputQuestion>
-            </>
+            <StInputQuestion key={index}>{questions}</StInputQuestion>
           ) : (
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
@@ -91,40 +87,16 @@ function ChatBody() {
             setInput={setInput}
             index={index}
             teamCode={teamCode}
-            grade={grade}
             setChat={setChat}
+            grade={grade}
           />
         ) : chat[chat.length - 1].includes('이제') ? (
-          <FirstChoiceAnswer
-            setIndex={setIndex}
-            setInput={setInput}
-            index={index}
-            teamCode={teamCode}
-            setChat={setChat}
-          />
+          <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
         ) : (
-          <StAdminChat key={index}>{questions}</StAdminChat>
-        );
-      })}
-      {end && <WatchMyResultButton userId={userCode} teamId={teamCode} />}
-
-      {input == false ? (
-        <></>
-      ) : chat[chat.length - 1].includes('한문장') ? (
-        <InputAnswer
-          setIndex={setIndex}
-          setInput={setInput}
-          index={index}
-          teamCode={teamCode}
-          setChat={setChat}
-          grade={grade}
-        />
-      ) : chat[chat.length - 1].includes('이제') ? (
-        <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
-      ) : (
-        <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
-      )}
-    </StChatBody>
+          <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
+        )}
+      </StChatBody>
+    </ChatWrapper>
   );
 }
 
@@ -162,7 +134,7 @@ const StAdminChat = styled.div`
 const StInputQuestion = styled.div`
   display: inline-block;
   position: relative;
-  top: -2rem;
+  top: -1.2rem;
   width: auto;
   height: 100%;
   padding: 0.8rem 1.2rem;

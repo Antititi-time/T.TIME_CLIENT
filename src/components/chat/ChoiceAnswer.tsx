@@ -13,7 +13,6 @@ interface choiceType {
   setGrade: Dispatch<SetStateAction<number>>;
   setInput: Dispatch<SetStateAction<boolean>>;
   setChat: Dispatch<SetStateAction<string[]>>;
-  setGrade: Dispatch<SetStateAction<number>>;
 }
 
 function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
@@ -37,6 +36,7 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
 }
 
 export default ChoiceAnswer;
+
 const StSelectButton = styled.button`
   display: inline-block;
 `;
