@@ -41,11 +41,11 @@ const StChoiceInput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 39rem;
+  width: 100%;
   height: 6.4rem;
   position: fixed;
   z-index: 1;
-  gap: 2.6rem;
+  gap: 2rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
 `;
