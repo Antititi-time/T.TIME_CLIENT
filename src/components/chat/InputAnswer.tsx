@@ -5,8 +5,15 @@ import ImageDiv from '../common/ImageDiv';
 import { SubmitButton } from '@src/assets/icons/index';
 import { smallLogoIcon } from '@src/assets/icons/index';
 import React, { useState, useRef } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+// import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
+interface InputQuestionType {
+  setIndex: Dispatch<SetStateAction<number>>;
+  index: number;
+  setInput: Dispatch<SetStateAction<boolean>>;
+}
 
-function InputAnswer() {
+function InputAnswer({ setIndex, index, setInput }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   // const countTextNumber = '000';
   const [value, setValue] = useState('');
@@ -31,14 +38,21 @@ function InputAnswer() {
     }
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     console.log(value);
-    setValue('0');
+    // const body = {
+    //   questionType: CHAT_QUESTION_LIST[index].questionType,
+    //   questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
+    //   anser: value,
+    // };
+    setIndex(index + 1);
+    setInput(false);
+    // setValue('0');
   };
 
   return (
-    <StForm onSubmit={onSubmit}>
+    <StForm onSubmit={(e) => onSubmit(e)}>
       <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="buttonLogo" />
       <StInput
         ref={textarea}
@@ -47,12 +61,13 @@ function InputAnswer() {
         onChange={(event) => {
           handleResizeTextHeight();
           handleCountText(event);
+          setValue(event.currentTarget.value);
         }}
         placeholder="답변을 입력해주세요."
         className="inputBox"></StInput>
-      <button>
+      <StSubmitButton>
         <ImageDiv src={SubmitButton} alt="전송 버튼" className="SubmitButton" />
-      </button>
+      </StSubmitButton>
       <StCountTextNumber> {text} / 100자 </StCountTextNumber>
     </StForm>
   );
@@ -60,9 +75,20 @@ function InputAnswer() {
 
 export default InputAnswer;
 
+const StSubmitButton = styled.button`
+  position: relative;
+  margin-bottom: 1.7rem;
+  .SubmitButton {
+    position: absolute;
+    bottom: -1.7rem;
+    right: 1.6rem;
+    margin-right: 0.2rem;
+  }
+`;
+
 const StCountTextNumber = styled.div`
   position: absolute;
-  right: 2rem;
+  right: 2.9rem;
   bottom: 0.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
@@ -82,13 +108,6 @@ const StForm = styled.form`
     width: 2.4rem;
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
-  }
-
-  .submitButton {
-    position: absolute;
-    bottom: 2.7rem;
-    right: 2.3rem;
-    margin-right: 0.2rem;
   }
 `;
 

@@ -6,15 +6,31 @@ import { Button3 } from '@src/assets/icons/index';
 import { Button4 } from '@src/assets/icons/index';
 import { Button5 } from '@src/assets/icons/index';
 import { COLOR } from '@src/styles/color';
+import { useState } from 'react';
 
-function ChoiceAnswer() {
+interface choiceType {
+  setIndex: Dispatch<SetStateAction<number>>;
+  index: number;
+  setInput: Dispatch<SetStateAction<boolean>>;
+  teamCode: number;
+}
+
+function ChoiceAnswer({ setIndex, index, setInput, teamCode }: choiceType) {
+  const [choice, setChoice] = useState<any>(0);
+  const numbers = [Button1, Button2, Button3, Button4, Button5];
+  const handleChoiceBtn = (Item: any) => {
+    setChoice(Item);
+    setIndex(index + 1);
+    setInput(false);
+  };
+
   return (
     <StChoiceInput>
-      <ImageDiv src={Button1} alt="버튼 1번" />
-      <ImageDiv src={Button2} alt="버튼 2번" />
-      <ImageDiv src={Button3} alt="버튼 3번" />
-      <ImageDiv src={Button4} alt="버튼 4번" />
-      <ImageDiv src={Button5} alt="버튼 5번" />
+      {numbers.map((Item: any, index: any) => (
+        <button key={index} onClick={(Item) => handleChoiceBtn(Item)}>
+          <ImageDiv src={Item} alt={`버튼 ${index}번`} />
+        </button>
+      ))}
     </StChoiceInput>
   );
 }
@@ -25,7 +41,7 @@ const StChoiceInput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 39rem;
   height: 6.4rem;
   position: fixed;
   z-index: 1;

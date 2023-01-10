@@ -8,105 +8,77 @@ import ChatStartTalk from './ChatStartTalk';
 import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
-import WatchMyResult from './WatchMyResultButton';
+// import WatchMyResult from './WatchMyResultButton';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 function ChatBody() {
-  const UserAnswer = '아ㅓ라어ㅏㅓ아러아렁ㄴ런아ㅣ러ㅓ아런아ㅓ라ㅣ너라넝라ㅣㅓㄴ아ㅣ러ㅏㅓㄹㄴ아ㅣㅓㄹ란이ㅓ라ㅣㄴ';
+  const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
+  const [chat, setChat] = useState<string[]>([]);
+  const [index, setIndex] = useState(0);
+  const [textCount, setTextCount] = useState(0);
+  const [input, setInput] = useState(false);
+
+  useEffect(() => {
+    console.log(index);
+    setTimeout(() => {
+      if (textCount < CHAT_QUESTION_LIST[index].questions.length) {
+        const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
+        setChat(newlist);
+        setTextCount(textCount + 1);
+      }
+    }, 1000);
+    if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
+      setInput(true);
+      setTextCount(0);
+      // setindex(index + 1);
+    }
+  }, [chat, index]);
+
   return (
     <StChatBody>
-      <WatchMyResult />
-      <FirstChoiceAnswer />
-      <InputAnswer />
-      <ChoiceAnswer />
+      {/* <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} /> */}
+
       <ChatStartTalk />
-      {CHAT_QUESTION_LIST.map((questions) => {
-        if (questions.inputQuestion) {
-          return questions.inputQuestion.map((question, index) => {
-            return (
-              <>
-                <AdminProfile />
-                <StInputQuestion key={index}>{question}</StInputQuestion>
-                <StAnswerWrapper>
-                  <StAnswer>
-                    <StPosition>{UserAnswer}</StPosition>
-                  </StAnswer>
-                </StAnswerWrapper>
-              </>
-            );
-          });
-        } else if (questions.choiceQuestion) {
-          return questions.choiceQuestion?.map((question, index) => {
-            if (typeof question !== 'string') {
-              return (
-                <>
-                  <AdminProfile />
-                  <ImageDiv key={question} src={question} alt="주최자 이모티콘" className="emoticon" />
-                </>
-              );
-            } else {
-              return <StAdminChat key={index}>{question}</StAdminChat>;
-            }
-          });
-        } else {
-          return questions.question?.map((question, index) => {
-            if (typeof question !== 'string') {
-              return (
-                <>
-                  <AdminProfile />
-                  <ImageDiv key={question} src={question} alt="주최자 이모티콘" className="emoticon" />
-                </>
-              );
-            } else {
-              return <StAdminChat key={index}>{question}</StAdminChat>;
-            }
-          });
-        }
+      {chat.map((questions: string, index: number) => {
+        return typeof questions !== 'string' ? (
+          <>
+            <AdminProfile />
+            <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" />
+          </>
+        ) : questions.includes('1점') ? (
+          <>
+            <AdminProfile />
+            <StInputQuestion key={index}>{questions}</StInputQuestion>
+          </>
+        ) : (
+          <>
+            <StAdminChat key={index}>{questions}</StAdminChat>
+          </>
+        );
       })}
+
+      {input == false ? (
+        <></>
+      ) : chat[chat.length - 1].includes('한문장') ? (
+        <InputAnswer />
+      ) : chat[chat.length - 1].includes('이제') ? (
+        <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} />
+      ) : (
+        <ChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} />
+      )}
     </StChatBody>
   );
 }
 
 export default ChatBody;
-const StAnswerWrapper = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-`;
-
-const StPosition = styled.div`
-  display: inline-block;
-`;
-
-const StAnswer = styled.div`
-  display: inline-block;
-  position: relative;
-  max-width: 23.1rem;
-  width: auto;
-  height: auto;
-  padding: 0.8rem 1.2rem;
-
-  /* margin: 1.6rem 0rem 0rem 6.2rem; */
-  border-radius: 1rem;
-  background-color: ${COLOR.ORANGE_2};
-  color: ${COLOR.BLACK};
-  ${FONT_STYLES.NEXON_R_14};
-  margin-right: 1.2rem;
-  :after {
-    position: absolute;
-    top: -0.67rem;
-    right: -0.7rem;
-    transform: rotate(46deg);
-    border-top: 0rem solid transparent;
-    border-left: 0rem solid transparent;
-    border-right: 1.5rem solid transparent;
-    border-bottom: 1.5rem solid ${COLOR.ORANGE_2};
-    content: '';
-  }
-`;
 
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 8.1rem;
+  padding-bottom: 7rem;
   white-space: pre-line;
   z-index: 0;
   .emoticon {
