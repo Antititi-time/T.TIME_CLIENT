@@ -15,9 +15,10 @@ interface InputQuestionType {
   setInput: Dispatch<SetStateAction<boolean>>;
   teamCode: string;
   setChat: Dispatch<SetStateAction<string[]>>;
+  grade: number;
 }
 
-function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQuestionType) {
+function InputAnswer({ grade, setIndex, index, setInput, teamCode, setChat }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   // const countTextNumber = '000';
   const [value, setValue] = useState('');
@@ -47,16 +48,21 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQues
       questionType: CHAT_QUESTION_LIST[index].questionType,
       questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
       answer: value,
-      grade: 1,
+      grade: grade,
       teamId: Number(teamCode),
     }),
   );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setChat((prev) => prev.concat(`A${value}`));
-    setIndex(index + 1);
-    setInput(false);
-    getData.mutate();
+
+    if (value.length < 1) {
+      alert('답변을 입력해주세요!');
+    } else {
+      setChat((prev) => prev.concat(`A${value}`));
+      setIndex(index + 1);
+      setInput(false);
+      getData.mutate();
+    }
   };
 
   return (

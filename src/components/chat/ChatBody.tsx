@@ -20,34 +20,32 @@ function ChatBody() {
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
   const [end, setEnd] = useState(false);
+  const [grade, setGrade] = useState(0);
   const router = useRouter();
   const teamCode = router.asPath.split('/')[2];
-
-  // useEffect(() => {
-  //   scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  // }, [chat]);
+  const userCode = router.asPath.split('/')[3];
 
   useEffect(() => {
     setTimeout(() => {
       if (textCount < CHAT_QUESTION_LIST[index].questions.length) {
-        const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
-        setChat(newlist);
-        setTextCount(textCount + 1);
         if (scrollRef.current !== null) {
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
+        const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
+        setChat(newlist);
+        setTextCount(textCount + 1);
       }
     }, 500);
     if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
-      if (scrollRef.current !== null) {
-        scrollRef.current.style.paddingBottom = '7.2rem';
-        scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-      }
       if (CHAT_QUESTION_LIST[index].questionType == 'End') {
         setEnd(true);
       } else {
         setInput(true);
         setTextCount(0);
+      }
+      if (scrollRef.current !== null) {
+        scrollRef.current.style.paddingBottom = '7.2rem';
+        scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
       }
     }
   }, [chat, index]);
@@ -55,7 +53,6 @@ function ChatBody() {
   return (
     <ChatWrapper ref={scrollRef}>
       <StChatBody>
-        {/* <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} /> */}
         <ChatStartTalk />
         {chat.map((questions: string, index: number) => {
           return typeof questions !== 'string' ? (
@@ -75,12 +72,19 @@ function ChatBody() {
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
         })}
-        {end && <WatchMyResultButton />}
+        {end && <WatchMyResultButton userId={userCode} teamId={teamCode} />}
 
         {input == false ? (
           <></>
         ) : chat[chat.length - 1].includes('한문장') ? (
-          <InputAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
+          <InputAnswer
+            setIndex={setIndex}
+            setInput={setInput}
+            index={index}
+            teamCode={teamCode}
+            grade={grade}
+            setChat={setChat}
+          />
         ) : chat[chat.length - 1].includes('이제') ? (
           <FirstChoiceAnswer
             setIndex={setIndex}
@@ -90,7 +94,14 @@ function ChatBody() {
             setChat={setChat}
           />
         ) : (
-          <ChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
+          <ChoiceAnswer
+            setGrade={setGrade}
+            setIndex={setIndex}
+            setInput={setInput}
+            index={index}
+            teamCode={teamCode}
+            setChat={setChat}
+          />
         )}
       </StChatBody>
     </ChatWrapper>
@@ -99,16 +110,12 @@ function ChatBody() {
 
 export default ChatBody;
 
-const ChatWrapper = styled.div`
-  /* margin-bottom: 25rem; */
-`;
+const ChatWrapper = styled.div``;
 
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  /* padding-bottom: 7.6rem; */
   margin-top: 8.2rem;
-  /* padding-bottom: 18.2rem; */
   white-space: pre-line;
   z-index: 0;
   .emoticon {
@@ -172,7 +179,6 @@ const StAnswer = styled.div`
   padding: 0.8rem 1.2rem;
   margin-bottom: 1.8rem;
 
-  /* margin: 1.6rem 0rem 0rem 6.2rem; */
   border-radius: 1rem;
   background-color: ${COLOR.ORANGE_2};
   color: ${COLOR.BLACK};
