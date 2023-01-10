@@ -53,14 +53,7 @@ function MyResult({ userId }: userIdType) {
                   <p>개인 T.time 결과</p>
                 </div>
               </StInfoContainer>
-              <StUserImage>
-                <ImageDiv
-                  src={RESULT_MESSAGE[resultCharacter].imageUrl}
-                  alt="userImage"
-                  className="userImage"
-                  fill={false}
-                />
-              </StUserImage>
+              <StUserImage src={RESULT_MESSAGE[resultCharacter].imageUrl}></StUserImage>
               <StResultTitle>
                 <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
                 <p>{RESULT_MESSAGE[resultCharacter].title}</p>
@@ -85,7 +78,7 @@ function MyResult({ userId }: userIdType) {
                 </StGraphContainer>
               </article>
               <StCardFooter>
-                <ImageDiv src={imgTopLogo} alt="logo" fill={false} />
+                <img src={imgTopLogo.src} />
                 나와 팀 함께 성장하는 시간
               </StCardFooter>
             </StResultCard>
