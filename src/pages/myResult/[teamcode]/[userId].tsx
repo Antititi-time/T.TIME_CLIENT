@@ -12,6 +12,7 @@ import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { imgTopLogo } from '@src/assets/images';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
+import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 interface ctxType {
   query: {
     userId: string;
@@ -24,7 +25,7 @@ function MyResult({ userId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
-
+  const DOWNLOAD_ID = 'imgToDownload';
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4].questionType);
@@ -32,7 +33,7 @@ function MyResult({ userId }: userIdType) {
   }, [data]);
 
   return (
-    <StmyResultPage>
+    <StmyResultPage id={DOWNLOAD_ID}>
       <LogoTop />
       {resultData ? (
         <StMyResult>
@@ -91,6 +92,7 @@ function MyResult({ userId }: userIdType) {
       ) : (
         <>로딩중</>
       )}
+      <BottomBtnContainer id={DOWNLOAD_ID} />
     </StmyResultPage>
   );
 }
