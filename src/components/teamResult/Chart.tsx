@@ -85,7 +85,7 @@ function Chart({ teamCode }: TeamResultProps) {
         },
         suggestedMin: 0,
         suggestedMax: 10,
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
       },
     },
     plugins: {
