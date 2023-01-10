@@ -9,13 +9,18 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import InviteModal from '@src/components/shareModule/InviteModal';
 
 function ConfirmInvite() {
   const router = useRouter();
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
+  const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
+      {modalState ? (
+        <InviteModal teamName={router.query.teamName} setModalState={setModalState} teamCode={router.query.teamCode} />
+      ) : null}
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
@@ -31,7 +36,7 @@ function ConfirmInvite() {
         </StListContainer>
       </StInvitationContainer>
       {isConfirmed ? (
-        <StBtnWrapper>
+        <StBtnWrapper onClick={() => setModalState(true)}>
           <BottomButton width={28.2} color={COLOR.BLUE_1} text={'초대장 공유하기'} />
         </StBtnWrapper>
       ) : (
