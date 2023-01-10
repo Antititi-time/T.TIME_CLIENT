@@ -3,15 +3,11 @@ import Link from 'next/link';
 import BottomButton from '../common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import { onDownload } from './ImgDownload';
-import { useEffect } from 'react';
 interface BottomBtnProps {
   id: string;
 }
 
 function BottomBtnContainer({ id }: BottomBtnProps) {
-  useEffect(() => {
-    console.log(document.getElementById(id));
-  }, []);
   return (
     <StButtomBtnContainer>
       <Link href="#">
@@ -22,7 +18,7 @@ function BottomBtnContainer({ id }: BottomBtnProps) {
           width={16}
           color={COLOR.ORANGE_1}
           text={'이미지 저장'}
-          onClick={() => onDownload({ id: id, name: '' })}
+          onClick={() => onDownload({ id: id, name: 'img' })}
         />
       </StButtonContainer>
     </StButtomBtnContainer>
