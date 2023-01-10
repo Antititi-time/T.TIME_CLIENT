@@ -7,6 +7,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import type { ChartOptions } from 'chart.js';
 import { getTeamChartResult } from '@src/services';
+import type { chartBackgroundColor } from '@types';
 
 ChartJS.register();
 
@@ -52,7 +53,7 @@ function Chart({ teamCode }: TeamResultProps) {
     ],
   };
 
-  const chartOptions: ChartOptions<'radar'> & ChartElementsCustomType = {
+  const chartOptions: ChartOptions<'radar'> & ChartElementsCustomType & chartBackgroundColor = {
     elements: {
       line: {
         borderWidth: 2,
