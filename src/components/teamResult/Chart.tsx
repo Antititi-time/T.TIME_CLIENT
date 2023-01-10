@@ -24,6 +24,11 @@ function Chart({ teamCode }: TeamResultProps) {
         pointBackgroundColor: string;
       };
     };
+    scales: {
+      r: {
+        backgroundColor: string;
+      };
+    };
   }
 
   const setInOrder = (data: TeamScore[]) => {
