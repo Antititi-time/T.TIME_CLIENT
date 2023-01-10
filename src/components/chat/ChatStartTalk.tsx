@@ -3,7 +3,7 @@ import ImageDiv from '../common/ImageDiv';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import AdminProfile from './AdminProfile';
-import { D_icon1 } from '@src/assets/icons';
+import { D_icon1 } from '@src/assets/images';
 import { useRouter } from 'next/router';
 function ChatStartTalk() {
   const router = useRouter();
@@ -11,7 +11,7 @@ function ChatStartTalk() {
   return (
     <StStartWrap>
       <AdminProfile />
-      <ImageDiv src={D_icon1} alt="첫번째 이모티콘" className="StartEmoticon" />
+      <ImageDiv src={D_icon1} alt="첫번째 이모티콘" className="StartEmoticon" fill={true} />
       <StAdminChatText>{teamName}의 티타임에 오신걸 환영해요🙌</StAdminChatText>
     </StStartWrap>
   );
@@ -33,6 +33,9 @@ const StAdminChatText = styled.p`
 
 const StStartWrap = styled.div`
   .StartEmoticon {
+    position: relative;
+    width: 14.8rem;
+    height: 14.8rem;
     margin: -1.5rem 18rem 1.2rem 6.2rem;
   }
 `;

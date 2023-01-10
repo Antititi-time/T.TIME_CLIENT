@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 function ChatBody() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const [chat, setChat] = useState<string[]>([]);
+  const [chat, setChat] = useState<any[]>([]);
   const [index, setIndex] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
@@ -44,8 +44,13 @@ function ChatBody() {
         setTextCount(0);
       }
       if (scrollRef.current !== null) {
-        scrollRef.current.style.paddingBottom = '7.2rem';
-        scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+          scrollRef.current.style.paddingBottom = '8.5rem';
+          scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        } else {
+          scrollRef.current.style.paddingBottom = '7.2rem';
+          scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        }
       }
     }
   }, [chat, index]);
@@ -58,7 +63,7 @@ function ChatBody() {
           return typeof questions !== 'string' ? (
             <>
               <AdminProfile />
-              <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" />
+              <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
             </>
           ) : questions[0] == 'A' ? (
             <StAnswerWrapper>
@@ -67,7 +72,10 @@ function ChatBody() {
               </StAnswer>
             </StAnswerWrapper>
           ) : questions.includes('한문장') ? (
-            <StInputQuestion key={index}>{questions}</StInputQuestion>
+            <>
+              <AdminProfile />
+              <StInputQuestion key={index}>{questions}</StInputQuestion>
+            </>
           ) : (
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
@@ -118,7 +126,11 @@ const StChatBody = styled.div`
   margin-top: 8.2rem;
   white-space: pre-line;
   z-index: 0;
+
   .emoticon {
+    position: relative;
+    width: 14.8rem;
+    height: 14.8rem;
     margin: -1.5rem 18rem 1.2rem 6.2rem;
   }
 `;
@@ -138,7 +150,7 @@ const StAdminChat = styled.div`
 const StInputQuestion = styled.div`
   display: inline-block;
   position: relative;
-  top: -0.8rem;
+  top: -2rem;
   width: auto;
   height: 100%;
   padding: 0.8rem 1.2rem;

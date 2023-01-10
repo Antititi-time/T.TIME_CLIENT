@@ -16,3 +16,17 @@ export { default as imgSaltbreadPositive } from './img_saltbread_positive.png';
 export { default as imgSaltbreadNegative } from './img_saltbread_negative.png';
 export { default as imgTartPositive } from './img_tart_positive.png';
 export { default as imgTartNegative } from './img_tart_negative.png';
+
+export { default as profileImg } from './profileImg.png';
+export { default as A_icon1 } from './A_icon1.png';
+export { default as A_icon2 } from './A_icon2.png';
+export { default as B_icon1 } from './B_icon1.png';
+export { default as B_icon2 } from './B_icon2.png';
+export { default as C_icon1 } from './C_icon1.png';
+export { default as C_icon2 } from './C_icon2.png';
+export { default as D_icon1 } from './D_icon1.png';
+export { default as D_icon2 } from './D_icon2.png';
+export { default as D_icon3 } from './D_icon3.png';
+export { default as E_icon1 } from './E_icon1.png';
+export { default as E_icon2 } from './E_icon2.png';
+export { default as End_icon } from './End_icon.png';
