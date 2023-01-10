@@ -10,7 +10,7 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
 
 declare global {
   interface Window {
-    kakao: any;
+    Kakao: any;
   }
 }
 
