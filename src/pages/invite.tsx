@@ -40,9 +40,9 @@ function Invite() {
   };
   const toNext = () => {
     if (!teamName.trim()) {
-      alert('프로젝트/팀명 입력은 필수에요.');
+      alert('프로젝트/팀명 입력은 필수예요.');
     } else if (!teamMember.trim()) {
-      alert('팀 인원 수 입력은 필수에요.');
+      alert('팀 인원 수 입력은 필수예요.');
     } else {
       saveData.mutate();
     }
