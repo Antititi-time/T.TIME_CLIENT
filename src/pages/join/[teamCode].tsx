@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import TextTop from '@src/components/common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { imgCenturyGothicLogo } from '@src/assets/images';
+import { imgCenturyGothicLogo, imgJoin } from '@src/assets/images';
 import { icJoinRound } from '@src/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
@@ -79,7 +79,7 @@ function Join() {
   return (
     <StJoin>
       <TextTop text={'티타임 참여하기'} />
-      <StAsset />
+      <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
         <StTeamName>&apos;{data?.teamName}&apos;</StTeamName>
         <StRowContainer>
@@ -121,13 +121,13 @@ const StJoin = styled.div`
   min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
-`;
 
-const StAsset = styled.div`
-  width: 16rem;
-  height: 11rem;
-  margin-top: 8.5rem;
-  background-color: ${COLOR.IVORY_3};
+  .imgJoin {
+    position: relative;
+    width: 16rem;
+    height: 11rem;
+    margin-top: 8.5rem;
+  }
 `;
 
 const StMainContainer = styled.div`
