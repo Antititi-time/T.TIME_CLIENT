@@ -6,15 +6,31 @@ import { Button3 } from '@src/assets/icons/index';
 import { Button4 } from '@src/assets/icons/index';
 import { Button5 } from '@src/assets/icons/index';
 import { COLOR } from '@src/styles/color';
+import { Dispatch, SetStateAction } from 'react';
 
-function ChoiceAnswer() {
+interface choiceType {
+  setIndex: Dispatch<SetStateAction<number>>;
+  setGrade: Dispatch<SetStateAction<number>>;
+  setInput: Dispatch<SetStateAction<boolean>>;
+  setChat: Dispatch<SetStateAction<string[]>>;
+}
+
+function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
+  const numbers = [Button1, Button2, Button3, Button4, Button5];
+  const handleChoiceBtn = (index: number) => {
+    setIndex((prev) => prev + 1);
+    setInput(false);
+    setGrade(index + 1);
+    setChat((prev) => prev.concat(`A${index + 1}점`));
+  };
+
   return (
     <StChoiceInput>
-      <ImageDiv src={Button1} alt="버튼 1번" />
-      <ImageDiv src={Button2} alt="버튼 2번" />
-      <ImageDiv src={Button3} alt="버튼 3번" />
-      <ImageDiv src={Button4} alt="버튼 4번" />
-      <ImageDiv src={Button5} alt="버튼 5번" />
+      {numbers.map((Item: string, index: number) => (
+        <button key={index} onClick={() => handleChoiceBtn(index)}>
+          <ImageDiv src={Item} alt={`버튼 ${index}번`} />
+        </button>
+      ))}
     </StChoiceInput>
   );
 }
@@ -25,7 +41,7 @@ const StChoiceInput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 39rem;
   height: 6.4rem;
   position: fixed;
   z-index: 1;

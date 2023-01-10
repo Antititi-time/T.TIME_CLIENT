@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import TextTop from '@src/components/common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { imgCenturyGothicLogo } from '@src/assets/images';
-import { icJoinRound } from '@src/assets/icons';
+import { imgCenturyGothicLogo, imgJoin } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { ChangeEvent, useState } from 'react';
@@ -12,26 +11,32 @@ import { enterChat } from '@src/services';
 import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
+import { useQuery } from 'react-query';
+import { getCompleted } from '@src/services';
+
+interface IApiError {
+  response: {
+    data: {
+      message: string;
+      status: number;
+      success: boolean;
+    };
+  };
+}
 
 function Join() {
   useManageScroll();
   const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
+  const teamCode = Number(router.asPath.split('/')[2]);
   const [nickname, setNickname] = useState<string>('');
 
-  interface IApiError {
-    response: {
-      data: {
-        message: string;
-        status: number;
-        success: boolean;
-      };
-    };
-  }
+  const { data } = useQuery('teamData', () => getCompleted(teamCode), {
+    enabled: !!teamCode,
+  });
 
   const getData = useMutation(
     () =>
-      enterChat(Number(teamCode), {
+      enterChat(teamCode, {
         nickname: nickname,
       }),
     {
@@ -49,6 +54,14 @@ function Join() {
     },
   );
 
+  const handleSubmit = () => {
+    if (nickname.length == 0) {
+      alert('닉네임을 입력해주세요.');
+    } else {
+      getData.mutate();
+    }
+  };
+
   const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
     const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
     if (e.target.value.length < 5) {
@@ -65,31 +78,28 @@ function Join() {
   return (
     <StJoin>
       <TextTop text={'티타임 참여하기'} />
-      <StAsset />
+      <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
-        <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
+        <StTeamName>&apos;{data?.teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
-          <StList>총 OO명</StList>
+          <StList>총 {data?.totalNumber}명</StList>
           <StList>질문 개수: 12개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
       </StMainContainer>
       <StInputContainer>
-        <StRowContainer>
-          <ImageDiv src={icJoinRound} alt="icon_join_round" className="icJoinRound"></ImageDiv>
-          <StNickname>참여자 닉네임</StNickname>
-        </StRowContainer>
+        <StNickname>참여자 닉네임</StNickname>
         <StInputBox
           placeholder="닉네임을 입력해주세요"
           onChange={(e) => handleNickChange(e)}
           value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <StButtonContainer onClick={() => getData.mutate()}>
+      <StButtonContainer onClick={() => handleSubmit()}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
       </StButtonContainer>
     </StJoin>
@@ -107,13 +117,13 @@ const StJoin = styled.div`
   min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
-`;
 
-const StAsset = styled.div`
-  width: 16rem;
-  height: 11rem;
-  margin-top: 8.5rem;
-  background-color: ${COLOR.IVORY_3};
+  .imgJoin {
+    position: relative;
+    width: 16rem;
+    height: 11rem;
+    margin-top: 8.5rem;
+  }
 `;
 
 const StMainContainer = styled.div`
@@ -124,7 +134,7 @@ const StMainContainer = styled.div`
   width: 29.4rem;
   height: 20.8rem;
   padding: 3rem 2.4rem 3rem 2.4rem;
-  margin: 2rem 0rem 2.9rem 0rem;
+  margin: 2rem 0rem 3.2rem 0rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.WHITE_100};
   box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
@@ -174,7 +184,7 @@ const StInputContainer = styled.div`
 `;
 
 const StNickname = styled.p`
-  margin-left: 0.8rem;
+  margin: 0 0 0.5rem 0.8rem;
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_16};
 `;

@@ -13,6 +13,7 @@ import { imgTopLogo } from '@src/assets/images';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
+import LoadingView from '@src/components/common/LoadingView';
 interface ctxType {
   query: {
     userId: string;
@@ -87,7 +88,7 @@ function MyResult({ userId, teamId }: userIdType) {
           </div>
         </StMyResult>
       ) : (
-        <>로딩중</>
+        <LoadingView />
       )}
       <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={DOWNLOAD_ID} />
     </StmyResultPage>
@@ -244,3 +245,4 @@ export async function getServerSideProps(ctx: ctxType) {
   const teamId = parseInt(ctx.query.teamcode);
   return { props: { userId, teamId } };
 }
+
