@@ -8,16 +8,16 @@ import React, { useState, useRef } from 'react';
 import { Dispatch, SetStateAction } from 'react';
 import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
 import { useMutation } from 'react-query';
-import { enterChat } from '@src/services';
+import { postAnswer } from '@src/services';
 interface InputQuestionType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
-  teamId: string;
+  teamCode: string;
   setChat: Dispatch<SetStateAction<string[]>>;
 }
 
-function InputAnswer({ setIndex, index, setInput, teamId, setChat }: InputQuestionType) {
+function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   // const countTextNumber = '000';
   const [value, setValue] = useState('');
@@ -42,21 +42,22 @@ function InputAnswer({ setIndex, index, setInput, teamId, setChat }: InputQuesti
     }
   };
 
+  const getData = useMutation(() =>
+    postAnswer(20, {
+      questionType: CHAT_QUESTION_LIST[index].questionType,
+      questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
+      answer: value,
+      grade: 1,
+      teamId: Number(teamCode),
+    }),
+  );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(value);
-    // const body = {
-    //   questionType: CHAT_QUESTION_LIST[index].questionType,
-    //   questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
-    //   anser: value,
-    //   team: teamId,
-    // };
-    // const getData = useMutation(() => enterChat(Number(teamId), body));
-    // console.log(mutate, data);
     setChat((prev) => prev.concat(`A${value}`));
     setIndex(index + 1);
     setInput(false);
-    // setValue('0');
+    getData.mutate();
   };
 
   return (

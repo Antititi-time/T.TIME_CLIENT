@@ -8,18 +8,18 @@ import ChatStartTalk from './ChatStartTalk';
 import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
-import WatchMyResult from './WatchMyResultButton';
+import WatchMyResultButton from './WatchMyResultButton';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 function ChatBody() {
-  const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
   const [chat, setChat] = useState<string[]>([]);
   const [index, setIndex] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
   const [end, setEnd] = useState(false);
+  const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
 
   useEffect(() => {
     setTimeout(() => {
@@ -60,7 +60,7 @@ function ChatBody() {
           <StAdminChat key={index}>{questions}</StAdminChat>
         );
       })}
-      {end && <WatchMyResult />}
+      {end && <WatchMyResultButton />}
 
       {input == false ? (
         <></>
@@ -86,6 +86,7 @@ export default ChatBody;
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 7.6rem;
   margin-top: 8.1rem;
   padding-bottom: 7rem;
   white-space: pre-line;
