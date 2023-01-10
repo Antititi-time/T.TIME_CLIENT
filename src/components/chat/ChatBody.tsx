@@ -19,6 +19,7 @@ function ChatBody() {
   const [index, setIndex] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
+  const [end, setEnd] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,11 +28,14 @@ function ChatBody() {
         setChat(newlist);
         setTextCount(textCount + 1);
       }
-    }, 1000);
+    }, 500);
     if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
-      setInput(true);
-      setTextCount(0);
-      // setindex(index + 1);
+      if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+        setEnd(true);
+      } else {
+        setInput(true);
+        setTextCount(0);
+      }
     }
   }, [chat, index]);
 
@@ -56,6 +60,7 @@ function ChatBody() {
           <StAdminChat key={index}>{questions}</StAdminChat>
         );
       })}
+      {end && <WatchMyResult />}
 
       {input == false ? (
         <></>
