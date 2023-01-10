@@ -33,7 +33,7 @@ function MyResult({ userId }: userIdType) {
   }, [data]);
 
   return (
-    <StmyResultPage id={DOWNLOAD_ID}>
+    <StmyResultPage>
       <LogoTop />
       {resultData ? (
         <StMyResult>
@@ -41,53 +41,55 @@ function MyResult({ userId }: userIdType) {
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
-          <StResultCard>
-            <StInfoContainer>
-              <p className="date">{resultData.date}</p>
-              <p className="teamName">&#39;{resultData.teamName}&#39;</p>
-              <div className="resultTitle">
-                <p>
-                  <span className="userName">{resultData.nickname}</span> 님의
-                </p>
-                <p>개인 T.time 결과</p>
-              </div>
-            </StInfoContainer>
-            <StUserImage>
-              <ImageDiv
-                src={RESULT_MESSAGE[resultCharacter].imageUrl}
-                alt="userImage"
-                className="userImage"
-                fill={false}
-              />
-            </StUserImage>
-            <StResultTitle>
-              <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
-              <p>{RESULT_MESSAGE[resultCharacter].title}</p>
-            </StResultTitle>
-            <StDotsImage>
-              <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
-            </StDotsImage>
-            <StResultDetail>
-              {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
-                <p key={text}>{text}</p>
-              ))}
-            </StResultDetail>
-            <StRecommendText>
-              {RESULT_MESSAGE[resultCharacter].recommendText.map((text: string) => (
-                <p key={text}>• {text}</p>
-              ))}
-            </StRecommendText>
-            <article>
-              <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
-              <StGraphContainer>
-                <ResultGraph result={resultData.result} />
-              </StGraphContainer>
-            </article>
-            <StCardFooter>
-              <ImageDiv src={imgTopLogo} alt="logo" fill={false} />
-              나와 팀 함께 성장하는 시간
-            </StCardFooter>
-          </StResultCard>
+          <div id={DOWNLOAD_ID}>
+            <StResultCard>
+              <StInfoContainer>
+                <p className="date">{resultData.date}</p>
+                <p className="teamName">&#39;{resultData.teamName}&#39;</p>
+                <div className="resultTitle">
+                  <p>
+                    <span className="userName">{resultData.nickname}</span> 님의
+                  </p>
+                  <p>개인 T.time 결과</p>
+                </div>
+              </StInfoContainer>
+              <StUserImage>
+                <ImageDiv
+                  src={RESULT_MESSAGE[resultCharacter].imageUrl}
+                  alt="userImage"
+                  className="userImage"
+                  fill={false}
+                />
+              </StUserImage>
+              <StResultTitle>
+                <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
+                <p>{RESULT_MESSAGE[resultCharacter].title}</p>
+              </StResultTitle>
+              <StDotsImage>
+                <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
+              </StDotsImage>
+              <StResultDetail>
+                {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
+                  <p key={text}>{text}</p>
+                ))}
+              </StResultDetail>
+              <StRecommendText>
+                {RESULT_MESSAGE[resultCharacter].recommendText.map((text: string) => (
+                  <p key={text}>• {text}</p>
+                ))}
+              </StRecommendText>
+              <article>
+                <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
+                <StGraphContainer>
+                  <ResultGraph result={resultData.result} />
+                </StGraphContainer>
+              </article>
+              <StCardFooter>
+                <ImageDiv src={imgTopLogo} alt="logo" fill={false} />
+                나와 팀 함께 성장하는 시간
+              </StCardFooter>
+            </StResultCard>
+          </div>
         </StMyResult>
       ) : (
         <>로딩중</>
