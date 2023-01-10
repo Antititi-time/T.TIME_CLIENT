@@ -1,19 +1,31 @@
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
+import React from 'react';
 interface labelProps {
   label: string;
   placeholder: string;
+  validation: RegExp;
+  pattern?: string;
+  alertMsg: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
+  inputVal: string;
 }
 function TeamInput(props: labelProps) {
-  const { label, placeholder } = props;
+  const { label, placeholder, validation, alertMsg, pattern, setInput, inputVal } = props;
+  const validate = (e: React.FormEvent<HTMLInputElement>) => {
+    const value = (e.target as HTMLInputElement).value;
+    if (!validation.test(value) && value !== '') alert(alertMsg);
+    else {
+      setInput(value);
+    }
+  };
   return (
     <StTeamInput>
       <StLabelWrapper>
-        <StIcon />
         <StText>{label}</StText>
       </StLabelWrapper>
-      <StInput placeholder={placeholder} />
+      <StInput value={inputVal} placeholder={placeholder} pattern={pattern} onInput={(e) => validate(e)} />
     </StTeamInput>
   );
 }
@@ -32,12 +44,6 @@ const StLabelWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
-`;
-
-const StIcon = styled.div`
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 50%;
 `;
 
 const StText = styled.p`
