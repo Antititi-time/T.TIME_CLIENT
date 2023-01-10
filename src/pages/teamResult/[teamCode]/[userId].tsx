@@ -6,6 +6,7 @@ import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
 import { useRouter } from 'next/router';
+import LoadingView from '@src/components/common/LoadingView';
 
 function TeamResult() {
   const router = useRouter();
@@ -18,14 +19,18 @@ function TeamResult() {
   return (
     <StTeamResult>
       <LogoTop />
-      {data?.completed ? (
-        <>
-          <ResultFrame teamCode={teamCode} />
-          <BottomButtonContainer />
-          <StBackground />
-        </>
+      {data ? (
+        data?.completed ? (
+          <>
+            <ResultFrame teamCode={teamCode} />
+            <BottomButtonContainer />
+            <StBackground />
+          </>
+        ) : (
+          <UnfinishedResult completeData={data} />
+        )
       ) : (
-        <UnfinishedResult completeData={data} />
+        <LoadingView />
       )}
     </StTeamResult>
   );

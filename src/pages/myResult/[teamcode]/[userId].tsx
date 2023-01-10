@@ -12,6 +12,7 @@ import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { imgTopLogo } from '@src/assets/images';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
+import LoadingView from '@src/components/common/LoadingView';
 interface ctxType {
   query: {
     userId: string;
@@ -89,7 +90,7 @@ function MyResult({ userId }: userIdType) {
           </StResultCard>
         </StMyResult>
       ) : (
-        <>로딩중</>
+        <LoadingView />
       )}
     </StmyResultPage>
   );
