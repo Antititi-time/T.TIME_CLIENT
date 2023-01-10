@@ -54,7 +54,7 @@ function MyResult({ userId }: userIdType) {
             </StInfoContainer>
             <StUserImage>
               <ImageDiv
-                src={RESULT_MESSAGE[resultCharacter].imageUrl}
+                src={RESULT_MESSAGE[resultCharacter]?.imageUrl}
                 alt="userImage"
                 className="userImage"
                 fill={false}
