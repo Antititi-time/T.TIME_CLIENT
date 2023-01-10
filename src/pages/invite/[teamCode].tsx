@@ -9,13 +9,23 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import InviteModal from '@src/components/shareModule/InviteModal';
+import Link from 'next/link';
 
 function ConfirmInvite() {
   const router = useRouter();
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
+  const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
+      {modalState && router.query.teamName ? (
+        <InviteModal
+          teamName={String(router.query.teamName)}
+          setModalState={setModalState}
+          teamCode={String(router.query.teamCode)}
+        />
+      ) : null}
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
@@ -31,15 +41,23 @@ function ConfirmInvite() {
         </StListContainer>
       </StInvitationContainer>
       {isConfirmed ? (
-        <StBtnWrapper>
+        <StBtnWrapper onClick={() => setModalState(true)}>
           <BottomButton width={28.2} color={COLOR.BLUE_1} text={'초대장 공유하기'} />
         </StBtnWrapper>
       ) : (
         <StMessage>위 정보로 티타임 초대장을 만드시겠습니까?</StMessage>
       )}
-      <StConfirmBtn onClick={() => setIsconfirmed(true)}>
-        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
-      </StConfirmBtn>
+      {!isConfirmed ? (
+        <StConfirmBtn onClick={() => setIsconfirmed(true)}>
+          <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
+        </StConfirmBtn>
+      ) : (
+        <Link href={`/join/${router.query.teamCode}`}>
+          <StConfirmBtn>
+            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
+          </StConfirmBtn>
+        </Link>
+      )}
     </StConfirmInvite>
   );
 }

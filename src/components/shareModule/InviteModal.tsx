@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { icKakao, icPaste } from '@src/assets/icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 
-function InviteModal() {
-  const [teamCode] = useState<string>('ttime');
-  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}`);
+interface InviteType {
+  setModalState: Dispatch<SetStateAction<boolean>>;
+  teamCode: string;
+  teamName: string;
+}
+
+function InviteModal({ setModalState, teamCode, teamName }: InviteType) {
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/join/${teamCode}`);
 
   useEffect(() => {
     setKakao();
@@ -31,12 +36,12 @@ function InviteModal() {
                 <StButtonText>초대링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '개인결과')}>
+            <StKakaoButton onClick={() => shareKakao(teamLink, teamName, '개인결과')}>
               <StButtonIcon src={icKakao.src} />
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
           </StButtonContainer>
-          <StFooter>닫기</StFooter>
+          <StFooter onClick={() => setModalState(false)}>닫기</StFooter>
         </StModal>
       </StBackground>
     </StInviteModal>
@@ -48,6 +53,7 @@ export default InviteModal;
 const StInviteModal = styled.div`
   width: 100vw;
   touch-action: none;
+  z-index: 3;
 `;
 const StBackground = styled.main`
   display: flex;
@@ -85,12 +91,15 @@ const StInviteArticle = styled.article`
 `;
 const StArticleTitle = styled.div`
   width: 22.6rem;
+  text-align: center;
   ${FONT_STYLES.PRETENDARD_B_14};
 `;
 const StArticleLink = styled.div`
-  width: 22.6rem;
+  width: 100%;
+  text-align: center;
   margin-top: 0.4rem;
   ${FONT_STYLES.NEXON_R_14};
+  font-size: 1.3rem;
 `;
 const StButtonContainer = styled.div`
   margin: 4rem 2.3rem 4rem 2.3rem;
