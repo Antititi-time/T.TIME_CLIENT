@@ -17,3 +17,4 @@ export { default as imgSaltbreadPositive } from './img_saltbread_positive.png';
 export { default as imgSaltbreadNegative } from './img_saltbread_negative.png';
 export { default as imgTartPositive } from './img_tart_positive.png';
 export { default as imgTartNegative } from './img_tart_negative.png';
+export { default as imgLoading } from './img_loading.gif';

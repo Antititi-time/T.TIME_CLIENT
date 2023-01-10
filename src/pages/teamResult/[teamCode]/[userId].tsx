@@ -8,6 +8,8 @@ import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
+import LoadingView from '@src/components/common/LoadingView';
+
 function TeamResult() {
   const [modalState, setModalState] = useState(false);
   const [isUser, setIsUser] = useState(false);
@@ -35,15 +37,19 @@ function TeamResult() {
   return (
     <StTeamResult>
       <LogoTop />
-      {!data?.completed ? (
-        <>
-          {modalState ? <TeamModal teamName={data?.data.teamName} setModalState={setModalState} /> : <></>}
-          <ResultFrame teamCode={teamId} />
-          <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
-          <StBackground />
-        </>
+      {data ? (
+        !data?.completed ? (
+          <>
+            <ResultFrame teamCode={teamCode} />
+            <BottomButtonContainer />
+            <StBackground />
+          </>
+        ) : (
+          <UnfinishedResult completeData={data} />
+        )
+
       ) : (
-        <UnfinishedResult completeData={data} />
+        <LoadingView />
       )}
     </StTeamResult>
   );
