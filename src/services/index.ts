@@ -15,6 +15,16 @@ export const getTeamResult = async (teamId: number) => {
   return { data };
 };
 
+export const getTeamChartResult = async (teamId: number) => {
+  const { data } = await api.get({ url: `/api/result/team/score/${teamId}` });
+  return { data };
+};
+
+export const getTeamDetailResult = async (teamId: number, type: string) => {
+  const { data } = await api.get({ url: `/api/result/team/${teamId}/detail?type=${type}` });
+  return { data };
+};
+
 export const enterChat = async (teamId: number, body: object): Promise<TeamData> => {
   const { data } = await api.post({ url: `/api/team/${teamId}`, data: body });
   return data;

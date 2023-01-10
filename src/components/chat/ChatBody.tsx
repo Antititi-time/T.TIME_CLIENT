@@ -5,10 +5,18 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import AdminProfile from './AdminProfile';
 import ChatStartTalk from './ChatStartTalk';
+import ChoiceAnswer from './ChoiceAnswer';
+import InputAnswer from './InputAnswer';
+import FirstChoiceAnswer from './FirstChoiceAnswer';
+import WatchMyResult from './WatchMyResultButton';
 
 function ChatBody() {
   return (
     <StChatBody>
+      <WatchMyResult />
+      <FirstChoiceAnswer />
+      <InputAnswer />
+      <ChoiceAnswer />
       <ChatStartTalk />
       {CHAT_QUESTION_LIST.map((questions) => {
         if (questions.inputQuestion) {
@@ -55,6 +63,8 @@ function ChatBody() {
 export default ChatBody;
 
 const StChatBody = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 8.1rem;
   white-space: pre-line;
   z-index: 0;

@@ -22,6 +22,7 @@ export type TeamInfoData = {
 };
 export type TeamData = {
   teamName: string;
+  teamMember: number;
   teamId: number;
   userId: number;
 };
@@ -72,4 +73,11 @@ export type UserData = {
       grade: number;
     },
   ];
+};
+export type TeamDetailResult = {
+  answer: string;
+  grade: number;
+  nickname: string;
+  questionNumber: number;
+  questionType: string;
 };
