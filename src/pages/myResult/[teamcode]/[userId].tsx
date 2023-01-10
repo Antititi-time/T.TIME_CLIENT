@@ -12,20 +12,23 @@ import { setConstantIndex } from '@src/hooks/SetConstantIndex';
 import { imgTopLogo } from '@src/assets/images';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
+import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
 interface ctxType {
   query: {
     userId: string;
+    teamcode: string;
   };
 }
 interface userIdType {
   userId: number;
+  teamId: number;
 }
-function MyResult({ userId }: userIdType) {
+function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
-
+  const DOWNLOAD_ID = 'imgToDownload';
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4].questionType);
@@ -41,57 +44,53 @@ function MyResult({ userId }: userIdType) {
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
-          <StResultCard>
-            <StInfoContainer>
-              <p className="date">{resultData.date}</p>
-              <p className="teamName">&#39;{resultData.teamName}&#39;</p>
-              <div className="resultTitle">
-                <p>
-                  <span className="userName">{resultData.nickname}</span> 님의
-                </p>
-                <p>개인 T.time 결과</p>
-              </div>
-            </StInfoContainer>
-            <StUserImage>
-              <ImageDiv
-                src={RESULT_MESSAGE[resultCharacter]?.imageUrl}
-                alt="userImage"
-                className="userImage"
-                fill={false}
-              />
-            </StUserImage>
-            <StResultTitle>
-              <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
-              <p>{RESULT_MESSAGE[resultCharacter].title}</p>
-            </StResultTitle>
-            <StDotsImage>
-              <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
-            </StDotsImage>
-            <StResultDetail>
-              {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
-                <p key={text}>{text}</p>
-              ))}
-            </StResultDetail>
-            <StRecommendText>
-              {RESULT_MESSAGE[resultCharacter].recommendText.map((text: string) => (
-                <p key={text}>• {text}</p>
-              ))}
-            </StRecommendText>
-            <article>
-              <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
-              <StGraphContainer>
-                <ResultGraph result={resultData.result} />
-              </StGraphContainer>
-            </article>
-            <StCardFooter>
-              <ImageDiv src={imgTopLogo} alt="logo" fill={false} />
-              나와 팀 함께 성장하는 시간
-            </StCardFooter>
-          </StResultCard>
+          <div id={DOWNLOAD_ID}>
+            <StResultCard>
+              <StInfoContainer>
+                <p className="date">{resultData.date}</p>
+                <p className="teamName">&#39;{resultData.teamName}&#39;</p>
+                <div className="resultTitle">
+                  <p>
+                    <span className="userName">{resultData.nickname}</span> 님의
+                  </p>
+                  <p>개인 T.time 결과</p>
+                </div>
+              </StInfoContainer>
+              <StUserImage src={RESULT_MESSAGE[resultCharacter].imageUrl}></StUserImage>
+              <StResultTitle>
+                <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
+                <p>{RESULT_MESSAGE[resultCharacter].title}</p>
+              </StResultTitle>
+              <StDotsImage>
+                <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
+              </StDotsImage>
+              <StResultDetail>
+                {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
+                  <p key={text}>{text}</p>
+                ))}
+              </StResultDetail>
+              <StRecommendText>
+                {RESULT_MESSAGE[resultCharacter].recommendText.map((text: string) => (
+                  <p key={text}>• {text}</p>
+                ))}
+              </StRecommendText>
+              <article>
+                <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
+                <StGraphContainer>
+                  <ResultGraph result={resultData.result} />
+                </StGraphContainer>
+              </article>
+              <StCardFooter>
+                <img src={imgTopLogo.src} />
+                나와 팀 함께 성장하는 시간
+              </StCardFooter>
+            </StResultCard>
+          </div>
         </StMyResult>
       ) : (
         <LoadingView />
       )}
+      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={DOWNLOAD_ID} />
     </StmyResultPage>
   );
 }
@@ -125,8 +124,8 @@ const StResultCard = styled.main`
   flex-direction: column;
   width: 34.6rem;
   min-height: 104.4rem;
-  padding: 2.5rem 2.2rem 3rem 2.2rem;
-  margin: 0rem 2.2rem 6rem 2.2rem;
+  padding: 2.5rem 2.2rem 4rem 2.2rem;
+  margin: 0rem 2.2rem 12rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -159,7 +158,7 @@ const StDotsImage = styled.div`
   height: 0.4rem;
   margin: 2.3rem 0 1.2rem 0;
 `;
-const StUserImage = styled.div`
+const StUserImage = styled.img`
   .userImage img {
     width: 30rem;
     height: 20rem;
@@ -243,5 +242,6 @@ const StCardFooter = styled.footer`
 `;
 export async function getServerSideProps(ctx: ctxType) {
   const userId = parseInt(ctx.query.userId);
-  return { props: { userId } };
+  const teamId = parseInt(ctx.query.teamcode);
+  return { props: { userId, teamId } };
 }
