@@ -20,7 +20,7 @@ function BottomBtnContainer({ id, teamId, userId }: BottomBtnProps) {
           width={16}
           color={COLOR.ORANGE_1}
           text={'이미지 저장'}
-          handler={() => onDownload({ id: id, name: 'img' })}
+          handler={() => onDownload({ id: id, name: 'my_result' })}
         />
       </StButtonContainer>
     </StButtomBtnContainer>
