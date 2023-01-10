@@ -94,6 +94,8 @@ function Chart({ teamCode }: TeamResultProps) {
     },
   };
 
+  console.log('test');
+
   return (
     <StChart>
       <StTitle>
