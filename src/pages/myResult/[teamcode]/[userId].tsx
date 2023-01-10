@@ -245,4 +245,3 @@ export async function getServerSideProps(ctx: ctxType) {
   const teamId = parseInt(ctx.query.teamcode);
   return { props: { userId, teamId } };
 }
-
