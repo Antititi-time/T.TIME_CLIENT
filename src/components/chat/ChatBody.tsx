@@ -32,7 +32,7 @@ function ChatBody() {
       }
     }, 500);
     if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
-      if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+      if (CHAT_QUESTION_LIST[index].questionType === 'End') {
         setEnd(true);
       } else {
         setInput(true);
@@ -45,7 +45,7 @@ function ChatBody() {
     <StChatBody>
       <ChatStartTalk />
       {chat.map((questions: string, index: number) => {
-        return typeof questions !== 'string' ? (
+        return typeof questions === 'object' ? (
           <>
             <AdminProfile />
             <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" />
@@ -89,9 +89,8 @@ export default ChatBody;
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 7.6rem;
   margin-top: 8.1rem;
-  padding-bottom: 7rem;
+  padding-bottom: 7.6rem;
   white-space: pre-line;
   z-index: 0;
   .emoticon {
