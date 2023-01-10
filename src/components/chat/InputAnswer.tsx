@@ -5,8 +5,19 @@ import ImageDiv from '../common/ImageDiv';
 import { SubmitButton } from '@src/assets/icons/index';
 import { smallLogoIcon } from '@src/assets/icons/index';
 import React, { useState, useRef } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
+import { useMutation } from 'react-query';
+import { enterChat } from '@src/services';
+interface InputQuestionType {
+  setIndex: Dispatch<SetStateAction<number>>;
+  index: number;
+  setInput: Dispatch<SetStateAction<boolean>>;
+  teamId: string;
+  setChat: Dispatch<SetStateAction<string[]>>;
+}
 
-function InputAnswer() {
+function InputAnswer({ setIndex, index, setInput, teamId, setChat }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   // const countTextNumber = '000';
   const [value, setValue] = useState('');
@@ -31,14 +42,25 @@ function InputAnswer() {
     }
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     console.log(value);
-    setValue('0');
+    // const body = {
+    //   questionType: CHAT_QUESTION_LIST[index].questionType,
+    //   questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
+    //   anser: value,
+    //   team: teamId,
+    // };
+    // const getData = useMutation(() => enterChat(Number(teamId), body));
+    // console.log(mutate, data);
+    setChat((prev) => prev.concat(`A${value}`));
+    setIndex(index + 1);
+    setInput(false);
+    // setValue('0');
   };
 
   return (
-    <StForm onSubmit={onSubmit}>
+    <StForm onSubmit={(e) => handleSubmit(e)}>
       <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="buttonLogo" />
       <StInput
         ref={textarea}
@@ -47,6 +69,7 @@ function InputAnswer() {
         onChange={(event) => {
           handleResizeTextHeight();
           handleCountText(event);
+          setValue(event.currentTarget.value);
         }}
         placeholder="답변을 입력해주세요."
         className="inputBox"></StInput>

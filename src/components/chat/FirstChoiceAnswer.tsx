@@ -6,9 +6,10 @@ interface firstChoiceType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
+  teamCode: number;
 }
 
-function FirstChoiceAnswer({ setIndex, index, setInput }: firstChoiceType) {
+function FirstChoiceAnswer({ setIndex, index, setInput, teamCode }: firstChoiceType) {
   return (
     <StChoiceInput>
       <StButtonContainer
