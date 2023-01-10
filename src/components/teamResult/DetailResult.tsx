@@ -7,6 +7,8 @@ import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
 import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
+import { icnTeamResultA, icnTeamResultB, icnTeamResultC, icnTeamResultD, icnTeamResultE } from '@src/assets/icons';
+import ImageDiv from '../common/ImageDiv';
 
 interface TeamResultProps {
   teamCode: number;
@@ -39,6 +41,21 @@ function DetailResult({ teamCode }: TeamResultProps) {
     });
   }, [data, currentTab]);
 
+  const handleCategoryEmoticon = (category: string) => {
+    switch (category) {
+      case '협업':
+        return icnTeamResultA;
+      case '동기부여':
+        return icnTeamResultB;
+      case '성장':
+        return icnTeamResultC;
+      case '개인생활':
+        return icnTeamResultD;
+      case '건강':
+        return icnTeamResultE;
+    }
+  };
+
   return (
     <StDetailResult>
       <StTitle>상세 결과</StTitle>
@@ -53,7 +70,10 @@ function DetailResult({ teamCode }: TeamResultProps) {
           })}
         </StTab>
         <StTextContainer>
-          <StCategoryTitle>{currentTab}</StCategoryTitle>
+          <StCategoryTitleContainer>
+            <ImageDiv src={handleCategoryEmoticon(currentTab)} alt={currentTab} className="emoticon" fill />
+            <h3>{currentTab}</h3>
+          </StCategoryTitleContainer>
           <StQuestionAnswerContainer>
             <StQuestion>Q1. {QUESTION_TEXT[currentTab][0]}</StQuestion>
             <StAnswerList>
@@ -139,10 +159,20 @@ const StTextContainer = styled.div`
   margin: 3.1rem 1.05rem 1.8rem 1.05rem;
 `;
 
-const StCategoryTitle = styled.h3`
-  margin-bottom: 2rem;
-  color: ${COLOR.BLUE_TEXT};
-  ${FONT_STYLES.NEXON_B_20};
+const StCategoryTitleContainer = styled.div`
+  display: flex;
+  & > h3 {
+    margin-bottom: 2rem;
+    color: ${COLOR.BLUE_TEXT};
+    ${FONT_STYLES.NEXON_B_20};
+  }
+
+  .emoticon {
+    position: relative;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.5rem;
+  }
 `;
 
 const StQuestionAnswerContainer = styled.div`
