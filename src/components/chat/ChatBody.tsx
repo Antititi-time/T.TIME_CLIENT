@@ -18,7 +18,7 @@ function ChatBody() {
   const [input, setInput] = useState(false);
   const [test, setTest] = useState('');
   const router = useRouter();
-  const teamId = router.asPath.split('/')[2];
+  const teamCode = router.asPath.split('/')[2];
 
   useEffect(() => {
     setTimeout(() => {
