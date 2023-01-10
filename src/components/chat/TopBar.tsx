@@ -2,14 +2,17 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 
-function TopBar() {
-  const teamName = "'안티티티티티티티티티티티타임'";
+interface props {
+  teamName: string | string[] | undefined;
+}
+
+function TopBar({ teamName }: props) {
   const today = new Date();
   const dateString = today.toLocaleDateString('ko-kr');
   const dayIndex = today.getDay();
   const year = dateString.slice(0, 4);
   const month = dateString.slice(6, 7);
-  const date = dateString.slice(9, 10);
+  const date = dateString.slice(8, 11);
   const weekList = ['일', '월', '화', '수', '목', '금', '토'];
   const day = weekList[dayIndex];
 
