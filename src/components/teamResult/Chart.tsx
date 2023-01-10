@@ -51,6 +51,42 @@ function Chart({ teamCode }: TeamResultProps) {
         data: data && setInChartOrder(setInOrder(data.data)),
         backgroundColor: 'rgba(255, 108, 61, 0.2)',
       },
+      {
+        label: '배경3',
+        data: [2.5, 2.5, 2.5, 2.5, 2.5],
+        borderColor: 'gray',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+      },
+      {
+        label: '배경2',
+        data: [5, 5, 5, 5, 5],
+        borderColor: 'gray',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+      },
+      {
+        label: '배경1',
+        data: [7.5, 7.5, 7.5, 7.5, 7.5],
+        borderColor: 'gray',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+      },
+      {
+        label: '배경',
+        data: [10, 10, 10, 10, 10],
+        borderColor: 'gray',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+      },
     ],
   };
 
@@ -92,6 +128,9 @@ function Chart({ teamCode }: TeamResultProps) {
       legend: {
         display: false,
       },
+    },
+    animation: {
+      duration: 0,
     },
   };
 
