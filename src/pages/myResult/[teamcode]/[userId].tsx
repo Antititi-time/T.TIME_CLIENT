@@ -16,11 +16,12 @@ import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 interface ctxType {
   query: {
     userId: string;
-    teamId: string;
+    teamcode: string;
   };
 }
 interface userIdType {
   userId: number;
+  teamId: number;
 }
 function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
@@ -88,7 +89,7 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <>로딩중</>
       )}
-      <BottomBtnContainer teamId={teamId} userId={userId} id={DOWNLOAD_ID} />
+      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={DOWNLOAD_ID} />
     </StmyResultPage>
   );
 }
@@ -122,8 +123,8 @@ const StResultCard = styled.main`
   flex-direction: column;
   width: 34.6rem;
   min-height: 104.4rem;
-  padding: 2.5rem 2.2rem 3rem 2.2rem;
-  margin: 0rem 2.2rem 6rem 2.2rem;
+  padding: 2.5rem 2.2rem 4rem 2.2rem;
+  margin: 0rem 2.2rem 12rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
