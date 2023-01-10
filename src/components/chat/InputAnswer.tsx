@@ -5,10 +5,21 @@ import ImageDiv from '../common/ImageDiv';
 import { SubmitButton } from '@src/assets/icons/index';
 import { smallLogoIcon } from '@src/assets/icons/index';
 import React, { useState, useRef } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
+import { useMutation } from 'react-query';
+import { postAnswer } from '@src/services';
+interface InputQuestionType {
+  setIndex: Dispatch<SetStateAction<number>>;
+  index: number;
+  setInput: Dispatch<SetStateAction<boolean>>;
+  teamCode: string;
+  setChat: Dispatch<SetStateAction<string[]>>;
+  grade: number;
+}
 
-function InputAnswer() {
+function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
-  // const countTextNumber = '000';
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
 
@@ -31,14 +42,30 @@ function InputAnswer() {
     }
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(value);
-    setValue('0');
+  const getData = useMutation(() =>
+    postAnswer(20, {
+      questionType: CHAT_QUESTION_LIST[index].questionType,
+      questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
+      answer: value,
+      grade: grade,
+      teamId: Number(teamCode),
+    }),
+  );
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (value.length < 1) {
+      alert('답변을 입력해주세요!');
+    } else {
+      setChat((prev) => prev.concat(`A${value}`));
+      setIndex(index + 1);
+      setInput(false);
+      getData.mutate();
+    }
   };
 
   return (
-    <StForm onSubmit={onSubmit}>
+    <StForm onSubmit={(e) => handleSubmit(e)}>
       <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="buttonLogo" />
       <StInput
         ref={textarea}
@@ -47,6 +74,7 @@ function InputAnswer() {
         onChange={(event) => {
           handleResizeTextHeight();
           handleCountText(event);
+          setValue(event.currentTarget.value);
         }}
         placeholder="답변을 입력해주세요."
         className="inputBox"></StInput>

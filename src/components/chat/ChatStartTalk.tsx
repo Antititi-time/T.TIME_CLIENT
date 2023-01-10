@@ -4,9 +4,10 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import AdminProfile from './AdminProfile';
 import { D_icon1 } from '@src/assets/icons';
-
+import { useRouter } from 'next/router';
 function ChatStartTalk() {
-  const teamName = '[팀이름]';
+  const router = useRouter();
+  const teamName = router.query.teamName;
   return (
     <StStartWrap>
       <AdminProfile />

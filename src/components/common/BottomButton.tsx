@@ -6,12 +6,12 @@ interface BottomButtonProps {
   width: number;
   color: string;
   text?: string;
-  onClick?: () => void;
+  handler?: () => void;
 }
 
-function BottomButton({ width, color, text, onClick }: BottomButtonProps) {
+function BottomButton({ width, color, text, handler }: BottomButtonProps) {
   return (
-    <StBottomButton onClick={onClick} width={width} color={color}>
+    <StBottomButton width={width} color={color} onClick={handler}>
       <StText>{text}</StText>
     </StBottomButton>
   );
@@ -19,7 +19,7 @@ function BottomButton({ width, color, text, onClick }: BottomButtonProps) {
 
 export default BottomButton;
 
-const StBottomButton = styled.button<BottomButtonProps>`
+const StBottomButton = styled.div<BottomButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
