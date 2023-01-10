@@ -6,9 +6,16 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
-function TeamModal() {
-  const [teamCode] = useState<string>('team');
-  const [teamLink] = useState<string>(`http://192.168.0.134:3000/${teamCode}/result`);
+import { useRouter } from 'next/router';
+import { Dispatch, SetStateAction } from 'react';
+interface sharePropsType {
+  setModalState: Dispatch<SetStateAction<boolean>>;
+  teamName: string;
+}
+function TeamModal({ setModalState, teamName }: sharePropsType) {
+  const router = useRouter();
+  const teamCode = router.asPath.split('/')[2];
+  const [teamLink] = useState<string>(`http://192.168.0.134:3000/teamResult/${teamCode}/noUser`);
   useEffect(() => {
     setKakao();
   }, []);
@@ -21,15 +28,15 @@ function TeamModal() {
             <CopyToClipboard text={teamLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
-                <StButtonText>초대링크 복사하기</StButtonText>
+                <StButtonText>결과링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton onClick={() => shareKakao(teamLink, teamCode, '팀결과')}>
+            <StKakaoButton onClick={() => shareKakao(teamLink, teamName, '팀결과')}>
               <StButtonIcon src={icKakao.src} />
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
           </StButtonContainer>
-          <StFooter>닫기</StFooter>
+          <StFooter onClick={() => setModalState(false)}>닫기</StFooter>
         </StTeamModal>
       </StBackground>
     </StTeamRecordModal>
@@ -41,6 +48,7 @@ export default TeamModal;
 const StTeamRecordModal = styled.div`
   width: 100vw;
   touch-action: none;
+  z-index: 2;
 `;
 const StBackground = styled.main`
   display: flex;
@@ -96,7 +104,8 @@ const StButtonText = styled.span`
   color: white;
   ${FONT_STYLES.PRETENDARD_B_16};
 `;
-const StFooter = styled.div`
+const StFooter = styled.button`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

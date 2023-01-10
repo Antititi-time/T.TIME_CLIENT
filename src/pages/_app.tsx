@@ -8,6 +8,12 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   import('../mocks');
 }
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
 
