@@ -52,7 +52,7 @@ function Chart({ teamCode }: TeamResultProps) {
         backgroundColor: 'rgba(255, 108, 61, 0.2)',
       },
       {
-        label: '배경3',
+        label: '배경1',
         data: [2.5, 2.5, 2.5, 2.5, 2.5],
         borderColor: 'gray',
         backgroundColor: 'white',
@@ -70,7 +70,7 @@ function Chart({ teamCode }: TeamResultProps) {
         pointBorderColor: 'transparent',
       },
       {
-        label: '배경1',
+        label: '배경3',
         data: [7.5, 7.5, 7.5, 7.5, 7.5],
         borderColor: 'gray',
         backgroundColor: 'white',
@@ -79,7 +79,7 @@ function Chart({ teamCode }: TeamResultProps) {
         pointBorderColor: 'transparent',
       },
       {
-        label: '배경',
+        label: '배경4',
         data: [10, 10, 10, 10, 10],
         borderColor: 'gray',
         backgroundColor: 'white',
