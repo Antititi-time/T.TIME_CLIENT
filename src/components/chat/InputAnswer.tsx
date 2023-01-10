@@ -19,7 +19,6 @@ interface InputQuestionType {
 
 function InputAnswer({ setIndex, index, setInput, teamCode, setChat }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
-  // const countTextNumber = '000';
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
 

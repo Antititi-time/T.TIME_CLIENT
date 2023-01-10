@@ -68,15 +68,9 @@ function ChatBody() {
       ) : chat[chat.length - 1].includes('한문장') ? (
         <InputAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
       ) : chat[chat.length - 1].includes('이제') ? (
-        <FirstChoiceAnswer
-          setIndex={setIndex}
-          setInput={setInput}
-          index={index}
-          teamCode={teamCode}
-          setChat={setChat}
-        />
+        <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
       ) : (
-        <ChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} teamCode={teamCode} setChat={setChat} />
+        <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} />
       )}
     </StChatBody>
   );
