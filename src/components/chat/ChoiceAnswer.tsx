@@ -25,7 +25,7 @@ const StChoiceInput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 39rem;
+  width: 100vw;
   height: 6.4rem;
   position: fixed;
   z-index: 1;

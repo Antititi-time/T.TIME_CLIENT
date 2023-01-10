@@ -30,7 +30,7 @@ const StChoiceInput = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 39rem;
+  width: 100vw;
   height: 7.6rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};

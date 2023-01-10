@@ -71,6 +71,8 @@ function ChatBody() {
 export default ChatBody;
 
 const StChatBody = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 8.1rem;
   white-space: pre-line;
   z-index: 0;
