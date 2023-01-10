@@ -19,7 +19,7 @@ function ConfirmInvite() {
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
-        <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
+        <StTeamName>&apos;{router.query.teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
