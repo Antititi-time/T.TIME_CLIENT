@@ -110,6 +110,7 @@ const StChatBody = styled.div`
   margin-top: 8.2rem;
   white-space: pre-line;
   z-index: 0;
+
   .emoticon {
     position: relative;
     width: 14.8rem;

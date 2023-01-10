@@ -122,13 +122,6 @@ const StForm = styled.form`
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
   }
-
-  .submitButton {
-    position: absolute;
-    bottom: 2.7rem;
-    right: 2.3rem;
-    margin-right: 0.2rem;
-  }
 `;
 
 const StInput = styled.textarea`
