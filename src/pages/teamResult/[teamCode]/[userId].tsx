@@ -18,7 +18,7 @@ function TeamResult() {
   return (
     <StTeamResult>
       <LogoTop />
-      {data?.completed ? (
+      {!data?.completed ? (
         <>
           <ResultFrame teamCode={teamCode} />
           <BottomButtonContainer />
