@@ -26,8 +26,6 @@ function Chart({ teamCode }: TeamResultProps) {
     };
   }
 
-  console.log('test');
-
   const setInOrder = (data: TeamScore[]) => {
     data.sort(function (a: TeamScore, b: TeamScore) {
       return a.questionType < b.questionType ? -1 : a.questionType > b.questionType ? 1 : 0;

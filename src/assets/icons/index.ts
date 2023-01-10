@@ -3,7 +3,6 @@ export { default as icPaste } from './icn_paste.svg';
 export { default as icKakao } from './icn_kakao.svg';
 export { default as logoIcon } from './logoIcon.svg';
 export { default as icDots } from './icn_dots.svg';
-
 export { default as testEmotion } from './testEmoticon.svg';
 export { default as profileImg } from './profileImg.svg';
 export { default as A_icon1 } from './A_icon1.svg';
@@ -26,3 +25,8 @@ export { default as Button4 } from './Button4.svg';
 export { default as Button5 } from './Button5.svg';
 export { default as smallLogoIcon } from './smallLogoIcon.svg';
 export { default as SubmitButton } from './SubmitButton.svg';
+export { default as icnTeamResultA } from './icn_teamResult_A.svg';
+export { default as icnTeamResultB } from './icn_teamResult_B.svg';
+export { default as icnTeamResultC } from './icn_teamResult_C.svg';
+export { default as icnTeamResultD } from './icn_teamResult_D.svg';
+export { default as icnTeamResultE } from './icn_teamResult_E.svg';
