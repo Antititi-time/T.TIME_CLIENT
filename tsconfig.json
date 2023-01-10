@@ -18,7 +18,8 @@
     "paths": {
       "@src/*": ["src/*"]
     },
-    "declaration": true
+    "declaration": true,
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "index.d.ts"],
   "exclude": ["node_modules"]
