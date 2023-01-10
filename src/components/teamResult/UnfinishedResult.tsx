@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { imgCenturyGothicLogo } from '@src/assets/images';
+import { imgCenturyGothicLogo, imgErrorChr } from '@src/assets/images';
 import BottomButton from '../common/BottomButton';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useCopyLink } from '../shareModule/ShareModule';
@@ -38,7 +38,9 @@ function UnfinishedResult({ completeData }: completeDataType) {
         <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
         <p>결과</p>
       </StTeamResultText>
-      <StUnfinishImage src=" " />
+      <StUnfinishImage>
+        <ImageDiv src={imgErrorChr} alt="error" fill={false} />
+      </StUnfinishImage>
       <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
       <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
       <StCurrentStatus>
@@ -86,10 +88,12 @@ const StTeamResultText = styled.div`
     margin: 0 0.4rem;
   }
 `;
-const StUnfinishImage = styled.img`
-  min-width: 17.9rem;
-  height: 17.9rem;
-  margin: 3.4rem 6.2rem 2.8rem 6.2rem;
+const StUnfinishImage = styled.div`
+  div img {
+    width: 17.9rem;
+    height: 17.9rem;
+    margin: 3.4rem 6.2rem 2.8rem 6.2rem;
+  }
 `;
 const StInfoTitle = styled.p`
   width: 100%;
