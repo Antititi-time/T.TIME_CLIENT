@@ -70,9 +70,7 @@ function Invite() {
           setInput={setTeamMember}
         />
       </StForm>
-      <div onClick={toNext}>
-        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
-      </div>
+      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} handler={toNext} />
     </StInvite>
   );
 }

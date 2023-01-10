@@ -6,11 +6,12 @@ interface BottomButtonProps {
   width: number;
   color: string;
   text?: string;
+  handler?: () => void;
 }
 
-function BottomButton({ width, color, text }: BottomButtonProps) {
+function BottomButton({ width, color, text, handler }: BottomButtonProps) {
   return (
-    <StBottomButton width={width} color={color}>
+    <StBottomButton width={width} color={color} onClick={handler}>
       <StText>{text}</StText>
     </StBottomButton>
   );
