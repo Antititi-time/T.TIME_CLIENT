@@ -162,7 +162,7 @@ const StDotsImage = styled.div`
   height: 0.4rem;
   margin: 2.3rem 0 1.2rem 0;
 `;
-const StUserImage = styled.div`
+const StUserImage = styled.img`
   .userImage img {
     width: 30rem;
     height: 20rem;
