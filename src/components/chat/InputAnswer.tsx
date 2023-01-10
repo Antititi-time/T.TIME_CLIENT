@@ -18,9 +18,8 @@ interface InputQuestionType {
   grade: number;
 }
 
-function InputAnswer({ grade, setIndex, index, setInput, teamCode, setChat }: InputQuestionType) {
+function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
-  // const countTextNumber = '000';
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
 

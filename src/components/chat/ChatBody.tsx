@@ -17,6 +17,7 @@ function ChatBody() {
 
   const [chat, setChat] = useState<any[]>([]);
   const [index, setIndex] = useState(0);
+  const [grade, setGrade] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
   const [end, setEnd] = useState(false);
@@ -102,17 +103,28 @@ function ChatBody() {
             setChat={setChat}
           />
         ) : (
-          <ChoiceAnswer
-            setGrade={setGrade}
-            setIndex={setIndex}
-            setInput={setInput}
-            index={index}
-            teamCode={teamCode}
-            setChat={setChat}
-          />
-        )}
-      </StChatBody>
-    </ChatWrapper>
+          <StAdminChat key={index}>{questions}</StAdminChat>
+        );
+      })}
+      {end && <WatchMyResultButton userId={userCode} teamId={teamCode} />}
+
+      {input == false ? (
+        <></>
+      ) : chat[chat.length - 1].includes('한문장') ? (
+        <InputAnswer
+          setIndex={setIndex}
+          setInput={setInput}
+          index={index}
+          teamCode={teamCode}
+          setChat={setChat}
+          grade={grade}
+        />
+      ) : chat[chat.length - 1].includes('이제') ? (
+        <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
+      ) : (
+        <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
+      )}
+    </StChatBody>
   );
 }
 

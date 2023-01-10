@@ -6,18 +6,19 @@ interface firstChoiceType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
-  teamCode: number;
+  setChat: Dispatch<SetStateAction<string[]>>;
 }
 
-function FirstChoiceAnswer({ setIndex, index, setInput, teamCode }: firstChoiceType) {
+function FirstChoiceAnswer({ setIndex, index, setInput, setChat }: firstChoiceType) {
   return (
     <StChoiceInput>
       <StButtonContainer
         onClick={() => {
+          setChat((prev) => prev.concat(`A네 좋아요!`));
           setIndex(index + 1);
           setInput(false);
         }}>
-        <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'좋아요!'} />
+        <BottomButton width={23} color={COLOR.ORANGE_1} text={'네 좋아요!'} />
       </StButtonContainer>
     </StChoiceInput>
   );

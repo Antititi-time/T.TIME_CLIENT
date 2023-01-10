@@ -6,25 +6,23 @@ import { Button3 } from '@src/assets/icons/index';
 import { Button4 } from '@src/assets/icons/index';
 import { Button5 } from '@src/assets/icons/index';
 import { COLOR } from '@src/styles/color';
-// import { useState } from 'react';
 import { Dispatch, SetStateAction } from 'react';
 
 interface choiceType {
   setIndex: Dispatch<SetStateAction<number>>;
-  index: number;
+  setGrade: Dispatch<SetStateAction<number>>;
   setInput: Dispatch<SetStateAction<boolean>>;
-  teamCode: number;
   setChat: Dispatch<SetStateAction<string[]>>;
   setGrade: Dispatch<SetStateAction<number>>;
 }
 
-function ChoiceAnswer({ setGrade, setIndex, index, setInput, teamCode, setChat }: choiceType) {
+function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
   const numbers = [Button1, Button2, Button3, Button4, Button5];
   const handleChoiceBtn = (index: number) => {
     setIndex((prev) => prev + 1);
     setInput(false);
-    setChat((prev) => prev.concat(`A ${index + 1}점`));
     setGrade(index + 1);
+    setChat((prev) => prev.concat(`A${index + 1}점`));
   };
 
   return (
