@@ -39,8 +39,6 @@ function DetailResult({ teamCode }: TeamResultProps) {
     });
   }, [data, currentTab]);
 
-  console.log(teamCode);
-
   return (
     <StDetailResult>
       <StTitle>상세 결과</StTitle>

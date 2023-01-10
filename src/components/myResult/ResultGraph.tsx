@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
+import { useRouter } from 'next/router';
 interface graphData {
   result: Array<{ questionType: string; grade: number }>;
 }
@@ -11,6 +12,9 @@ interface graphWidth {
 }
 
 function ResultGraph({ result }: graphData) {
+  const router = useRouter();
+  localStorage.setItem('userId', router.asPath.split('/')[3]);
+
   return (
     <>
       {result?.map((data) => (

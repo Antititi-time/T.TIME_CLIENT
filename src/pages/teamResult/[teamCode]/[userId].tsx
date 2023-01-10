@@ -1,38 +1,60 @@
 import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
-import BottomButtonContainer from '@src/components/common/BottomButtonContainer';
+import BottomButtonContainer from '@src/components/teamResult/BottomButtonContainer';
+import { useState, useEffect } from 'react';
+import TeamModal from '@src/components/shareModule/TeamModal';
 import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
+import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
-import { useRouter } from 'next/router';
+import LoadingView from '@src/components/common/LoadingView';
 
 function TeamResult() {
+  const [modalState, setModalState] = useState(false);
+  const [isUser, setIsUser] = useState(false);
   const router = useRouter();
-
-  const teamCode = Number(router.asPath.split('/')[2]);
-  const { data } = useQuery('teamResult', () => getCompleted(teamCode), {
-    enabled: !!teamCode,
+  const teamId = Number(router.asPath.split('/')[2]);
+  const [userId, setUserId] = useState('');
+  useEffect(() => {
+    setUserId(router.asPath.split('/')[3]);
+  }, [router.asPath]);
+  useEffect(() => {
+    if (userId != '[userId]' && userId) {
+      const localId = localStorage.getItem('userId');
+      if (userId != 'noUser') {
+        setIsUser(true);
+      } else if (localId) {
+        setIsUser(true);
+        setUserId(localId);
+      }
+    }
+  }, [userId]);
+  const { data } = useQuery('teamResult', () => getCompleted(teamId), {
+    enabled: !!teamId,
   });
 
   return (
     <StTeamResult>
       <LogoTop />
-      {data?.completed ? (
-        <>
-          <ResultFrame teamCode={teamCode} />
-          <BottomButtonContainer />
-          <StBackground />
-        </>
+      {data ? (
+        !data?.completed ? (
+          <>
+            {modalState ? <TeamModal teamName={data?.data?.teamName} setModalState={setModalState} /> : <></>}
+            <ResultFrame teamCode={teamId} />
+            <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
+            <StBackground />
+          </>
+        ) : (
+          <UnfinishedResult completeData={data} />
+        )
       ) : (
-        <UnfinishedResult completeData={data} />
+        <LoadingView />
       )}
     </StTeamResult>
   );
 }
-
 export default TeamResult;
-
 const StTeamResult = styled.div`
   display: flex;
   flex-direction: column;
