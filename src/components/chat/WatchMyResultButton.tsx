@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
+import Link from 'next/link';
 
-function WatchMyResultButton() {
+interface watchResultType {
+  teamId: string;
+  userId: string;
+}
+
+function WatchMyResultButton({ teamId, userId }: watchResultType) {
   return (
     <StWatchMyResultButton>
-      <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'개인 결과 보기'} />
+      <Link href={`/myResult/${teamId}/${userId}`}>
+        <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'개인 결과 보기'} />
+      </Link>
     </StWatchMyResultButton>
   );
 }
