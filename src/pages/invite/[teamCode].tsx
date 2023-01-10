@@ -19,8 +19,12 @@ function ConfirmInvite() {
   const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
-      {modalState ? (
-        <InviteModal teamName={router.query.teamName} setModalState={setModalState} teamCode={router.query.teamCode} />
+      {modalState && router.query.teamName ? (
+        <InviteModal
+          teamName={String(router.query.teamName)}
+          setModalState={setModalState}
+          teamCode={String(router.query.teamCode)}
+        />
       ) : null}
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
