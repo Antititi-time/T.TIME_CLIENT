@@ -18,8 +18,6 @@ import {
   imgSaltbreadPositive,
   imgSaltbreadNegative,
 } from '@src/assets/images';
-import { useState } from 'react';
-
 interface TeamResultProps {
   teamCode: number;
 }
