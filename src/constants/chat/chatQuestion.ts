@@ -52,7 +52,7 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'D',
+    questionType: 'd',
     questionNumber: 1,
     questions: [
       D_icon2,
@@ -61,12 +61,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'D',
+    questionType: 'd',
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'D',
+    questionType: 'd',
     questionNumber: 2,
     questions: [
       D_icon3,
@@ -76,12 +76,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'D',
+    questionType: 'd',
     questionNumber: 2,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'E',
+    questionType: 'e',
     questionNumber: 1,
     questions: [
       E_icon1,
@@ -91,12 +91,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'E',
+    questionType: 'e',
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'E',
+    questionType: 'e',
     questionNumber: 1,
     questions: [
       E_icon2,
@@ -105,12 +105,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'E',
+    questionType: 'e',
     questionNumber: 2,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'C',
+    questionType: 'c',
     questionNumber: 1,
     questions: [
       C_icon1,
@@ -119,12 +119,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'C',
+    questionType: 'c',
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'C',
+    questionType: 'c',
     questionNumber: 2,
     questions: [
       C_icon2,
@@ -133,12 +133,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'C',
+    questionType: 'c',
     questionNumber: 2,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'B',
+    questionType: 'b',
     questionNumber: 1,
     questions: [
       B_icon1,
@@ -147,12 +147,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'B',
+    questionType: 'b',
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'B',
+    questionType: 'b',
     questionNumber: 2,
     questions: [
       B_icon2,
@@ -161,12 +161,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'B',
+    questionType: 'b',
     questionNumber: 2,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'A',
+    questionType: 'a',
     questionNumber: 1,
     questions: [
       A_icon1,
@@ -175,12 +175,12 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'A',
+    questionType: 'a',
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
   {
-    questionType: 'A',
+    questionType: 'a',
     questionNumber: 2,
     questions: [
       A_icon2,
@@ -189,7 +189,7 @@ export const CHAT_QUESTION_LIST = [
     ],
   },
   {
-    questionType: 'A',
+    questionType: 'a',
     questionNumber: 2,
     questions: [`그렇게 생각한 이유가 무엇인가요?\n간단하게 한문장 정도로 작성부탁드려요 :)`],
   },

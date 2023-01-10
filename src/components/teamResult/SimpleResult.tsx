@@ -8,17 +8,16 @@ import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
 import {
   imgTartPositive,
-  imgTartNegative,
   imgMacaronPositive,
-  imgMacaronNegative,
-  imgEclairPositive,
+  imgTartNegative,
   imgEclairNegative,
+  imgEclairPositive,
+  imgMacaronNegative,
   imgCanelePositive,
   imgCaneleNegative,
   imgSaltbreadPositive,
   imgSaltbreadNegative,
 } from '@src/assets/images';
-
 interface TeamResultProps {
   teamCode: number;
 }
