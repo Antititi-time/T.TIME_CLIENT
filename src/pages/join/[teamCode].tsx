@@ -12,26 +12,32 @@ import { enterChat } from '@src/services';
 import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
+import { useQuery } from 'react-query';
+import { getCompleted } from '@src/services';
+
+interface IApiError {
+  response: {
+    data: {
+      message: string;
+      status: number;
+      success: boolean;
+    };
+  };
+}
 
 function Join() {
   useManageScroll();
   const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
+  const teamCode = Number(router.asPath.split('/')[2]);
   const [nickname, setNickname] = useState<string>('');
 
-  interface IApiError {
-    response: {
-      data: {
-        message: string;
-        status: number;
-        success: boolean;
-      };
-    };
-  }
+  const { data } = useQuery('teamData', () => getCompleted(teamCode), {
+    enabled: !!teamCode,
+  });
 
   const getData = useMutation(
     () =>
-      enterChat(Number(teamCode), {
+      enterChat(teamCode, {
         nickname: nickname,
       }),
     {
@@ -48,6 +54,14 @@ function Join() {
       },
     },
   );
+
+  const handleSubmit = () => {
+    if (nickname.length == 0) {
+      alert('닉네임을 입력해주세요.');
+    } else {
+      getData.mutate();
+    }
+  };
 
   const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
     const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
@@ -67,13 +81,13 @@ function Join() {
       <TextTop text={'티타임 참여하기'} />
       <StAsset />
       <StMainContainer>
-        <StTeamName>&apos;안티티티티프레져프레저안티티&apos;</StTeamName>
+        <StTeamName>&apos;{data?.teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
-          <StList>총 OO명</StList>
+          <StList>총 {data?.totalNumber}명</StList>
           <StList>질문 개수: 12개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
@@ -89,7 +103,7 @@ function Join() {
           value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <StButtonContainer onClick={() => getData.mutate()}>
+      <StButtonContainer onClick={() => handleSubmit()}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
       </StButtonContainer>
     </StJoin>
