@@ -6,6 +6,7 @@ export { default as imgEclair } from './img_eclair.png';
 export { default as imgMakarong } from './img_makarong.png';
 export { default as imgSaltbread } from './img_saltbread.png';
 export { default as imgTart } from './img_tart.png';
+export { default as imgErrorChr } from './img_error_chr.png';
 export { default as imgCanelePositive } from './img_canele_positive.png';
 export { default as imgCaneleNegative } from './img_canele_negative.png';
 export { default as imgEclairPositive } from './img_eclair_positive.png';
