@@ -10,6 +10,7 @@ import BottomButton from '@src/components/common/BottomButton';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
+import Link from 'next/link';
 
 function ConfirmInvite() {
   const router = useRouter();
@@ -42,9 +43,17 @@ function ConfirmInvite() {
       ) : (
         <StMessage>위 정보로 티타임 초대장을 만드시겠습니까?</StMessage>
       )}
-      <StConfirmBtn onClick={() => setIsconfirmed(true)}>
-        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
-      </StConfirmBtn>
+      {!isConfirmed ? (
+        <StConfirmBtn onClick={() => setIsconfirmed(true)}>
+          <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
+        </StConfirmBtn>
+      ) : (
+        <Link href={`/join/${router.query.teamCode}`}>
+          <StConfirmBtn>
+            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
+          </StConfirmBtn>
+        </Link>
+      )}
     </StConfirmInvite>
   );
 }
