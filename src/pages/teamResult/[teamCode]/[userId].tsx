@@ -31,12 +31,13 @@ function TeamResult() {
   const { data } = useQuery('teamResult', () => getCompleted(teamId), {
     enabled: !!teamId,
   });
+
   return (
     <StTeamResult>
-      {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : null}
       <LogoTop />
-      {data?.completed ? (
+      {!data?.completed ? (
         <>
+          {modalState ? <TeamModal teamName={data?.data.teamName} setModalState={setModalState} /> : <></>}
           <ResultFrame teamCode={teamId} />
           <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
           <StBackground />

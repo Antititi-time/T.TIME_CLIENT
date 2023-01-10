@@ -25,7 +25,7 @@ function BottomButtonContainer({ isUser, setModalState, userId, teamId }: button
         </>
       ) : (
         <StButtonContainer onClick={() => setModalState(true)}>
-          <BottomButton width={28.2} onClick={() => setModalState(true)} color={COLOR.ORANGE_1} text={'공유하기'} />
+          <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'공유하기'} />
         </StButtonContainer>
       )}
     </StButtomButtonContainer>
@@ -47,4 +47,6 @@ const StButtomButtonContainer = styled.div`
   border-radius: 1.2rem 1.2rem 0 0;
   background-color: white;
 `;
-const StButtonContainer = styled.button``;
+const StButtonContainer = styled.div`
+  pointer: cursor;
+`;
