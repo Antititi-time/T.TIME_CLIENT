@@ -16,12 +16,13 @@ import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 interface ctxType {
   query: {
     userId: string;
+    teamId: string;
   };
 }
 interface userIdType {
   userId: number;
 }
-function MyResult({ userId }: userIdType) {
+function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
@@ -87,7 +88,7 @@ function MyResult({ userId }: userIdType) {
       ) : (
         <>로딩중</>
       )}
-      <BottomBtnContainer id={DOWNLOAD_ID} />
+      <BottomBtnContainer teamId={teamId} userId={userId} id={DOWNLOAD_ID} />
     </StmyResultPage>
   );
 }
@@ -239,5 +240,6 @@ const StCardFooter = styled.footer`
 `;
 export async function getServerSideProps(ctx: ctxType) {
   const userId = parseInt(ctx.query.userId);
-  return { props: { userId } };
+  const teamId = parseInt(ctx.query.teamcode);
+  return { props: { userId, teamId } };
 }

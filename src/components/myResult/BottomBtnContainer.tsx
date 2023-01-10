@@ -10,9 +10,6 @@ interface BottomBtnProps {
 }
 
 function BottomBtnContainer({ id, teamId, userId }: BottomBtnProps) {
-  useEffect(() => {
-    console.log(document.getElementById(id));
-  }, []);
   return (
     <StButtomBtnContainer>
       <Link href={`/teamResult/${teamId}/${userId}`}>
