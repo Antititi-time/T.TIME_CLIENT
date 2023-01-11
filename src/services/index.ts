@@ -5,6 +5,11 @@ export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
 };
 
+export const getTeamData = async (teamId: number) => {
+  const { data } = await api.get({ url: `/api/team/${teamId}` });
+  return data;
+};
+
 export const getTeamInfo = async (body: object) => {
   const { data } = await api.post({ url: `/api/team`, data: body });
   return data;
