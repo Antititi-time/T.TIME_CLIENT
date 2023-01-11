@@ -62,12 +62,12 @@ function ChatBody() {
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
-            <>
+            <StEmoticonWrapper key={index}>
               <AdminProfile />
-              <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
-            </>
+              <ImageDiv src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
+            </StEmoticonWrapper>
           ) : questions[0] == 'A' ? (
-            <StAnswerWrapper>
+            <StAnswerWrapper key={index}>
               <StAnswer>
                 <StPosition>{questions.substring(1)}</StPosition>
               </StAnswer>
@@ -84,6 +84,7 @@ function ChatBody() {
           <></>
         ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
+            key={index}
             setIndex={setIndex}
             setInput={setInput}
             index={index}
@@ -93,9 +94,9 @@ function ChatBody() {
             userId={Number(userCode)}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
-          <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
+          <FirstChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
         ) : (
-          <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
+          <ChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
         )}
       </StChatBody>
     </StChatWrapper>
@@ -106,6 +107,7 @@ export default ChatBody;
 
 const StChatWrapper = styled.div``;
 
+const StEmoticonWrapper = styled.div``;
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;

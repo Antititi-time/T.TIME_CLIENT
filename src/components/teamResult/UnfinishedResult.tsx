@@ -13,6 +13,7 @@ interface completeDataType {
     completed: boolean;
     completedNumber: number;
     totalNumber: number;
+    teamName: string;
   };
 }
 
@@ -32,7 +33,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
   return (
     <StResultCard>
       <StDate>{year + '.' + month + '.' + day}</StDate>
-      <StTeamName>‘안티티티티티티티티티티티타임’</StTeamName>
+      <StTeamName>‘{completeData?.teamName}’</StTeamName>
       <StTeamResultText>
         <p>팀</p>
         <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />

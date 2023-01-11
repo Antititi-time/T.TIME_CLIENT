@@ -50,3 +50,7 @@ export const postAnswer = async (teamId: number, body: object) => {
 
   return data;
 };
+export const patchComplete = async (userId: number) => {
+  const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
+  return data;
+};

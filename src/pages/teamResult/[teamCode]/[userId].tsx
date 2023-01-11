@@ -31,7 +31,7 @@ function TeamResult() {
       }
     }
   }, [userId]);
-  const completeData = useQuery('completeData', () => getCompleted(teamId), {
+  const { data, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
     enabled: !!teamId,
   });
 
@@ -39,16 +39,17 @@ function TeamResult() {
     <StTeamResult>
       <SEO />
       <LogoTop />
-      {completeData ? (
-        completeData?.data?.completed ? (
+      {data ? (
+        data?.completed && !isLoading ? (
           <>
-            {modalState ? <TeamModal teamName={completeData?.data?.teamName} setModalState={setModalState} /> : <></>}
+            {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
+
             <ResultFrame teamCode={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
           </>
         ) : (
-          <UnfinishedResult completeData={completeData.data} />
+          <UnfinishedResult completeData={data} />
         )
       ) : (
         <LoadingView />
