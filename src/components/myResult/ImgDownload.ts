@@ -11,6 +11,7 @@ const onDownload = ({ id, name }: paramsType) => {
   html2canvas(DownloadCompo, { allowTaint: true, useCORS: true }).then((canvas) => {
     document.body.appendChild(canvas);
     onSave(canvas.toDataURL('myResult/img'), name);
+    document.body.removeChild(canvas);
   });
 };
 
@@ -20,6 +21,7 @@ const onSave: (url: string, name: string) => void = (url, name) => {
   link.href = url;
   link.download = name;
   link.click();
+  link.remove();
 };
 
 export { onDownload };

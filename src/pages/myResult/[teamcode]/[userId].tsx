@@ -31,7 +31,7 @@ function MyResult({ userId, teamId }: userIdType) {
   const DOWNLOAD_ID = 'imgToDownload';
   useEffect(() => {
     setResultData(data);
-    const inputData = setConstantIndex(data?.result[4].questionType);
+    const inputData = setConstantIndex(data?.result[4]?.questionType);
     setResultCharacter(inputData);
   }, [data]);
 
@@ -56,28 +56,28 @@ function MyResult({ userId, teamId }: userIdType) {
                   <p>개인 T.time 결과</p>
                 </div>
               </StInfoContainer>
-              <StUserImage src={RESULT_MESSAGE[resultCharacter].imageUrl}></StUserImage>
+              <StUserImage src={RESULT_MESSAGE[resultCharacter]?.imageUrl}></StUserImage>
               <StResultTitle>
-                <p className="feedback">{RESULT_MESSAGE[resultCharacter].feedback}</p>
-                <p>{RESULT_MESSAGE[resultCharacter].title}</p>
+                <p className="feedback">{RESULT_MESSAGE[resultCharacter]?.feedback}</p>
+                <p>{RESULT_MESSAGE[resultCharacter]?.title}</p>
               </StResultTitle>
               <StDotsImage>
                 <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
               </StDotsImage>
               <StResultDetail>
-                {RESULT_MESSAGE[resultCharacter].resultDetail.map((text: string) => (
+                {RESULT_MESSAGE[resultCharacter]?.resultDetail.map((text: string) => (
                   <p key={text}>{text}</p>
                 ))}
               </StResultDetail>
               <StRecommendText>
-                {RESULT_MESSAGE[resultCharacter].recommendText.map((text: string) => (
+                {RESULT_MESSAGE[resultCharacter]?.recommendText.map((text: string) => (
                   <p key={text}>• {text}</p>
                 ))}
               </StRecommendText>
               <article>
                 <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
                 <StGraphContainer>
-                  <ResultGraph result={resultData.result} />
+                  <ResultGraph result={resultData?.result} />
                 </StGraphContainer>
               </article>
               <StCardFooter>

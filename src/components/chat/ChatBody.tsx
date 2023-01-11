@@ -24,7 +24,7 @@ function ChatBody() {
   const [end, setEnd] = useState(false);
   const router = useRouter();
   const teamCode = router.asPath.split('/')[2];
-  const userCode = router.asPath.split('/')[3];
+  const userCode = router.asPath.split('/')[3].split('?')[0];
 
   useEffect(() => {
     setTimeout(() => {
@@ -90,6 +90,7 @@ function ChatBody() {
             teamCode={teamCode}
             setChat={setChat}
             grade={grade}
+            userId={Number(userCode)}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
           <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
