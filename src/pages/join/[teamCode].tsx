@@ -12,7 +12,7 @@ import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
-import { getCompleted } from '@src/services';
+import { getTeamData } from '@src/services';
 
 interface IApiError {
   response: {
@@ -30,7 +30,7 @@ function Join() {
   const teamCode = Number(router.asPath.split('/')[2]);
   const [nickname, setNickname] = useState<string>('');
 
-  const { data } = useQuery('teamData', () => getCompleted(teamCode), {
+  const { data } = useQuery('teamData', () => getTeamData(teamCode), {
     enabled: !!teamCode,
   });
 
@@ -86,7 +86,7 @@ function Join() {
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
-          <StList>총 {data?.totalNumber}명</StList>
+          <StList>총 {data?.teamMember}명</StList>
           <StList>질문 개수: 12개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
