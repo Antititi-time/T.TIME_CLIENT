@@ -18,7 +18,7 @@ interface InputQuestionType {
   teamCode: string;
   setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
   grade: number;
-  userId: string;
+  userId: number;
 }
 
 function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, userId }: InputQuestionType) {
@@ -46,7 +46,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, user
   };
 
   const getData = useMutation(() =>
-    postAnswer(Number(userId), {
+    postAnswer(userId, {
       questionType: CHAT_QUESTION_LIST[index].questionType,
       questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
       answer: value,
