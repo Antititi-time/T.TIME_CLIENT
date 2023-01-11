@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
