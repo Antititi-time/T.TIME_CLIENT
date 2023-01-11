@@ -28,7 +28,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
   if (month < 10) {
     month = '0' + month;
   }
-
+  console.log(completeData);
   return (
     <StResultCard>
       <StDate>{year + '.' + month + '.' + day}</StDate>
