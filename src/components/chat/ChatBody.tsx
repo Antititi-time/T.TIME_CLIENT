@@ -11,11 +11,12 @@ import FirstChoiceAnswer from './FirstChoiceAnswer';
 import WatchMyResultButton from './WatchMyResultButton';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+import { StaticImageData } from 'next/image';
 
 function ChatBody() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const [chat, setChat] = useState<any[]>([]);
+  const [chat, setChat] = useState<(string | StaticImageData)[]>([]);
   const [index, setIndex] = useState(0);
   const [grade, setGrade] = useState(0);
   const [textCount, setTextCount] = useState(0);
@@ -59,7 +60,7 @@ function ChatBody() {
     <StChatWrapper ref={scrollRef}>
       <StChatBody>
         <ChatStartTalk />
-        {chat.map((questions: string, index: number) => {
+        {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
             <>
               <AdminProfile />
@@ -81,7 +82,7 @@ function ChatBody() {
 
         {input == false ? (
           <></>
-        ) : chat[chat.length - 1].includes('한문장') ? (
+        ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
             setIndex={setIndex}
             setInput={setInput}
@@ -90,7 +91,7 @@ function ChatBody() {
             setChat={setChat}
             grade={grade}
           />
-        ) : chat[chat.length - 1].includes('이제') ? (
+        ) : String(chat[chat.length - 1]).includes('이제') ? (
           <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
         ) : (
           <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />

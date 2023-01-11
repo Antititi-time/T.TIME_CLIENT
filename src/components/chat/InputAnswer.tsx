@@ -9,12 +9,14 @@ import { Dispatch, SetStateAction } from 'react';
 import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
 import { useMutation } from 'react-query';
 import { postAnswer } from '@src/services';
+import { StaticImageData } from 'next/image';
+
 interface InputQuestionType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
   teamCode: string;
-  setChat: Dispatch<SetStateAction<string[]>>;
+  setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
   grade: number;
 }
 

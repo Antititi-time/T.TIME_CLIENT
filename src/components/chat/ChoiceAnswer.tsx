@@ -7,12 +7,13 @@ import { Button4 } from '@src/assets/icons/index';
 import { Button5 } from '@src/assets/icons/index';
 import { COLOR } from '@src/styles/color';
 import { Dispatch, SetStateAction } from 'react';
+import { StaticImageData } from 'next/image';
 
 interface choiceType {
   setIndex: Dispatch<SetStateAction<number>>;
   setGrade: Dispatch<SetStateAction<number>>;
   setInput: Dispatch<SetStateAction<boolean>>;
-  setChat: Dispatch<SetStateAction<string[]>>;
+  setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
 }
 
 function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
