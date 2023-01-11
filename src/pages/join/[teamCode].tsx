@@ -13,6 +13,7 @@ import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
 import { getTeamData } from '@src/services';
+import SEO from '@src/components/common/SEO';
 
 interface IApiError {
   response: {
@@ -77,6 +78,7 @@ function Join() {
 
   return (
     <StJoin>
+      <SEO />
       <TextTop text={'티타임 참여하기'} />
       <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>

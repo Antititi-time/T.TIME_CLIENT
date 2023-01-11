@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
 import LoadingView from '@src/components/common/LoadingView';
+import SEO from '@src/components/common/SEO';
 
 function TeamResult() {
   const [modalState, setModalState] = useState(false);
@@ -36,6 +37,7 @@ function TeamResult() {
 
   return (
     <StTeamResult>
+      <SEO />
       <LogoTop />
       {completeData ? (
         completeData?.data?.completed ? (
