@@ -9,10 +9,7 @@ import { logoIcon } from '@src/assets/icons';
 function Home() {
   return (
     <div>
-      <Head>
-        <title>setting-practice</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <title>T.time</title>
       <StLogo>
         <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
       </StLogo>
