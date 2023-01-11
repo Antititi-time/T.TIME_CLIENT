@@ -182,8 +182,8 @@ const StAnswer = styled.div`
   margin-right: 1.2rem;
   :after {
     position: absolute;
-    top: -0.67rem;
-    right: -0.7rem;
+    top: -0.32rem;
+    right: -0.77rem;
     transform: rotate(46deg);
     border-top: 0rem solid transparent;
     border-left: 0rem solid transparent;
