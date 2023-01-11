@@ -63,7 +63,7 @@ function ChatBody() {
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
             <StEmoticonWrapper key={index}>
-              <AdminProfile key={index} />
+              <AdminProfile />
               <ImageDiv src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
             </StEmoticonWrapper>
           ) : questions[0] == 'A' ? (
