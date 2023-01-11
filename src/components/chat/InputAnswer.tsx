@@ -128,7 +128,7 @@ const StForm = styled.form`
 `;
 
 const StInput = styled.textarea`
-  width: 32.6rem;
+  width: 83.9%;
   height: 4rem;
   bottom: 2.4rem;
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;
