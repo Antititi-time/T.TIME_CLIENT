@@ -7,12 +7,13 @@ import { Button4 } from '@src/assets/icons/index';
 import { Button5 } from '@src/assets/icons/index';
 import { COLOR } from '@src/styles/color';
 import { Dispatch, SetStateAction } from 'react';
+import { StaticImageData } from 'next/image';
 
 interface choiceType {
   setIndex: Dispatch<SetStateAction<number>>;
   setGrade: Dispatch<SetStateAction<number>>;
   setInput: Dispatch<SetStateAction<boolean>>;
-  setChat: Dispatch<SetStateAction<string[]>>;
+  setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
 }
 
 function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
@@ -27,9 +28,9 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
   return (
     <StChoiceInput>
       {numbers.map((Item: string, index: number) => (
-        <button key={index} onClick={() => handleChoiceBtn(index)}>
+        <StSelectButton key={index} onClick={() => handleChoiceBtn(index)}>
           <ImageDiv src={Item} alt={`버튼 ${index}번`} />
-        </button>
+        </StSelectButton>
       ))}
     </StChoiceInput>
   );
@@ -37,15 +38,21 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
 
 export default ChoiceAnswer;
 
+const StSelectButton = styled.button`
+  display: inline-block;
+`;
+
 const StChoiceInput = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  position: fixed;
   align-items: center;
-  width: 39rem;
+  width: 100%;
   height: 6.4rem;
   position: fixed;
   z-index: 1;
-  gap: 2.6rem;
+  gap: 2rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
+  z-index: 1;
 `;

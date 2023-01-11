@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import { Dispatch, SetStateAction } from 'react';
+import { StaticImageData } from 'next/image';
 interface firstChoiceType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
-  setChat: Dispatch<SetStateAction<string[]>>;
+  setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
 }
 
 function FirstChoiceAnswer({ setIndex, index, setInput, setChat }: firstChoiceType) {
@@ -18,7 +19,7 @@ function FirstChoiceAnswer({ setIndex, index, setInput, setChat }: firstChoiceTy
           setIndex(index + 1);
           setInput(false);
         }}>
-        <BottomButton width={23} color={COLOR.ORANGE_1} text={'네 좋아요!'} />
+        <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'네 좋아요!'} />
       </StButtonContainer>
     </StChoiceInput>
   );

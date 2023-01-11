@@ -9,12 +9,14 @@ import { Dispatch, SetStateAction } from 'react';
 import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
 import { useMutation } from 'react-query';
 import { postAnswer } from '@src/services';
+import { StaticImageData } from 'next/image';
+
 interface InputQuestionType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
   teamCode: string;
-  setChat: Dispatch<SetStateAction<string[]>>;
+  setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
   grade: number;
 }
 
@@ -78,9 +80,9 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: In
         }}
         placeholder="답변을 입력해주세요."
         className="inputBox"></StInput>
-      <button>
+      <StSubmitButton>
         <ImageDiv src={SubmitButton} alt="전송 버튼" className="SubmitButton" />
-      </button>
+      </StSubmitButton>
       <StCountTextNumber> {text} / 100자 </StCountTextNumber>
     </StForm>
   );
@@ -88,9 +90,20 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: In
 
 export default InputAnswer;
 
+const StSubmitButton = styled.button`
+  position: relative;
+  margin-bottom: 1.7rem;
+  .SubmitButton {
+    position: absolute;
+    bottom: -1.7rem;
+    right: 1.6rem;
+    margin-right: 0.2rem;
+  }
+`;
+
 const StCountTextNumber = styled.div`
   position: absolute;
-  right: 2rem;
+  right: 2.9rem;
   bottom: 0.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
@@ -110,13 +123,6 @@ const StForm = styled.form`
     width: 2.4rem;
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
-  }
-
-  .submitButton {
-    position: absolute;
-    bottom: 2.7rem;
-    right: 2.3rem;
-    margin-right: 0.2rem;
   }
 `;
 
