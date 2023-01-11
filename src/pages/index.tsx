@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -9,10 +8,7 @@ import { logoIcon } from '@src/assets/icons';
 function Home() {
   return (
     <div>
-      <Head>
-        <title>setting-practice</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <title>T.time</title>
       <StLogo>
         <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
       </StLogo>
