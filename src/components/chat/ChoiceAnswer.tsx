@@ -27,9 +27,9 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
   return (
     <StChoiceInput>
       {numbers.map((Item: string, index: number) => (
-        <button key={index} onClick={() => handleChoiceBtn(index)}>
+        <StSelectButton key={index} onClick={() => handleChoiceBtn(index)}>
           <ImageDiv src={Item} alt={`버튼 ${index}번`} />
-        </button>
+        </StSelectButton>
       ))}
     </StChoiceInput>
   );
@@ -37,9 +37,14 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
 
 export default ChoiceAnswer;
 
+const StSelectButton = styled.button`
+  display: inline-block;
+`;
+
 const StChoiceInput = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  position: fixed;
   align-items: center;
   width: 100%;
   height: 6.4rem;
@@ -48,4 +53,5 @@ const StChoiceInput = styled.div`
   gap: 2rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
+  z-index: 1;
 `;
