@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
-import { patchComplete } from '../../services/index';
-
+import { patchComplete } from '@src/services';
 interface watchResultType {
   teamId: string;
   userId: string;

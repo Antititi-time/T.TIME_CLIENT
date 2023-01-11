@@ -19,14 +19,11 @@ function BottomButtonContainer({ isUser, setModalState, userId, teamId }: button
           <Link href={myResultUrl}>
             <BottomButton width={16} color={COLOR.BLUE_1} text={'내 결과 다시보기'} />
           </Link>
-          <StButtonContainer onClick={() => setModalState(true)}>
-            <BottomButton width={16} color={COLOR.ORANGE_1} text={'공유하기'} />
-          </StButtonContainer>
+
+          <BottomButton handler={() => setModalState(true)} width={16} color={COLOR.ORANGE_1} text={'공유하기'} />
         </>
       ) : (
-        <StButtonContainer onClick={() => setModalState(true)}>
-          <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'공유하기'} />
-        </StButtonContainer>
+        <BottomButton handler={() => setModalState(true)} width={28.2} color={COLOR.ORANGE_1} text={'공유하기'} />
       )}
     </StButtomButtonContainer>
   );
@@ -47,4 +44,3 @@ const StButtomButtonContainer = styled.div`
   border-radius: 1.2rem 1.2rem 0 0;
   background-color: white;
 `;
-const StButtonContainer = styled.div``;
