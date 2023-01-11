@@ -90,6 +90,7 @@ function ChatBody() {
             teamCode={teamCode}
             setChat={setChat}
             grade={grade}
+            userId={userCode}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
           <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />

@@ -18,9 +18,10 @@ interface InputQuestionType {
   teamCode: string;
   setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
   grade: number;
+  userId: string;
 }
 
-function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: InputQuestionType) {
+function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, userId }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
@@ -45,7 +46,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade }: In
   };
 
   const getData = useMutation(() =>
-    postAnswer(20, {
+    postAnswer(Number(userId), {
       questionType: CHAT_QUESTION_LIST[index].questionType,
       questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
       answer: value,
