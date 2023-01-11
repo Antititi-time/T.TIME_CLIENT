@@ -45,3 +45,8 @@ export const postAnswer = async (teamId: number, body: object) => {
 
   return data;
 };
+export const patchComplete = async (userId: number, body: object) => {
+  const { data } = await api.post({ url: `/api/chat/${userId}`, data: body });
+
+  return data;
+};

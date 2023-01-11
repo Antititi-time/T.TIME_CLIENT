@@ -47,6 +47,4 @@ const StButtomButtonContainer = styled.div`
   border-radius: 1.2rem 1.2rem 0 0;
   background-color: white;
 `;
-const StButtonContainer = styled.div`
-  pointer: cursor;
-`;
+const StButtonContainer = styled.div``;
