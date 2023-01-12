@@ -52,7 +52,7 @@ function ChatBody() {
           scrollRef.current.style.paddingBottom = '8.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else {
-          scrollRef.current.style.paddingBottom = '13.5rem';
+          scrollRef.current.style.paddingBottom = '18vh';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
       }

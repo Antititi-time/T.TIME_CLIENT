@@ -44,14 +44,14 @@ const StSelectButton = styled.button`
 
 const StChoiceInput = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position: fixed;
   align-items: center;
   width: 100%;
   height: 6.4rem;
   position: fixed;
   z-index: 1;
-  gap: 2rem;
+  gap: 0.7rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   z-index: 1;
