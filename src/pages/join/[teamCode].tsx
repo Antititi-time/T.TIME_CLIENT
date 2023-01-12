@@ -78,7 +78,7 @@ function Join() {
 
   return (
     <StJoin>
-      <SEO />
+      <SEO title="T.time | 초대장이 도착했어요!" />
       <TextTop text={'티타임 참여하기'} />
       <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>

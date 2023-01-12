@@ -38,7 +38,7 @@ function MyResult({ userId, teamId }: userIdType) {
 
   return (
     <StmyResultPage>
-      <SEO />
+      <SEO title="T.time | 내 결과를 확인해보세요!" />
       <LogoTop />
       {resultData ? (
         <StMyResult>

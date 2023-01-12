@@ -20,7 +20,7 @@ function ConfirmInvite() {
   const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
-      <SEO />
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" />
       {modalState && router.query.teamName ? (
         <InviteModal
           teamName={String(router.query.teamName)}

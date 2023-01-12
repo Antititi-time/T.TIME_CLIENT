@@ -9,7 +9,7 @@ import { COLOR } from '@src/styles/color';
 function errorPage() {
   return (
     <>
-      <SEO />
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" />
       <LogoTop></LogoTop>
       <StErrorPage>
         <ImageDiv src={imgErrorChr} alt="에러 캐릭터 사진" className="errorImg" fill />

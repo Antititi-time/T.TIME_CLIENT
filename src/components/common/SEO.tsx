@@ -1,12 +1,15 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-function SEO() {
+interface SEOProps {
+  title: string;
+}
+
+function SEO({ title }: SEOProps) {
   const router = useRouter();
   return (
     <Head>
-      <title>T.time | 팀과 내가 함께 성장하는 시간</title>
-      <meta name="description" content="T.time | 팀과 내가 함께 성장하는 시간" />
+      <title>{title}</title>
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="T.time" />
       <meta property="og:title" content="T.time" />
