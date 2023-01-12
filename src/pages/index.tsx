@@ -7,7 +7,6 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
-
 function Home() {
   useManageScroll();
   return (
@@ -17,6 +16,11 @@ function Home() {
       <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" />
       <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
       <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
+    <div>
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
+      <StLogo>
+        <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
+      </StLogo>
       <StInviteButton>
         <Link href="/invite">
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'초대장 만들기'} />

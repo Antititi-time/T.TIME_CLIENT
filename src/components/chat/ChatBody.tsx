@@ -107,7 +107,7 @@ export default ChatBody;
 
 const StChatWrapper = styled.div``;
 
-
+const StEmoticonWrapper = styled.div``;
 const chatEmoticon = () => keyframes`
   from {
     opacity: 0;
@@ -121,14 +121,11 @@ const chatEmoticon = () => keyframes`
 //     opacity: 1;
 //   } 100% {
 //   }`;
-
-
-const StEmoticonWrapper = styled.div``;
-
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 8.2rem;
+  padding-bottom: 2rem;
+  margin-top: 1.1rem;
   white-space: pre-line;
   z-index: 0;
 
@@ -164,6 +161,7 @@ const StInputQuestion = styled.div`
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
+
   ${FONT_STYLES.NEXON_R_13};
   :after {
     position: absolute;
