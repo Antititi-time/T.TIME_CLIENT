@@ -46,10 +46,13 @@ function ChatBody() {
       }
       if (scrollRef.current !== null) {
         if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+          scrollRef.current.style.paddingBottom = '11.5rem';
+          scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        } else if (CHAT_QUESTION_LIST[index].questions.includes('한문장')) {
           scrollRef.current.style.paddingBottom = '8.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else {
-          scrollRef.current.style.paddingBottom = '7.2rem';
+          scrollRef.current.style.paddingBottom = '13.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
       }
@@ -114,17 +117,11 @@ const chatEmoticon = () => keyframes`
   } 50% {
     opacity: 1;
   }`;
-// const chatEmoticonPop = () => keyframes`
-//   0% {
-//     opacity: 0;
-//   } 50% {
-//     opacity: 1;
-//   } 100% {
-//   }`;
+
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 2rem;
+
   margin-top: 1.1rem;
   white-space: pre-line;
   z-index: 0;
