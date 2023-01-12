@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
-import ImageDiv from '@src/components/common/ImageDiv';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
@@ -82,7 +81,7 @@ function SimpleResult({ teamId }: TeamResultProps) {
       <StTeamName>&#39;{teamName}&#39;</StTeamName>
       <StTeamResultText>
         <p>팀</p>
-        <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
+        <img src={imgCenturyGothicLogo.src} alt="logo" className="logo" />
         <p>결과</p>
       </StTeamResultText>
       <StImageContainer>
