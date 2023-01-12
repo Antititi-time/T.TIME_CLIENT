@@ -1,4 +1,3 @@
-import SEO from '@src/components/common/SEO';
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
