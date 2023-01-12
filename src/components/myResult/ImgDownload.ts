@@ -5,14 +5,15 @@ interface paramsType {
   name: string;
 }
 
-const onDownload = ({ id, name }: paramsType) => {
+const onDownload = async ({ id, name }: paramsType) => {
   if (typeof window !== 'object') return;
-  const DownloadCompo = document.getElementById(id) as HTMLElement;
-  html2canvas(DownloadCompo, { allowTaint: true, useCORS: true }).then((canvas) => {
+  const DownloadCompo = (await document.getElementById(id)) as HTMLElement;
+  if (DownloadCompo) {
+    const canvas = await html2canvas(DownloadCompo, { allowTaint: true, useCORS: true });
     document.body.appendChild(canvas);
     onSave(canvas.toDataURL('myResultImg'), name);
     document.body.removeChild(canvas);
-  });
+  }
 };
 
 const onSave: (url: string, name: string) => void = (url, name) => {
