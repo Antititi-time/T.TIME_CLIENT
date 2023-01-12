@@ -11,8 +11,3 @@ export { default as Button4 } from './Button4.svg';
 export { default as Button5 } from './Button5.svg';
 export { default as smallLogoIcon } from './smallLogoIcon.svg';
 export { default as SubmitButton } from './SubmitButton.svg';
-export { default as icnTeamResultA } from './icn_teamResult_a.svg';
-export { default as icnTeamResultB } from './icn_teamResult_b.svg';
-export { default as icnTeamResultC } from './icn_teamResult_c.svg';
-export { default as icnTeamResultD } from './icn_teamResult_d.svg';
-export { default as icnTeamResultE } from './icn_teamResult_e.svg';

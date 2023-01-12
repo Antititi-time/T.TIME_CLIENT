@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
 import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
-import { icnTeamResultA, icnTeamResultB, icnTeamResultC, icnTeamResultD, icnTeamResultE } from '@src/assets/icons';
+import { imgCategoryA, imgCategoryB, imgCategoryC, imgCategoryD, imgCategoryE } from '@src/assets/images';
 import ImageDiv from '../common/ImageDiv';
 
 interface TeamResultProps {
@@ -44,15 +44,15 @@ function DetailResult({ teamCode }: TeamResultProps) {
   const handleCategoryEmoticon = (category: string) => {
     switch (category) {
       case '협업':
-        return icnTeamResultA;
+        return imgCategoryA;
       case '동기부여':
-        return icnTeamResultB;
+        return imgCategoryB;
       case '성장':
-        return icnTeamResultC;
+        return imgCategoryC;
       case '개인생활':
-        return icnTeamResultD;
+        return imgCategoryD;
       case '건강':
-        return icnTeamResultE;
+        return imgCategoryE;
     }
   };
 
