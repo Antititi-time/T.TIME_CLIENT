@@ -94,7 +94,7 @@ function SimpleResult({ teamCode }: TeamResultProps) {
         />
         <ImageDiv
           src={handleImgSrc(false, bad).src}
-          alt={handleImgSrc(true, bad).alt}
+          alt={handleImgSrc(false, bad).alt}
           className="emoticon"
           fill={true}
         />
