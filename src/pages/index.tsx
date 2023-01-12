@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -8,7 +9,7 @@ import { logoIcon } from '@src/assets/icons';
 function Home() {
   return (
     <div>
-      <title>T.time</title>
+      <SEO />
       <StLogo>
         <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
       </StLogo>

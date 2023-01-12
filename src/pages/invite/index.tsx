@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { imgLetter } from '@src/assets/images/index';
@@ -49,6 +50,7 @@ function Invite() {
   };
   return (
     <StInvite>
+      <SEO />
       <TextTop text="초대장 만들기" />
       <ImageDiv src={imgLetter} alt="편지이미지" className="letterImg" />
       <StForm action="post">

@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
@@ -9,7 +10,6 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
 import LoadingView from '@src/components/common/LoadingView';
-import SEO from '@src/components/common/SEO';
 
 function TeamResult() {
   const [modalState, setModalState] = useState(false);

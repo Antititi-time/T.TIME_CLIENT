@@ -1,6 +1,6 @@
+import SEO from '@src/components/common/SEO';
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import SEO from '@src/components/common/SEO';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -29,9 +29,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <link rel="icon" href="public/favicon.ico" />
-        <Head>{/* <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewportMeta" /> */}</Head>
-        <SEO />
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />

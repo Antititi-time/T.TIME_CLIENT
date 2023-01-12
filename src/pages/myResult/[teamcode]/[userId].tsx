@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
@@ -37,6 +38,7 @@ function MyResult({ userId, teamId }: userIdType) {
 
   return (
     <StmyResultPage>
+      <SEO />
       <LogoTop />
       {resultData ? (
         <StMyResult>

@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import TextTop from '@src/components/common/TextTop';
@@ -13,7 +14,6 @@ import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
 import { getTeamData } from '@src/services';
-import SEO from '@src/components/common/SEO';
 
 interface IApiError {
   response: {
