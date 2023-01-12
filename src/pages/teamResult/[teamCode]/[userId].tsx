@@ -11,11 +11,19 @@ import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
 import LoadingView from '@src/components/common/LoadingView';
 
-function TeamResult() {
+interface teamIdType {
+  teamId: number;
+}
+interface ctxType {
+  query: {
+    teamCode: string;
+  };
+}
+function TeamResult({ teamId }: teamIdType) {
   const [modalState, setModalState] = useState(false);
   const [isUser, setIsUser] = useState(false);
   const router = useRouter();
-  const teamId = Number(router.asPath.split('/')[2]);
+
   const [userId, setUserId] = useState('');
   useEffect(() => {
     setUserId(router.asPath.split('/')[3]);
@@ -73,3 +81,7 @@ const StBackground = styled.div`
   background: linear-gradient(180deg, #f0e9d8 6.57%, rgba(241, 239, 234, 0) 55.73%, rgba(241, 239, 234, 0) 104.9%);
   transform: rotate(-180deg);
 `;
+export async function getServerSideProps(ctx: ctxType) {
+  const teamId = parseInt(ctx.query.teamCode);
+  return { props: { teamId } };
+}
