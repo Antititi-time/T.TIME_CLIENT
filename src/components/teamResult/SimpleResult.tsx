@@ -19,12 +19,12 @@ import {
   imgSaltbreadNegative,
 } from '@src/assets/images';
 interface TeamResultProps {
-  teamCode: number;
+  teamId: number;
 }
 
-function SimpleResult({ teamCode }: TeamResultProps) {
-  const { data } = useQuery('teamResult', () => getTeamResult(teamCode), {
-    enabled: !!teamCode,
+function SimpleResult({ teamId }: TeamResultProps) {
+  const { data } = useQuery('teamResult', () => getTeamResult(teamId), {
+    enabled: !!teamId,
   });
 
   const handleDate = (date: string) => {
