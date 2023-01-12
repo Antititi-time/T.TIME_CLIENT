@@ -45,30 +45,30 @@ function SimpleResult({ teamCode }: TeamResultProps) {
     if (isGood) {
       switch (category) {
         case 'a':
-          return { src: imgTartPositive.src, alt: '웃는 타르트' };
+          return { src: imgTartPositive, alt: '웃는 타르트' };
         case 'b':
-          return { src: imgMacaronPositive.src, alt: '웃는 마카롱' };
+          return { src: imgMacaronPositive, alt: '웃는 마카롱' };
         case 'c':
-          return { src: imgEclairPositive.src, alt: '웃는 에끌레어' };
+          return { src: imgEclairPositive, alt: '웃는 에끌레어' };
         case 'd':
-          return { src: imgCanelePositive.src, alt: '웃는 까눌레' };
+          return { src: imgCanelePositive, alt: '웃는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadPositive.src, alt: '웃는 소금빵' };
+          return { src: imgSaltbreadPositive, alt: '웃는 소금빵' };
         default:
           return { src: '', alt: '' };
       }
     } else {
       switch (category) {
         case 'a':
-          return { src: imgTartNegative.src, alt: '우는 타르트' };
+          return { src: imgTartNegative, alt: '우는 타르트' };
         case 'b':
-          return { src: imgMacaronNegative.src, alt: '우는 마카롱' };
+          return { src: imgMacaronNegative, alt: '우는 마카롱' };
         case 'c':
-          return { src: imgEclairNegative.src, alt: '우는 에끌레어' };
+          return { src: imgEclairNegative, alt: '우는 에끌레어' };
         case 'd':
-          return { src: imgCaneleNegative.src, alt: '우는 까눌레' };
+          return { src: imgCaneleNegative, alt: '우는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadNegative.src, alt: '우는 소금빵' };
+          return { src: imgSaltbreadNegative, alt: '우는 소금빵' };
         default:
           return { src: '', alt: '' };
       }
