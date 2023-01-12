@@ -35,3 +35,6 @@ export { default as D_icon3 } from './D_icon3.png';
 export { default as E_icon1 } from './E_icon1.png';
 export { default as E_icon2 } from './E_icon2.png';
 export { default as End_icon } from './End_icon.png';
+export { default as imgMainBackground } from './img_main_background.png';
+export { default as imgMainCharacters } from './img_main_characters.png';
+export { default as imgBackgroundItems } from './img_background_items.png';

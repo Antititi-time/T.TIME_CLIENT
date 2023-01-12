@@ -97,8 +97,7 @@ const StSubmitButton = styled.button`
   .SubmitButton {
     position: absolute;
     bottom: -1.7rem;
-    right: 1.6rem;
-    margin-right: 0.2rem;
+    right: 1.8rem;
   }
 `;
 
