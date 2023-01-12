@@ -118,7 +118,6 @@ const chatEmoticon = () => keyframes`
 //   } 50% {
 //     opacity: 1;
 //   } 100% {
-    
 //   }`;
 
 const StChatBody = styled.div`
