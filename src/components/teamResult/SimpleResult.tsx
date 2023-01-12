@@ -68,7 +68,7 @@ function SimpleResult({ teamCode }: TeamResultProps) {
         case 'd':
           return { src: imgCaneleNegative.src, alt: '우는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadNegative, alt: '우는 소금빵' };
+          return { src: imgSaltbreadNegative.src, alt: '우는 소금빵' };
         default:
           return { src: '', alt: '' };
       }
