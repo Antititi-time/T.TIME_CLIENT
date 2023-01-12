@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <title>T.time | 팀과 내가 함께 성장하는 시간</title>
+        <link rel="icon" href="public/favicon.ico" />
         <Head>{/* <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewportMeta" /> */}</Head>
         <SEO />
         <body>
