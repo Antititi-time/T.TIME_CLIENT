@@ -14,7 +14,7 @@ interface TeamResultProps {
 function TeamResult({ teamCode }: TeamResultProps) {
   return (
     <StFrame>
-      <SimpleResult teamCode={teamCode} />
+      <SimpleResult teamId={teamCode} />
       <StDivder />
       <Chart teamCode={teamCode} />
       <DetailResult teamCode={teamCode} />
