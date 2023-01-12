@@ -1,5 +1,5 @@
 import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -107,7 +107,24 @@ export default ChatBody;
 
 const StChatWrapper = styled.div``;
 
+
+const chatEmoticon = () => keyframes`
+  from {
+    opacity: 0;
+  } 50% {
+    opacity: 1;
+  }`;
+// const chatEmoticonPop = () => keyframes`
+//   0% {
+//     opacity: 0;
+//   } 50% {
+//     opacity: 1;
+//   } 100% {
+//   }`;
+
+
 const StEmoticonWrapper = styled.div``;
+
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
@@ -120,6 +137,7 @@ const StChatBody = styled.div`
     width: 14.8rem;
     height: 14.8rem;
     margin: -1.5rem 18rem 1.2rem 6.2rem;
+    animation: ${chatEmoticon} 4s;
   }
 `;
 
