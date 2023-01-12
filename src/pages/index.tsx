@@ -3,9 +3,7 @@ import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { logoIcon } from '@src/assets/icons';
-import { imgMainBackground } from '@src/assets/images';
-import { imgMainCharacters } from '@src/assets/images';
-import { imgBackgroundItems } from '@src/assets/images';
+import { imgMainBackground, imgBackgroundItems, imgMainCharacters } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 
