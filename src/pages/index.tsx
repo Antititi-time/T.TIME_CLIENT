@@ -1,5 +1,5 @@
 import SEO from '@src/components/common/SEO';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
@@ -7,7 +7,6 @@ import { logoIcon } from '@src/assets/icons';
 import { imgMainBackground, imgBackgroundItems, imgMainCharacters } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
-
 function Home() {
   useManageScroll();
   return (
