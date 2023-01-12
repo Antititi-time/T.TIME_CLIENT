@@ -121,8 +121,6 @@ const chatEmoticon = () => keyframes`
 //     opacity: 1;
 //   } 100% {
 //   }`;
-
->>>>>>>>> Temporary merge branch 2
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
