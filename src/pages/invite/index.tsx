@@ -50,7 +50,7 @@ function Invite() {
   };
   return (
     <StInvite>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" />
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       <TextTop text="초대장 만들기" />
       <ImageDiv src={imgLetter} alt="편지이미지" className="letterImg" />
       <StForm action="post">

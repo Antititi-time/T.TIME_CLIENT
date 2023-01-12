@@ -37,7 +37,7 @@ function TeamResult() {
 
   return (
     <StTeamResult>
-      <SEO title="T.time | 팀 결과를 확인해보세요!" />
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="개인 결과를 확인해보세요!" />
       <LogoTop />
       {data ? (
         data?.completed && !isLoading ? (

@@ -9,7 +9,7 @@ import { logoIcon } from '@src/assets/icons';
 function Home() {
   return (
     <div>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" />
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       <StLogo>
         <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
       </StLogo>

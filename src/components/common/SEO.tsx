@@ -2,16 +2,18 @@ import Head from 'next/head';
 
 interface SEOProps {
   title: string;
+  description: string;
 }
 
-function SEO({ title }: SEOProps) {
+function SEO({ title, description }: SEOProps) {
   return (
     <Head>
       <title>{title}</title>
+      <link rel="icon" href="/favicon.ico" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="T.time" />
       <meta property="og:title" content="T.time" />
-      <meta property="og:description" content="T.time | 팀과 내가 함께 성장하는 시간" />
+      <meta property="og:description" content={description} />
       <meta property="og:image" content="/img_thumbnail.png" />
       <meta property="og:url" content="https://t-time-client.vercel.app" />
       <meta property="og:locale" content="ko_KR" />

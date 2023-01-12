@@ -8,7 +8,7 @@ function Chat() {
 
   return (
     <>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" />
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       <TopBar teamName={router.query.teamName} />
       <ChatBody />
     </>
