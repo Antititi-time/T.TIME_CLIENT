@@ -45,30 +45,30 @@ function SimpleResult({ teamId }: TeamResultProps) {
     if (isGood) {
       switch (category) {
         case 'a':
-          return { src: imgTartPositive, alt: '웃는 타르트' };
+          return { src: imgTartPositive.src, alt: '웃는 타르트' };
         case 'b':
-          return { src: imgMacaronPositive, alt: '웃는 마카롱' };
+          return { src: imgMacaronPositive.src, alt: '웃는 마카롱' };
         case 'c':
-          return { src: imgEclairPositive, alt: '웃는 에끌레어' };
+          return { src: imgEclairPositive.src, alt: '웃는 에끌레어' };
         case 'd':
-          return { src: imgCanelePositive, alt: '웃는 까눌레' };
+          return { src: imgCanelePositive.src, alt: '웃는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadPositive, alt: '웃는 소금빵' };
+          return { src: imgSaltbreadPositive.src, alt: '웃는 소금빵' };
         default:
           return { src: '', alt: '' };
       }
     } else {
       switch (category) {
         case 'a':
-          return { src: imgTartNegative, alt: '우는 타르트' };
+          return { src: imgTartNegative.src, alt: '우는 타르트' };
         case 'b':
-          return { src: imgMacaronNegative, alt: '우는 마카롱' };
+          return { src: imgMacaronNegative.src, alt: '우는 마카롱' };
         case 'c':
-          return { src: imgEclairNegative, alt: '우는 에끌레어' };
+          return { src: imgEclairNegative.src, alt: '우는 에끌레어' };
         case 'd':
-          return { src: imgCaneleNegative, alt: '우는 까눌레' };
+          return { src: imgCaneleNegative.src, alt: '우는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadNegative, alt: '우는 소금빵' };
+          return { src: imgSaltbreadNegative.src, alt: '우는 소금빵' };
         default:
           return { src: '', alt: '' };
       }
@@ -86,18 +86,15 @@ function SimpleResult({ teamId }: TeamResultProps) {
         <p>결과</p>
       </StTeamResultText>
       <StImageContainer>
-        <ImageDiv
+        {/* <<ImageDiv
           src={handleImgSrc(true, good).src}
           alt={handleImgSrc(true, good).alt}
           className="emoticon"
           fill={true}
-        />
-        <ImageDiv
-          src={handleImgSrc(false, bad).src}
-          alt={handleImgSrc(false, bad).alt}
-          className="emoticon"
-          fill={true}
-        />
+        />> */}
+        <img className="emoticon" alt={handleImgSrc(true, good).alt} src={handleImgSrc(true, good).src} />
+        <img className="emoticon" alt={handleImgSrc(false, bad).alt} src={handleImgSrc(false, bad).src} />
+        {/* <ImageDiv src={handleImgSrc(false, bad)} alt={handleImgSrc(false, bad).alt} className="emoticon" fill={true} /> */}
       </StImageContainer>
       <StTeamInfoDetail>
         <p>우리 팀은요..</p>
