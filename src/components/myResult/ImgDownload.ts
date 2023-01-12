@@ -10,18 +10,17 @@ const onDownload = ({ id, name }: paramsType) => {
   const DownloadCompo = document.getElementById(id) as HTMLElement;
   html2canvas(DownloadCompo, { allowTaint: true, useCORS: true }).then((canvas) => {
     document.body.appendChild(canvas);
-    onSave(canvas.toDataURL('myResult/img'), name);
+    onSave(canvas.toDataURL('myResultImg'), name);
     document.body.removeChild(canvas);
   });
 };
 
 const onSave: (url: string, name: string) => void = (url, name) => {
   const link = document.createElement('a');
-  document.body.appendChild(link);
   link.href = url;
   link.download = name;
+  document.body.appendChild(link);
   link.click();
-  link.remove();
 };
 
 export { onDownload };
