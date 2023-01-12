@@ -53,7 +53,6 @@ const StMainCharacters = styled.div`
     top: 13.1rem;
     left: 2.3rem;
     animation: ${characterAnimation} 3s infinite linear alternate;
-    /* animation-duration: 6s; */
   }
 `;
 
