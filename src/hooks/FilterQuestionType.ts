@@ -10,6 +10,8 @@ export const filterQuestionType = (questionType: string) => {
       return '개인생활';
     case 'e':
       return '건강';
+    default:
+      return '협업';
   }
 };
 
