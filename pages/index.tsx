@@ -7,7 +7,7 @@ function Home() {
         <title>setting-practice</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>main 브랜치</div>
+      <div>main branch</div>
     </div>
   );
 }
