@@ -29,7 +29,8 @@ function TopBar({ teamName }: props) {
 export default TopBar;
 
 const StTopBox = styled.div`
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100vw;
   height: 7rem;
   background-color: rgba(255, 252, 245, 0.8);
