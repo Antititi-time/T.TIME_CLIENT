@@ -5,6 +5,11 @@ export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
 };
 
+export const getTeamData = async (teamId: number) => {
+  const { data } = await api.get({ url: `/api/team/${teamId}` });
+  return data;
+};
+
 export const getTeamInfo = async (body: object) => {
   const { data } = await api.post({ url: `/api/team`, data: body });
   return data;
@@ -43,5 +48,9 @@ export const getCompleted = async (teamId: number) => {
 export const postAnswer = async (teamId: number, body: object) => {
   const { data } = await api.post({ url: `/api/chat/${teamId}`, data: body });
 
+  return data;
+};
+export const patchComplete = async (userId: number) => {
+  const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
   return data;
 };

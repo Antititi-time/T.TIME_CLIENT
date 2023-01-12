@@ -28,10 +28,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewportMeta" /> */}
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+        <Head></Head>
         <body>
           <Main />
           <NextScript />

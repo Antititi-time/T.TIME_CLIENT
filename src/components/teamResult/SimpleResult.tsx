@@ -31,8 +31,9 @@ function SimpleResult({ teamCode }: TeamResultProps) {
     return date && date.replaceAll('-', '.');
   };
 
-  const handleCategory = (category: string) => {
-    const charCode = category?.charCodeAt(category.length - 1);
+  const checkSpelling = (category: string) => {
+    const categoryKorean = filterQuestionType(category);
+    const charCode = categoryKorean?.charCodeAt(categoryKorean.length - 1);
     const consonantCode = (charCode - 44032) % 28;
     if (consonantCode === 0) {
       return '가';
@@ -93,7 +94,7 @@ function SimpleResult({ teamCode }: TeamResultProps) {
         />
         <ImageDiv
           src={handleImgSrc(false, bad).src}
-          alt={handleImgSrc(true, bad).alt}
+          alt={handleImgSrc(false, bad).alt}
           className="emoticon"
           fill={true}
         />
@@ -102,10 +103,10 @@ function SimpleResult({ teamCode }: TeamResultProps) {
         <p>우리 팀은요..</p>
         <p>
           <span style={{ color: COLOR.BLUE_TEXT }}>{filterQuestionType(good)}</span>
-          {handleCategory(good)} 가장 뛰어나고,
+          {checkSpelling(good)} 가장 뛰어나고,
           <br />
           <span style={{ color: COLOR.ORANGE_TEXT }}>{filterQuestionType(bad)}</span>
-          {handleCategory(bad)} 가장 필요해요.
+          {checkSpelling(bad)} 가장 필요해요.
         </p>
       </StTeamInfoDetail>
     </StSimpleResult>

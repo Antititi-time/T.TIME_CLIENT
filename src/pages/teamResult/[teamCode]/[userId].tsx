@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import LogoTop from '@src/components/common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
@@ -30,23 +31,25 @@ function TeamResult() {
       }
     }
   }, [userId]);
-  const completeData = useQuery('completeData', () => getCompleted(teamId), {
+  const { data, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
     enabled: !!teamId,
   });
 
   return (
     <StTeamResult>
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="개인 결과를 확인해보세요!" />
       <LogoTop />
-      {completeData ? (
-        completeData?.data?.completed ? (
+      {data ? (
+        data?.completed && !isLoading ? (
           <>
-            {modalState ? <TeamModal teamName={completeData?.data?.teamName} setModalState={setModalState} /> : <></>}
+            {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
+
             <ResultFrame teamCode={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
           </>
         ) : (
-          <UnfinishedResult completeData={completeData.data} />
+          <UnfinishedResult completeData={data} />
         )
       ) : (
         <LoadingView />

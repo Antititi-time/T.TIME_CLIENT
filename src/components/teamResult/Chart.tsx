@@ -18,13 +18,6 @@ function Chart({ teamCode }: TeamResultProps) {
   const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamCode), {
     enabled: !!teamCode,
   });
-  interface ChartElementsCustomType {
-    elements: {
-      point: {
-        pointBackgroundColor: string;
-      };
-    };
-  }
 
   const setInOrder = (data: TeamScore[]) => {
     data.sort(function (a: TeamScore, b: TeamScore) {
@@ -88,7 +81,7 @@ function Chart({ teamCode }: TeamResultProps) {
     ],
   };
 
-  const chartOptions: ChartOptions<'radar'> & ChartElementsCustomType = {
+  const chartOptions: ChartOptions<'radar'> & ChartOptions = {
     elements: {
       line: {
         borderWidth: 2,

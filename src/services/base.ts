@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-type Methods = 'get' | 'post' | 'delete' | 'put';
+type Methods = 'get' | 'post' | 'delete' | 'put' | 'patch';
 
 interface apiDataType {
   url: string;
@@ -41,4 +41,5 @@ export const api = {
   get: ({ url, params, headers }: apiDataType) => sendRequest({ url, params, method: 'get', headers }),
   post: ({ url, data, headers }: apiDataType) => sendRequestWithData({ url, data, method: 'post', headers }),
   put: ({ url, data, headers }: apiDataType) => sendRequestWithData({ url, data, method: 'put', headers }),
+  patch: ({ url, data, headers }: apiDataType) => sendRequestWithData({ url, data, method: 'patch', headers }),
 };

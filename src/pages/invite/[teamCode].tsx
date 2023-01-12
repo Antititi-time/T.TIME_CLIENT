@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import TextTop from '@src/components/common/TextTop';
 import useManageScroll from '@src/hooks/UseManageScroll';
@@ -19,6 +20,7 @@ function ConfirmInvite() {
   const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       {modalState && router.query.teamName ? (
         <InviteModal
           teamName={String(router.query.teamName)}

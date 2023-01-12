@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
-
+import { patchComplete } from '@src/services';
 interface watchResultType {
   teamId: string;
   userId: string;
@@ -10,7 +10,7 @@ interface watchResultType {
 
 function WatchMyResultButton({ teamId, userId }: watchResultType) {
   return (
-    <StWatchMyResultButton>
+    <StWatchMyResultButton onClick={() => patchComplete(Number(userId))}>
       <Link href={`/myResult/${teamId}/${userId}`}>
         <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'개인 결과 보기'} />
       </Link>
