@@ -8,7 +8,7 @@ function AdminProfile() {
   return (
     <StAdminProfile>
       <ImageDiv src={profileImg} alt="주최자 프로필 사진" className="adminProfileImg" fill={true} />
-      <StProfileName>티타임 주최자 캐릭터</StProfileName>
+      <StProfileName>주최자 티타미</StProfileName>
     </StAdminProfile>
   );
 }
