@@ -3,7 +3,8 @@ import SEO from '@src/components/common/SEO';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgTopLogo } from '@src/assets/images';
+
+import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 
@@ -14,7 +15,7 @@ function Home() {
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />
       <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" />
-      <ImageDiv src={imgTopLogo} alt="티타임 로고" className="logoIcon" />
+      <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
       <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
       <StInviteButton>
         <Link href="/invite">
@@ -59,6 +60,8 @@ const StHome = styled.div`
     z-index: 2;
     position: absolute;
     top: 25.3rem;
+    width: 11.8rem;
+    height: 6.1rem;
   }
 
   .mainBackground {

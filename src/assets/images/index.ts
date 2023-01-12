@@ -38,3 +38,4 @@ export { default as End_icon } from './End_icon.png';
 export { default as imgMainBackground } from './img_main_background.png';
 export { default as imgMainCharacters } from './img_main_characters.png';
 export { default as imgBackgroundItems } from './img_background_items.png';
+export { default as imgMainLogo } from './img_logo_main_icon.png';
