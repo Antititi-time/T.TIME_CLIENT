@@ -77,28 +77,28 @@ function DetailResult({ teamCode }: TeamResultProps) {
           <StQuestionAnswerContainer>
             <StQuestion>Q1. {QUESTION_TEXT[currentTab][0]}</StQuestion>
             <StAnswerList>
-              {questionOneList.map((answer, index) => (
+              {questionOneList.map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
-                  <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
-                    {answer.nickname}
+                  <StName maxStyle={grade === 5} minStyle={grade === 1}>
+                    {nickname}
                   </StName>
                   <StAnswer>
-                    <span>{answer.grade}</span>
-                    <p>{answer.answer}</p>
+                    <span>{grade}</span>
+                    <p>{answer}</p>
                   </StAnswer>
                 </StAnswerItem>
               ))}
             </StAnswerList>
             <StQuestion>Q2. {QUESTION_TEXT[currentTab][1]}</StQuestion>
             <StAnswerList>
-              {questionTwoList.map((answer, index) => (
+              {questionTwoList.map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
-                  <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
-                    {answer.nickname}
+                  <StName maxStyle={grade === 5} minStyle={grade === 1}>
+                    {nickname}
                   </StName>
                   <StAnswer>
-                    <span>{answer.grade}</span>
-                    <p>{answer.answer}</p>
+                    <span>{grade}</span>
+                    <p>{answer}</p>
                   </StAnswer>
                 </StAnswerItem>
               ))}
