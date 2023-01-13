@@ -36,7 +36,7 @@ function ChatBody() {
         setChat(newlist);
         setTextCount(textCount + 1);
       }
-    }, 500);
+    }, 700);
     if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
       if (CHAT_QUESTION_LIST[index].questionType == 'End') {
         setEnd(true);
@@ -76,7 +76,10 @@ function ChatBody() {
               </StAnswer>
             </StAnswerWrapper>
           ) : questions.includes('한문장') ? (
-            <StInputQuestion key={index}>{questions}</StInputQuestion>
+            <>
+              <AdminProfile />
+              <StInputQuestion key={index}>{questions}</StInputQuestion>
+            </>
           ) : (
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
@@ -108,30 +111,47 @@ function ChatBody() {
 
 export default ChatBody;
 
-const StChatWrapper = styled.div``;
+const StChatWrapper = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  background-color: ${COLOR.IVORY_1};
+  z-index: 1;
+`;
 
 const StEmoticonWrapper = styled.div``;
 const chatEmoticon = () => keyframes`
   from {
-    opacity: 0;
+    transform: translate(0%,7%);
   } 50% {
-    opacity: 1;
+    transform: translate(0%,-7%);
+  }100%{
+    transform: translate(0%,0%);
   }`;
+
+const chatText = () => keyframes`
+from {
+  transform: translate(0%,7%);
+} 50% {
+  transform: translate(0%,-7%);
+}100%{
+  transform: translate(0%,0%);
+}`;
 
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 8.2rem;
 
   margin-top: 1.1rem;
   white-space: pre-line;
-  z-index: 0;
+  z-index: 2;
 
   .emoticon {
     position: relative;
     width: 14.8rem;
     height: 14.8rem;
     margin: -1.5rem 18rem 1.2rem 6.2rem;
-    animation: ${chatEmoticon} 4s;
+    animation: ${chatEmoticon} 1s linear alternate;
   }
 `;
 
@@ -145,6 +165,7 @@ const StAdminChat = styled.div`
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_R_13};
+  animation: ${chatText} 1s linear alternate;
 `;
 
 const StInputQuestion = styled.div`
@@ -158,6 +179,7 @@ const StInputQuestion = styled.div`
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
+  animation: ${chatText} 1s linear alternate;
 
   ${FONT_STYLES.NEXON_R_13};
   :after {
