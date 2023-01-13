@@ -140,9 +140,6 @@ from {
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 8.2rem;
-
-  margin-top: 1.1rem;
   white-space: pre-line;
   z-index: 2;
 
