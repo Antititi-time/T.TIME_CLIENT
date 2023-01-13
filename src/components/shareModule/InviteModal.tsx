@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { icKakao, icPaste } from '@src/assets/icons';
+import { icPaste } from '@src/assets/icons';
+import { icKakao } from '@src/assets/images';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
@@ -126,6 +127,7 @@ const StKakaoButton = styled.button`
 const StButtonIcon = styled.img`
   margin-left: 1.8rem;
   margin-right: 4rem;
+  width: 2.4rem;
 `;
 
 const StButtonText = styled.span`
