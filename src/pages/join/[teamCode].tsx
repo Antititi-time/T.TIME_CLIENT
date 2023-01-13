@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import TextTop from '@src/components/common/TextTop';
@@ -12,7 +13,7 @@ import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
-import { getCompleted } from '@src/services';
+import { getTeamData } from '@src/services';
 
 interface IApiError {
   response: {
@@ -30,7 +31,7 @@ function Join() {
   const teamCode = Number(router.asPath.split('/')[2]);
   const [nickname, setNickname] = useState<string>('');
 
-  const { data } = useQuery('teamData', () => getCompleted(teamCode), {
+  const { data } = useQuery('teamData', () => getTeamData(teamCode), {
     enabled: !!teamCode,
   });
 
@@ -77,6 +78,7 @@ function Join() {
 
   return (
     <StJoin>
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="초대장이 도착했어요!" />
       <TextTop text={'티타임 참여하기'} />
       <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
@@ -86,7 +88,7 @@ function Join() {
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
-          <StList>총 {data?.totalNumber}명</StList>
+          <StList>총 {data?.teamMember}명</StList>
           <StList>질문 개수: 12개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>

@@ -3,6 +3,12 @@
 
 T.time은 **협업에서 발생하는 다양한 감정들을 솔직하게 공유하며 나와 팀 함께 발전할 수는 없을까?** 라는 고민에서 시작되었습니다. 다양한 질문을 통해 나와 팀의 감정을 살피고 건강한 팀 문화를 만들어가도록 돕는 서비스입니다. 🙂
 
+![판넬2_최종](https://user-images.githubusercontent.com/99077953/212273115-8252f014-e15e-4bec-a3ef-d6a055762ba5.jpg)
+
+<br />
+<hr/>
+<br />
+
 ## 👩🏻‍💻 팀원 소개
 |나림|문서연|송하윤|장명지|최유진|
 |:-:|:-:|:-:|:-:|:-:|
@@ -33,16 +39,16 @@ T.time은 **협업에서 발생하는 다양한 감정들을 솔직하게 공유
 │ │ └── 📂images 🗂 이미지 저장
 │ ├── 📂components
 │ │ ├── 📂common 🗂 공통으로 쓰일 컴포넌트 저장
-│ │ ├── 📂main 🗂 main페이지 컴포넌트 저장 (이하 동일)
 │ │ ├── 📂invite
-│ │ ├── 📂join 
 │ │ ├── 📂chat
+│ │ ├── 📂shareModule
 │ │ ├── 📂myResult 
 │ │ └── 📂teamResult
+│ ├── 📂constants
+│ ├── 📂hooks
 │ ├── 📂mocks
 │ ├── 📂pages
 │ ├── 📂services 🗂 api관리
-│ ├── 📂atoms 🗂 recoil 관리 
 │ ├── 📂styles
 └── 📜각종 세팅 파일
 ```

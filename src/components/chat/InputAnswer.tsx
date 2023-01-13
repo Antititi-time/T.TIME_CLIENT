@@ -95,10 +95,9 @@ const StSubmitButton = styled.button`
   position: relative;
   margin-bottom: 1.7rem;
   .SubmitButton {
-    position: absolute;
-    bottom: -1.7rem;
-    right: 1.6rem;
-    margin-right: 0.2rem;
+    position: fixed;
+    bottom: 2.7rem;
+    right: 1.7rem;
   }
 `;
 
@@ -112,7 +111,7 @@ const StCountTextNumber = styled.div`
 
 const StForm = styled.form`
   display: flex;
-  justify-content: center;
+
   align-items: center;
   position: fixed;
   width: 100vw;
@@ -128,7 +127,7 @@ const StForm = styled.form`
 `;
 
 const StInput = styled.textarea`
-  width: 83.9%;
+  width: 71.9%;
   height: 4rem;
   bottom: 2.4rem;
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;

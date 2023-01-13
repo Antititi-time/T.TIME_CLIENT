@@ -1,3 +1,4 @@
+import SEO from '@src/components/common/SEO';
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
@@ -37,6 +38,7 @@ function MyResult({ userId, teamId }: userIdType) {
 
   return (
     <StmyResultPage>
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="결과를 확인해보세요!" />
       <LogoTop />
       {resultData ? (
         <StMyResult>

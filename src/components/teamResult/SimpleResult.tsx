@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo } from '@src/assets/images';
-import ImageDiv from '@src/components/common/ImageDiv';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
@@ -19,20 +18,21 @@ import {
   imgSaltbreadNegative,
 } from '@src/assets/images';
 interface TeamResultProps {
-  teamCode: number;
+  teamId: number;
 }
 
-function SimpleResult({ teamCode }: TeamResultProps) {
-  const { data } = useQuery('teamResult', () => getTeamResult(teamCode), {
-    enabled: !!teamCode,
+function SimpleResult({ teamId }: TeamResultProps) {
+  const { data } = useQuery('teamResult', () => getTeamResult(teamId), {
+    enabled: !!teamId,
   });
 
   const handleDate = (date: string) => {
     return date && date.replaceAll('-', '.');
   };
 
-  const handleCategory = (category: string) => {
-    const charCode = category?.charCodeAt(category.length - 1);
+  const checkSpelling = (category: string) => {
+    const categoryKorean = filterQuestionType(category);
+    const charCode = categoryKorean?.charCodeAt(categoryKorean.length - 1);
     const consonantCode = (charCode - 44032) % 28;
     if (consonantCode === 0) {
       return '가';
@@ -44,32 +44,32 @@ function SimpleResult({ teamCode }: TeamResultProps) {
     if (isGood) {
       switch (category) {
         case 'a':
-          return { src: imgTartPositive, alt: '웃는 타르트' };
+          return { src: imgTartPositive.src, alt: '웃는 타르트' };
         case 'b':
-          return { src: imgMacaronPositive, alt: '웃는 마카롱' };
+          return { src: imgMacaronPositive.src, alt: '웃는 마카롱' };
         case 'c':
-          return { src: imgEclairPositive, alt: '웃는 에끌레어' };
+          return { src: imgEclairPositive.src, alt: '웃는 에끌레어' };
         case 'd':
-          return { src: imgCanelePositive, alt: '웃는 까눌레' };
+          return { src: imgCanelePositive.src, alt: '웃는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadPositive, alt: '웃는 소금빵' };
+          return { src: imgSaltbreadPositive.src, alt: '웃는 소금빵' };
         default:
-          return { src: imgTartPositive, alt: '웃는 타르트' };
+          return { src: '', alt: '' };
       }
     } else {
       switch (category) {
         case 'a':
-          return { src: imgTartNegative, alt: '우는 타르트' };
+          return { src: imgTartNegative.src, alt: '우는 타르트' };
         case 'b':
-          return { src: imgMacaronNegative, alt: '우는 마카롱' };
+          return { src: imgMacaronNegative.src, alt: '우는 마카롱' };
         case 'c':
-          return { src: imgEclairNegative, alt: '우는 에끌레어' };
+          return { src: imgEclairNegative.src, alt: '우는 에끌레어' };
         case 'd':
-          return { src: imgCaneleNegative, alt: '우는 까눌레' };
+          return { src: imgCaneleNegative.src, alt: '우는 까눌레' };
         case 'e':
-          return { src: imgSaltbreadNegative, alt: '우는 소금빵' };
+          return { src: imgSaltbreadNegative.src, alt: '우는 소금빵' };
         default:
-          return { src: imgTartNegative, alt: '우는 타르트' };
+          return { src: '', alt: '' };
       }
     }
   };
@@ -81,31 +81,28 @@ function SimpleResult({ teamCode }: TeamResultProps) {
       <StTeamName>&#39;{teamName}&#39;</StTeamName>
       <StTeamResultText>
         <p>팀</p>
-        <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
+        <img src={imgCenturyGothicLogo.src} alt="logo" className="logo" />
         <p>결과</p>
       </StTeamResultText>
       <StImageContainer>
-        <ImageDiv
+        {/* <<ImageDiv
           src={handleImgSrc(true, good).src}
           alt={handleImgSrc(true, good).alt}
           className="emoticon"
           fill={true}
-        />
-        <ImageDiv
-          src={handleImgSrc(false, bad).src}
-          alt={handleImgSrc(true, bad).alt}
-          className="emoticon"
-          fill={true}
-        />
+        />> */}
+        <img className="emoticon" alt={handleImgSrc(true, good).alt} src={handleImgSrc(true, good).src} />
+        <img className="emoticon" alt={handleImgSrc(false, bad).alt} src={handleImgSrc(false, bad).src} />
+        {/* <ImageDiv src={handleImgSrc(false, bad)} alt={handleImgSrc(false, bad).alt} className="emoticon" fill={true} /> */}
       </StImageContainer>
       <StTeamInfoDetail>
         <p>우리 팀은요..</p>
         <p>
           <span style={{ color: COLOR.BLUE_TEXT }}>{filterQuestionType(good)}</span>
-          {handleCategory(good)} 가장 뛰어나고,
+          {checkSpelling(good)} 가장 뛰어나고,
           <br />
           <span style={{ color: COLOR.ORANGE_TEXT }}>{filterQuestionType(bad)}</span>
-          {handleCategory(bad)} 가장 필요해요.
+          {checkSpelling(bad)} 가장 필요해요.
         </p>
       </StTeamInfoDetail>
     </StSimpleResult>

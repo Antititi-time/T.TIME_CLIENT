@@ -2,12 +2,11 @@ import { imgLoading } from '@src/assets/images';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import styled from 'styled-components';
-import ImageDiv from './ImageDiv';
 function LoadingView() {
   return (
     <StLoadingView>
       <StLoadingText>Loading...</StLoadingText>
-      <ImageDiv src={imgLoading} alt="loadingView"></ImageDiv>
+      <img src={imgLoading.src} alt="loadingView" />
     </StLoadingView>
   );
 }

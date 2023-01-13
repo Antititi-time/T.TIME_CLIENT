@@ -1,5 +1,5 @@
 import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -46,10 +46,13 @@ function ChatBody() {
       }
       if (scrollRef.current !== null) {
         if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+          scrollRef.current.style.paddingBottom = '11.5rem';
+          scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        } else if (CHAT_QUESTION_LIST[index].questions.includes('한문장')) {
           scrollRef.current.style.paddingBottom = '8.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else {
-          scrollRef.current.style.paddingBottom = '7.2rem';
+          scrollRef.current.style.paddingBottom = '18vh';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
       }
@@ -62,12 +65,12 @@ function ChatBody() {
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
-            <>
+            <StEmoticonWrapper key={index}>
               <AdminProfile />
-              <ImageDiv key={index} src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
-            </>
+              <ImageDiv src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
+            </StEmoticonWrapper>
           ) : questions[0] == 'A' ? (
-            <StAnswerWrapper>
+            <StAnswerWrapper key={index}>
               <StAnswer>
                 <StPosition>{questions.substring(1)}</StPosition>
               </StAnswer>
@@ -87,6 +90,7 @@ function ChatBody() {
           <></>
         ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
+            key={index}
             setIndex={setIndex}
             setInput={setInput}
             index={index}
@@ -96,9 +100,9 @@ function ChatBody() {
             userId={Number(userCode)}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
-          <FirstChoiceAnswer setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
+          <FirstChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
         ) : (
-          <ChoiceAnswer setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
+          <ChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
         )}
       </StChatBody>
     </StChatWrapper>
@@ -114,10 +118,20 @@ const StChatWrapper = styled.div`
   z-index: 1;
 `;
 
+const StEmoticonWrapper = styled.div``;
+const chatEmoticon = () => keyframes`
+  from {
+    opacity: 0;
+  } 50% {
+    opacity: 1;
+  }`;
+
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 8.2rem;
+
+  margin-top: 1.1rem;
   white-space: pre-line;
   z-index: 2;
 
@@ -126,6 +140,7 @@ const StChatBody = styled.div`
     width: 14.8rem;
     height: 14.8rem;
     margin: -1.5rem 18rem 1.2rem 6.2rem;
+    animation: ${chatEmoticon} 4s;
   }
 `;
 
@@ -152,6 +167,7 @@ const StInputQuestion = styled.div`
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
+
   ${FONT_STYLES.NEXON_R_13};
   :after {
     position: absolute;

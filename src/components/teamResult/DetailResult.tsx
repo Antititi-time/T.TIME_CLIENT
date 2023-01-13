@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
 import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
-import { icnTeamResultA, icnTeamResultB, icnTeamResultC, icnTeamResultD, icnTeamResultE } from '@src/assets/icons';
+import { imgCategoryA, imgCategoryB, imgCategoryC, imgCategoryD, imgCategoryE } from '@src/assets/images';
 import ImageDiv from '../common/ImageDiv';
 
 interface TeamResultProps {
@@ -41,18 +41,29 @@ function DetailResult({ teamCode }: TeamResultProps) {
     });
   }, [data, currentTab]);
 
+  const handleSorting = (list: TeamDetailResult[]) => {
+    const sortedList = list.sort((a, b) => {
+      if (a.nickname < b.nickname) return -1;
+      if (a.nickname > b.nickname) return 1;
+      return 0;
+    });
+    return sortedList;
+  };
+
   const handleCategoryEmoticon = (category: string) => {
     switch (category) {
       case '협업':
-        return icnTeamResultA;
+        return imgCategoryA;
       case '동기부여':
-        return icnTeamResultB;
+        return imgCategoryB;
       case '성장':
-        return icnTeamResultC;
+        return imgCategoryC;
       case '개인생활':
-        return icnTeamResultD;
+        return imgCategoryD;
       case '건강':
-        return icnTeamResultE;
+        return imgCategoryE;
+      default:
+        return '';
     }
   };
 
@@ -77,28 +88,28 @@ function DetailResult({ teamCode }: TeamResultProps) {
           <StQuestionAnswerContainer>
             <StQuestion>Q1. {QUESTION_TEXT[currentTab][0]}</StQuestion>
             <StAnswerList>
-              {questionOneList.map((answer, index) => (
+              {handleSorting(questionOneList).map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
-                  <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
-                    {answer.nickname}
+                  <StName maxStyle={grade === 5} minStyle={grade === 1}>
+                    {nickname}
                   </StName>
                   <StAnswer>
-                    <span>{answer.grade}</span>
-                    <p>{answer.answer}</p>
+                    <span>{grade}</span>
+                    <p>{answer}</p>
                   </StAnswer>
                 </StAnswerItem>
               ))}
             </StAnswerList>
             <StQuestion>Q2. {QUESTION_TEXT[currentTab][1]}</StQuestion>
             <StAnswerList>
-              {questionTwoList.map((answer, index) => (
+              {handleSorting(questionTwoList).map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
-                  <StName maxStyle={answer.grade === 5} minStyle={answer.grade === 1}>
-                    {answer.nickname}
+                  <StName maxStyle={grade === 5} minStyle={grade === 1}>
+                    {nickname}
                   </StName>
                   <StAnswer>
-                    <span>{answer.grade}</span>
-                    <p>{answer.answer}</p>
+                    <span>{grade}</span>
+                    <p>{answer}</p>
                   </StAnswer>
                 </StAnswerItem>
               ))}

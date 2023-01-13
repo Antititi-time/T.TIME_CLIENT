@@ -35,5 +35,15 @@ export { default as D_icon3 } from './D_icon3.png';
 export { default as E_icon1 } from './E_icon1.png';
 export { default as E_icon2 } from './E_icon2.png';
 export { default as End_icon } from './End_icon.png';
+export { default as imgMainBackground } from './img_main_background.png';
+export { default as imgMainCharacters } from './img_main_characters.png';
+export { default as imgBackgroundItems } from './img_background_items.png';
+export { default as imgMainLogo } from './img_logo_main_icon.png';
 
 export { default as icKakao } from './img_kakao.png';
+
+export { default as imgCategoryA } from './img_category_a.png';
+export { default as imgCategoryB } from './img_category_b.png';
+export { default as imgCategoryC } from './img_category_c.png';
+export { default as imgCategoryD } from './img_category_d.png';
+export { default as imgCategoryE } from './img_category_e.png';

@@ -1,55 +1,83 @@
-import Head from 'next/head';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import SEO from '@src/components/common/SEO';
 import { COLOR } from '@src/styles/color';
-import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { logoIcon } from '@src/assets/icons';
 
+import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
+import BottomButton from '@src/components/common/BottomButton';
+import useManageScroll from '@src/hooks/UseManageScroll';
 function Home() {
+  useManageScroll();
   return (
-    <div>
-      <Head>
-        <title>setting-practice</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <StLogo>
-        <ImageDiv src={logoIcon} alt="티타임 로고" className="logoIcon" />
-      </StLogo>
+    <StHome>
+      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
+      <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />
+      <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" />
+      <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
+      <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
+
       <StInviteButton>
-        <Link href="/invite">초대장 만들기</Link>
+        <Link href="/invite">
+          <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'초대장 만들기'} />
+        </Link>
       </StInviteButton>
-    </div>
+    </StHome>
   );
 }
 
 export default Home;
 
-const StInviteButton = styled.div`
+const characterAnimation = () => keyframes`
+  from {
+    transform: translate(0%,5%);
+  } 50% {
+    transform: translate(0%,-5%);
+  }   `;
+
+const StHome = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 28.2rem;
-  height: 4.8rem;
-  margin: 57.2rem 5.4rem 3.9rem 5.4rem;
-  border: 0rem solid ${COLOR.ORANGE_1};
-  border-radius: 10rem;
-  background-color: ${COLOR.ORANGE_1};
-  ${FONT_STYLES.PRETENDARD_B_16};
+  flex-direction: column;
 
-  & > a,
-  a:visited {
-    color: ${COLOR.WHITE_100};
+  .mainCharacters {
+    z-index: 2;
+    position: relative;
+    top: 13.1rem;
+    width: 34.4rem;
+    height: 39.3rem;
+    animation: ${characterAnimation} 3s infinite linear alternate;
+  }
+
+  .backgroundItems {
+    z-index: 2;
+    position: absolute;
+    top: 8.6rem;
+  }
+
+  .logoIcon {
+    z-index: 2;
+    position: absolute;
+    top: 25.3rem;
+    width: 11.8rem;
+    height: 6.1rem;
+  }
+
+  .mainBackground {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    min-height: calc(var(--vh) * 100);
   }
 `;
 
-const StLogo = styled.div`
+const StInviteButton = styled.div`
+  z-index: 2;
   display: flex;
-  flex-direction: column;
+  position: fixed;
+  top: 57.1rem;
+  justify-content: center;
   align-items: center;
-
-  .logoIcon {
-    position: absolute;
-    top: 25.8rem;
-  }
 `;

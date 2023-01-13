@@ -13,6 +13,7 @@ interface completeDataType {
     completed: boolean;
     completedNumber: number;
     totalNumber: number;
+    teamName: string;
   };
 }
 
@@ -20,7 +21,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
   const router = useRouter();
   const teamCode = Number(router.asPath.split('/')[2]);
   const userCode = router.asPath.split('/')[3];
-  const resultLink = `http://192.168.0.134:3000/teamResult/${teamCode}/${userCode}`;
+  const resultLink = `https://t-time-client.vercel.app/teamResult/${teamCode}/${userCode}`;
   const date = new Date();
   const year = date.getFullYear();
   let month: string | number = date.getMonth() + 1;
@@ -32,7 +33,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
   return (
     <StResultCard>
       <StDate>{year + '.' + month + '.' + day}</StDate>
-      <StTeamName>‘안티티티티티티티티티티티타임’</StTeamName>
+      <StTeamName>‘{completeData?.teamName}’</StTeamName>
       <StTeamResultText>
         <p>팀</p>
         <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
