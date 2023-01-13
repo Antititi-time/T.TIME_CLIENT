@@ -4,12 +4,13 @@ import BottomButton from '../common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import { onDownload } from './ImgDownload';
 interface BottomBtnProps {
-  id: string;
   teamId: string;
   userId: string;
+  name: string;
+  element: HTMLElement;
 }
 
-function BottomBtnContainer({ id, teamId, userId }: BottomBtnProps) {
+function BottomBtnContainer({ element, userId, teamId }: BottomBtnProps) {
   return (
     <StButtomBtnContainer>
       <Link href={`/teamResult/${teamId}/${userId}`}>
@@ -20,7 +21,7 @@ function BottomBtnContainer({ id, teamId, userId }: BottomBtnProps) {
           width={16}
           color={COLOR.ORANGE_1}
           text={'이미지 저장'}
-          handler={() => onDownload({ id: id, name: 'my_result' })}
+          handler={() => onDownload({ element: element, name: 'my_result' })}
         />
       </StButtonContainer>
     </StButtomBtnContainer>
