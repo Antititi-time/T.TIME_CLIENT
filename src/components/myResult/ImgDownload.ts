@@ -1,4 +1,3 @@
-import { imgLoading } from '@src/assets/images';
 interface paramsType {
   id: string;
   name: string;
