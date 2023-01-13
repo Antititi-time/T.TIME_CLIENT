@@ -39,3 +39,9 @@ export { default as imgMainBackground } from './img_main_background.png';
 export { default as imgMainCharacters } from './img_main_characters.png';
 export { default as imgBackgroundItems } from './img_background_items.png';
 export { default as imgMainLogo } from './img_logo_main_icon.png';
+
+export { default as imgCategoryA } from './img_category_a.png';
+export { default as imgCategoryB } from './img_category_b.png';
+export { default as imgCategoryC } from './img_category_c.png';
+export { default as imgCategoryD } from './img_category_d.png';
+export { default as imgCategoryE } from './img_category_e.png';
