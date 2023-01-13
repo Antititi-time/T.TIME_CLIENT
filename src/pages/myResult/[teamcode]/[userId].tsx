@@ -28,7 +28,6 @@ interface userIdType {
 function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const DOWNLOAD_ID = 'imgToDownload';
   const { data } = useQuery('userData', () => getMyResult(userId));
   const imgToDownload = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -93,7 +92,7 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={DOWNLOAD_ID} />
+      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} element={imgToDownload.current} />
     </StmyResultPage>
   );
 }

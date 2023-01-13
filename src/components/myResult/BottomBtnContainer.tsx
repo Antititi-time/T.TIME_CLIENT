@@ -6,10 +6,11 @@ import { onDownload } from './ImgDownload';
 interface BottomBtnProps {
   teamId: string;
   userId: string;
-  id: string;
+  name: string;
+  element: HTMLElement;
 }
 
-function BottomBtnContainer({ id, userId, teamId }: BottomBtnProps) {
+function BottomBtnContainer({ element, userId, teamId }: BottomBtnProps) {
   return (
     <StButtomBtnContainer>
       <Link href={`/teamResult/${teamId}/${userId}`}>
@@ -20,7 +21,7 @@ function BottomBtnContainer({ id, userId, teamId }: BottomBtnProps) {
           width={16}
           color={COLOR.ORANGE_1}
           text={'이미지 저장'}
-          handler={() => onDownload({ id: id, name: 'my_result' })}
+          handler={() => onDownload({ element: element, name: 'my_result' })}
         />
       </StButtonContainer>
     </StButtomBtnContainer>
