@@ -17,12 +17,14 @@ function BottomBtnContainer({ element, userId, teamId }: BottomBtnProps) {
         <BottomButton width={16} color={COLOR.BLUE_1} text={'전체 결과 보기'} />
       </Link>
 
-      <BottomButton
-        width={16}
-        color={COLOR.ORANGE_1}
-        text={'이미지 저장'}
-        handler={() => onDownload({ element: element, name: 'my_result' })}
-      />
+      <StButtonContainer>
+        <BottomButton
+          width={16}
+          color={COLOR.ORANGE_1}
+          text={'이미지 저장'}
+          handler={() => onDownload({ element: element, name: 'my_result' })}
+        />
+      </StButtonContainer>
     </StButtomBtnContainer>
   );
 }
@@ -41,6 +43,6 @@ const StButtomBtnContainer = styled.div`
   border-radius: 1.2rem 1.2rem 0 0;
   background-color: white;
 `;
-// const StButtonContainer = styled.div`
-//   cursor: pointer;
-// `;
+const StButtonContainer = styled.div`
+  cursor: pointer;
+`;

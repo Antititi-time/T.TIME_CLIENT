@@ -7,7 +7,7 @@ interface paramsType {
 
 const onDownload = async ({ element, name }: paramsType) => {
   const canvas = await html2canvas(element);
-  const image = canvas.toDataURL('myResult/image');
+  const image = canvas.toDataURL('myResult/image', {});
   downloadImage(image, name);
 };
 
