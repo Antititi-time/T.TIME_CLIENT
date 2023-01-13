@@ -41,6 +41,15 @@ function DetailResult({ teamCode }: TeamResultProps) {
     });
   }, [data, currentTab]);
 
+  const handleSorting = (list: TeamDetailResult[]) => {
+    const sortedList = list.sort((a, b) => {
+      if (a.nickname < b.nickname) return -1;
+      if (a.nickname > b.nickname) return 1;
+      return 0;
+    });
+    return sortedList;
+  };
+
   const handleCategoryEmoticon = (category: string) => {
     switch (category) {
       case '협업':
@@ -79,7 +88,7 @@ function DetailResult({ teamCode }: TeamResultProps) {
           <StQuestionAnswerContainer>
             <StQuestion>Q1. {QUESTION_TEXT[currentTab][0]}</StQuestion>
             <StAnswerList>
-              {questionOneList.map(({ grade, nickname, answer }, index) => (
+              {handleSorting(questionOneList).map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
                   <StName maxStyle={grade === 5} minStyle={grade === 1}>
                     {nickname}
@@ -93,7 +102,7 @@ function DetailResult({ teamCode }: TeamResultProps) {
             </StAnswerList>
             <StQuestion>Q2. {QUESTION_TEXT[currentTab][1]}</StQuestion>
             <StAnswerList>
-              {questionTwoList.map(({ grade, nickname, answer }, index) => (
+              {handleSorting(questionTwoList).map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
                   <StName maxStyle={grade === 5} minStyle={grade === 1}>
                     {nickname}
