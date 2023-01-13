@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { icKakao, icPaste } from '@src/assets/icons';
+import { icPaste } from '@src/assets/icons';
+import { icKakao } from '@src/assets/images';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';

@@ -40,6 +40,8 @@ export { default as imgMainCharacters } from './img_main_characters.png';
 export { default as imgBackgroundItems } from './img_background_items.png';
 export { default as imgMainLogo } from './img_logo_main_icon.png';
 
+export { default as icKakao } from './img_kakao.png';
+
 export { default as imgCategoryA } from './img_category_a.png';
 export { default as imgCategoryB } from './img_category_b.png';
 export { default as imgCategoryC } from './img_category_c.png';
