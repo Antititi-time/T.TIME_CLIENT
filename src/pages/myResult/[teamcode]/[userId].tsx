@@ -2,7 +2,7 @@ import SEO from '@src/components/common/SEO';
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '@src/components/common/ImageDiv';
@@ -29,7 +29,7 @@ function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
-  const imgToDownload = 'imgToDownload';
+  const imgToDownload = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);
@@ -92,7 +92,11 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={imgToDownload} name={'my-result'} />
+      <BottomBtnContainer
+        teamId={String(teamId)}
+        userId={String(userId)}
+        element={imgToDownload.current as HTMLDivElement}
+      />
     </StmyResultPage>
   );
 }

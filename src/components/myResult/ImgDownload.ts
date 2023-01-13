@@ -1,34 +1,25 @@
 import html2canvas from 'html2canvas';
 
-interface props {
-  id: string;
+interface paramsType {
   name: string;
+  element: HTMLElement;
 }
-const clickLink = (link: HTMLAnchorElement) => {
-  link.click();
+
+const onDownload = async ({ element, name }: paramsType) => {
+  const canvas = await html2canvas(element);
+  const image = canvas.toDataURL('myResult/image');
+  downloadImage(image, name);
 };
 
-const accountForBrowser = (click: (link: HTMLAnchorElement) => void, link: HTMLAnchorElement) => {
-  document.body.appendChild(link);
-  click(link);
-  document.body.removeChild(link);
+const downloadImage = (image: string, name: string) => {
+  const fakeLink = window.document.createElement('a');
+  fakeLink.download = name;
+  fakeLink.href = image;
+  document.body.appendChild(fakeLink);
+  fakeLink.click();
+  document.body.removeChild(fakeLink);
+
+  fakeLink.remove();
 };
 
-const simulateDownload = (uri: string, filename: string) => {
-  const link = document.createElement('a');
-  if (typeof link.download !== 'string') {
-    window.open(uri);
-  } else {
-    link.href = uri;
-    link.download = filename;
-    accountForBrowser(clickLink, link);
-  }
-};
-
-export const PngExport = async ({ id, name }: props) => {
-  if (document) {
-    html2canvas(document.getElementById(`#${id}`)!).then((canvas) => {
-      simulateDownload(canvas.toDataURL(), name);
-    });
-  }
-};
+export { onDownload };

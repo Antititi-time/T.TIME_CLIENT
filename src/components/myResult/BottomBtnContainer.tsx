@@ -2,28 +2,27 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import BottomButton from '../common/BottomButton';
 import { COLOR } from '@src/styles/color';
-import { PngExport } from './ImgDownload';
+import { onDownload } from './ImgDownload';
 interface BottomBtnProps {
   teamId: string;
   userId: string;
-  name: string;
-  id: string;
+
+  element: HTMLElement;
 }
 
-function BottomBtnContainer({ id, userId, teamId }: BottomBtnProps) {
+function BottomBtnContainer({ element, userId, teamId }: BottomBtnProps) {
   return (
     <StButtomBtnContainer>
       <Link href={`/teamResult/${teamId}/${userId}`}>
         <BottomButton width={16} color={COLOR.BLUE_1} text={'전체 결과 보기'} />
       </Link>
-      <StButtonContainer>
-        <BottomButton
-          width={16}
-          color={COLOR.ORANGE_1}
-          text={'이미지 저장'}
-          handler={() => PngExport({ id: id, name: 'my_result' })}
-        />
-      </StButtonContainer>
+
+      <BottomButton
+        width={16}
+        color={COLOR.ORANGE_1}
+        text={'이미지 저장'}
+        handler={() => onDownload({ element: element, name: 'my_result' })}
+      />
     </StButtomBtnContainer>
   );
 }
