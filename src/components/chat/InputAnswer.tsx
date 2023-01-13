@@ -103,7 +103,7 @@ const StSubmitButton = styled.button`
 
 const StCountTextNumber = styled.div`
   position: absolute;
-  right: 2.9rem;
+  right: 1.8rem;
   bottom: 0.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
@@ -134,7 +134,7 @@ const StInput = styled.textarea`
   margin: 0.8rem 0 2.5rem 0;
   border: 0.1rem solid ${COLOR.GRAY_EC};
   border-radius: 2.6rem;
-  color: ${COLOR.GRAY_7E};
+  color: ${COLOR.BLACK};
   background: ${COLOR.GRAY_EC};
   font-size: 1.7rem;
   overflow: hidden;

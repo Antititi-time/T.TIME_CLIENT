@@ -36,7 +36,7 @@ function ChatBody() {
         setChat(newlist);
         setTextCount(textCount + 1);
       }
-    }, 500);
+    }, 700);
     if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
       if (CHAT_QUESTION_LIST[index].questionType == 'End') {
         setEnd(true);
@@ -121,10 +121,21 @@ const StChatWrapper = styled.div`
 const StEmoticonWrapper = styled.div``;
 const chatEmoticon = () => keyframes`
   from {
-    opacity: 0;
+    transform: translate(0%,7%);
   } 50% {
-    opacity: 1;
+    transform: translate(0%,-7%);
+  }100%{
+    transform: translate(0%,0%);
   }`;
+
+const chatText = () => keyframes`
+from {
+  transform: translate(0%,7%);
+} 50% {
+  transform: translate(0%,-7%);
+}100%{
+  transform: translate(0%,0%);
+}`;
 
 const StChatBody = styled.div`
   display: flex;
@@ -140,7 +151,7 @@ const StChatBody = styled.div`
     width: 14.8rem;
     height: 14.8rem;
     margin: -1.5rem 18rem 1.2rem 6.2rem;
-    animation: ${chatEmoticon} 4s;
+    animation: ${chatEmoticon} 1s linear alternate;
   }
 `;
 
@@ -154,6 +165,7 @@ const StAdminChat = styled.div`
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_R_13};
+  animation: ${chatText} 1s linear alternate;
 `;
 
 const StInputQuestion = styled.div`
@@ -167,6 +179,7 @@ const StInputQuestion = styled.div`
   border-radius: 1rem;
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
+  animation: ${chatText} 1s linear alternate;
 
   ${FONT_STYLES.NEXON_R_13};
   :after {
