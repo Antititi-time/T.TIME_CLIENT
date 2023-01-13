@@ -46,7 +46,7 @@ function MyResult({ userId, teamId }: userIdType) {
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
-          <div ref={imgToDownload}>
+          <div id={imgToDownload}>
             <StResultCard>
               <StInfoContainer>
                 <p className="date">{resultData.date}</p>
