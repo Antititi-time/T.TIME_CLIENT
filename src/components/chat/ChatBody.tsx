@@ -73,7 +73,10 @@ function ChatBody() {
               </StAnswer>
             </StAnswerWrapper>
           ) : questions.includes('한문장') ? (
-            <StInputQuestion key={index}>{questions}</StInputQuestion>
+            <>
+              <AdminProfile />
+              <StInputQuestion key={index}>{questions}</StInputQuestion>
+            </>
           ) : (
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
