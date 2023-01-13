@@ -177,8 +177,8 @@ const StInputQuestion = styled.div`
   background-color: ${COLOR.BLUE_2};
   color: ${COLOR.BLACK};
   animation: ${chatText} 1s linear alternate;
-
   ${FONT_STYLES.NEXON_R_13};
+
   :after {
     position: absolute;
     top: -0.4rem;

@@ -7,6 +7,7 @@ import { Button5 } from '@src/assets/icons/index';
 import { COLOR } from '@src/styles/color';
 import { Dispatch, SetStateAction } from 'react';
 import { StaticImageData } from 'next/image';
+import { FONT_STYLES } from '@src/styles/fontStyle';
 
 interface choiceType {
   setIndex: Dispatch<SetStateAction<number>>;
@@ -38,12 +39,16 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
 export default ChoiceAnswer;
 
 const StRoundButton = styled.div<{ text: number }>`
+  display: flex;
+  justify-content: center;
+  text-align: center;
   background-color: #6faedc;
+  padding-top: 0.7rem;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  padding: 1rem;
   color: ${COLOR.WHITE_100};
+  ${FONT_STYLES.PRETENDARD_EB_20};
 
   ${({ text }) =>
     text == 2 &&
@@ -80,8 +85,9 @@ const StChoiceInput = styled.div`
   height: 6.4rem;
   position: fixed;
   z-index: 1;
-  gap: 0.7rem;
+  gap: -0.3rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   z-index: 1;
+  ${FONT_STYLES.NEXON_R_13};
 `;
