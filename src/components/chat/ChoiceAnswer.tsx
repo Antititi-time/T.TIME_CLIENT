@@ -85,7 +85,7 @@ const StChoiceInput = styled.div`
   height: 6.4rem;
   position: fixed;
   z-index: 1;
-  gap: -0.3rem;
+  gap: -1.2rem;
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   z-index: 1;

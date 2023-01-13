@@ -99,6 +99,8 @@ const StKakaoButton = styled.button`
 const StButtonIcon = styled.img`
   margin-left: 1.8rem;
   margin-right: 4rem;
+  width: 2.4rem;
+  height: 2.4rem;
 `;
 
 const StButtonText = styled.span`
