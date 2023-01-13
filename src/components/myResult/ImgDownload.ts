@@ -1,25 +1,26 @@
-import html2canvas from 'html2canvas';
-
 interface paramsType {
+  id: string;
   name: string;
-  element: HTMLElement;
 }
 
-const onDownload = async ({ element, name }: paramsType) => {
-  const canvas = await html2canvas(element);
-  const image = canvas.toDataURL('myResult/image', {});
-  downloadImage(image, name);
+const onDownload = async ({ id, name }: paramsType) => {
+  const DownloadCompo = document.getElementById(id) as HTMLElement;
+  const lib = await import('html2canvas');
+  const canvas = await lib.default(DownloadCompo, {
+    allowTaint: true,
+    useCORS: true,
+  });
+  document.body.appendChild(canvas);
+  onSave(canvas.toDataURL('img/'), name);
+  document.body.removeChild(canvas);
 };
 
-const downloadImage = (image: string, name: string) => {
-  const fakeLink = window.document.createElement('a');
-  fakeLink.download = name;
-  fakeLink.href = image;
-  document.body.appendChild(fakeLink);
-  fakeLink.click();
-  document.body.removeChild(fakeLink);
-
-  fakeLink.remove();
+const onSave: (url: string, name: string) => void = (url, name) => {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = name;
+  document.body.appendChild(link);
+  link.click();
 };
 
 export { onDownload };
