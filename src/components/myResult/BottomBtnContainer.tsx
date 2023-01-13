@@ -6,7 +6,7 @@ import { onDownload } from './ImgDownload';
 interface BottomBtnProps {
   teamId: string;
   userId: string;
-  name: string;
+
   element: HTMLElement;
 }
 
@@ -16,6 +16,7 @@ function BottomBtnContainer({ element, userId, teamId }: BottomBtnProps) {
       <Link href={`/teamResult/${teamId}/${userId}`}>
         <BottomButton width={16} color={COLOR.BLUE_1} text={'전체 결과 보기'} />
       </Link>
+
       <StButtonContainer>
         <BottomButton
           width={16}
