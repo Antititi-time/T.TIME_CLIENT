@@ -73,7 +73,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, user
       <StInput
         ref={textarea}
         rows={1}
-        maxLength={99}
+        maxLength={100}
         onChange={(event) => {
           handleResizeTextHeight();
           handleCountText(event);
