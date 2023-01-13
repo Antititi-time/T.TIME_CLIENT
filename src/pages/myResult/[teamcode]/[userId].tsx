@@ -92,7 +92,11 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} element={imgToDownload.current} />
+      <BottomBtnContainer
+        teamId={String(teamId)}
+        userId={String(userId)}
+        element={imgToDownload.current as HTMLDivElement}
+      />
     </StmyResultPage>
   );
 }

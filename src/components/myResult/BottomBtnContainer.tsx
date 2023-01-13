@@ -6,7 +6,7 @@ import { onDownload } from './ImgDownload';
 interface BottomBtnProps {
   teamId: string;
   userId: string;
-  name: string;
+
   element: HTMLElement;
 }
 
