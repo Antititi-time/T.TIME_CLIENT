@@ -21,7 +21,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
   const router = useRouter();
   const teamCode = Number(router.asPath.split('/')[2]);
   const userCode = router.asPath.split('/')[3];
-  const resultLink = `https://www.ttime.site/teamResult/${teamCode}/${userCode}`;
+  const resultLink = `https://t-time-client.vercel.app//teamResult/${teamCode}/${userCode}`;
   const date = new Date();
   const year = date.getFullYear();
   let month: string | number = date.getMonth() + 1;
