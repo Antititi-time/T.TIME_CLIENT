@@ -13,7 +13,7 @@ const onDownload = async ({ id, name }: paramsType) => {
   document.body.appendChild(canvas);
   canvas.setAttribute('loading', 'eager');
   onSave(canvas.toDataURL('img/'), name);
-  document.body.removeChild(canvas);
+  // document.body.removeChild(canvas);
 };
 
 const onSave: (url: string, name: string) => void = (url, name) => {
