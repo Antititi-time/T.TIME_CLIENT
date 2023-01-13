@@ -112,9 +112,9 @@ function ChatBody() {
 export default ChatBody;
 
 const StChatWrapper = styled.div`
-  background-color: ${COLOR.IVORY_1};
   width: 100vw;
   min-height: 100vh;
+  background-color: ${COLOR.IVORY_1};
   z-index: 1;
 `;
 
