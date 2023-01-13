@@ -53,6 +53,8 @@ function DetailResult({ teamCode }: TeamResultProps) {
         return imgCategoryD;
       case '건강':
         return imgCategoryE;
+      default:
+        return '';
     }
   };
 
