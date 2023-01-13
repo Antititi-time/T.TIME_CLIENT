@@ -2,7 +2,7 @@ import SEO from '@src/components/common/SEO';
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '@src/components/common/ImageDiv';
@@ -29,7 +29,7 @@ function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
-  const DOWNLOAD_ID = 'imgToDownload';
+  const imgToDownload = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);
@@ -46,7 +46,7 @@ function MyResult({ userId, teamId }: userIdType) {
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
-          <div id={DOWNLOAD_ID}>
+          <div ref={imgToDownload}>
             <StResultCard>
               <StInfoContainer>
                 <p className="date">{resultData.date}</p>
@@ -92,7 +92,7 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={DOWNLOAD_ID} />
+      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} element={imgToDownload.current} />
     </StmyResultPage>
   );
 }
