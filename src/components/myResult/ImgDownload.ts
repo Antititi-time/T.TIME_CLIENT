@@ -1,3 +1,4 @@
+import { imgLoading } from '@src/assets/images';
 interface paramsType {
   id: string;
   name: string;
@@ -11,6 +12,7 @@ const onDownload = async ({ id, name }: paramsType) => {
     useCORS: true,
   });
   document.body.appendChild(canvas);
+  canvas.setAttribute('loading', 'eager');
   onSave(canvas.toDataURL('img/'), name);
   document.body.removeChild(canvas);
 };
