@@ -107,14 +107,19 @@ function ChatBody() {
 
 export default ChatBody;
 
-const StChatWrapper = styled.div``;
+const StChatWrapper = styled.div`
+  background-color: ${COLOR.IVORY_1};
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 1;
+`;
 
 const StChatBody = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 8.2rem;
+  padding-top: 8.2rem;
   white-space: pre-line;
-  z-index: 0;
+  z-index: 2;
 
   .emoticon {
     position: relative;
