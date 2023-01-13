@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import ImageDiv from '../common/ImageDiv';
+import styled, { css } from 'styled-components';
 import { Button1 } from '@src/assets/icons/index';
 import { Button2 } from '@src/assets/icons/index';
 import { Button3 } from '@src/assets/icons/index';
@@ -29,7 +28,7 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
     <StChoiceInput>
       {numbers.map((Item: string, index: number) => (
         <StSelectButton key={index} onClick={() => handleChoiceBtn(index)}>
-          <ImageDiv src={Item} alt={`버튼 ${index}번`} />
+          <StRoundButton text={index + 1}>{index + 1}</StRoundButton>
         </StSelectButton>
       ))}
     </StChoiceInput>
@@ -37,6 +36,36 @@ function ChoiceAnswer({ setIndex, setInput, setChat, setGrade }: choiceType) {
 }
 
 export default ChoiceAnswer;
+
+const StRoundButton = styled.div<{ text: number }>`
+  background-color: #6faedc;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 1rem;
+  color: ${COLOR.WHITE_100};
+
+  ${({ text }) =>
+    text == 2 &&
+    css`
+      background-color: #86baba;
+    `}
+  ${({ text }) =>
+    text == 3 &&
+    css`
+      background-color: #efc865;
+    `}
+    ${({ text }) =>
+    text == 4 &&
+    css`
+      background-color: #ffa16c;
+    `}
+    ${({ text }) =>
+    text == 5 &&
+    css`
+      background-color: #ff8159;
+    `}
+`;
 
 const StSelectButton = styled.button`
   display: inline-block;
