@@ -60,8 +60,8 @@ function ChatBody() {
   }, [chat, index]);
 
   return (
-    <StChatWrapper ref={scrollRef}>
-      <StChatBody>
+    <StChatWrapper>
+      <StChatBody ref={scrollRef}>
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (

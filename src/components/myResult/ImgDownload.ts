@@ -11,6 +11,7 @@ const onDownload = async ({ id, name }: paramsType) => {
     useCORS: true,
   });
   document.body.appendChild(canvas);
+  canvas.setAttribute('loading', 'eager');
   onSave(canvas.toDataURL('img/'), name);
   document.body.removeChild(canvas);
 };

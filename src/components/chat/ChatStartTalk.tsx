@@ -32,6 +32,7 @@ const StAdminChatText = styled.p`
 `;
 
 const StStartWrap = styled.div`
+  padding-top: 2rem;
   .StartEmoticon {
     position: relative;
     width: 14.8rem;
