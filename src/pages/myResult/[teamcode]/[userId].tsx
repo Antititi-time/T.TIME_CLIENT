@@ -83,7 +83,7 @@ function MyResult({ userId, teamId }: userIdType) {
                 </StGraphContainer>
               </article>
               <StCardFooter>
-                <img src={imgTopLogo.src} loading="eager" />
+                <img src={imgTopLogo.src} />
                 나와 팀 함께 성장하는 시간
               </StCardFooter>
             </StResultCard>
