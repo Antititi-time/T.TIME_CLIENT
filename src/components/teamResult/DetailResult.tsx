@@ -12,18 +12,18 @@ import ImageDiv from '../common/ImageDiv';
 import { CategoryType, CATEGORY_LIST } from '@src/constants/teamResult/categoryList';
 
 interface TeamResultProps {
-  teamCode: number;
+  teamId: number;
 }
 
-function DetailResult({ teamCode }: TeamResultProps) {
+function DetailResult({ teamId }: TeamResultProps) {
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState<CategoryType>('협업');
   const { data } = useQuery(
     ['teamDetailResult', currentTab],
-    () => getTeamDetailResult(teamCode, filterQuestionCategory(currentTab)),
+    () => getTeamDetailResult(teamId, filterQuestionCategory(currentTab)),
     {
-      enabled: !!teamCode,
+      enabled: !!teamId,
       keepPreviousData: true,
     },
   );

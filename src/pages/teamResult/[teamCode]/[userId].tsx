@@ -16,7 +16,7 @@ interface teamIdType {
 }
 interface ctxType {
   query: {
-    teamCode: string;
+    teamId: string;
   };
 }
 function TeamResult({ teamId }: teamIdType) {
@@ -51,8 +51,7 @@ function TeamResult({ teamId }: teamIdType) {
         data?.completed && !isLoading ? (
           <>
             {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
-
-            <ResultFrame teamCode={teamId} />
+            <ResultFrame teamId={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
           </>
@@ -82,6 +81,6 @@ const StBackground = styled.div`
   transform: rotate(-180deg);
 `;
 export async function getServerSideProps(ctx: ctxType) {
-  const teamId = parseInt(ctx.query.teamCode);
+  const teamId = parseInt(ctx.query.teamId);
   return { props: { teamId } };
 }

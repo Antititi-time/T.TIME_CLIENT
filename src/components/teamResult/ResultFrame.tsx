@@ -8,16 +8,16 @@ import SimpleResult from './SimpleResult';
 import ImageDiv from '@src/components/common/ImageDiv';
 
 interface TeamResultProps {
-  teamCode: number;
+  teamId: number;
 }
 
-function TeamResult({ teamCode }: TeamResultProps) {
+function TeamResult({ teamId }: TeamResultProps) {
   return (
     <StFrame>
-      <SimpleResult teamId={teamCode} />
+      <SimpleResult teamId={teamId} />
       <StDivder />
-      <Chart teamCode={teamCode} />
-      <DetailResult teamCode={teamCode} />
+      <Chart teamId={teamId} />
+      <DetailResult teamId={teamId} />
       <StLogoContainer>
         <ImageDiv src={imgTopLogo} alt="T.time" className="imgTopLogo" fill={true} />
         <p>나와 팀 함께 성장하는 시간</p>
