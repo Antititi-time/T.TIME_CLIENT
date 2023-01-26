@@ -19,9 +19,7 @@ import { useRouter } from 'next/router';
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-
   const router = useRouter();
-
   const teamId = router.asPath.split('/')[2];
   const userId = router.asPath.split('/')[3];
   const { data } = useQuery('userData', () => getMyResult(Number(userId)), { enabled: router.isReady });
