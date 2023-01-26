@@ -38,7 +38,7 @@ function ConfirmInvite() {
         </StRowContainer>
         <StListContainer>
           <StList>총 {router.query.teamNum}명</StList>
-          <StList>질문 개수: 12개</StList>
+          <StList>질문 개수: 10개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
       </StInvitationContainer>
