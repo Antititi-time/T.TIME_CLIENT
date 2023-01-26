@@ -53,5 +53,29 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
         ],
       });
     }
+    if (shareType === '내 결과') {
+      kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: `${teamName}님의 티타임 결과를 확인하세요.`,
+          description: '결과를 통해 나의 상태를 확인해보세요.☕️',
+
+          imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,
+          link: {
+            mobileWebUrl: route,
+            webUrl: route,
+          },
+        },
+        buttons: [
+          {
+            title: '자세히 보기',
+            link: {
+              mobileWebUrl: route,
+              webUrl: route,
+            },
+          },
+        ],
+      });
+    }
   }
 };

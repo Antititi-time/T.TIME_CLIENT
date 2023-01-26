@@ -15,6 +15,7 @@ import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
+import MyResultModal from '@src/components/shareModule/MyResultModal';
 interface ctxType {
   query: {
     userId: string;
@@ -30,6 +31,7 @@ function MyResult({ userId, teamId }: userIdType) {
   const [resultCharacter, setResultCharacter] = useState(0);
   const { data } = useQuery('userData', () => getMyResult(userId));
   const imgToDownload = 'downloadImg';
+  const [modalState, setModalState] = useState(false);
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);
@@ -42,6 +44,11 @@ function MyResult({ userId, teamId }: userIdType) {
       <LogoTop />
       {resultData ? (
         <StMyResult>
+          {modalState ? (
+            <MyResultModal userId={String(userId)} userName={resultData.nickname} setModalState={setModalState} />
+          ) : (
+            <></>
+          )}
           <StWarningMessage>
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
@@ -92,7 +99,7 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={String(imgToDownload)} />
+      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
     </StmyResultPage>
   );
 }
