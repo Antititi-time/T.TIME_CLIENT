@@ -24,7 +24,7 @@ function MyResult() {
 
   const teamId = router.asPath.split('/')[2];
   const userId = router.asPath.split('/')[3];
-
+  const { data } = useQuery('userData', () => getMyResult(Number(userId)), { enabled: router.isReady });
   const imgToDownload = 'downloadImg';
   useEffect(() => {
     if (router.isReady) {
