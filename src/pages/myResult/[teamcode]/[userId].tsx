@@ -15,26 +15,24 @@ import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
-interface ctxType {
-  query: {
-    userId: string;
-    teamcode: string;
-  };
-}
-interface userIdType {
-  userId: number;
-  teamId: number;
-}
-function MyResult({ userId, teamId }: userIdType) {
+import { useRouter } from 'next/router';
+function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const { data } = useQuery('userData', () => getMyResult(userId));
+
+  const router = useRouter();
+
+  const teamId = router.asPath.split('/')[2];
+  const userId = router.asPath.split('/')[3];
+
   const imgToDownload = 'downloadImg';
   useEffect(() => {
-    setResultData(data);
-    const inputData = setConstantIndex(data?.result[4]?.questionType);
-    setResultCharacter(inputData);
-  }, [data]);
+    if (router.isReady) {
+      setResultData(data);
+      const inputData = setConstantIndex(data?.result[4]?.questionType);
+      setResultCharacter(inputData);
+    }
+  }, [data, router.isReady]);
 
   return (
     <StmyResultPage>
@@ -242,8 +240,3 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
-export async function getServerSideProps(ctx: ctxType) {
-  const userId = parseInt(ctx.query.userId);
-  const teamId = parseInt(ctx.query.teamcode);
-  return { props: { userId, teamId } };
-}
