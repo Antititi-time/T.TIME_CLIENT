@@ -23,7 +23,7 @@ function ChatBody() {
   const [input, setInput] = useState(false);
   const [end, setEnd] = useState(false);
   const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
+  const teamId = router.asPath.split('/')[2];
   const userCode = router.asPath.split('/')[3].split('?')[0];
 
   useEffect(() => {
@@ -84,7 +84,7 @@ function ChatBody() {
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
         })}
-        {end && <WatchMyResultButton userId={userCode} teamId={teamCode} />}
+        {end && <WatchMyResultButton userId={userCode} teamId={teamId} />}
 
         {input == false ? (
           <></>
@@ -94,7 +94,7 @@ function ChatBody() {
             setIndex={setIndex}
             setInput={setInput}
             index={index}
-            teamCode={teamCode}
+            teamId={teamId}
             setChat={setChat}
             grade={grade}
             userId={Number(userCode)}
