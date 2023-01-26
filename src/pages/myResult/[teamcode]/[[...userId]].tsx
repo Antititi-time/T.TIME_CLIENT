@@ -16,6 +16,7 @@ import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
 import MyResultModal from '@src/components/shareModule/MyResultModal';
+import { useRouter } from 'next/router';
 interface ctxType {
   query: {
     userId: string;
@@ -29,14 +30,24 @@ interface userIdType {
 function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
+  const [isVistor, setIsVistor] = useState(false);
   const { data } = useQuery('userData', () => getMyResult(userId));
   const imgToDownload = 'downloadImg';
   const [modalState, setModalState] = useState(false);
+  const { asPath, isReady } = useRouter();
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);
     setResultCharacter(inputData);
   }, [data]);
+  useEffect(() => {
+    if (!isReady) return;
+    if (asPath.split('/').length === 4) {
+      setIsVistor(false);
+    } else {
+      setIsVistor(true);
+    }
+  }, [isReady]);
 
   return (
     <StmyResultPage>
@@ -99,7 +110,11 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
+      {isVistor ? (
+        <></>
+      ) : (
+        <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
+      )}
     </StmyResultPage>
   );
 }
