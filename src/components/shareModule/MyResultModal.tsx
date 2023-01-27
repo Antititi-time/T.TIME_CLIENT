@@ -7,7 +7,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
-import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction } from 'react';
 interface sharePropsType {
   setModalState: Dispatch<SetStateAction<boolean>>;
@@ -15,9 +14,7 @@ interface sharePropsType {
   userId: string;
 }
 function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
-  const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
-  const [teamLink] = useState<string>(`https://t-time.vercel.app/myResult/${teamCode}/${userId}/visitor`);
+  const [teamLink] = useState<string>(`https://t-time.vercel.app/myResult/noTeam/${userId}`);
   useEffect(() => {
     setKakao();
   }, []);

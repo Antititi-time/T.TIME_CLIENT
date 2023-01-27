@@ -34,7 +34,7 @@ function MyResult({ userId, teamId }: userIdType) {
   const { data } = useQuery('userData', () => getMyResult(userId));
   const imgToDownload = 'downloadImg';
   const [modalState, setModalState] = useState(false);
-  const { asPath, isReady } = useRouter();
+  const { query, isReady } = useRouter();
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);
@@ -42,7 +42,7 @@ function MyResult({ userId, teamId }: userIdType) {
   }, [data]);
   useEffect(() => {
     if (!isReady) return;
-    if (asPath.split('/').length === 4) {
+    if (query.teamcode === String(teamId)) {
       setIsVistor(false);
     } else {
       setIsVistor(true);
