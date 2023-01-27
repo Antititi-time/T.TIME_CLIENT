@@ -19,7 +19,7 @@ function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
     setKakao();
   }, []);
   return (
-    <StTeamRecordModal>
+    <StMyResultModal>
       <StBackground>
         <StTeamModal>
           <StModalHeader>공유하기</StModalHeader>
@@ -38,13 +38,13 @@ function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
           <StFooter onClick={() => setModalState(false)}>닫기</StFooter>
         </StTeamModal>
       </StBackground>
-    </StTeamRecordModal>
+    </StMyResultModal>
   );
 }
 
 export default MyResultModal;
 
-const StTeamRecordModal = styled.div`
+const StMyResultModal = styled.div`
   width: 100vw;
   touch-action: none;
   z-index: 2;
