@@ -32,7 +32,6 @@ function MyResult({ userId, teamId }: userIdType) {
   const [resultCharacter, setResultCharacter] = useState(0);
   const [isVistor, setIsVistor] = useState(false);
   const { data } = useQuery('userData', () => getMyResult(userId));
-  const imgToDownload = 'downloadImg';
   const [modalState, setModalState] = useState(false);
   const { query, isReady } = useRouter();
   useEffect(() => {
@@ -64,7 +63,7 @@ function MyResult({ userId, teamId }: userIdType) {
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
-          <div id={imgToDownload}>
+          <div>
             <StResultCard>
               <StInfoContainer>
                 <p className="date">{resultData.date}</p>
