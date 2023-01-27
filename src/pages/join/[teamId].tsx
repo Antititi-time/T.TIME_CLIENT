@@ -101,7 +101,7 @@ function Join() {
           value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <StButtonContainer onClick={() => handleSubmit()}>
+      <StButtonContainer onClick={handleSubmit}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
       </StButtonContainer>
     </StJoin>
