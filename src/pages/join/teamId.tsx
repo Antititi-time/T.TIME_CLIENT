@@ -28,16 +28,16 @@ interface IApiError {
 function Join() {
   useManageScroll();
   const router = useRouter();
-  const teamCode = Number(router.asPath.split('/')[2]);
+  const teamId = Number(router.asPath.split('/')[2]);
   const [nickname, setNickname] = useState<string>('');
 
-  const { data } = useQuery('teamData', () => getTeamData(teamCode), {
-    enabled: !!teamCode,
+  const { data } = useQuery('teamData', () => getTeamData(teamId), {
+    enabled: !!teamId,
   });
 
   const getData = useMutation(
     () =>
-      enterChat(teamCode, {
+      enterChat(teamId, {
         nickname: nickname,
       }),
     {
