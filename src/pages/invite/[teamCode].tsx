@@ -25,7 +25,7 @@ function ConfirmInvite() {
         <InviteModal
           teamName={String(router.query.teamName)}
           setModalState={setModalState}
-          teamCode={String(router.query.teamId)}
+          teamId={String(router.query.teamId)}
         />
       ) : null}
       <TextTop text={'초대장 만들기'} />

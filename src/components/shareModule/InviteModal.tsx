@@ -10,12 +10,12 @@ import { useCopyLink, setKakao } from './ShareModule';
 
 interface InviteType {
   setModalState: Dispatch<SetStateAction<boolean>>;
-  teamCode: string;
+  teamId: string;
   teamName: string;
 }
 
-function InviteModal({ setModalState, teamCode, teamName }: InviteType) {
-  const [teamLink] = useState<string>(`https://t-time-client.vercel.app//join/${teamCode}`);
+function InviteModal({ setModalState, teamId, teamName }: InviteType) {
+  const [teamLink] = useState<string>(`https://t-time-client.vercel.app//join/${teamId}`);
 
   useEffect(() => {
     setKakao();
