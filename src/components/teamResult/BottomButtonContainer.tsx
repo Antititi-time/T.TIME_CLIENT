@@ -19,7 +19,6 @@ function BottomButtonContainer({ isUser, setModalState, userId, teamId }: button
           <Link href={myResultUrl}>
             <BottomButton width={16} color={COLOR.BLUE_1} text={'내 결과 다시보기'} />
           </Link>
-
           <BottomButton handler={() => setModalState(true)} width={16} color={COLOR.ORANGE_1} text={'공유하기'} />
         </>
       ) : (
