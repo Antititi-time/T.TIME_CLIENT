@@ -44,7 +44,7 @@ function TeamResult() {
           <>
             {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
 
-            <ResultFrame teamCode={teamId} />
+            <ResultFrame teamId={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
           </>
