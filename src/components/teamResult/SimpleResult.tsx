@@ -85,15 +85,8 @@ function SimpleResult({ teamId }: TeamResultProps) {
         <p>결과</p>
       </StTeamResultText>
       <StImageContainer>
-        {/* <<ImageDiv
-          src={handleImgSrc(true, good).src}
-          alt={handleImgSrc(true, good).alt}
-          className="emoticon"
-          fill={true}
-        />> */}
         <img className="emoticon" alt={handleImgSrc(true, good).alt} src={handleImgSrc(true, good).src} />
         <img className="emoticon" alt={handleImgSrc(false, bad).alt} src={handleImgSrc(false, bad).src} />
-        {/* <ImageDiv src={handleImgSrc(false, bad)} alt={handleImgSrc(false, bad).alt} className="emoticon" fill={true} /> */}
       </StImageContainer>
       <StTeamInfoDetail>
         <p>우리 팀은요..</p>
