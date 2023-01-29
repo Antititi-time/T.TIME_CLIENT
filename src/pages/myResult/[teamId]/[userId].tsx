@@ -20,8 +20,9 @@ function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const { query, isReady } = useRouter();
-  const teamId = query.teamcode;
+  const teamId = query.teamId;
   const userId = query.userId;
+
   const { data } = useQuery('userData', () => getMyResult(Number(userId)), { enabled: isReady });
   const imgToDownload = 'downloadImg';
   useEffect(() => {
