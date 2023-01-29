@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction } from 'react';
 interface sharePropsType {
   setModalState: Dispatch<SetStateAction<boolean>>;
-  teamId: string;
+  teamName: string;
 }
 function TeamModal({ setModalState, teamName }: sharePropsType) {
   const router = useRouter();
