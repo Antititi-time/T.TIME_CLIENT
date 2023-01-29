@@ -24,7 +24,7 @@ function ChatBody() {
   const [end, setEnd] = useState(false);
   const router = useRouter();
   const teamId = router.asPath.split('/')[2];
-  const userCode = router.asPath.split('/')[3].split('?')[0];
+  const userId = router.asPath.split('/')[3].split('?')[0];
 
   useEffect(() => {
     setTimeout(() => {
@@ -84,7 +84,7 @@ function ChatBody() {
             <StAdminChat key={index}>{questions}</StAdminChat>
           );
         })}
-        {end && <WatchMyResultButton userId={userCode} teamId={teamId} />}
+        {end && <WatchMyResultButton userId={userId} teamId={teamId} />}
 
         {input == false ? (
           <></>
@@ -97,7 +97,7 @@ function ChatBody() {
             teamId={teamId}
             setChat={setChat}
             grade={grade}
-            userId={Number(userCode)}
+            userId={Number(userId)}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
           <FirstChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
