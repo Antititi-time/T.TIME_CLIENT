@@ -15,7 +15,7 @@ interface InviteType {
 }
 
 function InviteModal({ setModalState, teamId, teamName }: InviteType) {
-  const [teamLink] = useState<string>(`https://t-time-client.vercel.app//join/${teamId}`);
+  const [teamLink] = useState<string>(`https://t-time.vercel.app/join/${teamId}`);
 
   useEffect(() => {
     setKakao();
