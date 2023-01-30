@@ -15,6 +15,7 @@ import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
+
 import { useRouter } from 'next/router';
 function MyResult() {
   const [resultData, setResultData] = useState<UserData>();
@@ -32,6 +33,8 @@ function MyResult() {
       setResultCharacter(inputData);
     }
   }, [data, isReady]);
+
+
 
   return (
     <StmyResultPage>
@@ -239,3 +242,4 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
+
