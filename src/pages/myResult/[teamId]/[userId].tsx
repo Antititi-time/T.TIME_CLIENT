@@ -107,9 +107,11 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
+
       {!isVisitor && (
         <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
       )}
+
     </StmyResultPage>
   );
 }
@@ -259,8 +261,10 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
+
 export async function getServerSideProps(ctx: ctxType) {
   const userId = parseInt(ctx.query.userId);
   const teamId = parseInt(ctx.query.teamId);
   return { props: { userId, teamId } };
 }
+

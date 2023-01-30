@@ -25,7 +25,7 @@ function ConfirmInvite() {
         <InviteModal
           teamName={String(router.query.teamName)}
           setModalState={setModalState}
-          teamCode={String(router.query.teamCode)}
+          teamId={String(router.query.teamId)}
         />
       ) : null}
       <TextTop text={'초대장 만들기'} />
@@ -54,7 +54,7 @@ function ConfirmInvite() {
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
         </StConfirmBtn>
       ) : (
-        <Link href={`/join/${router.query.teamCode}`}>
+        <Link href={`/join/${router.query.teamId}`}>
           <StConfirmBtn>
             <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
           </StConfirmBtn>

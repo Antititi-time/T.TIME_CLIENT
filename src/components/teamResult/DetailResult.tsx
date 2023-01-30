@@ -9,22 +9,21 @@ import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
 import { imgCategoryA, imgCategoryB, imgCategoryC, imgCategoryD, imgCategoryE } from '@src/assets/images';
 import ImageDiv from '../common/ImageDiv';
+import { CategoryType, CATEGORY_LIST } from '@src/constants/teamResult/categoryList';
 
 interface TeamResultProps {
-  teamCode: number;
+  teamId: number;
 }
 
-function DetailResult({ teamCode }: TeamResultProps) {
-  type CategoryType = '협업' | '동기부여' | '성장' | '개인생활' | '건강';
-  const categoryList: CategoryType[] = ['협업', '동기부여', '성장', '개인생활', '건강'];
+function DetailResult({ teamId }: TeamResultProps) {
   const [questionOneList, setQuestionOneList] = useState<TeamDetailResult[]>([]);
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState<CategoryType>('협업');
   const { data } = useQuery(
     ['teamDetailResult', currentTab],
-    () => getTeamDetailResult(teamCode, filterQuestionCategory(currentTab)),
+    () => getTeamDetailResult(teamId, filterQuestionCategory(currentTab)),
     {
-      enabled: !!teamCode,
+      enabled: !!teamId,
       keepPreviousData: true,
     },
   );
@@ -52,15 +51,15 @@ function DetailResult({ teamCode }: TeamResultProps) {
 
   const handleCategoryEmoticon = (category: string) => {
     switch (category) {
-      case '협업':
+      case CATEGORY_LIST[0]:
         return imgCategoryA;
-      case '동기부여':
+      case CATEGORY_LIST[1]:
         return imgCategoryB;
-      case '성장':
+      case CATEGORY_LIST[2]:
         return imgCategoryC;
-      case '개인생활':
+      case CATEGORY_LIST[3]:
         return imgCategoryD;
-      case '건강':
+      case CATEGORY_LIST[4]:
         return imgCategoryE;
       default:
         return '';
@@ -72,13 +71,11 @@ function DetailResult({ teamCode }: TeamResultProps) {
       <StTitle>상세 결과</StTitle>
       <StResultContainer>
         <StTab>
-          {categoryList.map((category) => {
-            return (
-              <StTabItem key={category} isActive={currentTab === category} onClick={() => setCurrentTab(category)}>
-                {category}
-              </StTabItem>
-            );
-          })}
+          {CATEGORY_LIST.map((category) => (
+            <StTabItem key={category} isActive={currentTab === category} onClick={() => setCurrentTab(category)}>
+              {category}
+            </StTabItem>
+          ))}
         </StTab>
         <StTextContainer>
           <StCategoryTitleContainer>

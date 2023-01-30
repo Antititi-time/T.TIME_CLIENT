@@ -15,8 +15,8 @@ interface sharePropsType {
 }
 function TeamModal({ setModalState, teamName }: sharePropsType) {
   const router = useRouter();
-  const teamCode = router.asPath.split('/')[2];
-  const [teamLink] = useState<string>(`https://t-time-client.vercel.app//teamResult/${teamCode}/noUser`);
+  const teamId = router.asPath.split('/')[2];
+  const [teamLink] = useState<string>(`https://t-time.vercel.app/teamResult/${teamId}/noUser`);
   useEffect(() => {
     setKakao();
   }, []);

@@ -15,7 +15,7 @@ function SEO({ title, description }: SEOProps) {
       <meta property="og:title" content="T.time" />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="/img_thumbnail.png" />
-      <meta property="og:url" content="https://t-time-client.vercel.app/" />
+      <meta property="og:url" content="https://t-time.vercel.app/" />
       <meta property="og:locale" content="ko_KR" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewportMeta" />
     </Head>

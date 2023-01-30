@@ -12,7 +12,7 @@ export type Invite = {
     id: number;
     teamName: string;
     teamMember: number;
-    teamCode: string;
+    teamId: string;
   };
 };
 export type TeamData = {
