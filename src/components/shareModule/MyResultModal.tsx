@@ -14,7 +14,7 @@ interface sharePropsType {
   userId: string;
 }
 function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
-  const [teamLink] = useState<string>(`https://t-time.vercel.app/myResult/noTeam/${userId}`);
+  const [myResultLink] = useState<string>(`https://t-time.vercel.app/myResult/noTeam/${userId}`);
   useEffect(() => {
     setKakao();
   }, []);
@@ -24,13 +24,13 @@ function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
         <StTeamModal>
           <StModalHeader>공유하기</StModalHeader>
           <StButtonContainer>
-            <CopyToClipboard text={teamLink}>
+            <CopyToClipboard text={myResultLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
                 <StButtonText>결과링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
-            <StKakaoButton onClick={() => shareKakao(teamLink, userName, '내 결과')}>
+            <StKakaoButton onClick={() => shareKakao(myResultLink, userName, '내 결과')}>
               <StButtonIcon src={icKakao.src} />
               <StButtonText>카카오톡 공유하기</StButtonText>
             </StKakaoButton>
@@ -106,10 +106,10 @@ const StButtonText = styled.span`
   ${FONT_STYLES.PRETENDARD_B_16};
 `;
 const StFooter = styled.button`
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 6.8rem;
   margin-top: 3rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};

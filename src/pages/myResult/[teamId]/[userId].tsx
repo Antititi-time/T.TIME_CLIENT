@@ -20,7 +20,7 @@ import { useRouter } from 'next/router';
 interface ctxType {
   query: {
     userId: string;
-    teamcode: string;
+    teamId: string;
   };
 }
 interface userIdType {
@@ -30,7 +30,7 @@ interface userIdType {
 function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
-  const [isVistor, setIsVistor] = useState(false);
+  const [isVisitor, setIsVisitor] = useState(false);
   const { data } = useQuery('userData', () => getMyResult(userId));
   const [modalState, setModalState] = useState(false);
   const { query, isReady } = useRouter();
@@ -41,10 +41,10 @@ function MyResult({ userId, teamId }: userIdType) {
   }, [data]);
   useEffect(() => {
     if (!isReady) return;
-    if (query.teamcode === String(teamId)) {
-      setIsVistor(false);
+    if (query.teamId === String(teamId)) {
+      setIsVisitor(false);
     } else {
-      setIsVistor(true);
+      setIsVisitor(true);
     }
   }, [isReady]);
 
@@ -54,10 +54,8 @@ function MyResult({ userId, teamId }: userIdType) {
       <LogoTop />
       {resultData ? (
         <StMyResult>
-          {modalState ? (
+          {modalState && (
             <MyResultModal userId={String(userId)} userName={resultData.nickname} setModalState={setModalState} />
-          ) : (
-            <></>
           )}
           <StWarningMessage>
             <p>잠깐!</p>
@@ -109,9 +107,7 @@ function MyResult({ userId, teamId }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      {isVistor ? (
-        <></>
-      ) : (
+      {!isVisitor && (
         <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
       )}
     </StmyResultPage>
@@ -265,6 +261,6 @@ const StCardFooter = styled.footer`
 `;
 export async function getServerSideProps(ctx: ctxType) {
   const userId = parseInt(ctx.query.userId);
-  const teamId = parseInt(ctx.query.teamcode);
+  const teamId = parseInt(ctx.query.teamId);
   return { props: { userId, teamId } };
 }
