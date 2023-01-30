@@ -98,7 +98,7 @@ function MyResult({ userId, teamId }: userIdType) {
                 </StGraphContainer>
               </article>
               <StCardFooter>
-                <img src={imgTopLogo.src} />
+                <img src={imgTopLogo.src} alt="logo-img" />
                 나와 팀 함께 성장하는 시간
               </StCardFooter>
             </StResultCard>
@@ -111,7 +111,6 @@ function MyResult({ userId, teamId }: userIdType) {
       {!isVisitor && (
         <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
       )}
-
     </StmyResultPage>
   );
 }
@@ -267,4 +266,3 @@ export async function getServerSideProps(ctx: ctxType) {
   const teamId = parseInt(ctx.query.teamId);
   return { props: { userId, teamId } };
 }
-
