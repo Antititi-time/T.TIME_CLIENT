@@ -28,16 +28,16 @@ interface IApiError {
 function Join() {
   useManageScroll();
   const router = useRouter();
-  const teamCode = Number(router.asPath.split('/')[2]);
+  const teamId = Number(router.asPath.split('/')[2]);
   const [nickname, setNickname] = useState<string>('');
 
-  const { data } = useQuery('teamData', () => getTeamData(teamCode), {
-    enabled: !!teamCode,
+  const { data } = useQuery('teamData', () => getTeamData(teamId), {
+    enabled: !!teamId,
   });
 
   const getData = useMutation(
     () =>
-      enterChat(teamCode, {
+      enterChat(teamId, {
         nickname: nickname,
       }),
     {
@@ -101,7 +101,7 @@ function Join() {
           value={nickname || ''}></StInputBox>
         <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
       </StInputContainer>
-      <StButtonContainer onClick={() => handleSubmit()}>
+      <StButtonContainer onClick={handleSubmit}>
         <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
       </StButtonContainer>
     </StJoin>
