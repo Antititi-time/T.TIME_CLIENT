@@ -34,8 +34,6 @@ function MyResult() {
     }
   }, [data, isReady]);
 
-
-
   return (
     <StmyResultPage>
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="결과를 확인해보세요!" />
@@ -242,4 +240,3 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
-
