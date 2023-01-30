@@ -60,7 +60,7 @@ export const shareKakao = (route: string, name: string, shareType: string) => {
           title: `${name}님의 티타임 결과를 확인하세요.`,
           description: '결과를 통해 나의 상태를 확인해보세요.☕️',
 
-          imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,
+          imageUrl: 'https://github.com/Antititi-time/T.TIME_CLIENT/blob/develop/src/assets/images/kako_Personal.jpg',
           link: {
             mobileWebUrl: route,
             webUrl: route,
