@@ -33,8 +33,8 @@ export const shareKakao = (route: string, name: string, shareType: string) => {
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: `${name}팀의 티타임 결과를 확인하세요.`,
-          description: '팀 결과를 통해 팀원들의 속마음을 확인해보세요.☕️',
+          title: `${name}의 팀결과를 확인해보세요.`,
+          description: '팀 결과를 팀원들과 공유해 깊은 이야기를 나눠보세요.☕️',
 
           imageUrl:
             'https://github.com/Antititi-time/T.TIME_CLIENT/blob/feat/%23102/src/assets/images/img_kakao_teamShare.jpg?raw=true',
@@ -58,8 +58,8 @@ export const shareKakao = (route: string, name: string, shareType: string) => {
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: `${name}님의 티타임 결과를 확인하세요.`,
-          description: '결과를 통해 나의 상태를 확인해보세요.☕️',
+          title: `${name}님의 개인결과를 확인해보세요.`,
+          description: '개인결과는 링크가 있는 사람만 볼 수 있어요. ☕️',
           imageUrl:
             'https://github.com/Antititi-time/T.TIME_CLIENT/blob/feat/%23102/src/assets/images/img_kakao_personalShare.jpg?raw=true',
           link: {
