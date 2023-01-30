@@ -54,7 +54,7 @@ function ConfirmInvite() {
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
         </StConfirmBtn>
       ) : (
-        <Link href={`/join/${router.query.teamCode}`}>
+        <Link href={`/join/${router.query.teamId}`}>
           <StConfirmBtn>
             <BottomButton width={28.2} color={COLOR.ORANGE_1} text={isConfirmed ? '티타임 참여하기' : '확인'} />
           </StConfirmBtn>
