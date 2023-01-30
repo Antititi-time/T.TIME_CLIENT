@@ -15,24 +15,38 @@ import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
-
+import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
-function MyResult() {
+interface ctxType {
+  query: {
+    userId: string;
+    teamId: string;
+  };
+}
+interface userIdType {
+  userId: number;
+  teamId: number;
+}
+function MyResult({ userId, teamId }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
+  const [isVisitor, setIsVisitor] = useState(false);
+  const { data } = useQuery('userData', () => getMyResult(userId));
+  const [modalState, setModalState] = useState(false);
   const { query, isReady } = useRouter();
-  const teamId = query.teamId;
-  const userId = query.userId;
-
-  const { data } = useQuery('userData', () => getMyResult(Number(userId)), { enabled: isReady });
-  const imgToDownload = 'downloadImg';
   useEffect(() => {
-    if (isReady) {
-      setResultData(data);
-      const inputData = setConstantIndex(data?.result[4]?.questionType);
-      setResultCharacter(inputData);
+    setResultData(data);
+    const inputData = setConstantIndex(data?.result[4]?.questionType);
+    setResultCharacter(inputData);
+  }, [data]);
+  useEffect(() => {
+    if (!isReady) return;
+    if (query.teamId === String(teamId)) {
+      setIsVisitor(false);
+    } else {
+      setIsVisitor(true);
     }
-  }, [data, isReady]);
+  }, [isReady]);
 
   return (
     <StmyResultPage>
@@ -40,11 +54,14 @@ function MyResult() {
       <LogoTop />
       {resultData ? (
         <StMyResult>
+          {modalState && (
+            <MyResultModal userId={String(userId)} userName={resultData.nickname} setModalState={setModalState} />
+          )}
           <StWarningMessage>
             <p>잠깐!</p>
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
-          <div id={imgToDownload}>
+          <div>
             <StResultCard>
               <StInfoContainer>
                 <p className="date">{resultData.date}</p>
@@ -81,7 +98,7 @@ function MyResult() {
                 </StGraphContainer>
               </article>
               <StCardFooter>
-                <img src={imgTopLogo.src} />
+                <img src={imgTopLogo.src} alt="logo-img" />
                 나와 팀 함께 성장하는 시간
               </StCardFooter>
             </StResultCard>
@@ -90,7 +107,10 @@ function MyResult() {
       ) : (
         <LoadingView />
       )}
-      <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} id={String(imgToDownload)} />
+
+      {!isVisitor && (
+        <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
+      )}
     </StmyResultPage>
   );
 }
@@ -240,3 +260,9 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
+
+export async function getServerSideProps(ctx: ctxType) {
+  const userId = parseInt(ctx.query.userId);
+  const teamId = parseInt(ctx.query.teamId);
+  return { props: { userId, teamId } };
+}
