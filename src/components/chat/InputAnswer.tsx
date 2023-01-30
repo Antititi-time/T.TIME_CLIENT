@@ -15,13 +15,13 @@ interface InputQuestionType {
   setIndex: Dispatch<SetStateAction<number>>;
   index: number;
   setInput: Dispatch<SetStateAction<boolean>>;
-  teamCode: string;
+  teamId: string;
   setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
   grade: number;
   userId: number;
 }
 
-function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, userId }: InputQuestionType) {
+function InputAnswer({ setIndex, index, setInput, teamId, setChat, grade, userId }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
@@ -51,7 +51,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, user
       questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
       answer: value,
       grade: grade,
-      teamId: Number(teamCode),
+      teamId: Number(teamId),
     }),
   );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
