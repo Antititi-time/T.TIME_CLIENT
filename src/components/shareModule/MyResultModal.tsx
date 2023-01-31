@@ -22,12 +22,12 @@ function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
     <StMyResultModal>
       <StBackground>
         <StTeamModal>
-          <StModalHeader>공유하기</StModalHeader>
+          <StModalHeader>내 결과 공유하기</StModalHeader>
           <StButtonContainer>
             <CopyToClipboard text={myResultLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
-                <StButtonText>결과링크 복사하기</StButtonText>
+                <StButtonText>링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
             <StKakaoButton onClick={() => shareKakao(myResultLink, userName, '내 결과')}>

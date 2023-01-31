@@ -24,12 +24,12 @@ function TeamModal({ setModalState, teamName }: sharePropsType) {
     <StTeamRecordModal>
       <StBackground>
         <StTeamModal>
-          <StModalHeader>공유하기</StModalHeader>
+          <StModalHeader>팀 결과 공유하기</StModalHeader>
           <StButtonContainer>
             <CopyToClipboard text={teamLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
-                <StButtonText>결과링크 복사하기</StButtonText>
+                <StButtonText>링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
             <StKakaoButton onClick={() => shareKakao(teamLink, teamName, '팀결과')}>
