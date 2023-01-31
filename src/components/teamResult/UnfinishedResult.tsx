@@ -18,10 +18,9 @@ interface completeDataType {
 }
 
 function UnfinishedResult({ completeData }: completeDataType) {
-  const router = useRouter();
-  const teamId = Number(router.asPath.split('/')[2]);
-  const userId = router.asPath.split('/')[3];
-  const resultLink = `https://t-time.vercel.app/teamResult/${teamId}/${userId}`;
+  const { query } = useRouter();
+  const userId = String(query.userId);
+  const resultLink = `https://t-time.vercel.app/teamResult/noTeam/${userId}`;
   const date = new Date();
   const year = date.getFullYear();
   let month: string | number = date.getMonth() + 1;

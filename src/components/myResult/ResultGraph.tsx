@@ -14,7 +14,7 @@ interface graphWidth {
 function ResultGraph({ result }: graphData) {
   const { query, isReady } = useRouter();
 
-  if (isReady && String(query.teamId != 'noTeam')) {
+  if (isReady && String(query.teamId) !== 'noTeam') {
     localStorage.setItem('userId', String(query.userId));
   }
 
