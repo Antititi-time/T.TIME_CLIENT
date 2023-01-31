@@ -18,7 +18,7 @@ function TopBar({ teamName }: props) {
 
   return (
     <StTopBox>
-      <StTopBarText>{teamName}의 티타임</StTopBarText>
+      <StTopBarText>&apos;{teamName}&apos; 의 티타임</StTopBarText>
       <StTopBarToday>
         {year}년 {month}월 {date}일 {day}요일
       </StTopBarToday>
