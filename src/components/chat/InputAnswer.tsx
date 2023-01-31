@@ -3,7 +3,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '../common/ImageDiv';
 import { SubmitButton } from '@src/assets/icons/index';
-import { smallLogoIcon } from '@src/assets/icons/index';
+import { imgChatLogo } from '@src/assets/images/index';
 import React, { useState, useRef } from 'react';
 import { Dispatch, SetStateAction } from 'react';
 import { CHAT_QUESTION_LIST } from '@src/constants/chat/chatQuestion';
@@ -69,7 +69,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, user
 
   return (
     <StForm onSubmit={(e) => handleSubmit(e)}>
-      <ImageDiv src={smallLogoIcon} alt="small Input Logo" className="buttonLogo" />
+      <ImageDiv src={imgChatLogo} alt="small Input Logo" className="buttonLogo" fill={true} />
       <StInput
         ref={textarea}
         rows={1}
@@ -120,6 +120,7 @@ const StForm = styled.form`
   background-color: ${COLOR.WHITE_100};
   z-index: 4;
   .buttonLogo {
+    position: relative;
     width: 2.4rem;
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
