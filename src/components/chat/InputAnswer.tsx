@@ -69,7 +69,7 @@ function InputAnswer({ setIndex, index, setInput, teamCode, setChat, grade, user
 
   return (
     <StForm onSubmit={(e) => handleSubmit(e)}>
-      <ImageDiv src={imgChatLogo} alt="small Input Logo" className="buttonLogo" fill={true} />
+      <ImageDiv src={imgChatLogo} alt="Logo Icon" className="buttonLogo" fill={true} />
       <StInput
         ref={textarea}
         rows={1}
