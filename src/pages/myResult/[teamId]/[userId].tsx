@@ -54,64 +54,53 @@ function MyResult({ userId, teamId }: userIdType) {
       <LogoTop />
       {resultData ? (
         <StMyResult>
-<<<<<<< HEAD:src/pages/myResult/[teamcode]/[userId].tsx
-          <div id={imgToDownload}>
-=======
           {modalState && (
             <MyResultModal userId={String(userId)} userName={resultData.nickname} setModalState={setModalState} />
           )}
-          <StWarningMessage>
-            <p>잠깐!</p>
-            카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
-          </StWarningMessage>
-          <div>
->>>>>>> 523df00416e192048254280af6d990cc7cb705e3:src/pages/myResult/[teamId]/[userId].tsx
-            <StResultCard>
-              <StInfoContainer>
-                <p className="date">{resultData.date}</p>
-                <p className="teamName">&#39;{resultData.teamName}&#39;</p>
-                <div className="resultTitle">
-                  <p>
-                    <span className="userName">{resultData.nickname}</span> 님의
-                  </p>
-                  <p>개인 T.time 결과</p>
-                </div>
-              </StInfoContainer>
-              <StUserImage src={RESULT_MESSAGE[resultCharacter]?.imageUrl}></StUserImage>
-              <StResultTitle>
-                <p className="feedback">{RESULT_MESSAGE[resultCharacter]?.feedback}</p>
-                <p>{RESULT_MESSAGE[resultCharacter]?.title}</p>
-              </StResultTitle>
-              <StDotsImage>
-                <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
-              </StDotsImage>
-              <StResultDetail>
-                {RESULT_MESSAGE[resultCharacter]?.resultDetail.map((text: string) => (
-                  <p key={text}>{text}</p>
-                ))}
-              </StResultDetail>
-              <StRecommendText>
-                {RESULT_MESSAGE[resultCharacter]?.recommendText.map((text: string) => (
-                  <p key={text}>• {text}</p>
-                ))}
-              </StRecommendText>
-              <article>
-                <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
-                <StGraphContainer>
-                  <ResultGraph result={resultData?.result} />
-                </StGraphContainer>
-              </article>
-              <StCardFooter>
-                <img src={imgTopLogo.src} alt="logo-img" />
-                나와 팀 함께 성장하는 시간
-              </StCardFooter>
-            </StResultCard>
-          </div>
+          <StResultCard>
+            <StInfoContainer>
+              <p className="date">{resultData.date}</p>
+              <p className="teamName">&#39;{resultData.teamName}&#39;</p>
+              <div className="resultTitle">
+                <p>
+                  <span className="userName">{resultData.nickname}</span> 님의
+                </p>
+                <p>개인 T.time 결과</p>
+              </div>
+            </StInfoContainer>
+            <StUserImage src={RESULT_MESSAGE[resultCharacter]?.imageUrl}></StUserImage>
+            <StResultTitle>
+              <p className="feedback">{RESULT_MESSAGE[resultCharacter]?.feedback}</p>
+              <p>{RESULT_MESSAGE[resultCharacter]?.title}</p>
+            </StResultTitle>
+            <StDotsImage>
+              <ImageDiv src={icDots} alt="dots" className="dots" fill={false} />
+            </StDotsImage>
+            <StResultDetail>
+              {RESULT_MESSAGE[resultCharacter]?.resultDetail.map((text: string) => (
+                <p key={text}>{text}</p>
+              ))}
+            </StResultDetail>
+            <StRecommendText>
+              {RESULT_MESSAGE[resultCharacter]?.recommendText.map((text: string) => (
+                <p key={text}>• {text}</p>
+              ))}
+            </StRecommendText>
+            <article>
+              <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
+              <StGraphContainer>
+                <ResultGraph result={resultData?.result} />
+              </StGraphContainer>
+            </article>
+            <StCardFooter>
+              <img src={imgTopLogo.src} alt="logo-img" />
+              나와 팀 함께 성장하는 시간
+            </StCardFooter>
+          </StResultCard>
         </StMyResult>
       ) : (
         <LoadingView />
       )}
-
       {!isVisitor && (
         <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
       )}
@@ -127,6 +116,7 @@ const StMyResult = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100vw;
+  margin-top: 2.6rem;
 `;
 
 const StResultCard = styled.main`
