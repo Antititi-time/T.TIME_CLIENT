@@ -66,10 +66,9 @@ const StTeamModal = styled.section`
   background-color: ${COLOR.IVORY_1};
 `;
 const StModalHeader = styled.header`
-  display: block;
-  width: 8rem;
-  margin: 2.4rem 12.9rem 0rem 12.9rem;
-  white-space: wrap;
+  width: 100%;
+  text-align: center;
+  margin-top: 2.4rem;
   ${FONT_STYLES.PRETENDARD_B_20};
 `;
 const StButtonContainer = styled.div`
