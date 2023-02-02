@@ -8,17 +8,16 @@ interface props {
 
 function TopBar({ teamName }: props) {
   const today = new Date();
-  const dateString = today.toLocaleDateString('ko-kr');
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const date = today.getDate();
   const dayIndex = today.getDay();
-  const year = dateString.slice(0, 4);
-  const month = dateString.slice(6, 7);
-  const date = dateString.slice(8, 11);
   const weekList = ['일', '월', '화', '수', '목', '금', '토'];
   const day = weekList[dayIndex];
 
   return (
     <StTopBox>
-      <StTopBarText>{teamName} 의 티타임</StTopBarText>
+      <StTopBarText>&apos;{teamName}&apos; 의 티타임</StTopBarText>
       <StTopBarToday>
         {year}년 {month}월 {date}일 {day}요일
       </StTopBarToday>

@@ -54,6 +54,9 @@ function MyResult({ userId, teamId }: userIdType) {
       <LogoTop />
       {resultData ? (
         <StMyResult>
+<<<<<<< HEAD:src/pages/myResult/[teamcode]/[userId].tsx
+          <div id={imgToDownload}>
+=======
           {modalState && (
             <MyResultModal userId={String(userId)} userName={resultData.nickname} setModalState={setModalState} />
           )}
@@ -62,6 +65,7 @@ function MyResult({ userId, teamId }: userIdType) {
             카카오톡에서 접속 시, 이미지 저장을 위해 아이폰 사용자는 사파리로 이동해주세요
           </StWarningMessage>
           <div>
+>>>>>>> 523df00416e192048254280af6d990cc7cb705e3:src/pages/myResult/[teamId]/[userId].tsx
             <StResultCard>
               <StInfoContainer>
                 <p className="date">{resultData.date}</p>
@@ -124,20 +128,7 @@ const StMyResult = styled.div`
   flex-direction: column;
   width: 100vw;
 `;
-const StWarningMessage = styled.header`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 19.7rem;
-  margin: 2.2rem 9.7rem 1.2rem 9.7rem;
-  color: ${COLOR.GRAY_9E};
-  ${FONT_STYLES.PRETENDARD_M_12};
-  p {
-    margin-bottom: 0.6rem;
-    color: ${COLOR.ORANGE_1};
-    ${FONT_STYLES.PRETENDARD_B_12};
-  }
-`;
+
 const StResultCard = styled.main`
   display: flex;
   align-items: center;

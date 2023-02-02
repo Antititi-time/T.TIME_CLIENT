@@ -47,3 +47,5 @@ export { default as imgCategoryB } from './img_category_b.png';
 export { default as imgCategoryC } from './img_category_c.png';
 export { default as imgCategoryD } from './img_category_d.png';
 export { default as imgCategoryE } from './img_category_e.png';
+
+export { default as imgChatLogo } from './img_chat_logo.png';
