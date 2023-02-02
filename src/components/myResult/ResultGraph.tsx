@@ -12,8 +12,11 @@ interface graphWidth {
 }
 
 function ResultGraph({ result }: graphData) {
-  const router = useRouter();
-  localStorage.setItem('userId', router.asPath.split('/')[3]);
+  const { query, isReady } = useRouter();
+
+  if (isReady && String(query.teamId) !== 'noTeam') {
+    localStorage.setItem('userId', String(query.userId));
+  }
 
   return (
     <>
