@@ -116,7 +116,6 @@ const StMyResult = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  margin-top: 2.6rem;
 `;
 
 const StResultCard = styled.main`
@@ -126,7 +125,7 @@ const StResultCard = styled.main`
   width: 34.6rem;
   min-height: 104.4rem;
   padding: 2.5rem 2.2rem 4rem 2.2rem;
-  margin: 0rem 2.2rem 12rem 2.2rem;
+  margin: 2.6rem 2.2rem 12rem 2.2rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
