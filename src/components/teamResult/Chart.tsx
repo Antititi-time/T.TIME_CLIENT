@@ -11,12 +11,12 @@ import { getTeamChartResult } from '@src/services';
 ChartJS.register();
 
 interface TeamResultProps {
-  teamCode: number;
+  teamId: number;
 }
 
-function Chart({ teamCode }: TeamResultProps) {
-  const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamCode), {
-    enabled: !!teamCode,
+function Chart({ teamId }: TeamResultProps) {
+  const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamId), {
+    enabled: !!teamId,
   });
 
   const setInOrder = (data: TeamScore[]) => {

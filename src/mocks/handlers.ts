@@ -29,7 +29,7 @@ export const handlers = [
             id: 1,
             teamName: 's',
             teamMember: 11,
-            teamCode: 'ndd93w',
+            teamId: 'ndd93w',
           },
         },
       ]),

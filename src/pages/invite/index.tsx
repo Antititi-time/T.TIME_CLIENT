@@ -22,7 +22,7 @@ function Invite() {
     onSuccess: (response: TeamInfoData) => {
       router.push({
         pathname: `/invite/${response?.id}`,
-        query: { teamNum: response?.teamMember, teamCode: response?.id, teamName: response?.teamName },
+        query: { teamNum: response?.teamMember, teamId: response?.id, teamName: response?.teamName },
       });
     },
     onError: () => {

@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import BottomButton from '../common/BottomButton';
 import { COLOR } from '@src/styles/color';
-import { onDownload } from './ImgDownload';
+import { Dispatch, SetStateAction } from 'react';
 interface BottomBtnProps {
   teamId: string;
   userId: string;
-  id: string;
+  setModalState: Dispatch<SetStateAction<boolean>>;
 }
 
-function BottomBtnContainer({ id, userId, teamId }: BottomBtnProps) {
+function BottomBtnContainer({ userId, teamId, setModalState }: BottomBtnProps) {
   return (
     <StButtomBtnContainer>
       <Link href={`/teamResult/${teamId}/${userId}`}>
@@ -17,12 +17,7 @@ function BottomBtnContainer({ id, userId, teamId }: BottomBtnProps) {
       </Link>
 
       <StButtonContainer>
-        <BottomButton
-          width={16}
-          color={COLOR.ORANGE_1}
-          text={'이미지 저장'}
-          handler={() => onDownload({ id: id, name: 'my_result' })}
-        />
+        <BottomButton width={16} color={COLOR.ORANGE_1} text={'공유하기'} handler={() => setModalState(true)} />
       </StButtonContainer>
     </StButtomBtnContainer>
   );

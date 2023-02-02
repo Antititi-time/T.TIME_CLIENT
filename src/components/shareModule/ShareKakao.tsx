@@ -1,4 +1,4 @@
-export const shareKakao = (route: string, teamName: string, shareType: string) => {
+export const shareKakao = (route: string, name: string, shareType: string) => {
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
@@ -9,7 +9,7 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: `${teamName}팀 초대장이 도착했어요!`,
+          title: `${name}팀 초대장이 도착했어요!`,
           description: '초대장을 열고, 티타임에 입장해보세요.☕️',
 
           imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,
@@ -33,10 +33,35 @@ export const shareKakao = (route: string, teamName: string, shareType: string) =
       kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: `${teamName}팀의 티타임 결과를 확인하세요.`,
-          description: '팀 결과를 통해 팀원들의 속마음을 확인해보세요.☕️',
+          title: `${name}의 팀결과를 확인해보세요.`,
+          description: '팀 결과를 팀원들과 공유해 깊은 이야기를 나눠보세요.☕️',
 
-          imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,
+          imageUrl:
+            'https://github.com/Antititi-time/T.TIME_CLIENT/blob/feat/%23102/src/assets/images/img_kakao_teamShare.jpg?raw=true',
+          link: {
+            mobileWebUrl: route,
+            webUrl: route,
+          },
+        },
+        buttons: [
+          {
+            title: '자세히 보기',
+            link: {
+              mobileWebUrl: route,
+              webUrl: route,
+            },
+          },
+        ],
+      });
+    }
+    if (shareType === '내 결과') {
+      kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: `${name}님의 개인결과를 확인해보세요.`,
+          description: '개인결과는 링크가 있는 사람만 볼 수 있어요. ☕️',
+          imageUrl:
+            'https://github.com/Antititi-time/T.TIME_CLIENT/blob/feat/%23102/src/assets/images/img_kakao_personalShare.jpg?raw=true',
           link: {
             mobileWebUrl: route,
             webUrl: route,
