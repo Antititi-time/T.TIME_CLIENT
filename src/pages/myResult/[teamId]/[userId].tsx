@@ -26,12 +26,16 @@ interface ctxType {
 interface userIdType {
   userId: number;
   teamId: number;
+  myResultData: UserData;
 }
-function MyResult({ userId, teamId }: userIdType) {
+
+function MyResult({ userId, teamId, myResultData }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const [isVisitor, setIsVisitor] = useState(false);
-  const { data } = useQuery('userData', () => getMyResult(userId));
+  const { data } = useQuery('userData', () => getMyResult(userId), {
+    initialData: myResultData,
+  });
   const [modalState, setModalState] = useState(false);
   const { query, isReady } = useRouter();
   useEffect(() => {
@@ -50,7 +54,13 @@ function MyResult({ userId, teamId }: userIdType) {
 
   return (
     <StmyResultPage>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="결과를 확인해보세요!" />
+      <SEO
+        title="T.time | 팀과 내가 함께 성장하는 시간"
+        ogTitle={myResultData.nickname + '님의 T.time 결과를 확인해보세요'}
+        description="개인결과는 링크가 있는 사람만 볼 수 있어요.☕️"
+        image="/img_personalShare.png"
+        url={'https://t-time.vercel.app/myResult/noTeam/' + userId}
+      />
       <LogoTop />
       {resultData ? (
         <StMyResult>
@@ -108,6 +118,13 @@ function MyResult({ userId, teamId }: userIdType) {
   );
 }
 export default MyResult;
+
+export const getServerSideProps = async (ctx: ctxType) => {
+  const userId = parseInt(ctx.query.userId);
+  const teamId = parseInt(ctx.query.teamId);
+  const myResultData = await getMyResult(userId);
+  return { props: { userId, teamId, myResultData } };
+};
 
 const StmyResultPage = styled.div``;
 
@@ -240,9 +257,3 @@ const StCardFooter = styled.footer`
     margin-bottom: 1.2rem;
   }
 `;
-
-export async function getServerSideProps(ctx: ctxType) {
-  const userId = parseInt(ctx.query.userId);
-  const teamId = parseInt(ctx.query.teamId);
-  return { props: { userId, teamId } };
-}

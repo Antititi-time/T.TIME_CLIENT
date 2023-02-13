@@ -10,12 +10,23 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
 import LoadingView from '@src/components/common/LoadingView';
+import { getTeamData } from '@src/services/index';
+import { TeamInfoData } from '@src/services/types';
 
-function TeamResult() {
+interface ctxType {
+  query: {
+    teamId: string;
+  };
+}
+interface TeamResultProps {
+  teamId: number;
+  teamData: TeamInfoData;
+}
+
+function TeamResult({ teamId, teamData }: TeamResultProps) {
   const [modalState, setModalState] = useState(false);
   const [isUser, setIsUser] = useState(false);
   const router = useRouter();
-  const teamId = Number(router.asPath.split('/')[2]);
   const [userId, setUserId] = useState('');
   useEffect(() => {
     setUserId(router.asPath.split('/')[3]);
@@ -31,19 +42,27 @@ function TeamResult() {
       }
     }
   }, [userId]);
-  const { data, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
+  const { data: completeData, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
     enabled: router.isReady,
+  });
+  const { data } = useQuery('getTeamData', () => getTeamData(teamId), {
+    initialData: teamData,
   });
 
   return (
     <StTeamResult>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="개인 결과를 확인해보세요!" />
+      <SEO
+        title="T.time | 팀과 내가 함께 성장하는 시간"
+        ogTitle={teamData?.teamName + '의 팀결과를 확인해보세요'}
+        description="팀 결과를 팀원들과 공유해 깊은 이야기를 나눠보세요.☕️"
+        image="/img_teamShare.png"
+        url={'https://t-time.vercel.app/myResult/' + teamId + '/noUser'}
+      />
       <LogoTop />
-      {data ? (
-        data?.completed && !isLoading ? (
+      {completeData ? (
+        completeData?.completed && !isLoading ? (
           <>
             {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
-
             <ResultFrame teamId={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
@@ -58,6 +77,13 @@ function TeamResult() {
   );
 }
 export default TeamResult;
+
+export const getServerSideProps = async (ctx: ctxType) => {
+  const teamId = parseInt(ctx.query.teamId);
+  const teamData = await getTeamData(teamId);
+  return { props: { teamId, teamData } };
+};
+
 const StTeamResult = styled.div`
   display: flex;
   flex-direction: column;
