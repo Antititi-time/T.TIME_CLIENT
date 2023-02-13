@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { imgTopLogo } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
+import Link from 'next/link';
 
 function LogoTop() {
   return (
     <StLogoTop>
-      <ImageDiv src={imgTopLogo} alt="T.time" className="imgTopLogo" fill={true} />
+      <Link href="/">
+        <ImageDiv src={imgTopLogo} alt="T.time" className="imgTopLogo" fill={true} />
+      </Link>
     </StLogoTop>
   );
 }
