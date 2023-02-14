@@ -33,7 +33,7 @@ const StFrame = styled.div`
   width: 34.6rem;
   height: 100%;
   margin: 2.6rem 0 14.4rem 0;
-  padding: 2.1rem 2.1rem;
+  padding: 2.5rem 2.1rem 2.1rem 2.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);

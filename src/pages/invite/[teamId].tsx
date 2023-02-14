@@ -38,13 +38,13 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
         description="초대장을 열고, 티타임에 입장해보세요.☕️"
         url={'https://t-time.vercel.app/join/' + teamId}
       />
-      {modalState && router.query.teamName ? (
+      {modalState && teamName ? (
         <InviteModal teamName={teamName} setModalState={setModalState} teamId={String(router.query.teamId)} />
       ) : null}
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
-        <StTeamName>&apos;{router.query.teamName}&apos;</StTeamName>
+        <StTeamName>&apos;{teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
