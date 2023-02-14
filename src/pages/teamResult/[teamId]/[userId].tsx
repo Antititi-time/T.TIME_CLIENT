@@ -60,7 +60,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
       />
       <LogoTop />
       {completeData ? (
-        completeData?.completed && !isLoading ? (
+        completeData.completed && !isLoading ? (
           <>
             {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
             <ResultFrame teamId={teamId} />
@@ -68,7 +68,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
             <StBackground />
           </>
         ) : (
-          <UnfinishedResult completeData={data} />
+          <UnfinishedResult completeData={completeData} />
         )
       ) : (
         <LoadingView />
