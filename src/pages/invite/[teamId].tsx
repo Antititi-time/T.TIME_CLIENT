@@ -13,20 +13,33 @@ import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
 import Link from 'next/link';
 
-function ConfirmInvite() {
+interface ctxType {
+  query: {
+    teamId: number;
+    teamName: string;
+  };
+}
+
+interface ConfirmInviteProps {
+  teamId: number;
+  teamName: string;
+}
+
+function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
   const router = useRouter();
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
   const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
+      <SEO
+        title="T.time | 팀과 내가 함께 성장하는 시간"
+        ogTitle={teamName + '팀 초대장이 도착했어요!'}
+        description="초대장을 열고, 티타임에 입장해보세요.☕️"
+        url={'https://t-time.vercel.app/join/' + teamId}
+      />
       {modalState && router.query.teamName ? (
-        <InviteModal
-          teamName={String(router.query.teamName)}
-          setModalState={setModalState}
-          teamId={String(router.query.teamId)}
-        />
+        <InviteModal teamName={teamName} setModalState={setModalState} teamId={String(router.query.teamId)} />
       ) : null}
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
@@ -64,6 +77,12 @@ function ConfirmInvite() {
   );
 }
 export default ConfirmInvite;
+
+export const getServerSideProps = async (ctx: ctxType) => {
+  const teamId = ctx.query.teamId;
+  const teamName = ctx.query.teamName;
+  return { props: { teamId, teamName } };
+};
 
 const StConfirmInvite = styled.div`
   display: flex;
