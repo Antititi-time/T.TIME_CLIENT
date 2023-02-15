@@ -17,6 +17,7 @@ import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
 import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
+import { imgCenturyGothicLogo } from '@src/assets/images';
 interface ctxType {
   query: {
     userId: string;
@@ -52,6 +53,10 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
     }
   }, [isReady]);
 
+  const handleDate = (date: string) => {
+    return date && date.replaceAll('-', '.');
+  };
+
   return (
     <StmyResultPage>
       <SEO
@@ -69,13 +74,17 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
           )}
           <StResultCard>
             <StInfoContainer>
-              <p className="date">{resultData.date}</p>
+              <p className="date">{handleDate(resultData.date)}</p>
               <p className="teamName">&#39;{resultData.teamName}&#39;</p>
               <div className="resultTitle">
                 <p>
                   <span className="userName">{resultData.nickname}</span> 님의
                 </p>
-                <p>개인 T.time 결과</p>
+                <StTeamResultText>
+                  <p>개인</p>
+                  <img src={imgCenturyGothicLogo.src} alt="T.time" className="logo" />
+                  <p>결과</p>
+                </StTeamResultText>
               </div>
             </StInfoContainer>
             <StUserImage src={RESULT_MESSAGE[resultCharacter]?.imageUrl}></StUserImage>
@@ -152,15 +161,18 @@ const StInfoContainer = styled.div`
   .date {
     ${FONT_STYLES.PRETENDARD_M_12};
     color: ${COLOR.GRAY_9E};
+    line-height: 1.432rem;
   }
   .teamName {
     ${FONT_STYLES.NEXON_B_16};
-    color: ${COLOR.GRAY_7E};
     margin: 0.8rem 0 1.2rem 0;
+    color: ${COLOR.GRAY_7E};
+    line-height: 2.24rem;
   }
   .resultTitle {
     ${FONT_STYLES.NEXON_B_22};
     color: ${COLOR.BLACK};
+    line-height: 2.64rem;
   }
   .resultTitle p {
     margin-bottom: 0.5rem;
@@ -168,6 +180,18 @@ const StInfoContainer = styled.div`
   }
   .userName {
     color: ${COLOR.BLUE_TEXT};
+  }
+`;
+const StTeamResultText = styled.div`
+  display: flex;
+  color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_B_22}
+  line-height: 2.64rem;
+  .logo {
+    position: relative;
+    width: 7.2rem;
+    height: 2.4rem;
+    margin: 0 0.4rem;
   }
 `;
 const StDotsImage = styled.div`

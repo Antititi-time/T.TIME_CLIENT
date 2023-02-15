@@ -81,7 +81,7 @@ function SimpleResult({ teamId }: TeamResultProps) {
       <StTeamName>&#39;{teamName}&#39;</StTeamName>
       <StTeamResultText>
         <p>팀</p>
-        <img src={imgCenturyGothicLogo.src} alt="logo" className="logo" />
+        <img src={imgCenturyGothicLogo.src} alt="T.time" className="logo" />
         <p>결과</p>
       </StTeamResultText>
       <StImageContainer>

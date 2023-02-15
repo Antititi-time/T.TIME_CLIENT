@@ -13,25 +13,38 @@ import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
 import Link from 'next/link';
 
-function ConfirmInvite() {
+interface ctxType {
+  query: {
+    teamId: number;
+    teamName: string;
+  };
+}
+
+interface ConfirmInviteProps {
+  teamId: number;
+  teamName: string;
+}
+
+function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
   const router = useRouter();
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
   const [modalState, setModalState] = useState<boolean>(false);
   return (
     <StConfirmInvite>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
-      {modalState && router.query.teamName ? (
-        <InviteModal
-          teamName={String(router.query.teamName)}
-          setModalState={setModalState}
-          teamId={String(router.query.teamId)}
-        />
+      <SEO
+        title="T.time | 팀과 내가 함께 성장하는 시간"
+        ogTitle={teamName + '팀 초대장이 도착했어요!'}
+        description="초대장을 열고, 티타임에 입장해보세요.☕️"
+        url={'https://t-time.vercel.app/join/' + teamId}
+      />
+      {modalState && teamName ? (
+        <InviteModal teamName={teamName} setModalState={setModalState} teamId={String(router.query.teamId)} />
       ) : null}
       <TextTop text={'초대장 만들기'} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
-        <StTeamName>&apos;{router.query.teamName}&apos;</StTeamName>
+        <StTeamName>&apos;{teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
@@ -64,6 +77,12 @@ function ConfirmInvite() {
   );
 }
 export default ConfirmInvite;
+
+export const getServerSideProps = async (ctx: ctxType) => {
+  const teamId = ctx.query.teamId;
+  const teamName = ctx.query.teamName;
+  return { props: { teamId, teamName } };
+};
 
 const StConfirmInvite = styled.div`
   display: flex;
