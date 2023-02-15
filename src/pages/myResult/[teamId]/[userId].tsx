@@ -165,8 +165,8 @@ const StInfoContainer = styled.div`
   }
   .teamName {
     ${FONT_STYLES.NEXON_B_16};
-    color: ${COLOR.GRAY_7E};
     margin: 0.8rem 0 1.2rem 0;
+    color: ${COLOR.GRAY_7E};
     line-height: 2.24rem;
   }
   .resultTitle {
