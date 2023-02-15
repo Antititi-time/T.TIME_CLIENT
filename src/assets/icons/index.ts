@@ -10,3 +10,4 @@ export { default as Button3 } from './Button3.svg';
 export { default as Button4 } from './Button4.svg';
 export { default as Button5 } from './Button5.svg';
 export { default as SubmitButton } from './SubmitButton.svg';
+export { default as KakaoLogin } from './icn_kakaoLogin.svg';
