@@ -49,3 +49,11 @@ export { default as imgCategoryD } from './img_category_d.png';
 export { default as imgCategoryE } from './img_category_e.png';
 
 export { default as imgChatLogo } from './img_chat_logo.png';
+
+export { default as imgOnbarding1 } from './img_organizer_onboarding1.png';
+export { default as imgOnbarding2 } from './img_organizer_onboarding2.png';
+export { default as imgOnbarding3 } from './img_organizer_onboarding3.png';
+export { default as imgOnbarding4 } from './img_organizer_onboarding4.png';
+export { default as imgOnbarding5 } from './img_organizer_onboarding5.png';
+export { default as imgGoogleIcon } from './img_google_icon.png';
+export { default as imgKakaoIcon } from './img_kakao_icon.png';

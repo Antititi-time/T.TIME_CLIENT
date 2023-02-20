@@ -5,6 +5,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import AdminProfile from './AdminProfile';
 import { D_icon1 } from '@src/assets/images';
 import { useRouter } from 'next/router';
+
 function ChatStartTalk() {
   const router = useRouter();
   const teamName = router.query.teamName;
