@@ -22,7 +22,6 @@ function Home() {
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'초대장 만들기'} />
         </Link>
       </StInviteButton>
-      <GoogleLoginButton />
     </StHome>
   );
 }
