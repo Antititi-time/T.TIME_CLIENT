@@ -3,7 +3,6 @@ import SEO from '@src/components/common/SEO';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
-import router from 'next/router';
 import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
@@ -21,15 +20,9 @@ function Home() {
         <Link href="/invite">
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'초대장 만들기'} />
         </Link>
-        <BottomButton
-          width={28.2}
-          color={COLOR.BLUE_1}
-          text={'지난 T.time 확인하기'}
-          handler={() => {
-            //로그인된 상태일 시
-            router.push('myPage/22');
-          }}
-        />
+        <Link href="myPage/22">
+          <BottomButton width={28.2} color={COLOR.BLUE_1} text={'지난 T.time 확인하기'} />
+        </Link>
       </StInviteButton>
     </StHome>
   );
