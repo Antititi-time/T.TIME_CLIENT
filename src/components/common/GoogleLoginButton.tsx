@@ -5,11 +5,11 @@ import ImageDiv from './ImageDiv';
 import { icnGoogle } from '@src/assets/icons';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
-import { prevPathAtom } from '@src/stores/login';
+import { prevPathState } from '@src/atoms/login';
 import { useRouter } from 'next/router';
 
 function GoogleLoginButton() {
-  const setPrevPath = useSetRecoilState(prevPathAtom);
+  const setPrevPath = useSetRecoilState(prevPathState);
   const router = useRouter();
   const redirectLink =
     'https://accounts.google.com/o/oauth2/auth?client_id=' +
@@ -25,7 +25,7 @@ function GoogleLoginButton() {
   return (
     <Link href={redirectLink}>
       <StGoogleLoginButton onClick={getCurrentPath}>
-        <ImageDiv src={icnGoogle} className="icnGoogle" alt="구글 아이콘" fill />
+        <ImageDiv src={icnGoogle} className="icnGoogle" alt="구글 로고" fill />
         <StText>Google 계정으로 시작하기</StText>
       </StGoogleLoginButton>
     </Link>
@@ -35,9 +35,6 @@ function GoogleLoginButton() {
 export default GoogleLoginButton;
 
 const StGoogleLoginButton = styled.button`
-  //position, top 임의 값 나중에 삭제할 것.
-  position: relative;
-  top: 80rem;
   display: flex;
   justify-content: center;
   align-items: center;
