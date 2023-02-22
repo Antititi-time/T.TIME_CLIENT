@@ -4,8 +4,13 @@ import { COLOR } from '@src/styles/color';
 import ImageDiv from './ImageDiv';
 import { icnGoogle } from '@src/assets/icons';
 import Link from 'next/link';
+import { useSetRecoilState } from 'recoil';
+import { prevPath } from '@src/stores/login';
+import { useRouter } from 'next/router';
 
 function GoogleLoginButton() {
+  const setPrevPath = useSetRecoilState(prevPath);
+  const router = useRouter();
   const redirectLink =
     'https://accounts.google.com/o/oauth2/auth?client_id=' +
     process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID +
@@ -13,10 +18,13 @@ function GoogleLoginButton() {
     process.env.NEXT_PUBLIC_REDIRECT_URL +
     '&response_type=token&' +
     '&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile';
+  const getCurrentPath = () => {
+    setPrevPath(router.asPath);
+  };
 
   return (
     <Link href={redirectLink}>
-      <StGoogleLoginButton>
+      <StGoogleLoginButton onClick={getCurrentPath}>
         <ImageDiv src={icnGoogle} className="icnGoogle" alt="구글 아이콘" fill />
         <StText>Google 계정으로 시작하기</StText>
       </StGoogleLoginButton>
