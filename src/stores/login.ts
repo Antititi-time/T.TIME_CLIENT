@@ -1,6 +1,12 @@
 import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
 
-export const prevPath = atom({
-  key: 'prevPath',
+const { persistAtom } = recoilPersist();
+
+const prevPathAtom = atom<string>({
+  key: 'prevPathAtom',
   default: '',
+  effects_UNSTABLE: [persistAtom],
 });
+
+export { prevPathAtom };

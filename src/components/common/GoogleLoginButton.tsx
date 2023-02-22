@@ -5,11 +5,11 @@ import ImageDiv from './ImageDiv';
 import { icnGoogle } from '@src/assets/icons';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
-import { prevPath } from '@src/stores/login';
+import { prevPathAtom } from '@src/stores/login';
 import { useRouter } from 'next/router';
 
 function GoogleLoginButton() {
-  const setPrevPath = useSetRecoilState(prevPath);
+  const setPrevPath = useSetRecoilState(prevPathAtom);
   const router = useRouter();
   const redirectLink =
     'https://accounts.google.com/o/oauth2/auth?client_id=' +
