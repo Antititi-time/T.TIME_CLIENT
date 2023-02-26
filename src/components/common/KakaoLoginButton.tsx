@@ -4,7 +4,7 @@ import { KakaoLogin } from '@src/assets/icons';
 import styled from 'styled-components';
 import Link from 'next/link';
 function KakaoLoginButton() {
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=http://localhost:3000/kakao&response_type=code`;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=http://localhost:3000/auth/kakao&response_type=code`;
   return (
     <Link href={KAKAO_AUTH_URL}>
       <StKakaoLoginButton>

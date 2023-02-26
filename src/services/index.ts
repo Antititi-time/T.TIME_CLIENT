@@ -1,5 +1,6 @@
 import { api } from './base';
 import { TeamData } from './types';
+import axios from 'axios';
 
 export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
@@ -53,4 +54,20 @@ export const postAnswer = async (teamId: number, body: object) => {
 export const patchComplete = async (userId: number) => {
   const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
   return data;
+};
+export const getKakaoAccessToken = (authorization: string) => {
+  if (authorization != 'undefined') {
+    axios.post(
+      `https://kauth.kakao.com/oauth/token`,
+      {},
+      {
+        params: {
+          grant_type: 'authorization_code',
+          client_id: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
+          redirect_uri: 'http://localhost:3000/auth/kakao',
+          code: authorization,
+        },
+      },
+    );
+  }
 };
