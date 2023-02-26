@@ -9,15 +9,19 @@ import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
 import WatchMyResultButton from './WatchMyResultButton';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, SetStateAction, Dispatch } from 'react';
 import { useRouter } from 'next/router';
 import { StaticImageData } from 'next/image';
 
-function ChatBody() {
+interface ChatBodyProps {
+  index: number;
+  setIndex: Dispatch<SetStateAction<number>>;
+}
+
+function ChatBody({ setIndex, index }: ChatBodyProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const [chat, setChat] = useState<(string | StaticImageData)[]>([]);
-  const [index, setIndex] = useState(0);
   const [grade, setGrade] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
