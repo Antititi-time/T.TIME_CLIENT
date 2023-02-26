@@ -55,19 +55,18 @@ export const patchComplete = async (userId: number) => {
   const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
   return data;
 };
-export const getKakaoAccessToken = (authorization: string) => {
-  if (authorization != 'undefined') {
-    axios.post(
-      `https://kauth.kakao.com/oauth/token`,
-      {},
-      {
-        params: {
-          grant_type: 'authorization_code',
-          client_id: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
-          redirect_uri: 'http://localhost:3000/auth/kakao',
-          code: authorization,
-        },
+export const getKakaoAccessToken = async (authorization: string) => {
+  const data = axios.post(
+    `https://kauth.kakao.com/oauth/token`,
+    {},
+    {
+      params: {
+        grant_type: 'authorization_code',
+        client_id: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
+        redirect_uri: 'http://localhost:3000/auth/kakao',
+        code: authorization,
       },
-    );
-  }
+    },
+  );
+  return data;
 };

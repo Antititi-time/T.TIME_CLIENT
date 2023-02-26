@@ -1,18 +1,24 @@
 import { useRouter } from 'next/router';
 import { getKakaoAccessToken } from '@src/services';
-import { prevPathState } from '@src/atoms/login';
-import { useEffect } from 'react';
+import { useQuery } from 'react-query';
+import { useEffect, useState } from 'react';
 function KakaoAuth() {
-  const router = useRouter();
+  const { query, isReady } = useRouter();
+  const [accessToken, setAccessToken] = useState();
+  const [dataStatus, setDatastatus] = useState(true);
+  const authorization = String(query.code);
 
-  const authorization = String(router.query.code);
-  console.log(prevPathState);
+  const { data } = useQuery('access_token', () => getKakaoAccessToken(authorization), {
+    enabled: !!isReady && !!dataStatus,
+  });
+
   useEffect(() => {
-    if (authorization != 'undefined') {
-      getKakaoAccessToken(authorization);
+    if (data?.data.access_token != undefined) {
+      setAccessToken(data.data.access_token);
+      setDatastatus(false);
     }
-  }, [authorization]);
+  }, [accessToken, data]);
 
-  return <div></div>;
+  return <></>;
 }
 export default KakaoAuth;

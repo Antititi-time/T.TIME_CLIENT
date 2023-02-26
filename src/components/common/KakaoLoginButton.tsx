@@ -8,6 +8,7 @@ import { prevPathState } from '@src/atoms/login';
 import { useRouter } from 'next/router';
 function KakaoLoginButton() {
   const setPrevPath = useSetRecoilState(prevPathState);
+
   const router = useRouter();
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=http://localhost:3000/auth/kakao&response_type=code`;
   const getCurrentPath = () => {
@@ -15,8 +16,8 @@ function KakaoLoginButton() {
     console.log(router.asPath);
   };
   return (
-    <Link href={KAKAO_AUTH_URL} onClick={getCurrentPath}>
-      <StKakaoLoginButton>
+    <Link href={KAKAO_AUTH_URL}>
+      <StKakaoLoginButton onClick={getCurrentPath}>
         <StKakaoLogo src={KakaoLogin.src} />
         <StLoginText>카카오 계정으로 시작하기</StLoginText>
       </StKakaoLoginButton>
