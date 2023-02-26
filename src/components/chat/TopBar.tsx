@@ -24,9 +24,9 @@ function TopBar({ teamName, index }: props) {
 
   return (
     <StTopBar>
-      <Progress>
-        <Dealt range={range} />
-      </Progress>
+      <StProgress>
+        <StProBar range={range} />
+      </StProgress>
       <StTopBox>
         <StTopBarText>&apos;{teamName}&apos; 의 티타임</StTopBarText>
         <StTopBarToday>
@@ -68,13 +68,13 @@ const StTopBarToday = styled.p`
   ${FONT_STYLES.NEXON_R_12};
 `;
 
-const Progress = styled.div`
+const StProgress = styled.div`
   width: 100%;
   height: 0.5rem;
   background-color: ${COLOR.GRAY_EC};
 `;
 
-const Dealt = styled.div<{ range: number }>`
+const StProBar = styled.div<{ range: number }>`
   width: ${(props) => props.range + '%'};
   height: 100%;
   background-color: ${COLOR.ORANGE_1};
