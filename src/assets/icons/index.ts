@@ -1,6 +1,5 @@
 export { default as icJoinRound } from './ic_join_round.svg';
 export { default as icPaste } from './icn_paste.svg';
-
 export { default as logoIcon } from './logoIcon.svg';
 export { default as icDots } from './icn_dots.svg';
 export { default as ChoiceInputBack } from './ChoiceInputBack.svg';
@@ -11,3 +10,4 @@ export { default as Button4 } from './Button4.svg';
 export { default as Button5 } from './Button5.svg';
 export { default as SubmitButton } from './SubmitButton.svg';
 export { default as KakaoLogin } from './icn_kakaoLogin.svg';
+export { default as icnGoogle } from './icn_google.svg';
