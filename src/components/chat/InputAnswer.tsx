@@ -12,8 +12,8 @@ import { postAnswer } from '@src/services';
 import { StaticImageData } from 'next/image';
 
 interface InputQuestionType {
-  setIndex: Dispatch<SetStateAction<number>>;
-  index: number;
+  setQuestionIndex: Dispatch<SetStateAction<number>>;
+  questionIndex: number;
   setInput: Dispatch<SetStateAction<boolean>>;
   teamId: string;
   setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
@@ -21,7 +21,7 @@ interface InputQuestionType {
   userId: number;
 }
 
-function InputAnswer({ setIndex, index, setInput, teamId, setChat, grade, userId }: InputQuestionType) {
+function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setChat, grade, userId }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
@@ -47,8 +47,8 @@ function InputAnswer({ setIndex, index, setInput, teamId, setChat, grade, userId
 
   const getData = useMutation(() =>
     postAnswer(userId, {
-      questionType: CHAT_QUESTION_LIST[index].questionType,
-      questionNumber: CHAT_QUESTION_LIST[index].questionNumber,
+      questionType: CHAT_QUESTION_LIST[questionIndex].questionType,
+      questionNumber: CHAT_QUESTION_LIST[questionIndex].questionNumber,
       answer: value,
       grade: grade,
       teamId: Number(teamId),
@@ -61,7 +61,7 @@ function InputAnswer({ setIndex, index, setInput, teamId, setChat, grade, userId
       alert('답변을 입력해주세요!');
     } else {
       setChat((prev) => prev.concat(`A${value}`));
-      setIndex(index + 1);
+      setQuestionIndex(questionIndex + 1);
       setInput(false);
       getData.mutate();
     }
