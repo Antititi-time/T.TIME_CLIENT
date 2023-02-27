@@ -95,9 +95,9 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
         ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
             key={questionIndex}
-            setIndex={setQuestionIndex}
+            setQuestionIndex={setQuestionIndex}
             setInput={setInput}
-            index={questionIndex}
+            questionIndex={questionIndex}
             teamId={teamId}
             setChat={setChat}
             grade={grade}

@@ -3,10 +3,10 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 interface props {
   teamName: string | string[] | undefined;
-  index: number;
+  questionIndex: number;
 }
 
-function TopBar({ teamName, index }: props) {
+function TopBar({ teamName, questionIndex }: props) {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth() + 1;
@@ -15,17 +15,17 @@ function TopBar({ teamName, index }: props) {
   const weekList = ['일', '월', '화', '수', '목', '금', '토'];
   const day = weekList[dayIndex];
 
-  const range = (index: number) => {
-    if (index === 0) {
+  const range = (questionIndex: number) => {
+    if (questionIndex === 0) {
       return 0;
     }
-    return ((index % 2 === 0 ? index - 2 : index - 1) / 2) * 10;
+    return ((questionIndex % 2 === 0 ? questionIndex - 2 : questionIndex - 1) / 2) * 10;
   };
 
   return (
     <StTopBar>
       <StProgress>
-        <StProBar range={range(index)} />
+        <StProBar range={range(questionIndex)} />
       </StProgress>
       <StTopBox>
         <StTopBarText>&apos;{teamName}&apos; 의 티타임</StTopBarText>
