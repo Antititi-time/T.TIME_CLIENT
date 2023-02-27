@@ -15,17 +15,17 @@ function TopBar({ teamName, index }: props) {
   const weekList = ['일', '월', '화', '수', '목', '금', '토'];
   const day = weekList[dayIndex];
 
-  const range =
-    index == 0 || index == 1
-      ? 0
-      : index % 2 == 0
-      ? Math.floor(((Math.floor(index / 2) - 1) / 10) * 100)
-      : Math.floor((Math.floor(index / 2) / 10) * 100);
+  const range = (index: number) => {
+    if (index === 0) {
+      return 0;
+    }
+    return ((index % 2 === 0 ? index - 2 : index - 1) / 2) * 10;
+  };
 
   return (
     <StTopBar>
       <StProgress>
-        <StProBar range={range} />
+        <StProBar range={range(index)} />
       </StProgress>
       <StTopBox>
         <StTopBarText>&apos;{teamName}&apos; 의 티타임</StTopBarText>

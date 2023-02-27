@@ -6,12 +6,12 @@ import { useState } from 'react';
 
 function Chat() {
   const router = useRouter();
-  const [index, setIndex] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(0);
   return (
     <>
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
-      <TopBar teamName={router.query.teamName} index={index} />
-      <ChatBody index={index} setIndex={setIndex} />
+      <TopBar teamName={router.query.teamName} index={questionIndex} />
+      <ChatBody questionIndex={questionIndex} setQuestionIndex={setQuestionIndex} />
     </>
   );
 }

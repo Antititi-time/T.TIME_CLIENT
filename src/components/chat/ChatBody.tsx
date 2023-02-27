@@ -14,11 +14,11 @@ import { useRouter } from 'next/router';
 import { StaticImageData } from 'next/image';
 
 interface ChatBodyProps {
-  index: number;
-  setIndex: Dispatch<SetStateAction<number>>;
+  questionIndex: number;
+  setQuestionIndex: Dispatch<SetStateAction<number>>;
 }
 
-function ChatBody({ setIndex, index }: ChatBodyProps) {
+function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const [chat, setChat] = useState<(string | StaticImageData)[]>([]);
@@ -32,27 +32,27 @@ function ChatBody({ setIndex, index }: ChatBodyProps) {
 
   useEffect(() => {
     setTimeout(() => {
-      if (textCount < CHAT_QUESTION_LIST[index].questions.length) {
+      if (textCount < CHAT_QUESTION_LIST[questionIndex].questions.length) {
         if (scrollRef.current !== null) {
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
-        const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
+        const newlist = chat.concat(CHAT_QUESTION_LIST[questionIndex].questions[textCount]);
         setChat(newlist);
         setTextCount(textCount + 1);
       }
     }, 700);
-    if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
-      if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+    if (textCount == CHAT_QUESTION_LIST[questionIndex].questions.length) {
+      if (CHAT_QUESTION_LIST[questionIndex].questionType == 'End') {
         setEnd(true);
       } else {
         setInput(true);
         setTextCount(0);
       }
       if (scrollRef.current !== null) {
-        if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+        if (CHAT_QUESTION_LIST[questionIndex].questionType == 'End') {
           scrollRef.current.style.paddingBottom = '11.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        } else if (CHAT_QUESTION_LIST[index].questions.includes('한문장')) {
+        } else if (CHAT_QUESTION_LIST[questionIndex].questions.includes('한문장')) {
           scrollRef.current.style.paddingBottom = '8.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else {
@@ -61,7 +61,7 @@ function ChatBody({ setIndex, index }: ChatBodyProps) {
         }
       }
     }
-  }, [chat, index]);
+  }, [chat, questionIndex]);
 
   return (
     <StChatWrapper>
@@ -69,12 +69,12 @@ function ChatBody({ setIndex, index }: ChatBodyProps) {
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
-            <StEmoticonWrapper key={index}>
+            <StEmoticonWrapper key={questionIndex}>
               <AdminProfile />
               <ImageDiv src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
             </StEmoticonWrapper>
           ) : questions[0] == 'A' ? (
-            <StAnswerWrapper key={index}>
+            <StAnswerWrapper key={questionIndex}>
               <StAnswer>
                 <StPosition>{questions.substring(1)}</StPosition>
               </StAnswer>
@@ -94,19 +94,31 @@ function ChatBody({ setIndex, index }: ChatBodyProps) {
           <></>
         ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
-            key={index}
-            setIndex={setIndex}
+            key={questionIndex}
+            setIndex={setQuestionIndex}
             setInput={setInput}
-            index={index}
+            index={questionIndex}
             teamId={teamId}
             setChat={setChat}
             grade={grade}
             userId={Number(userId)}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
-          <FirstChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
+          <FirstChoiceAnswer
+            key={questionIndex}
+            setQuestionIndex={setQuestionIndex}
+            setInput={setInput}
+            questionIndex={questionIndex}
+            setChat={setChat}
+          />
         ) : (
-          <ChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
+          <ChoiceAnswer
+            key={questionIndex}
+            setQuestionIndex={setQuestionIndex}
+            setInput={setInput}
+            setChat={setChat}
+            setGrade={setGrade}
+          />
         )}
       </StChatBody>
     </StChatWrapper>
