@@ -49,3 +49,12 @@ export { default as imgCategoryD } from './img_category_d.png';
 export { default as imgCategoryE } from './img_category_e.png';
 
 export { default as imgChatLogo } from './img_chat_logo.png';
+
+export { default as imgParticipantFirst } from './img_participant_first.png';
+export { default as imgParticipantSecond } from './img_participant_second.png';
+export { default as imgParticipantFourth } from './img_participant_fourth.png';
+export { default as imgParticipantTart } from './img_participant_tart.png';
+export { default as imgParticipantCanele } from './img_participant_canele.png';
+export { default as imgTartStar } from './img_tart_star.png';
+export { default as imgCaneleStar } from './img_canele_star.png';
+export { default as imgParticipantThird } from './img_participant_third.png';
