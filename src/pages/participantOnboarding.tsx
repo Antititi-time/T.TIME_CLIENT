@@ -100,16 +100,15 @@ const StartButton = styled.div`
 `;
 
 const StSixthText = styled.p`
-  margin-left: 4.5rem;
   text-align: center;
   ${FONT_STYLES.NEXON_R_22};
 `;
 
 const StSixthPart = styled.div`
-  margin-left: -1.6rem;
   .imgParticipantTart {
     width: 47.8rem;
     height: 37.5rem;
+    margin: 1.5rem 0 0 1.6rem;
   }
 `;
 
@@ -117,13 +116,12 @@ const StFifthPart = styled.div`
   .imgParticipantCanele {
     width: 42.7rem;
     height: 30.8rem;
-    margin-left: 2.4rem;
+    margin: 0.637rem 0 0 -5.748rem;
   }
 `;
 
 const StFourthText = styled.p`
   margin-top: -8.678rem;
-  margin-left: 7.2rem;
   text-align: center;
   ${FONT_STYLES.NEXON_R_22};
 `;
@@ -132,6 +130,7 @@ const StFourthPart = styled.div`
   .imgParticipantFourth {
     width: 32.9rem;
     height: 32.9rem;
+    margin-left: 2.7rem;
   }
 `;
 
@@ -146,6 +145,7 @@ const StThirdPart = styled.div`
   .imgParticipantThird {
     position: relative;
     top: -15rem;
+    left: -2.5rem;
     width: 39.4rem;
     height: 36.022rem;
   }
@@ -160,7 +160,7 @@ const StSecondPart = styled.div`
   .imgParticipantSecond {
     width: 39.6rem;
     height: 37.1rem;
-    margin-left: 12.8rem;
+    margin-left: 5.5rem;
   }
 `;
 
@@ -175,7 +175,6 @@ const StBlueText = styled.span`
 const StFirstText = styled.p`
   text-align: center;
   margin-top: 8.8rem;
-  margin-left: 5.4rem;
   ${FONT_STYLES.NEXON_R_22};
 `;
 
@@ -189,7 +188,6 @@ const StFirstPart = styled.div`
     width: 30.1rem;
     height: 24.6rem;
     margin-top: 3.3rem;
-    margin-left: 4.1rem;
   }
 `;
 
@@ -212,4 +210,6 @@ const StTopBar = styled.div`
   }
 `;
 
-const StParticipantOnboarding = styled.div``;
+const StParticipantOnboarding = styled.div`
+  overflow: hidden;
+`;
