@@ -70,3 +70,7 @@ export const getKakaoAccessToken = async (authorization: string) => {
   );
   return data;
 };
+export const postKakaoAccessToken = async (KakaoToken: string | undefined) => {
+  const { data } = await api.post({ url: `/api/user/auth`, data: { social: 'KAKAO', token: KakaoToken } });
+  return data;
+};
