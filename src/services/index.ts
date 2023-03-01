@@ -39,7 +39,7 @@ export const enterChat = async (teamId: number, body: object, token: string | nu
   console.log(token);
   const { data } = await api.post({
     url: `/api/team/${teamId}`,
-    headers: { Authorization: token },
+    headers: { 'Content-Type': 'application/json', Authorization: token },
   });
   return data;
 };
