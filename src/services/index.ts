@@ -11,8 +11,12 @@ export const getTeamData = async (teamId: number) => {
   return data;
 };
 
-export const getTeamInfo = async (body: object) => {
-  const { data } = await api.post({ url: `/api/team`, data: body });
+export const getTeamInfo = async (body: object, token: string | null) => {
+  const { data } = await api.post({
+    url: `/api/team`,
+    data: body,
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+  });
   return data;
 };
 
@@ -31,8 +35,12 @@ export const getTeamDetailResult = async (teamId: number, type: string) => {
   return { data };
 };
 
-export const enterChat = async (teamId: number, body: object): Promise<TeamData> => {
-  const { data } = await api.post({ url: `/api/team/${teamId}`, data: body });
+export const enterChat = async (teamId: number, body: object, token: string | null): Promise<TeamData> => {
+  console.log(token);
+  const { data } = await api.post({
+    url: `/api/team/${teamId}`,
+    headers: { Authorization: token },
+  });
   return data;
 };
 

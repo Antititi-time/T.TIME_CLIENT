@@ -18,17 +18,21 @@ function Invite() {
 
   const [teamName, setTeamName] = useState<string>('');
   const [teamMember, setTeamMember] = useState<string>('');
-  const saveData = useMutation(() => getTeamInfo({ teamName: teamName.trim(), teamMember: Number(teamMember) }), {
-    onSuccess: (response: TeamInfoData) => {
-      router.push({
-        pathname: `/invite/${response?.id}`,
-        query: { teamNum: response?.teamMember, teamId: response?.id, teamName: response?.teamName },
-      });
+  const saveData = useMutation(
+    () =>
+      getTeamInfo({ teamName: teamName.trim(), teamMember: Number(teamMember) }, localStorage.getItem('accessToken')),
+    {
+      onSuccess: (response: TeamInfoData) => {
+        router.push({
+          pathname: `/invite/${response?.id}`,
+          query: { teamNum: response?.teamMember, teamId: response?.id, teamName: response?.teamName },
+        });
+      },
+      onError: () => {
+        alert('초대장을 만드는데 실패했어요');
+      },
     },
-    onError: () => {
-      alert('초대장을 만드는데 실패했어요');
-    },
-  });
+  );
   const validator = {
     teamName: {
       regEx: /^.{0,14}$/,
