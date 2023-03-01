@@ -41,7 +41,7 @@ function participantOnboarding() {
           티타미의 질문에
           <br /> <StOrangeText>솔직하게</StOrangeText>대답해주세요.
         </StSecondText>
-        <ImageDiv src={imgParticipantSecond} alt="imgParticipantSecond" className="imgParticipantSecond" fill={true} />
+        <img src={imgParticipantSecond.src} alt="imgParticipantSecond" className="imgParticipantSecond" />
       </StSecondPart>
       <StThirdPart>
         <StThirdText>
@@ -158,9 +158,9 @@ const StSecondText = styled.p`
 
 const StSecondPart = styled.div`
   .imgParticipantSecond {
-    position: relative;
     width: 39.6rem;
     height: 37.1rem;
+    margin-left: 12.8rem;
   }
 `;
 
