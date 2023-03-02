@@ -12,15 +12,15 @@ interface myPageDataType {
 
 function MyPage() {
   const { data } = useQuery('myPageData', () => getMyPage());
-
+  console.log(data);
   return (
     <StMyPage>
       <LogoTop />
       <LogoutBtn>Logout</LogoutBtn>
       <StMainContainer>
         <StResultContainer>
-          <StTitle>{data.userName}의 지난 T.time</StTitle>
-          {data.history.map(({ date, teamName }: myPageDataType) => {
+          <StTitle>{data?.userName}의 지난 T.time</StTitle>
+          {data?.history.map(({ date, teamName }: myPageDataType) => {
             const options: Intl.DateTimeFormatOptions = {
               year: 'numeric',
               month: '2-digit',

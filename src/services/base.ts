@@ -22,7 +22,7 @@ const baseHeaders = {
 
 const sendRequest = ({ url, params, method, headers }: apiType) => {
   return axios[method](BASE_URL + url, {
-    header: { ...baseHeaders, ...headers },
+    headers: { ...baseHeaders, ...headers },
     params,
   }).then((response) => {
     return { ...response.data, axiosStatus: response.status };
