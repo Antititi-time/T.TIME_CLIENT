@@ -16,7 +16,7 @@ function Google() {
       if (prevPath === '/organizerOnboarding') {
         router.push('/');
       } else {
-        router.push(prevPath);
+        router.push('/participantOnboarding');
       }
     },
     onError: () => {
@@ -32,6 +32,7 @@ function Google() {
   useEffect(() => {
     localStorage.setItem('accessToken', data?.accessToken);
   }, [data]);
+
   return <></>;
 }
 
