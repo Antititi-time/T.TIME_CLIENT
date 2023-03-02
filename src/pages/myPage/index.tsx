@@ -12,7 +12,6 @@ interface myPageDataType {
 
 function MyPage() {
   const { data } = useQuery('myPageData', () => getMyPage());
-  console.log(data);
   return (
     <StMyPage>
       <LogoTop />
