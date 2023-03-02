@@ -13,7 +13,6 @@ function KakaoLoginButton() {
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=http://localhost:3000/auth/kakao&response_type=code`;
   const getCurrentPath = () => {
     setPrevPath(router.asPath);
-    console.log(router.asPath);
   };
   return (
     <Link href={KAKAO_AUTH_URL}>
@@ -28,12 +27,11 @@ function KakaoLoginButton() {
 const StKakaoLoginButton = styled.button`
   display: flex;
   align-items: center;
-
   width: 28.2rem;
   height: 4.8rem;
+  border-radius: 10rem;
   background-color: ${COLOR.YELLOW};
   box-shadow: 0 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
-  border-radius: 10rem;
 `;
 
 const StKakaoLogo = styled.img`
