@@ -1,10 +1,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-
 import OrganizerSlider from '../components/organizerOnboarding/OrganizerSlider';
-import LastOrganizerSlider from '../components/organizerOnboarding/LastOrganizerSlider';
-
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { ORGANIZER_SLIDER_ITEMS } from '@src/constants/organizerOnboarding/organizerSliderItems';
@@ -20,8 +17,10 @@ function OrganizerOnboarding() {
   };
   return (
     <StSlider {...settings}>
-      {ORGANIZER_SLIDER_ITEMS.map((item) => (
-        <OrganizerSlider key={item.id} />
+      {ORGANIZER_SLIDER_ITEMS.map((item, idx) => (
+        <div key={idx}>
+          <OrganizerSlider id={item.id} />
+        </div>
       ))}
     </StSlider>
   );
