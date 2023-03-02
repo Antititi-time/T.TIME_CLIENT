@@ -10,7 +10,7 @@ function OrganizerOnboarding() {
   const settings = {
     dots: true,
     dotsClass: 'customDots',
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     allows: false,
@@ -91,7 +91,14 @@ const StSlider = styled(Slider)`
     -webkit-font-smoothing: antialiased;
   }
   .customDots li.slick-active button:before {
-    opacity: 1;
+    position: relative;
+    top: 3px;
+    width: 20px;
+    height: 10px;
+    padding: 0rem 0.2rem 0rem 0.2rem;
+    border-radius: 5rem;
+    background-color: ${COLOR.ORANGE_1};
     color: ${COLOR.ORANGE_1};
+    opacity: 1;
   }
 `;

@@ -62,6 +62,11 @@ const StFlex = styled.div`
 `;
 
 const StOnboardingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
   overflow: hidden;
   .organizerEmoticon {
     position: relative;
