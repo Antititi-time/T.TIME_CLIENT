@@ -1,5 +1,5 @@
 import { api } from './base';
-import { TeamData } from './types';
+import { TeamData, RequestLoginBody } from './types';
 
 export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
@@ -52,5 +52,10 @@ export const postAnswer = async (teamId: number, body: object) => {
 };
 export const patchComplete = async (userId: number) => {
   const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
+  return data;
+};
+
+export const requestLogin = async (body: RequestLoginBody) => {
+  const { data } = await api.post({ url: `/api/user/auth`, data: body });
   return data;
 };
