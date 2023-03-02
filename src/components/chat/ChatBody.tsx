@@ -69,12 +69,12 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
-            <StEmoticonWrapper key={questionIndex}>
+            <StEmoticonWrapper key={index}>
               <AdminProfile />
               <ImageDiv src={questions} alt="주최자 이모티콘" className="emoticon" fill={true} />
             </StEmoticonWrapper>
           ) : questions[0] == 'A' ? (
-            <StAnswerWrapper key={questionIndex}>
+            <StAnswerWrapper key={index}>
               <StAnswer>
                 <StPosition>{questions.substring(1)}</StPosition>
               </StAnswer>
@@ -94,7 +94,6 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
           <></>
         ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
-            key={questionIndex}
             setQuestionIndex={setQuestionIndex}
             setInput={setInput}
             questionIndex={questionIndex}
@@ -105,20 +104,13 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
           <FirstChoiceAnswer
-            key={questionIndex}
             setQuestionIndex={setQuestionIndex}
             setInput={setInput}
             questionIndex={questionIndex}
             setChat={setChat}
           />
         ) : (
-          <ChoiceAnswer
-            key={questionIndex}
-            setQuestionIndex={setQuestionIndex}
-            setInput={setInput}
-            setChat={setChat}
-            setGrade={setGrade}
-          />
+          <ChoiceAnswer setQuestionIndex={setQuestionIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
         )}
       </StChatBody>
     </StChatWrapper>
