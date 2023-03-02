@@ -54,13 +54,21 @@ export const getCompleted = async (teamId: number) => {
 
   return data;
 };
-export const postAnswer = async (teamId: number, body: object) => {
-  const { data } = await api.post({ url: `/api/chat/${teamId}`, data: body });
+export const postAnswer = async (teamId: number, body: object, token: string | null) => {
+  const { data } = await api.post({
+    url: `/api/chat`,
+    data: body,
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+  });
 
   return data;
 };
-export const patchComplete = async (userId: number) => {
-  const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
+export const patchComplete = async (userId: number, token: string | null) => {
+  const { data } = await api.patch({
+    url: `/api/result/${userId}`,
+    data: { isCompleted: true },
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+  });
   return data;
 };
 export const getKakaoAccessToken = async (authorization: string) => {

@@ -10,7 +10,7 @@ interface watchResultType {
 
 function WatchMyResultButton({ teamId, userId }: watchResultType) {
   return (
-    <StWatchMyResultButton onClick={() => patchComplete(Number(userId))}>
+    <StWatchMyResultButton onClick={() => patchComplete(Number(userId), localStorage.getItem('accessToken'))}>
       <Link href={`/myResult/${teamId}/${userId}`}>
         <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'개인 결과 보기'} />
       </Link>
