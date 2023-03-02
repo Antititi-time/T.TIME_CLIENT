@@ -6,11 +6,12 @@ import { useMutation } from 'react-query';
 import { useEffect } from 'react';
 
 function Google() {
-  const router = useRouter();
   const prevPath = useRecoilValue(prevPathState);
+  const router = useRouter();
   const url = router.asPath;
   const code = url?.split('#access_token=')[1]?.split('&')[0];
-  const { mutate } = useMutation(requestLogin, {
+
+  const { data, mutate } = useMutation(requestLogin, {
     onSuccess: () => {
       if (prevPath === '/organizerOnboarding') {
         router.push('/');
@@ -23,9 +24,14 @@ function Google() {
       router.push(prevPath);
     },
   });
+
   useEffect(() => {
     mutate({ social: 'GOOGLE', token: code });
-  }, [code, mutate]);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('accessToken', data?.accessToken);
+  }, [data]);
   return <></>;
 }
 
