@@ -41,7 +41,12 @@ function participantOnboarding() {
           티타미의 질문에
           <br /> <StOrangeText>솔직하게</StOrangeText>대답해주세요.
         </StSecondText>
-        <img src={imgParticipantSecond.src} alt="imgParticipantSecond" className="imgParticipantSecond" />
+        <ImageDiv
+          src={imgParticipantSecond.src}
+          alt="imgParticipantSecond"
+          className="imgParticipantSecond"
+          fill={true}
+        />
       </StSecondPart>
       <StThirdPart>
         <StThirdText>
@@ -49,20 +54,27 @@ function participantOnboarding() {
           <StOrangeText>1점 ~ 5점</StOrangeText>으로 <br />
           구성되어 있어요.
         </StThirdText>
-        <img src={imgParticipantThird.src} alt="imgParticipantThird" className="imgParticipantThird" />
-        {/* <ImageDiv src={imgParticipantThird} alt="imgParticipantThird" className="imgParticipantThird" fill={true} /> */}
+        <ImageDiv src={imgParticipantThird.src} alt="imgParticipantThird" className="imgParticipantThird" fill={true} />
       </StThirdPart>
       <StFourthPart>
         <StFourthText>
           <StOrangeText>왜</StOrangeText> 그 점수를 선택했는지
           <br /> 간단하게 작성해주세요.
         </StFourthText>
-        <img src={imgParticipantFourth.src} alt="imgParticipantFourth" className="imgParticipantFourth" />
-        {/* <ImageDiv src={imgParticipantFourth} alt="imgParticipantFourth" className="imgParticipantFourth" fill={true} /> */}
+        <ImageDiv
+          src={imgParticipantFourth.src}
+          alt="imgParticipantFourth"
+          className="imgParticipantFourth"
+          fill={true}
+        />
       </StFourthPart>
       <StFifthPart>
-        <img src={imgParticipantCanele.src} alt="imgParticipantCanele" className="imgParticipantCanele" />
-        {/* <ImageDiv src={imgParticipantCanele} alt="imgParticipantCanele" className="imgParticipantCanele" fill={true} /> */}
+        <ImageDiv
+          src={imgParticipantCanele.src}
+          alt="imgParticipantCanele"
+          className="imgParticipantCanele"
+          fill={true}
+        />
       </StFifthPart>
       <StSixthPart>
         <StSixthText>
@@ -70,8 +82,7 @@ function participantOnboarding() {
           <br /> 티타임에 솔직하게 <br />
           참여해주실 것이라고 믿어요 :)
         </StSixthText>
-        <img src={imgParticipantTart.src} alt="imgParticipantTart" className="imgParticipantTart" />
-        {/* <ImageDiv src={imgParticipantTart} alt="imgParticipantTart" className="imgParticipantTart" fill={true} /> */}
+        <ImageDiv src={imgParticipantTart.src} alt="imgParticipantTart" className="imgParticipantTart" fill={true} />
       </StSixthPart>
     </StParticipantOnboarding>
   );
@@ -106,6 +117,7 @@ const StSixthText = styled.p`
 
 const StSixthPart = styled.div`
   .imgParticipantTart {
+    position: relative;
     width: 47.8rem;
     height: 37.5rem;
     margin: 1.5rem 0 0 1.6rem;
@@ -114,6 +126,7 @@ const StSixthPart = styled.div`
 
 const StFifthPart = styled.div`
   .imgParticipantCanele {
+    position: relative;
     width: 42.7rem;
     height: 30.8rem;
     margin: 0.637rem 0 0 -5.748rem;
@@ -128,6 +141,7 @@ const StFourthText = styled.p`
 
 const StFourthPart = styled.div`
   .imgParticipantFourth {
+    position: relative;
     width: 32.9rem;
     height: 32.9rem;
     margin-left: 2.7rem;
@@ -144,6 +158,7 @@ const StThirdText = styled.p`
 const StThirdPart = styled.div`
   .imgParticipantThird {
     position: relative;
+    position: relative;
     top: -15rem;
     left: -2.5rem;
     width: 39.4rem;
@@ -158,6 +173,7 @@ const StSecondText = styled.p`
 
 const StSecondPart = styled.div`
   .imgParticipantSecond {
+    position: relative;
     width: 39.6rem;
     height: 37.1rem;
     margin-left: 5.5rem;
