@@ -4,7 +4,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
 import { useQuery } from 'react-query';
 import { getMyPage } from '@src/services';
-
+import router from 'next/router';
 interface myPageDataType {
   date: string;
   teamName: string;
@@ -15,7 +15,13 @@ function MyPage() {
   return (
     <StMyPage>
       <LogoTop />
-      <LogoutBtn>Logout</LogoutBtn>
+      <LogoutBtn
+        onClick={() => {
+          localStorage.removeItem('accessToken');
+          router.push('/');
+        }}>
+        Logout
+      </LogoutBtn>
       <StMainContainer>
         <StResultContainer>
           <StTitle>{data?.userName}의 지난 T.time</StTitle>
@@ -66,11 +72,11 @@ const StResultContainer = styled.div`
 const StResult = styled.div`
   width: 100%;
   height: 12.7rem;
-  background-color: ${COLOR.IVORY_1};
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 1.2rem;
   margin-top: 1.6rem;
-  border-radius: 12px;
+  border-radius: 1.2rem;
+  background-color: ${COLOR.IVORY_1};
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
 const LogoutBtn = styled.button`
   position: absolute;
@@ -92,14 +98,14 @@ const StTitle = styled.h2`
 const StDate = styled.div`
   height: 1.4rem;
   margin-bottom: 0.8rem;
-  ${FONT_STYLES.PRETENDARD_M_12}
-  line-height: 14px;
   color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12}
+  line-height: 1.4rem;
 `;
 const StTeam = styled.h4`
   height: 2.2rem;
-  ${FONT_STYLES.NEXON_B_16};
   color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_B_16};
   line-height: 140%;
   span:first-child {
     color: ${COLOR.ORANGE_1};
@@ -120,8 +126,8 @@ const StResultBtn = styled.button`
   width: 16rem;
   height: 3.4rem;
   border-radius: 2rem;
-  ${FONT_STYLES.PRETENDARD_B_16}
   color: ${COLOR.WHITE_100};
+  ${FONT_STYLES.PRETENDARD_B_16}
   &:nth-of-type(1) {
     background-color: ${COLOR.ORANGE_1};
   }
