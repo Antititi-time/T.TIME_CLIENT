@@ -54,3 +54,13 @@ export const patchComplete = async (userId: number) => {
   const { data } = await api.patch({ url: `/api/result/${userId}`, data: { isCompleted: true } });
   return data;
 };
+export const getMyPage = async () => {
+  const { data } = await api.get({
+    url: `/api/user/myPage`,
+    headers: {
+      Authorization:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAwLCJpYXQiOjE2Nzc3NjU5ODIsImV4cCI6MTY3Nzc3Njc4Mn0.yxEO48Yk0IHw1iVAFNp574RojMmaFL5vUbvZthkcpEo',
+    },
+  });
+  return data;
+};

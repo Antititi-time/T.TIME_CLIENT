@@ -2,32 +2,52 @@ import LogoTop from '@src/components/common/LogoTop';
 import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
+import { useQuery } from 'react-query';
+import { getMyPage } from '@src/services';
 
-function myPage() {
+interface myPageDataType {
+  date: string;
+  teamName: string;
+}
+
+function MyPage() {
+  const { data } = useQuery('myPageData', () => getMyPage());
+
   return (
     <StMyPage>
       <LogoTop />
       <LogoutBtn>Logout</LogoutBtn>
       <StMainContainer>
         <StResultContainer>
-          <StTitle>티타임 러버의 지난 T.time</StTitle>
-          <StResult>
-            <StDate>진행일 : 2022.01.31</StDate>
-            <StTeam>
-              ‘티타임짱티타임짱티타임짱티타’ 팀의 <span>T</span>
-              <span>.</span>time
-            </StTeam>
-            <StButtonWrapper>
-              <StResultBtn>개인 결과 보기</StResultBtn>
-              <StResultBtn>팀 결과 보기</StResultBtn>
-            </StButtonWrapper>
-          </StResult>
+          <StTitle>{data.userName}의 지난 T.time</StTitle>
+          {data.history.map(({ date, teamName }: myPageDataType) => {
+            const options: Intl.DateTimeFormatOptions = {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            };
+            const dateObj = new Date(date);
+            const processDate = dateObj.toLocaleDateString('ko-kr', options).replaceAll(' ', '');
+            return (
+              <StResult key={date}>
+                <StDate>진행일 : {processDate}</StDate>
+                <StTeam>
+                  ‘{teamName}’ 팀의 <span>T</span>
+                  <span>.</span>time
+                </StTeam>
+                <StButtonWrapper>
+                  <StResultBtn>개인 결과 보기</StResultBtn>
+                  <StResultBtn>팀 결과 보기</StResultBtn>
+                </StButtonWrapper>
+              </StResult>
+            );
+          })}
         </StResultContainer>
       </StMainContainer>
     </StMyPage>
   );
 }
-export default myPage;
+export default MyPage;
 
 const StMyPage = styled.div`
   display: flex;
