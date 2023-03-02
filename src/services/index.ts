@@ -44,8 +44,8 @@ export const enterChat = async (teamId: number, body: object, token: string | nu
   return data;
 };
 
-export const getMyResult = async (userId: number) => {
-  const { data } = await api.get({ url: `/api/result/${userId}` });
+export const getMyResult = async (userId: number, teamId: number) => {
+  const { data } = await api.get({ url: `/api/result/${userId}/${teamId}` });
 
   return data;
 };
@@ -63,9 +63,9 @@ export const postAnswer = async (teamId: number, body: object, token: string | n
 
   return data;
 };
-export const patchComplete = async (userId: number, token: string | null) => {
+export const patchComplete = async (teamId: number, token: string | null) => {
   const { data } = await api.patch({
-    url: `/api/result/${userId}`,
+    url: `/api/result/${teamId}`,
     data: { isCompleted: true },
     headers: { 'Content-Type': 'application/json', Authorization: token },
   });

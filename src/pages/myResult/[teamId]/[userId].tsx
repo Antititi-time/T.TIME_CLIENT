@@ -34,7 +34,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const [isVisitor, setIsVisitor] = useState(false);
-  const { data } = useQuery('userData', () => getMyResult(userId), {
+  const { data } = useQuery('userData', () => getMyResult(userId, teamId), {
     initialData: myResultData,
   });
   const [modalState, setModalState] = useState(false);
@@ -131,7 +131,7 @@ export default MyResult;
 export const getServerSideProps = async (ctx: ctxType) => {
   const userId = parseInt(ctx.query.userId);
   const teamId = parseInt(ctx.query.teamId);
-  const myResultData = await getMyResult(userId);
+  const myResultData = await getMyResult(userId, teamId);
   return { props: { userId, teamId, myResultData } };
 };
 
