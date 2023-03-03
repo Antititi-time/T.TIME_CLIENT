@@ -79,19 +79,21 @@ function Join() {
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
       </StMainContainer>
+
       {isLogin ? (
         <>
-          <StInfoText>지금 바로 T.time 시작해보세요!</StInfoText>
+          <StLoginInfoText>지금 바로 T.time 시작해보세요!</StLoginInfoText>
           <StButtonContainer onClick={handleSubmit}>
             <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
           </StButtonContainer>
         </>
       ) : (
         <>
+          <StUnLoginInfoText>지금 바로 T.time 시작해보세요!</StUnLoginInfoText>
           <GoogleLoginButton />
-          <StKakaoButton>
+          <StKakaoButtonContainer>
             <KakaoLoginButton />
-          </StKakaoButton>
+          </StKakaoButtonContainer>
         </>
       )}
     </StJoin>
@@ -159,10 +161,16 @@ const StListContainer = styled.ol`
   list-style-type: disc;
 `;
 
-const StInfoText = styled.p`
+const StLoginInfoText = styled.p`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_M_12};
   margin-top: 10.4rem;
+  margin-bottom: 1rem;
+`;
+const StUnLoginInfoText = styled.p`
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12};
+  margin-top: 6rem;
   margin-bottom: 1rem;
 `;
 const StList = styled.li`
@@ -171,6 +179,10 @@ const StList = styled.li`
   }
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_R_16};
+`;
+
+const StKakaoButtonContainer = styled.div`
+  margin-top: 1.6rem;
 `;
 
 const StButtonContainer = styled.button``;
