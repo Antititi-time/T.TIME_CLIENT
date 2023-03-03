@@ -4,11 +4,12 @@ import Slider from 'react-slick';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import { imgGoogleIcon, imgKakaoIcon } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { ORGANIZER_SLIDER_ITEMS } from '@src/constants/organizerOnboarding/organizerSliderItems';
+import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
+import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
 
 function OrganizerOnboarding() {
   const sliderRef = useRef<Slider>(null);
@@ -55,14 +56,12 @@ function OrganizerOnboarding() {
       ) : (
         <StSocialLoginButton>
           <StInfor>SNS 계정으로 티타임을 편리하게 이용해 보세요.</StInfor>
-          <GoogleLoginButton>
-            <ImageDiv src={imgGoogleIcon} alt="구글 아이콘" className="googleIcon" fill={true} />
-            <GoogleLoginText>Google 계정으로 시작하기</GoogleLoginText>
-          </GoogleLoginButton>
-          <KakaoLoginButton>
-            <ImageDiv src={imgKakaoIcon} alt="카카오 아이콘" className="kakaoIcon" fill={true} />
-            <KakaoLoginText>카카오 계정으로 시작하기</KakaoLoginText>
-          </KakaoLoginButton>
+          <StGoogleLoginButton>
+            <GoogleLoginButton />
+          </StGoogleLoginButton>
+          <StKakaoLoginButton>
+            <KakaoLoginButton />
+          </StKakaoLoginButton>
         </StSocialLoginButton>
       )}
     </>
@@ -207,47 +206,15 @@ const StInfor = styled.p`
   ${FONT_STYLES.PRETENDARD_M_12};
 `;
 
-const GoogleLoginButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 28.2rem;
+const StGoogleLoginButton = styled.div`
   margin-top: 1rem;
-  padding: 1.3rem 0rem;
-  border-radius: 10rem;
-  background-color: ${COLOR.WHITE_100};
-  color: ${COLOR.BLACK};
-  .googleIcon {
-    position: relative;
-    width: 1.8rem;
-    height: 1.8rem;
-  }
 `;
 
-const GoogleLoginText = styled.p`
-  padding-left: 0.8rem;
-  ${FONT_STYLES.PRETENDARD_B_16};
-`;
-
-const KakaoLoginText = styled.p`
-  padding-left: 0.8rem;
-  ${FONT_STYLES.PRETENDARD_B_16};
-`;
-
-const KakaoLoginButton = styled.div`
+const StKakaoLoginButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 28.2rem;
   margin-top: 1.6rem;
   padding: 1.3rem 0rem;
-
-  border-radius: 10rem;
-  background-color: ${COLOR.KAKAO_YELLOW};
-  color: ${COLOR.BLACK};
-  .kakaoIcon {
-    position: relative;
-    width: 1.8rem;
-    height: 1.8rem;
-  }
 `;

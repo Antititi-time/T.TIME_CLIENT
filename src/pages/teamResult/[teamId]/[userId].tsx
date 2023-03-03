@@ -12,6 +12,7 @@ import { getCompleted } from '../../../services/index';
 import LoadingView from '@src/components/common/LoadingView';
 import { getTeamData } from '@src/services/index';
 import { TeamInfoData } from '@src/services/types';
+import { DOMAIN } from '@src/constants/domain';
 
 interface ctxType {
   query: {
@@ -56,7 +57,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
         ogTitle={teamData?.teamName + '의 팀결과를 확인해보세요'}
         description="팀 결과를 팀원들과 공유해 깊은 이야기를 나눠보세요.☕️"
         image="/img_teamShare.png"
-        url={'https://t-time.vercel.app/myResult/' + teamId + '/noUser'}
+        url={DOMAIN + '/myResult/' + teamId + '/noUser'}
       />
       <LogoTop />
       {completeData ? (
