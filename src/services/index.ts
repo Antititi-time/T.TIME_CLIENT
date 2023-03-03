@@ -1,6 +1,7 @@
 import { api } from './base';
 import { TeamData, RequestLoginBody } from './types';
 import axios from 'axios';
+import { DOMAIN } from '@src/constants/domain';
 
 export const test = async (body: object) => {
   await api.post({ url: `/api/team/729262811`, data: body });
@@ -78,7 +79,7 @@ export const getKakaoAccessToken = async (authorization: string) => {
       params: {
         grant_type: 'authorization_code',
         client_id: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
-        redirect_uri: 'http://localhost:3000/auth/kakao',
+        redirect_uri: DOMAIN,
         code: authorization,
       },
     },
