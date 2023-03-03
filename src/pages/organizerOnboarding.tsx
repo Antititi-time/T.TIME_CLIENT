@@ -22,7 +22,7 @@ function OrganizerOnboarding() {
     slidesToScroll: 1,
     allows: false,
   };
-  const on = () => {
+  const goToLastSlide = () => {
     sliderRef.current?.slickGoTo(4);
   };
   return (
@@ -49,19 +49,15 @@ function OrganizerOnboarding() {
       </StSlider>
       {currentSlide < 4 ? (
         <StSkipButton>
-          <div onClick={on}>
-            <BottomButton width={28.2} color={COLOR.BLUE_1} text={'건너뛰기'} />
-          </div>
+          <BottomButton width={28.2} color={COLOR.BLUE_1} text={'건너뛰기'} handler={goToLastSlide} />
         </StSkipButton>
       ) : (
         <StSocialLoginButton>
           <StInfor>SNS 계정으로 티타임을 편리하게 이용해 보세요.</StInfor>
-          <StGoogleLoginButton>
+          <StLoginButtonContainer>
             <GoogleLoginButton />
-          </StGoogleLoginButton>
-          <StKakaoLoginButton>
             <KakaoLoginButton />
-          </StKakaoLoginButton>
+          </StLoginButtonContainer>
         </StSocialLoginButton>
       )}
     </>
@@ -206,15 +202,9 @@ const StInfor = styled.p`
   ${FONT_STYLES.PRETENDARD_M_12};
 `;
 
-const StGoogleLoginButton = styled.div`
-  margin-top: 1rem;
-`;
-
-const StKakaoLoginButton = styled.div`
+const StLoginButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 28.2rem;
-  margin-top: 1.6rem;
-  padding: 1.3rem 0rem;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 1rem;
 `;

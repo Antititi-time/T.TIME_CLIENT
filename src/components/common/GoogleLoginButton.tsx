@@ -56,4 +56,5 @@ const StGoogleLoginButton = styled.button`
 
 const StText = styled.p`
   ${FONT_STYLES.PRETENDARD_B_16};
+  color: ${COLOR.BLACK};
 `;
