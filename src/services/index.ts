@@ -94,3 +94,12 @@ export const requestLogin = async (body: RequestLoginBody) => {
   const { data } = await api.post({ url: `/api/user/auth`, data: body });
   return data;
 };
+export const getMyPage = async () => {
+  const { data } = await api.get({
+    url: `/api/user/myPage`,
+    headers: {
+      Authorization: localStorage.getItem('accessToken'),
+    },
+  });
+  return data;
+};
