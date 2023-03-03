@@ -18,7 +18,7 @@ function MyPage() {
       <StLogoutBtn
         onClick={() => {
           localStorage.removeItem('accessToken');
-          router.push('/');
+          router.push('/organizerOnboarding');
         }}>
         Logout
       </StLogoutBtn>
