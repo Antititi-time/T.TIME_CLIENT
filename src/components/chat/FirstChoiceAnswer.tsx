@@ -4,19 +4,19 @@ import { COLOR } from '@src/styles/color';
 import { Dispatch, SetStateAction } from 'react';
 import { StaticImageData } from 'next/image';
 interface firstChoiceType {
-  setIndex: Dispatch<SetStateAction<number>>;
-  index: number;
+  setQuestionIndex: Dispatch<SetStateAction<number>>;
+  questionIndex: number;
   setInput: Dispatch<SetStateAction<boolean>>;
   setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
 }
 
-function FirstChoiceAnswer({ setIndex, index, setInput, setChat }: firstChoiceType) {
+function FirstChoiceAnswer({ setQuestionIndex, questionIndex, setInput, setChat }: firstChoiceType) {
   return (
     <StChoiceInput>
       <StButtonContainer
         onClick={() => {
           setChat((prev) => prev.concat(`A네 좋아요!`));
-          setIndex(index + 1);
+          setQuestionIndex(questionIndex + 1);
           setInput(false);
         }}>
         <BottomButton width={28.5} color={COLOR.ORANGE_1} text={'네 좋아요!'} />

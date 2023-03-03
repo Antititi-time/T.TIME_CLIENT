@@ -8,13 +8,14 @@ import { useState, useEffect } from 'react';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 import { Dispatch, SetStateAction } from 'react';
+import { DOMAIN } from '@src/constants/domain';
 interface sharePropsType {
   setModalState: Dispatch<SetStateAction<boolean>>;
   userName: string;
   userId: string;
 }
 function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
-  const [myResultLink] = useState<string>(`https://t-time.vercel.app/myResult/noTeam/${userId}`);
+  const [myResultLink] = useState<string>(`${DOMAIN}/myResult/noTeam/${userId}`);
   useEffect(() => {
     setKakao();
   }, []);

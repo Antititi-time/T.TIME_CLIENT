@@ -37,9 +37,13 @@ function Join() {
 
   const getData = useMutation(
     () =>
-      enterChat(teamId, {
-        nickname: nickname,
-      }),
+      enterChat(
+        teamId,
+        {
+          nickname: nickname,
+        },
+        localStorage.getItem('accessToken'),
+      ),
     {
       onSuccess: (response: TeamData) => {
         router.push({

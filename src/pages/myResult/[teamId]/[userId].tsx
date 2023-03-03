@@ -18,6 +18,7 @@ import LoadingView from '@src/components/common/LoadingView';
 import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
 import { imgCenturyGothicLogo } from '@src/assets/images';
+import { DOMAIN } from '@src/constants/domain';
 interface ctxType {
   query: {
     userId: string;
@@ -34,7 +35,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const [isVisitor, setIsVisitor] = useState(false);
-  const { data } = useQuery('userData', () => getMyResult(userId), {
+  const { data } = useQuery('userData', () => getMyResult(userId, teamId), {
     initialData: myResultData,
   });
   const [modalState, setModalState] = useState(false);
@@ -64,7 +65,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         ogTitle={myResultData.nickname + '님의 T.time 결과를 확인해보세요'}
         description="개인결과는 링크가 있는 사람만 볼 수 있어요.☕️"
         image="/img_personalShare.png"
-        url={'https://t-time.vercel.app/myResult/noTeam/' + userId}
+        url={DOMAIN + '/myResult/noTeam/' + userId}
       />
       <LogoTop />
       {resultData ? (
@@ -131,7 +132,7 @@ export default MyResult;
 export const getServerSideProps = async (ctx: ctxType) => {
   const userId = parseInt(ctx.query.userId);
   const teamId = parseInt(ctx.query.teamId);
-  const myResultData = await getMyResult(userId);
+  const myResultData = await getMyResult(userId, teamId);
   return { props: { userId, teamId, myResultData } };
 };
 

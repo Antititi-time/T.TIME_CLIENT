@@ -3,10 +3,10 @@ import SEO from '@src/components/common/SEO';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
-
 import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
+
 function Home() {
   useManageScroll();
   return (
@@ -16,7 +16,6 @@ function Home() {
       <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" />
       <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
       <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
-
       <StInviteButton>
         <Link href="/invite">
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'초대장 만들기'} />

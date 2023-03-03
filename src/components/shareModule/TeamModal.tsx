@@ -9,6 +9,7 @@ import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
 import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction } from 'react';
+import { DOMAIN } from '@src/constants/domain';
 interface sharePropsType {
   setModalState: Dispatch<SetStateAction<boolean>>;
   teamName: string;
@@ -16,7 +17,7 @@ interface sharePropsType {
 function TeamModal({ setModalState, teamName }: sharePropsType) {
   const router = useRouter();
   const teamId = router.asPath.split('/')[2];
-  const [teamLink] = useState<string>(`https://t-time.vercel.app/teamResult/${teamId}/noUser`);
+  const [teamLink] = useState<string>(`${DOMAIN}/teamResult/${teamId}/noUser`);
   useEffect(() => {
     setKakao();
   }, []);

@@ -9,15 +9,19 @@ import ChoiceAnswer from './ChoiceAnswer';
 import InputAnswer from './InputAnswer';
 import FirstChoiceAnswer from './FirstChoiceAnswer';
 import WatchMyResultButton from './WatchMyResultButton';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, SetStateAction, Dispatch } from 'react';
 import { useRouter } from 'next/router';
 import { StaticImageData } from 'next/image';
 
-function ChatBody() {
+interface ChatBodyProps {
+  questionIndex: number;
+  setQuestionIndex: Dispatch<SetStateAction<number>>;
+}
+
+function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const [chat, setChat] = useState<(string | StaticImageData)[]>([]);
-  const [index, setIndex] = useState(0);
   const [grade, setGrade] = useState(0);
   const [textCount, setTextCount] = useState(0);
   const [input, setInput] = useState(false);
@@ -28,27 +32,27 @@ function ChatBody() {
 
   useEffect(() => {
     setTimeout(() => {
-      if (textCount < CHAT_QUESTION_LIST[index].questions.length) {
+      if (textCount < CHAT_QUESTION_LIST[questionIndex].questions.length) {
         if (scrollRef.current !== null) {
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
-        const newlist = chat.concat(CHAT_QUESTION_LIST[index].questions[textCount]);
+        const newlist = chat.concat(CHAT_QUESTION_LIST[questionIndex].questions[textCount]);
         setChat(newlist);
         setTextCount(textCount + 1);
       }
     }, 700);
-    if (textCount == CHAT_QUESTION_LIST[index].questions.length) {
-      if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+    if (textCount == CHAT_QUESTION_LIST[questionIndex].questions.length) {
+      if (CHAT_QUESTION_LIST[questionIndex].questionType == 'End') {
         setEnd(true);
       } else {
         setInput(true);
         setTextCount(0);
       }
       if (scrollRef.current !== null) {
-        if (CHAT_QUESTION_LIST[index].questionType == 'End') {
+        if (CHAT_QUESTION_LIST[questionIndex].questionType == 'End') {
           scrollRef.current.style.paddingBottom = '11.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        } else if (CHAT_QUESTION_LIST[index].questions.includes('한문장')) {
+        } else if (CHAT_QUESTION_LIST[questionIndex].questions.includes('한문장')) {
           scrollRef.current.style.paddingBottom = '8.5rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else {
@@ -57,7 +61,7 @@ function ChatBody() {
         }
       }
     }
-  }, [chat, index]);
+  }, [chat, questionIndex]);
 
   return (
     <StChatWrapper>
@@ -90,19 +94,23 @@ function ChatBody() {
           <></>
         ) : String(chat[chat.length - 1]).includes('한문장') ? (
           <InputAnswer
-            key={index}
-            setIndex={setIndex}
+            setQuestionIndex={setQuestionIndex}
             setInput={setInput}
-            index={index}
+            questionIndex={questionIndex}
             teamId={teamId}
             setChat={setChat}
             grade={grade}
             userId={Number(userId)}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
-          <FirstChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} index={index} setChat={setChat} />
+          <FirstChoiceAnswer
+            setQuestionIndex={setQuestionIndex}
+            setInput={setInput}
+            questionIndex={questionIndex}
+            setChat={setChat}
+          />
         ) : (
-          <ChoiceAnswer key={index} setIndex={setIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
+          <ChoiceAnswer setQuestionIndex={setQuestionIndex} setInput={setInput} setChat={setChat} setGrade={setGrade} />
         )}
       </StChatBody>
     </StChatWrapper>
