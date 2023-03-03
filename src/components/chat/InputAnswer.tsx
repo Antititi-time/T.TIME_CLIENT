@@ -46,13 +46,17 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
   };
 
   const getData = useMutation(() =>
-    postAnswer(userId, {
-      questionType: CHAT_QUESTION_LIST[questionIndex].questionType,
-      questionNumber: CHAT_QUESTION_LIST[questionIndex].questionNumber,
-      answer: value,
-      grade: grade,
-      teamId: Number(teamId),
-    }),
+    postAnswer(
+      userId,
+      {
+        questionType: CHAT_QUESTION_LIST[questionIndex].questionType,
+        questionNumber: CHAT_QUESTION_LIST[questionIndex].questionNumber,
+        answer: value,
+        grade: grade,
+        teamId: Number(teamId),
+      },
+      localStorage.getItem('accessToken'),
+    ),
   );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

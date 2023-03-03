@@ -17,4 +17,5 @@ export const COLOR = {
   ORANGE_1: '#FF6C3D',
   ORANGE_2: '#FFCCBC',
   ORANGE_TEXT: '#FF4408',
+  YELLOW: '#FEE500',
 };

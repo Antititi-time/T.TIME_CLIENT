@@ -7,6 +7,7 @@ import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo }
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useEffect, useState } from 'react';
+import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
 
 function Home() {
   const [isLogin, setIsLogIn] = useState(false);
@@ -32,6 +33,7 @@ function Home() {
           </Link>
         )}
       </StInviteButton>
+      <GoogleLoginButton />
     </StHome>
   );
 }
