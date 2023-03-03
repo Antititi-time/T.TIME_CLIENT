@@ -40,7 +40,7 @@ function OrganizerOnboarding() {
                 <BottomButton width={28.2} color={COLOR.BLUE_1} text={'건너뛰기'} />
               </div>
             ) : (
-              <div>
+              <StSocialLoginButton>
                 <StInfor>SNS 계정으로 티타임을 편리하게 이용해 보세요.</StInfor>
                 <GoogleLoginButton>
                   <ImageDiv src={imgGoogleIcon} alt="구글 아이콘" className="googleIcon" fill={true} />
@@ -50,7 +50,7 @@ function OrganizerOnboarding() {
                   <ImageDiv src={imgKakaoIcon} alt="카카오 아이콘" className="kakaoIcon" fill={true} />
                   <KakaoLoginText>카카오 계정으로 시작하기</KakaoLoginText>
                 </KakaoLoginButton>
-              </div>
+              </StSocialLoginButton>
             )}
           </StFlex>
         </StOnboardingWrapper>
@@ -61,12 +61,19 @@ function OrganizerOnboarding() {
 
 export default OrganizerOnboarding;
 
+const StSocialLoginButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const StSlider = styled(Slider)`
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: center;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
   background-color: ${COLOR.IVORY_1};
   .slick-prev::before,
   .slick-next::before {
@@ -102,9 +109,9 @@ const StSlider = styled(Slider)`
     font-size: 0;
     line-height: 0;
     display: block;
-    width: 20px;
-    height: 20px;
-    padding: 5px;
+    width: 10px;
+    height: 10px;
+    padding: 3px;
     cursor: pointer;
     color: transparent;
     border: 0;
@@ -118,8 +125,8 @@ const StSlider = styled(Slider)`
     position: absolute;
     top: 0;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 1rem;
+    height: 1rem;
     content: '•';
     text-align: center;
     opacity: 0.25;
@@ -127,11 +134,12 @@ const StSlider = styled(Slider)`
     -webkit-font-smoothing: antialiased;
   }
   .customDots li.slick-active button:before {
-    position: relative;
-    top: 3px;
-    width: 20px;
-    height: 10px;
-    padding: 0rem 0.2rem 0rem 0.2rem;
+    position: absolute;
+    top: 0.5rem;
+    width: 2rem;
+    height: 1rem;
+    margin: 0rem 0rem 0rem -0.4rem;
+    content: '';
     border-radius: 5rem;
     background-color: ${COLOR.ORANGE_1};
     color: ${COLOR.ORANGE_1};
@@ -140,7 +148,7 @@ const StSlider = styled(Slider)`
 `;
 
 const PageText = styled.p`
-  margin-top: 12.2rem;
+  margin-top: 7.2rem;
   text-align: center;
   ${FONT_STYLES.PRETENDARD_B_16};
   white-space: pre-wrap;
