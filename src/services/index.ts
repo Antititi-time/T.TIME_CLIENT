@@ -79,7 +79,7 @@ export const getKakaoAccessToken = async (authorization: string) => {
       params: {
         grant_type: 'authorization_code',
         client_id: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
-        redirect_uri: DOMAIN,
+        redirect_uri: DOMAIN + '/auth/kakao',
         code: authorization,
       },
     },
