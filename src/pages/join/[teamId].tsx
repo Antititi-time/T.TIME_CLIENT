@@ -34,12 +34,13 @@ function Join() {
   const teamId = Number(router.asPath.split('/')[2]);
   const isLogin = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
   useEffect(() => {
-    localStorage.setItem('teamId', String(teamId));
-  }, []);
+    if (router.isReady) {
+      localStorage.setItem('teamId', String(teamId));
+    }
+  }, [router]);
   const { data } = useQuery('teamData', () => getTeamData(teamId), {
     enabled: !!teamId,
   });
-  console.log(isLogin);
   const getData = useMutation(
     () =>
       enterChat(
@@ -166,16 +167,16 @@ const StListContainer = styled.ol`
 `;
 
 const StLoginInfoText = styled.p`
-  color: ${COLOR.GRAY_7E};
-  ${FONT_STYLES.PRETENDARD_M_12};
   margin-top: 10.4rem;
   margin-bottom: 1rem;
-`;
-const StUnLoginInfoText = styled.p`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_M_12};
+`;
+const StUnLoginInfoText = styled.p`
   margin-top: 6rem;
   margin-bottom: 1rem;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12};
 `;
 const StList = styled.li`
   &:not(:last-child) {
