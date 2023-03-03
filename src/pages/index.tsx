@@ -6,11 +6,7 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
-<<<<<<< HEAD
 import { useEffect, useState } from 'react';
-import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
-=======
->>>>>>> develop
 
 function Home() {
   const [isLogin, setIsLogIn] = useState(false);
