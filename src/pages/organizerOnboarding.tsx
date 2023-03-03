@@ -68,19 +68,17 @@ export default OrganizerOnboarding;
 
 const StSkipButton = styled.div`
   position: absolute;
-  top: 50%;
+  top: 57.1rem;
   left: 50%;
-  margin-top: 18.5rem;
-  margin-left: -14.1rem;
+  transform: translate(-50%);
 `;
 
 const StSocialLoginButton = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: -29.2rem;
+  position: absolute;
+  top: 48.3rem;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
 `;
 
 const StSlider = styled(Slider)`
@@ -197,7 +195,6 @@ const StOnboardingWrapper = styled.div`
 `;
 
 const StInfor = styled.p`
-  margin-top: 3.1rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_M_12};
 `;
