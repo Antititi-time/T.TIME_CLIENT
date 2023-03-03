@@ -4,10 +4,11 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import LogoTop from '@src/components/common/LogoTop';
+import BottomButton from '@src/components/common/BottomButton';
 
 import ImageDiv from '@src/components/common/ImageDiv';
 import {
-  imgTopLogo,
   imgParticipantFirst,
   imgParticipantSecond,
   imgParticipantThird,
@@ -16,19 +17,16 @@ import {
   imgParticipantCanele,
 } from '@src/assets/images';
 
-function participantOnboarding() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+function ParticipantOnboarding() {
   const router = useRouter();
   return (
     <StParticipantOnboarding>
       <Link href={`/join/${router.query.teamId}`}>
         <StartButton>
-          <StButtonText>시작하기</StButtonText>
+          <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
         </StartButton>
       </Link>
-      <StTopBar>
-        <ImageDiv src={imgTopLogo} alt="TopLogo" className="topLogo" fill={true} />
-      </StTopBar>
+      <LogoTop />
       <StFirstPart>
         <StFirstText>
           티타임은 나와 팀이 <StBlueText>함께</StBlueText>
@@ -88,26 +86,19 @@ function participantOnboarding() {
   );
 }
 
-export default participantOnboarding;
-
-const StButtonText = styled.p`
-  color: ${COLOR.WHITE_100};
-  ${FONT_STYLES.PRETENDARD_B_16};
-`;
+export default ParticipantOnboarding;
 
 const StartButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 4rem;
-  width: 28.2rem;
-  height: 4.8rem;
-  margin-left: 5.4rem;
-  border-radius: 10rem;
-  background-color: ${COLOR.ORANGE_1};
+  top: 50%;
+  left: 50%;
   filter: drop-shadow(0 0.2rem 1rem rgba(255, 108, 61, 0.5));
   z-index: 2;
+  margin-left: -13.5rem;
+  margin-top: 30rem;
 `;
 
 const StSixthText = styled.p`
@@ -190,7 +181,7 @@ const StBlueText = styled.span`
 
 const StFirstText = styled.p`
   text-align: center;
-  margin-top: 8.8rem;
+  margin-top: 3rem;
   ${FONT_STYLES.NEXON_R_22};
 `;
 
@@ -204,25 +195,6 @@ const StFirstPart = styled.div`
     width: 30.1rem;
     height: 24.6rem;
     margin-top: 3.3rem;
-  }
-`;
-
-const StTopBar = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 5.8rem;
-  background-color: ${COLOR.WHITE_100};
-  z-index: 2;
-  opacity: 80%;
-  .topLogo {
-    position: relative;
-    width: 5.8rem;
-    height: 3rem;
-    z-index: 3;
   }
 `;
 
