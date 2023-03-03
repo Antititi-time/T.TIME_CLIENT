@@ -15,13 +15,13 @@ function MyPage() {
   return (
     <StMyPage>
       <LogoTop />
-      <LogoutBtn
+      <StLogoutBtn
         onClick={() => {
           localStorage.removeItem('accessToken');
           router.push('/');
         }}>
         Logout
-      </LogoutBtn>
+      </StLogoutBtn>
       <StMainContainer>
         <StResultContainer>
           <StTitle>{data?.userName}의 지난 T.time</StTitle>
@@ -78,7 +78,7 @@ const StResult = styled.div`
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
-const LogoutBtn = styled.button`
+const StLogoutBtn = styled.button`
   position: absolute;
   top: 1.6rem;
   right: 2rem;
