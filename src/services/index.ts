@@ -1,5 +1,5 @@
 import { api } from './base';
-import { TeamData } from './types';
+import { TeamData, RequestLoginBody } from './types';
 import axios from 'axios';
 
 export const test = async (body: object) => {
@@ -87,5 +87,10 @@ export const getKakaoAccessToken = async (authorization: string) => {
 };
 export const postKakaoAccessToken = async (KakaoToken: string | undefined) => {
   const { data } = await api.post({ url: `/api/user/auth`, data: { social: 'KAKAO', token: KakaoToken } });
+  return data;
+};
+
+export const requestLogin = async (body: RequestLoginBody) => {
+  const { data } = await api.post({ url: `/api/user/auth`, data: body });
   return data;
 };

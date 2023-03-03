@@ -7,6 +7,7 @@ import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { shareKakao } from './ShareKakao';
 import { useCopyLink, setKakao } from './ShareModule';
+import { DOMAIN } from '@src/constants/domain';
 
 interface InviteType {
   setModalState: Dispatch<SetStateAction<boolean>>;
@@ -15,7 +16,7 @@ interface InviteType {
 }
 
 function InviteModal({ setModalState, teamId, teamName }: InviteType) {
-  const [teamLink] = useState<string>(`https://t-time.vercel.app/join/${teamId}`);
+  const [teamLink] = useState<string>(`${DOMAIN}/join/${teamId}`);
 
   useEffect(() => {
     setKakao();

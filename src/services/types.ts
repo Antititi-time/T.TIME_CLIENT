@@ -1,9 +1,3 @@
-//example
-export type Favorite = {
-  id: string;
-  mint: string;
-  choco: string;
-};
 export type Invite = {
   status: number;
   success: boolean;
@@ -80,4 +74,8 @@ export type TeamDetailResult = {
   nickname: string;
   questionNumber: number;
   questionType: string;
+};
+export type RequestLoginBody = {
+  social: string;
+  token: string;
 };

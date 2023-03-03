@@ -7,6 +7,7 @@ import BottomButton from '../common/BottomButton';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useCopyLink } from '../shareModule/ShareModule';
 import { useRouter } from 'next/router';
+import { DOMAIN } from '@src/constants/domain';
 
 interface completeDataType {
   completeData: {
@@ -20,7 +21,7 @@ interface completeDataType {
 function UnfinishedResult({ completeData }: completeDataType) {
   const { query } = useRouter();
   const teamId = String(query.teamId);
-  const resultLink = `https://t-time.vercel.app/teamResult/${teamId}/noUser`;
+  const resultLink = `${DOMAIN}/teamResult/${teamId}/noUser`;
   const date = new Date();
   const year = date.getFullYear();
   let month: string | number = date.getMonth() + 1;
