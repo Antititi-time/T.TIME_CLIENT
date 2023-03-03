@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useRecoilValue } from 'recoil';
 import { prevPathState } from '@src/atoms/login';
 import { requestLogin } from '@src/services';
-import { useMutation } from 'react-query';
+import { useQuery } from 'react-query';
 import { useEffect } from 'react';
 
 function Google() {
@@ -11,7 +11,7 @@ function Google() {
   const url = router.asPath;
   const code = url?.split('#access_token=')[1]?.split('&')[0];
 
-  const { data, mutate } = useMutation(requestLogin, {
+  const { data } = useQuery('requestLogin', () => requestLogin({ social: 'GOOGLE', token: code }), {
     onSuccess: () => {
       if (prevPath === '/organizerOnboarding') {
         router.push('/');
@@ -23,11 +23,8 @@ function Google() {
       console.error('로그인 요청이 실패했습니다.');
       router.push(prevPath);
     },
+    enabled: !!code,
   });
-
-  useEffect(() => {
-    mutate({ social: 'GOOGLE', token: code });
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('accessToken', data?.accessToken);
