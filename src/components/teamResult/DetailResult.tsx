@@ -49,6 +49,14 @@ function DetailResult({ teamId }: TeamResultProps) {
     return sortedList;
   };
 
+  const handleNickname = (nickname: string) => {
+    if (nickname.length > 4) {
+      return nickname.slice(0, 3) + '...';
+    } else {
+      return nickname;
+    }
+  };
+
   const handleCategoryEmoticon = (category: string) => {
     switch (category) {
       case CATEGORY_LIST[0]:
@@ -88,7 +96,7 @@ function DetailResult({ teamId }: TeamResultProps) {
               {handleSorting(questionOneList).map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
                   <StName maxStyle={grade === 5} minStyle={grade === 1}>
-                    {nickname}
+                    {handleNickname(nickname)}
                   </StName>
                   <StAnswer>
                     <span>{grade}</span>

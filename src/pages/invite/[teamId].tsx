@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
 import Link from 'next/link';
+import { DOMAIN } from '@src/constants/domain';
 
 interface ctxType {
   query: {
@@ -36,7 +37,7 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
         title="T.time | 팀과 내가 함께 성장하는 시간"
         ogTitle={teamName + '팀 초대장이 도착했어요!'}
         description="초대장을 열고, 티타임에 입장해보세요.☕️"
-        url={'https://t-time.vercel.app/join/' + teamId}
+        url={DOMAIN + '/join/' + teamId}
       />
       {modalState && teamName ? (
         <InviteModal teamName={teamName} setModalState={setModalState} teamId={String(router.query.teamId)} />
