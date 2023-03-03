@@ -66,7 +66,7 @@ export const patchComplete = async (teamId: number, token: string | null) => {
   const { data } = await api.patch({
     url: `/api/result/${teamId}`,
     data: { isCompleted: true },
-    headers: { 'Content-Type': 'application/json', Authorization: token },
+    headers: { Authorization: token },
   });
   return data;
 };
