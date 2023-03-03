@@ -37,8 +37,6 @@ function GoogleLoginButton() {
 export default GoogleLoginButton;
 
 const StGoogleLoginButton = styled.button`
-  position: relative;
-  top: 80rem;
   display: flex;
   justify-content: center;
   align-items: center;
