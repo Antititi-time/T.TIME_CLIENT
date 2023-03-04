@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
 import ImageDiv from '@src/components/common/ImageDiv';
@@ -17,7 +16,10 @@ import {
 } from '@src/assets/images';
 
 function ParticipantOnboarding() {
-  const router = useRouter();
+  const [teamId, setTeamId] = useState<string | null>('');
+  useEffect(() => {
+    setTeamId(localStorage.getItem('teamId'));
+  }, []);
   const [nickName, setNickName] = useState('');
   useEffect(() => {
     const localNickname = localStorage.getItem('nickName');
@@ -25,7 +27,7 @@ function ParticipantOnboarding() {
   }, []);
   return (
     <StParticipantOnboarding>
-      <Link href={`/join/${router.query.teamId}`}>
+      <Link href={`/join/${teamId}`}>
         <StartButton>
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
         </StartButton>

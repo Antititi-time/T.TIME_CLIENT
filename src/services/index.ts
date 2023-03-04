@@ -36,7 +36,7 @@ export const getTeamDetailResult = async (teamId: number, type: string) => {
   return { data };
 };
 
-export const enterChat = async (teamId: number, body: object, token: string | null): Promise<TeamData> => {
+export const enterChat = async (teamId: number, token: string | null): Promise<TeamData> => {
   const { data } = await api.post({
     url: `/api/team/${teamId}`,
     headers: { 'Content-Type': 'application/json', Authorization: token },
