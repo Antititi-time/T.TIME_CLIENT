@@ -20,8 +20,8 @@ function ParticipantOnboarding() {
   const router = useRouter();
   const [nickName, setNickName] = useState('');
   useEffect(() => {
-    const nick = localStorage.getItem('nickName');
-    if (nick) setNickName(nick);
+    const localNickname = localStorage.getItem('nickName');
+    if (localNickname) setNickName(localNickname);
   }, []);
   return (
     <StParticipantOnboarding>
