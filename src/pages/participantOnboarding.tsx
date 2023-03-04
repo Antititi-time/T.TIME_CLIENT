@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
-
 import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { useState, useEffect } from 'react';
 import {
   imgParticipantFirst,
   imgParticipantSecond,
@@ -22,7 +20,6 @@ function ParticipantOnboarding() {
   useEffect(() => {
     setTeamId(localStorage.getItem('teamId'));
   }, []);
-  const router = useRouter();
   const [nickName, setNickName] = useState('');
   useEffect(() => {
     const localNickname = localStorage.getItem('nickName');
