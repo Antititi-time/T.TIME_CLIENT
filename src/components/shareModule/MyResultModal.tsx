@@ -13,9 +13,10 @@ interface sharePropsType {
   setModalState: Dispatch<SetStateAction<boolean>>;
   userName: string;
   userId: string;
+  teamId: string;
 }
-function MyResultModal({ setModalState, userName, userId }: sharePropsType) {
-  const [myResultLink] = useState<string>(`${DOMAIN}/myResult/noTeam/${userId}`);
+function MyResultModal({ setModalState, userName, userId, teamId }: sharePropsType) {
+  const [myResultLink] = useState<string>(`${DOMAIN}/myResult/${teamId}/${userId}`);
   useEffect(() => {
     setKakao();
   }, []);

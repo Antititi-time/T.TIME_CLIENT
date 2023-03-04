@@ -39,7 +39,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
     initialData: myResultData,
   });
   const [modalState, setModalState] = useState(false);
-  const { query, isReady } = useRouter();
+  const { isReady } = useRouter();
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);
@@ -47,7 +47,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   }, [data]);
   useEffect(() => {
     if (!isReady) return;
-    if (query.teamId === String(teamId)) {
+    if (localStorage.getItem('accessToken')) {
       setIsVisitor(false);
     } else {
       setIsVisitor(true);
@@ -65,13 +65,18 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         ogTitle={myResultData.nickname + '님의 T.time 결과를 확인해보세요'}
         description="개인결과는 링크가 있는 사람만 볼 수 있어요.☕️"
         image="/img_personalShare.png"
-        url={DOMAIN + '/myResult/noTeam/' + userId}
+        url={DOMAIN + `/myResult/${teamId}/` + userId}
       />
       <LogoTop />
       {resultData ? (
         <StMyResult>
           {modalState && (
-            <MyResultModal userId={String(userId)} userName={resultData.nickname} setModalState={setModalState} />
+            <MyResultModal
+              userId={String(userId)}
+              teamId={String(teamId)}
+              userName={resultData.nickname}
+              setModalState={setModalState}
+            />
           )}
           <StResultCard>
             <StInfoContainer>

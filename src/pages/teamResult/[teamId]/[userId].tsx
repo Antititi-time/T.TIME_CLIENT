@@ -34,12 +34,10 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
   }, [router.asPath]);
   useEffect(() => {
     if (userId != '[userId]' && userId) {
-      const localId = localStorage.getItem('userId');
-      if (userId != 'noUser') {
+      if (userId == 'noUser') {
+        setIsUser(false);
+      } else {
         setIsUser(true);
-      } else if (localId) {
-        setIsUser(true);
-        setUserId(localId);
       }
     }
   }, [userId]);
