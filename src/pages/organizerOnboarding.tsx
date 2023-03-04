@@ -36,7 +36,7 @@ function OrganizerOnboarding() {
         {ORGANIZER_SLIDER_ITEMS.map((item, idx) => (
           <StOnboardingWrapper key={idx}>
             <StFlex>
-              <PageText>{ORGANIZER_SLIDER_ITEMS[item.id - 1].text}</PageText>
+              <StPageText>{ORGANIZER_SLIDER_ITEMS[item.id - 1].text}</StPageText>
               <ImageDiv
                 src={ORGANIZER_SLIDER_ITEMS[item.id - 1].image}
                 alt="주최자 온보딩 이모티콘"
@@ -160,7 +160,7 @@ const StSlider = styled(Slider)`
   }
 `;
 
-const PageText = styled.p`
+const StPageText = styled.p`
   position: relative;
   margin-top: 7.2rem;
   text-align: center;
