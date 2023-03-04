@@ -29,7 +29,7 @@ function KakaoAuth() {
   useEffect(() => {
     if (userData.data != undefined) {
       localStorage.setItem('accessToken', userData.data.accessToken);
-      localStorage.setItem('nickNmae', userData.data.name);
+      localStorage.setItem('nickName', userData.data.name);
       if (prevPath === '/organizerOnboarding') {
         router.push('/');
       } else {

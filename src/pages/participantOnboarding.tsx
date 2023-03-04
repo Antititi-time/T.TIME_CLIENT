@@ -19,12 +19,10 @@ function ParticipantOnboarding() {
   const [teamId, setTeamId] = useState<string | null>('');
   useEffect(() => {
     setTeamId(localStorage.getItem('teamId'));
-  }, []);
-  const [nickName, setNickName] = useState('');
-  useEffect(() => {
     const localNickname = localStorage.getItem('nickName');
     if (localNickname) setNickName(localNickname);
   }, []);
+  const [nickName, setNickName] = useState('');
   return (
     <StParticipantOnboarding>
       <Link href={`/join/${teamId}`}>
