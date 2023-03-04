@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
-
 import ImageDiv from '@src/components/common/ImageDiv';
 import {
   imgParticipantFirst,
@@ -18,10 +16,18 @@ import {
 } from '@src/assets/images';
 
 function ParticipantOnboarding() {
-  const router = useRouter();
+  const [teamId, setTeamId] = useState<string | null>('');
+  useEffect(() => {
+    setTeamId(localStorage.getItem('teamId'));
+  }, []);
+  const [nickName, setNickName] = useState('');
+  useEffect(() => {
+    const localNickname = localStorage.getItem('nickName');
+    if (localNickname) setNickName(localNickname);
+  }, []);
   return (
     <StParticipantOnboarding>
-      <Link href={`/join/${router.query.teamId}`}>
+      <Link href={`/join/${teamId}`}>
         <StartButton>
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
         </StartButton>
@@ -76,7 +82,7 @@ function ParticipantOnboarding() {
       </StFifthPart>
       <StSixthPart>
         <StSixthText>
-          우리는 <StOrangeText>티타임짱..</StOrangeText>님이
+          우리는 <StOrangeText>{nickName}</StOrangeText>님이
           <br /> 티타임에 솔직하게 <br />
           참여해주실 것이라고 믿어요 :)
         </StSixthText>

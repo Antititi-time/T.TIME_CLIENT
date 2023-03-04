@@ -6,7 +6,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgCenturyGothicLogo, imgJoin } from '@src/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
-import { ChangeEvent, useState } from 'react';
+
 import { useRouter } from 'next/router';
 import { enterChat } from '@src/services';
 import { useMutation } from 'react-query';
@@ -14,6 +14,9 @@ import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
 import { getTeamData } from '@src/services';
+import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
+import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
+import { useEffect, useState } from 'react';
 
 interface IApiError {
   response: {
@@ -29,19 +32,24 @@ function Join() {
   useManageScroll();
   const router = useRouter();
   const teamId = Number(router.asPath.split('/')[2]);
-  const [nickname, setNickname] = useState<string>('');
+  const [isLogin, setIsLogin] = useState<string | null>('');
+  useEffect(() => {
+    setIsLogin(localStorage.getItem('accessToken'));
+  }, []);
 
+  useEffect(() => {
+    if (router.isReady) {
+      localStorage.setItem('teamId', String(teamId));
+    }
+  }, [router]);
   const { data } = useQuery('teamData', () => getTeamData(teamId), {
     enabled: !!teamId,
   });
-
   const getData = useMutation(
     () =>
       enterChat(
         teamId,
-        {
-          nickname: nickname,
-        },
+
         localStorage.getItem('accessToken'),
       ),
     {
@@ -60,24 +68,7 @@ function Join() {
   );
 
   const handleSubmit = () => {
-    if (nickname.length == 0) {
-      alert('닉네임을 입력해주세요.');
-    } else {
-      getData.mutate();
-    }
-  };
-
-  const handleNickChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const korean = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
-    if (e.target.value.length < 5) {
-      if (korean.test(e.currentTarget.value) == false && e.target.value != '') {
-        alert('닉네임은 한글만 입력 가능해요.');
-      } else {
-        setNickname(e.target.value);
-      }
-    } else {
-      alert('닉네임은 최대 4자까지 입력 가능해요.');
-    }
+    getData.mutate();
   };
 
   return (
@@ -97,17 +88,23 @@ function Join() {
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
       </StMainContainer>
-      <StInputContainer>
-        <StNickname>참여자 닉네임</StNickname>
-        <StInputBox
-          placeholder="닉네임을 입력해주세요"
-          onChange={(e) => handleNickChange(e)}
-          value={nickname || ''}></StInputBox>
-        <StNotice>4글자 이내 한글로 입력해주세요</StNotice>
-      </StInputContainer>
-      <StButtonContainer onClick={handleSubmit}>
-        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
-      </StButtonContainer>
+
+      {isLogin ? (
+        <>
+          <StLoginInfoText>지금 바로 T.time 시작해보세요!</StLoginInfoText>
+          <StButtonContainer onClick={handleSubmit}>
+            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+          </StButtonContainer>
+        </>
+      ) : (
+        <>
+          <StUnLoginInfoText>지금 바로 T.time 시작해보세요!</StUnLoginInfoText>
+          <GoogleLoginButton />
+          <StKakaoButtonContainer>
+            <KakaoLoginButton />
+          </StKakaoButtonContainer>
+        </>
+      )}
     </StJoin>
   );
 }
@@ -173,6 +170,18 @@ const StListContainer = styled.ol`
   list-style-type: disc;
 `;
 
+const StLoginInfoText = styled.p`
+  margin-top: 10.4rem;
+  margin-bottom: 1rem;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12};
+`;
+const StUnLoginInfoText = styled.p`
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12};
+`;
 const StList = styled.li`
   &:not(:last-child) {
     margin-bottom: 1.2rem;
@@ -181,40 +190,8 @@ const StList = styled.li`
   ${FONT_STYLES.NEXON_R_16};
 `;
 
-const StInputContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 29.4rem;
-  margin-bottom: 3rem;
-`;
-
-const StNickname = styled.p`
-  margin: 0 0 0.5rem 0.8rem;
-  color: ${COLOR.BLUE_TEXT};
-  ${FONT_STYLES.NEXON_B_16};
-`;
-
-const StInputBox = styled.input`
-  width: 121.428571%; // 17/14 * 100
-  padding: 1.45714285rem; // 기존값1.2rem * 121.428571%
-  margin-bottom: 0.971428568rem;
-  margin-right: -21.428571%; // bottom 기존값0.8rem * 121.428571%
-  border: none;
-  border-radius: 0;
-  border-bottom: 0.121428571rem solid ${COLOR.GRAY_7E};
-  outline: none !important;
-  background: none;
-  ${FONT_STYLES.NEXON_R_16};
-  font-size: 1.7rem; // 17px 기준 줌인이 안 되므로 17로 지정
-  line-height: 2.18571428rem; // 기존값1.8rem * 121.428571%
-  transform: scale(0.82352941); // 14/17 * 100
-  transform-origin: left top;
-`;
-
-const StNotice = styled.p`
-  color: ${COLOR.BLUE_TEXT};
-  ${FONT_STYLES.NEXON_R_12};
+const StKakaoButtonContainer = styled.div`
+  margin-top: 1.6rem;
 `;
 
 const StButtonContainer = styled.button``;
