@@ -18,17 +18,18 @@ import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
 import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
 import { useEffect, useState } from 'react';
 import { DOMAIN } from '@src/constants/domain';
+import { TeamInfoData } from '@src/services/types';
 
 interface ctxType {
   query: {
     teamId: number;
-    teamName: string;
+    teamData: string;
   };
 }
 
 interface JoinProps {
   teamId: number;
-  teamName: string;
+  teamData: TeamInfoData;
 }
 
 interface IApiError {
@@ -41,7 +42,7 @@ interface IApiError {
   };
 }
 
-function Join({ teamId, teamName }: JoinProps) {
+function Join({ teamId, teamData }: JoinProps) {
   useManageScroll();
   const router = useRouter();
   const [isLogin, setIsLogin] = useState<string | null>('');
@@ -57,27 +58,19 @@ function Join({ teamId, teamName }: JoinProps) {
   const { data } = useQuery('teamData', () => getTeamData(teamId), {
     enabled: !!teamId,
   });
-  const getData = useMutation(
-    () =>
-      enterChat(
-        teamId,
-
-        localStorage.getItem('accessToken'),
-      ),
-    {
-      onSuccess: (response: TeamData) => {
-        router.push({
-          pathname: `/chat/${response?.teamId}/${response?.userId}`,
-          query: { teamName: response?.teamName },
-        });
-      },
-      onError: (error: IApiError) => {
-        if (error.response.data.message === '중복된 닉네임입니다.') {
-          alert('닉네임은 중복이 불가해요.');
-        }
-      },
+  const getData = useMutation(() => enterChat(teamId, localStorage.getItem('accessToken')), {
+    onSuccess: (response: TeamData) => {
+      router.push({
+        pathname: `/chat/${response?.teamId}/${response?.userId}`,
+        query: { teamName: response?.teamName },
+      });
     },
-  );
+    onError: (error: IApiError) => {
+      if (error.response.data.message === '중복된 닉네임입니다.') {
+        alert('닉네임은 중복이 불가해요.');
+      }
+    },
+  });
 
   const handleSubmit = () => {
     getData.mutate();
@@ -87,7 +80,7 @@ function Join({ teamId, teamName }: JoinProps) {
     <StJoin>
       <SEO
         title="T.time | 팀과 내가 함께 성장하는 시간"
-        ogTitle={teamName + '팀 초대장이 도착했어요!'}
+        ogTitle={teamData.teamName + '팀 초대장이 도착했어요!'}
         description="초대장을 열고, 티타임에 입장해보세요.☕️"
         url={DOMAIN + '/join/' + teamId}
       />
@@ -130,8 +123,8 @@ export default Join;
 
 export const getServerSideProps = async (ctx: ctxType) => {
   const teamId = ctx.query.teamId;
-  const teamName = ctx.query.teamName;
-  return { props: { teamId, teamName } };
+  const teamData = await getTeamData(teamId);
+  return { props: { teamId, teamData } };
 };
 
 const StJoin = styled.div`
