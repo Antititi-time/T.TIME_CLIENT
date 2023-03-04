@@ -19,12 +19,10 @@ function ParticipantOnboarding() {
   const [teamId, setTeamId] = useState<string | null>('');
   useEffect(() => {
     setTeamId(localStorage.getItem('teamId'));
-  }, []);
-  const [nickName, setNickName] = useState('');
-  useEffect(() => {
     const localNickname = localStorage.getItem('nickName');
     if (localNickname) setNickName(localNickname);
   }, []);
+  const [nickName, setNickName] = useState('');
   return (
     <StParticipantOnboarding>
       <Link href={`/join/${teamId}`}>
@@ -32,7 +30,10 @@ function ParticipantOnboarding() {
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
         </StartButton>
       </Link>
-      <LogoTop />
+      <StLogo>
+        <LogoTop />
+      </StLogo>
+
       <StFirstPart>
         <StFirstText>
           티타임은 나와 팀이 <StBlueText>함께</StBlueText>
@@ -43,7 +44,7 @@ function ParticipantOnboarding() {
       <StSecondPart>
         <StSecondText>
           티타미의 질문에
-          <br /> <StOrangeText>솔직하게</StOrangeText>대답해주세요.
+          <br /> <StOrangeText>솔직하게 </StOrangeText>대답해주세요.
         </StSecondText>
         <ImageDiv
           src={imgParticipantSecond.src}
@@ -53,11 +54,13 @@ function ParticipantOnboarding() {
         />
       </StSecondPart>
       <StThirdPart>
-        <StThirdText>
-          점수는 <br />
-          <StOrangeText>1점 ~ 5점</StOrangeText>으로 <br />
-          구성되어 있어요.
-        </StThirdText>
+        <StWrapper>
+          <StThirdText>
+            점수는 <br />
+            <StOrangeText>1점 ~ 5점</StOrangeText>으로 <br />
+            구성되어 있어요.
+          </StThirdText>
+        </StWrapper>
         <ImageDiv src={imgParticipantThird.src} alt="imgParticipantThird" className="imgParticipantThird" fill={true} />
       </StThirdPart>
       <StFourthPart>
@@ -94,6 +97,18 @@ function ParticipantOnboarding() {
 
 export default ParticipantOnboarding;
 
+const StWrapper = styled.div`
+  max-width: 39rem;
+  margin-left: 11rem;
+`;
+
+const StLogo = styled.div`
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+`;
+
 const StartButton = styled.div`
   display: flex;
   justify-content: center;
@@ -103,77 +118,93 @@ const StartButton = styled.div`
   left: 50%;
   filter: drop-shadow(0 0.2rem 1rem rgba(255, 108, 61, 0.5));
   z-index: 2;
-  margin-left: -13.5rem;
-  margin-top: 30rem;
+  margin: 30rem 0 0 -13.5rem;
 `;
 
 const StSixthText = styled.p`
   text-align: center;
-  ${FONT_STYLES.NEXON_R_22};
+  ${FONT_STYLES.NEXON_OB_22};
 `;
 
 const StSixthPart = styled.div`
   .imgParticipantTart {
     position: relative;
+    top: 50%;
+    left: 50%;
     width: 47.8rem;
     height: 37.5rem;
-    margin: 1.5rem 0 0 1.6rem;
+    margin-top: 3rem;
+    margin-left: -19.9rem;
   }
 `;
 
 const StFifthPart = styled.div`
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5rem;
+  margin-left: -25.4rem;
   .imgParticipantCanele {
     position: relative;
     width: 42.7rem;
     height: 30.8rem;
-    margin: 0.637rem 0 0 -5.748rem;
   }
 `;
 
 const StFourthText = styled.p`
-  margin-top: -8.678rem;
+  margin-top: 8.678rem;
   text-align: center;
-  ${FONT_STYLES.NEXON_R_22};
+  ${FONT_STYLES.NEXON_OB_22};
 `;
 
 const StFourthPart = styled.div`
   .imgParticipantFourth {
     position: relative;
+    top: 50%;
+    left: 50%;
     width: 32.9rem;
     height: 32.9rem;
-    margin-left: 2.7rem;
+    margin-left: -16.45rem;
   }
 `;
 
 const StThirdText = styled.p`
-  margin: 2.779rem 2.1rem 0rem 0rem;
+  position: relative;
   text-align: right;
-  ${FONT_STYLES.NEXON_R_22};
-  z-index: 1;
+  left: -50%;
+  margin-right: -8.25rem;
+  ${FONT_STYLES.NEXON_OB_22};
 `;
 
 const StThirdPart = styled.div`
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -22rem;
   .imgParticipantThird {
     position: relative;
-    position: relative;
-    top: -15rem;
-    left: -2.5rem;
     width: 39.4rem;
     height: 36.022rem;
+    margin-top: -14.011rem;
   }
 `;
 
 const StSecondText = styled.p`
   margin: 4.036rem 0 0 2.5rem;
-  ${FONT_STYLES.NEXON_R_22};
+  ${FONT_STYLES.NEXON_OB_22};
 `;
 
 const StSecondPart = styled.div`
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -18.25rem;
+  margin-top: -1rem;
   .imgParticipantSecond {
     position: relative;
     width: 39.6rem;
     height: 37.1rem;
-    margin-left: 5.5rem;
+    margin-left: 4.4rem;
   }
 `;
 
@@ -187,8 +218,8 @@ const StBlueText = styled.span`
 
 const StFirstText = styled.p`
   text-align: center;
-  margin-top: 3rem;
-  ${FONT_STYLES.NEXON_R_22};
+  margin-top: 6rem;
+  ${FONT_STYLES.NEXON_OB_22};
 `;
 
 const StFirstPart = styled.div`
@@ -196,6 +227,7 @@ const StFirstPart = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-top: 3rem;
   .imgParticipantFirst {
     position: relative;
     width: 30.1rem;
@@ -205,5 +237,6 @@ const StFirstPart = styled.div`
 `;
 
 const StParticipantOnboarding = styled.div`
+  width: 100vw;
   overflow: hidden;
 `;
