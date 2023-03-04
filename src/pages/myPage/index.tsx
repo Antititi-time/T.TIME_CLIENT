@@ -79,6 +79,9 @@ const StResult = styled.div`
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
 const StLogoutBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 1.6rem;
   right: 2rem;
