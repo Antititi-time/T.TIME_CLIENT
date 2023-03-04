@@ -16,7 +16,7 @@ import { useQuery } from 'react-query';
 import { getTeamData } from '@src/services';
 import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
 import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface IApiError {
   response: {
@@ -32,7 +32,11 @@ function Join() {
   useManageScroll();
   const router = useRouter();
   const teamId = Number(router.asPath.split('/')[2]);
-  const isLogin = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
+  const [isLogin, setIsLogin] = useState<string | null>('');
+  useEffect(() => {
+    setIsLogin(localStorage.getItem('accessToken'));
+  }, []);
+
   useEffect(() => {
     if (router.isReady) {
       localStorage.setItem('teamId', String(teamId));

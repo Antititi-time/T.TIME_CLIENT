@@ -8,6 +8,7 @@ import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
 
 import ImageDiv from '@src/components/common/ImageDiv';
+import { useState, useEffect } from 'react';
 import {
   imgParticipantFirst,
   imgParticipantSecond,
@@ -18,7 +19,10 @@ import {
 } from '@src/assets/images';
 
 function ParticipantOnboarding() {
-  const teamId = typeof window !== 'undefined' ? localStorage.getItem('teamId') : null;
+  const [teamId, setTeamId] = useState<string | null>('');
+  useEffect(() => {
+    setTeamId(localStorage.getItem('teamId'));
+  }, []);
   return (
     <StParticipantOnboarding>
       <Link href={`/join/${teamId}`}>
