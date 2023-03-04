@@ -26,7 +26,10 @@ function ParticipantOnboarding() {
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
         </StartButton>
       </Link>
-      <LogoTop />
+      <StLogo>
+        <LogoTop />
+      </StLogo>
+
       <StFirstPart>
         <StFirstText>
           티타임은 나와 팀이 <StBlueText>함께</StBlueText>
@@ -47,11 +50,13 @@ function ParticipantOnboarding() {
         />
       </StSecondPart>
       <StThirdPart>
-        <StThirdText>
-          점수는 <br />
-          <StOrangeText>1점 ~ 5점</StOrangeText>으로 <br />
-          구성되어 있어요.
-        </StThirdText>
+        <StWrapper>
+          <StThirdText>
+            점수는 <br />
+            <StOrangeText>1점 ~ 5점</StOrangeText>으로 <br />
+            구성되어 있어요.
+          </StThirdText>
+        </StWrapper>
         <ImageDiv src={imgParticipantThird.src} alt="imgParticipantThird" className="imgParticipantThird" fill={true} />
       </StThirdPart>
       <StFourthPart>
@@ -87,6 +92,18 @@ function ParticipantOnboarding() {
 }
 
 export default ParticipantOnboarding;
+
+const StWrapper = styled.div`
+  max-width: 39rem;
+  margin-left: 11rem;
+`;
+
+const StLogo = styled.div`
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+`;
 
 const StartButton = styled.div`
   display: flex;
@@ -216,5 +233,6 @@ const StFirstPart = styled.div`
 `;
 
 const StParticipantOnboarding = styled.div`
+  width: 100vw;
   overflow: hidden;
 `;
