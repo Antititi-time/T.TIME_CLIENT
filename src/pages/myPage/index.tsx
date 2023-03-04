@@ -8,10 +8,15 @@ import router from 'next/router';
 interface myPageDataType {
   date: string;
   teamName: string;
+  teamId: string;
 }
-
 function MyPage() {
-  const { data } = useQuery('myPageData', () => getMyPage());
+  const { data } = useQuery('myPageData', () => getMyPage(localStorage.getItem('accessToken')), {
+    onError: () => {
+      alert('기록이 존재하지 않아요');
+    },
+  });
+  const userId = data ? data.userId : null;
   return (
     <StMyPage>
       <LogoTop />
@@ -26,7 +31,7 @@ function MyPage() {
       <StMainContainer>
         <StResultContainer>
           <StTitle>{data?.userName}의 지난 T.time</StTitle>
-          {data?.history.map(({ date, teamName }: myPageDataType) => {
+          {data?.history.map(({ date, teamName, teamId }: myPageDataType) => {
             const options: Intl.DateTimeFormatOptions = {
               year: 'numeric',
               month: '2-digit',
@@ -35,15 +40,20 @@ function MyPage() {
             const dateObj = new Date(date);
             const processDate = dateObj.toLocaleDateString('ko-kr', options).replaceAll(' ', '');
             return (
-              <StResult key={date}>
+              <StResult key={teamName}>
                 <StDate>진행일 : {processDate}</StDate>
                 <StTeam>
                   ‘{teamName}’ 팀의 <span>T</span>
                   <span>.</span>time
                 </StTeam>
                 <StButtonWrapper>
-                  <StResultBtn>개인 결과 보기</StResultBtn>
-                  <StResultBtn>팀 결과 보기</StResultBtn>
+                  <StResultBtn onClick={() => router.push(`myResult/${teamId}/${userId}`)}>개인 결과 보기</StResultBtn>
+                  <StResultBtn
+                    onClick={() => {
+                      router.push(`teamResult/${teamId}/${userId}`);
+                    }}>
+                    팀 결과 보기
+                  </StResultBtn>
                 </StButtonWrapper>
               </StResult>
             );
@@ -80,6 +90,9 @@ const StResult = styled.div`
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
 const StLogoutBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 1.6rem;
   right: 2rem;
