@@ -28,6 +28,7 @@ function Google() {
 
   useEffect(() => {
     localStorage.setItem('accessToken', data?.accessToken);
+    localStorage.setItem('nickName', data?.name);
   }, [data]);
 
   return <></>;
