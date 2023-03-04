@@ -40,7 +40,7 @@ function ParticipantOnboarding() {
       <StSecondPart>
         <StSecondText>
           티타미의 질문에
-          <br /> <StOrangeText>솔직하게</StOrangeText>대답해주세요.
+          <br /> <StOrangeText>솔직하게 </StOrangeText>대답해주세요.
         </StSecondText>
         <ImageDiv
           src={imgParticipantSecond.src}
