@@ -7,12 +7,15 @@ import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo }
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 function Home() {
   const [isLogin, setIsLogIn] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     const item = localStorage.getItem('accessToken');
-    if (item) setIsLogIn(true);
+    if (!item) router.push('/organizerOnboarding');
+    else setIsLogIn(true);
   }, []);
   useManageScroll();
   return (
