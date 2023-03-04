@@ -93,7 +93,7 @@ function Join() {
         <>
           <StLoginInfoText>지금 바로 T.time 시작해보세요!</StLoginInfoText>
           <StButtonContainer onClick={handleSubmit}>
-            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
           </StButtonContainer>
         </>
       ) : (
