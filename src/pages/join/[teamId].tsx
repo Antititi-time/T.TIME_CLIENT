@@ -17,6 +17,19 @@ import { getTeamData } from '@src/services';
 import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
 import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
 import { useEffect, useState } from 'react';
+import { DOMAIN } from '@src/constants/domain';
+
+interface ctxType {
+  query: {
+    teamId: number;
+    teamName: string;
+  };
+}
+
+interface JoinProps {
+  teamId: number;
+  teamName: string;
+}
 
 interface IApiError {
   response: {
@@ -28,10 +41,9 @@ interface IApiError {
   };
 }
 
-function Join() {
+function Join({ teamId, teamName }: JoinProps) {
   useManageScroll();
   const router = useRouter();
-  const teamId = Number(router.asPath.split('/')[2]);
   const [isLogin, setIsLogin] = useState<string | null>('');
   useEffect(() => {
     setIsLogin(localStorage.getItem('accessToken'));
@@ -73,7 +85,12 @@ function Join() {
 
   return (
     <StJoin>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="초대장이 도착했어요!" />
+      <SEO
+        title="T.time | 팀과 내가 함께 성장하는 시간"
+        ogTitle={teamName + '팀 초대장이 도착했어요!'}
+        description="초대장을 열고, 티타임에 입장해보세요.☕️"
+        url={DOMAIN + '/join/' + teamId}
+      />
       <TextTop text={'티타임 참여하기'} />
       <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
@@ -93,7 +110,7 @@ function Join() {
         <>
           <StLoginInfoText>지금 바로 T.time 시작해보세요!</StLoginInfoText>
           <StButtonContainer onClick={handleSubmit}>
-            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
+            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
           </StButtonContainer>
         </>
       ) : (
@@ -110,6 +127,12 @@ function Join() {
 }
 
 export default Join;
+
+export const getServerSideProps = async (ctx: ctxType) => {
+  const teamId = ctx.query.teamId;
+  const teamName = ctx.query.teamName;
+  return { props: { teamId, teamName } };
+};
 
 const StJoin = styled.div`
   display: flex;
