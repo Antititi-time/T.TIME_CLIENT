@@ -214,7 +214,7 @@ const StBlueText = styled.span`
 
 const StFirstText = styled.p`
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 6rem;
   ${FONT_STYLES.NEXON_OB_22};
 `;
 
