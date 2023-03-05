@@ -26,7 +26,7 @@ function LoginChecker({ children }: withLoginCheckerProps) {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('nickName');
         Router.push('/organizerOnboarding');
-        alert('로그인이 만료되었어요. 다시 로그인해주세요');
+        alert('세션이 만료됐습니다. 다시 로그인해주세요');
       }
     },
   });
