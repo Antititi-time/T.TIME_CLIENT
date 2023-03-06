@@ -31,6 +31,7 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
   const [modalState, setModalState] = useState<boolean>(false);
+
   return (
     <StConfirmInvite>
       <SEO
