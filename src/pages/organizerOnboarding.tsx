@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import BottomButton from '@src/components/common/BottomButton';
@@ -14,6 +14,7 @@ import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
 function OrganizerOnboarding() {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isKakaoBrowser, setIsKakaoBrowser] = useState(false);
   const settings = {
     dots: true,
     dotsClass: 'customDots',
@@ -25,6 +26,12 @@ function OrganizerOnboarding() {
   const goToLastSlide = () => {
     sliderRef.current?.slickGoTo(4);
   };
+
+  useEffect(() => {
+    const isKakao = navigator.userAgent.match('KAKAOTALK');
+    setIsKakaoBrowser(Boolean(isKakao));
+  }, []);
+
   return (
     <>
       <StSlider
@@ -53,9 +60,9 @@ function OrganizerOnboarding() {
         </StSkipButton>
       ) : (
         <StSocialLoginButton>
-          <StInfor>SNS 계정으로 티타임을 편리하게 이용해 보세요.</StInfor>
-          <StLoginButtonContainer>
-            <GoogleLoginButton />
+          <StLoginButtonContainer isKakaoBrowser={isKakaoBrowser}>
+            <StInfor>SNS 계정으로 티타임을 편리하게 이용해 보세요.</StInfor>
+            {!isKakaoBrowser && <GoogleLoginButton />}
             <KakaoLoginButton />
           </StLoginButtonContainer>
         </StSocialLoginButton>
@@ -195,13 +202,19 @@ const StOnboardingWrapper = styled.div`
 `;
 
 const StInfor = styled.p`
+  margin-bottom: 0.8rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_M_12};
 `;
 
-const StLoginButtonContainer = styled.div`
+const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
+  position: relative;
+  bottom: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  margin-top: 1rem;
+  margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
+
+  button:first-child {
+    margin-bottom: 1.6rem;
+  }
 `;

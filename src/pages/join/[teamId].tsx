@@ -46,6 +46,7 @@ function Join({ teamId, teamData }: JoinProps) {
   useManageScroll();
   const router = useRouter();
   const [isLogin, setIsLogin] = useState<string | null>('');
+  const [isKakaoBrowser, setIsKakaoBrowser] = useState(false);
   useEffect(() => {
     setIsLogin(localStorage.getItem('accessToken'));
   }, []);
@@ -76,11 +77,16 @@ function Join({ teamId, teamData }: JoinProps) {
     getData.mutate();
   };
 
+  useEffect(() => {
+    const isKakao = navigator.userAgent.match('KAKAOTALK');
+    setIsKakaoBrowser(Boolean(isKakao));
+  }, []);
+
   return (
     <StJoin>
       <SEO
         title="T.time | 팀과 내가 함께 성장하는 시간"
-        ogTitle={teamData.teamName + '팀 초대장이 도착했어요!'}
+        ogTitle={teamData?.teamName + '팀 초대장이 도착했어요!'}
         description="초대장을 열고, 티타임에 입장해보세요.☕️"
         url={DOMAIN + '/join/' + teamId}
       />
@@ -98,21 +104,20 @@ function Join({ teamId, teamData }: JoinProps) {
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
       </StMainContainer>
-
       {isLogin ? (
         <>
-          <StLoginInfoText>지금 바로 T.time 시작해보세요!</StLoginInfoText>
-          <StButtonContainer onClick={handleSubmit}>
+          <StLoginButtonContainer onClick={handleSubmit} isKakaoBrowser={isKakaoBrowser}>
+            <StInfoText isLogin={isLogin}>지금 바로 T.time 시작해보세요!</StInfoText>
             <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
-          </StButtonContainer>
+          </StLoginButtonContainer>
         </>
       ) : (
         <>
-          <StUnLoginInfoText>지금 바로 T.time 시작해보세요!</StUnLoginInfoText>
-          <GoogleLoginButton />
-          <StKakaoButtonContainer>
+          <StLoginButtonContainer isKakaoBrowser={isKakaoBrowser}>
+            <StInfoText isLogin={isLogin}>T.time 참여를 위해 로그인이 필요해요!</StInfoText>
+            {!isKakaoBrowser && <GoogleLoginButton />}
             <KakaoLoginButton />
-          </StKakaoButtonContainer>
+          </StLoginButtonContainer>
         </>
       )}
     </StJoin>
@@ -186,18 +191,6 @@ const StListContainer = styled.ol`
   list-style-type: disc;
 `;
 
-const StLoginInfoText = styled.p`
-  margin-top: 10.4rem;
-  margin-bottom: 1rem;
-  color: ${COLOR.GRAY_7E};
-  ${FONT_STYLES.PRETENDARD_M_12};
-`;
-const StUnLoginInfoText = styled.p`
-  margin-top: 6rem;
-  margin-bottom: 1rem;
-  color: ${COLOR.GRAY_7E};
-  ${FONT_STYLES.PRETENDARD_M_12};
-`;
 const StList = styled.li`
   &:not(:last-child) {
     margin-bottom: 1.2rem;
@@ -206,8 +199,22 @@ const StList = styled.li`
   ${FONT_STYLES.NEXON_R_16};
 `;
 
-const StKakaoButtonContainer = styled.div`
-  margin-top: 1.6rem;
+const StInfoText = styled.p<{ isLogin: string | null }>`
+  text-align: center;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12};
+  margin-bottom: 0.8rem;
+  margin-top: ${(props) => props.isLogin && '4.4rem'};
 `;
 
-const StButtonContainer = styled.button``;
+const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
+  position: relative;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
+
+  button:first-child {
+    margin-bottom: 1.6rem;
+  }
+`;
