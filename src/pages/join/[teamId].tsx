@@ -200,18 +200,18 @@ const StList = styled.li`
 `;
 
 const StInfoText = styled.p<{ isLogin: string | null }>`
-  text-align: center;
-  color: ${COLOR.GRAY_7E};
-  ${FONT_STYLES.PRETENDARD_M_12};
   margin-bottom: 0.8rem;
   margin-top: ${(props) => props.isLogin && '4.4rem'};
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_M_12};
+  text-align: center;
 `;
 
 const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
-  position: relative;
-  bottom: 1rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  bottom: 1rem;
   margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
 
   button:first-child {
