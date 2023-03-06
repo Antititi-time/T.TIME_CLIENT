@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 function Home() {
   const [isLogin, setIsLogIn] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     const item = localStorage.getItem('accessToken');
     if (!item) router.push('/organizerOnboarding');
