@@ -7,7 +7,7 @@ import TextTop from '@src/components/common/TextTop';
 import BottomButton from '@src/components/common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import useManageScroll from '@src/hooks/UseManageScroll';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import router from 'next/router';
 import { useMutation } from 'react-query';
 import { getTeamInfo } from '@src/services';
@@ -18,12 +18,6 @@ function Invite() {
 
   const [teamName, setTeamName] = useState<string>('');
   const [teamMember, setTeamMember] = useState<string>('');
-  useEffect(() => {
-    if (!localStorage.getItem('accessToken')) {
-      alert('잘못된 접근입니다. 다시 로그인해주세요');
-      router.push('/organizerOnboarding');
-    }
-  }, []);
   const saveData = useMutation(
     () =>
       getTeamInfo({ teamName: teamName.trim(), teamMember: Number(teamMember) }, localStorage.getItem('accessToken')),

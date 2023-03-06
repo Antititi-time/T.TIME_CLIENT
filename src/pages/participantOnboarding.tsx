@@ -6,7 +6,7 @@ import Link from 'next/link';
 import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { useRouter } from 'next/router';
+
 import {
   imgParticipantFirst,
   imgParticipantSecond,
@@ -18,13 +18,6 @@ import {
 
 function ParticipantOnboarding() {
   const [teamId, setTeamId] = useState<string | null>('');
-  const router = useRouter();
-  useEffect(() => {
-    if (!localStorage.getItem('accessToken')) {
-      alert('잘못된 접근입니다. 다시 로그인해주세요');
-      router.push('/organizerOnboarding');
-    }
-  }, []);
   useEffect(() => {
     setTeamId(localStorage.getItem('teamId'));
     const localNickname = localStorage.getItem('nickName');
