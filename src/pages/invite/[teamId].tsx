@@ -160,6 +160,6 @@ const StBtnWrapper = styled.div`
 `;
 
 const StConfirmBtn = styled.div`
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
   cursor: pointer;
 `;

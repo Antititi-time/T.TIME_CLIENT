@@ -25,7 +25,7 @@ function Home() {
       <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" />
       <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
       <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
-      <StInviteButton>
+      <StButtonContainer>
         <Link href="/invite">
           <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'초대장 만들기'} />
         </Link>
@@ -34,7 +34,7 @@ function Home() {
             <BottomButton width={28.2} color={COLOR.BLUE_1} text={'지난 T.time 확인하기'} />
           </Link>
         )}
-      </StInviteButton>
+      </StButtonContainer>
     </StHome>
   );
 }
@@ -57,7 +57,7 @@ const StHome = styled.div`
   .mainCharacters {
     z-index: 2;
     position: relative;
-    top: 13.1rem;
+    top: 8.1rem;
     width: 34.4rem;
     height: 39.3rem;
     animation: ${characterAnimation} 3s infinite linear alternate;
@@ -66,13 +66,13 @@ const StHome = styled.div`
   .backgroundItems {
     z-index: 2;
     position: absolute;
-    top: 8.6rem;
+    top: 3.6rem;
   }
 
   .logoIcon {
     z-index: 2;
     position: absolute;
-    top: 25.3rem;
+    top: 20.3rem;
     width: 11.8rem;
     height: 6.1rem;
   }
@@ -86,13 +86,13 @@ const StHome = styled.div`
   }
 `;
 
-const StInviteButton = styled.div`
+const StButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1.6rem;
-  position: fixed;
-  top: 57.1rem;
+  position: absolute;
+  top: 50.7rem;
   z-index: 2;
 `;

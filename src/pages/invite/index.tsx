@@ -104,5 +104,5 @@ const StForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin-bottom: 8.4rem;
+  margin-bottom: 8.6rem;
 `;
