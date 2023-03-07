@@ -171,6 +171,7 @@ const StAdminChat = styled.div`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_R_13};
   animation: ${chatText} 1s linear alternate;
+  line-height: 1.82rem;
 `;
 
 const StInputQuestion = styled.div`

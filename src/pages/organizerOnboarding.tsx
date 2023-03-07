@@ -142,7 +142,7 @@ const StSlider = styled(Slider)`
     height: 1rem;
     content: '•';
     text-align: center;
-    color: ${COLOR.GRAY_9E};
+    color: ${COLOR.IVORY_6};
     -webkit-font-smoothing: antialiased;
   }
   .customDots li.slick-active button:before {

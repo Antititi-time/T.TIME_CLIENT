@@ -71,9 +71,9 @@ const StHome = styled.div`
 
   .logoIcon {
     z-index: 2;
-    position: absolute;
-    top: 25.3rem;
-    width: 11.8rem;
+    position: relative;
+    top: -14.8rem;
+    width: 12.2rem;
     height: 6.1rem;
   }
 

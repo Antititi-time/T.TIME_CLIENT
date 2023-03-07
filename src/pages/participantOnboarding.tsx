@@ -123,7 +123,7 @@ const StartButton = styled.div`
 
 const StSixthText = styled.p`
   text-align: center;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
 `;
 
 const StSixthPart = styled.div`
@@ -154,7 +154,7 @@ const StFifthPart = styled.div`
 const StFourthText = styled.p`
   margin-top: 8.678rem;
   text-align: center;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
 `;
 
 const StFourthPart = styled.div`
@@ -173,7 +173,7 @@ const StThirdText = styled.p`
   text-align: right;
   left: -50%;
   margin-right: -8.25rem;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
 `;
 
 const StThirdPart = styled.div`
@@ -191,7 +191,7 @@ const StThirdPart = styled.div`
 
 const StSecondText = styled.p`
   margin: 4.036rem 0 0 2.5rem;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
 `;
 
 const StSecondPart = styled.div`
@@ -219,7 +219,7 @@ const StBlueText = styled.span`
 const StFirstText = styled.p`
   text-align: center;
   margin-top: 6rem;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
 `;
 
 const StFirstPart = styled.div`
