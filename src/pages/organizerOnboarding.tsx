@@ -142,7 +142,6 @@ const StSlider = styled(Slider)`
     height: 1rem;
     content: '•';
     text-align: center;
-    opacity: 0.25;
     color: ${COLOR.IVORY_6};
     -webkit-font-smoothing: antialiased;
   }
