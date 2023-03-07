@@ -142,7 +142,6 @@ const StSlider = styled(Slider)`
     height: 1rem;
     content: '•';
     text-align: center;
-    opacity: 0.25;
     color: ${COLOR.GRAY_9E};
     -webkit-font-smoothing: antialiased;
   }
@@ -156,7 +155,6 @@ const StSlider = styled(Slider)`
     border-radius: 5rem;
     background-color: ${COLOR.ORANGE_1};
     color: ${COLOR.ORANGE_1};
-    opacity: 1;
   }
 `;
 
