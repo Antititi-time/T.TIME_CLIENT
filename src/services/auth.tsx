@@ -9,7 +9,7 @@ interface withLoginCheckerProps {
 
 function LoginChecker({ children }: withLoginCheckerProps) {
   const Router = useRouter();
-  // const { asPath, pathname } = useRouter();
+
   const currentURL = Router.asPath.split('/')[1];
   const [checkState, setCheckState] = useState(0);
   const valid_paths = ['', 'myResult', 'teamResult', 'join', 'organizerOnboarding', 'auth'];
