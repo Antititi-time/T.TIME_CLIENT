@@ -108,7 +108,7 @@ function Join({ teamId, teamData }: JoinProps) {
         <>
           <StLoginButtonContainer onClick={handleSubmit} isKakaoBrowser={isKakaoBrowser}>
             <StInfoText isLogin={isLogin}>지금 바로 T.time 시작해보세요!</StInfoText>
-            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} />
+            <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
           </StLoginButtonContainer>
         </>
       ) : (
