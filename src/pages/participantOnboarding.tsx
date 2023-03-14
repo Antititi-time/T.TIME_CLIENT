@@ -38,7 +38,7 @@ function ParticipantOnboarding() {
       <StFirstPart>
         <StFirstText>
           티타임은 나와 팀이 <StBlueText>함께</StBlueText>
-          <br /> <StOrangeText>성장</StOrangeText>하도록 돕는 서비스에요.
+          <br /> <StOrangeText>성장</StOrangeText>하도록 돕는 서비스예요.
         </StFirstText>
         <ImageDiv src={imgParticipantFirst} alt="imgParticipantFirst" className="imgParticipantFirst" fill={true} />
       </StFirstPart>
@@ -119,12 +119,13 @@ const StartButton = styled.div`
   left: 50%;
   filter: drop-shadow(0 0.2rem 1rem rgba(255, 108, 61, 0.5));
   z-index: 2;
-  margin: 30rem 0 0 -13.5rem;
+  margin: 23rem 0 0 -13.5rem;
 `;
 
 const StSixthText = styled.p`
   text-align: center;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
+  line-height: 3.08rem;
 `;
 
 const StSixthPart = styled.div`
@@ -133,7 +134,7 @@ const StSixthPart = styled.div`
     top: 50%;
     left: 50%;
     width: 47.8rem;
-    height: 37.5rem;
+    height: 34rem;
     margin-top: 3rem;
     margin-left: -19.9rem;
   }
@@ -148,14 +149,15 @@ const StFifthPart = styled.div`
   .imgParticipantCanele {
     position: relative;
     width: 42.7rem;
-    height: 30.8rem;
+    height: 28rem;
   }
 `;
 
 const StFourthText = styled.p`
   margin-top: 8.678rem;
   text-align: center;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
+  line-height: 3.08rem;
 `;
 
 const StFourthPart = styled.div`
@@ -174,7 +176,8 @@ const StThirdText = styled.p`
   text-align: right;
   left: -50%;
   margin-right: -8.25rem;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
+  line-height: 3.08rem;
 `;
 
 const StThirdPart = styled.div`
@@ -192,7 +195,8 @@ const StThirdPart = styled.div`
 
 const StSecondText = styled.p`
   margin: 4.036rem 0 0 2.5rem;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
+  line-height: 3.08rem;
 `;
 
 const StSecondPart = styled.div`
@@ -220,7 +224,8 @@ const StBlueText = styled.span`
 const StFirstText = styled.p`
   text-align: center;
   margin-top: 6rem;
-  ${FONT_STYLES.NEXON_OB_22};
+  ${FONT_STYLES.NEXON_B_22};
+  line-height: 3.08rem;
 `;
 
 const StFirstPart = styled.div`

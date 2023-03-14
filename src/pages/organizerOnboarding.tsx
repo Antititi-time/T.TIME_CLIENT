@@ -121,7 +121,7 @@ const StSlider = styled(Slider)`
     display: inline-block;
     width: 2rem;
     height: 2rem;
-    margin: 0 0.5rem;
+    margin: 0 0.4rem;
     padding: 0;
     cursor: pointer;
   }
@@ -140,7 +140,7 @@ const StSlider = styled(Slider)`
   }
   .customDots li button:before {
     font-family: 'slick';
-    font-size: 0.6rem;
+    font-size: 1rem;
     line-height: 2rem;
     position: absolute;
     top: 0;
@@ -154,7 +154,7 @@ const StSlider = styled(Slider)`
   }
   .customDots li.slick-active button:before {
     position: absolute;
-    top: 0.5rem;
+    top: 0.4rem;
     width: 2rem;
     height: 1rem;
     margin: 0rem 0rem 0rem -0.4rem;
@@ -162,7 +162,6 @@ const StSlider = styled(Slider)`
     border-radius: 5rem;
     background-color: ${COLOR.ORANGE_1};
     color: ${COLOR.ORANGE_1};
-    opacity: 1;
   }
 `;
 

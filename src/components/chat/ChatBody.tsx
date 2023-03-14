@@ -50,13 +50,13 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
       }
       if (scrollRef.current !== null) {
         if (CHAT_QUESTION_LIST[questionIndex].questionType == 'End') {
-          scrollRef.current.style.paddingBottom = '11.5rem';
+          scrollRef.current.style.paddingBottom = '12rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else if (CHAT_QUESTION_LIST[questionIndex].questions.includes('한문장')) {
-          scrollRef.current.style.paddingBottom = '8.5rem';
+          scrollRef.current.style.paddingBottom = '9rem';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else {
-          scrollRef.current.style.paddingBottom = '18vh';
+          scrollRef.current.style.paddingBottom = '18.5vh';
           scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
       }
@@ -171,6 +171,7 @@ const StAdminChat = styled.div`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_R_13};
   animation: ${chatText} 1s linear alternate;
+  line-height: 1.82rem;
 `;
 
 const StInputQuestion = styled.div`
