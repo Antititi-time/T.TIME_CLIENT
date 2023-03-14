@@ -17,6 +17,7 @@ function OrganizerOnboarding() {
   const [currentDirection, setCurrentDirection] = useState('');
   const [showLoginButtons, setShowLoginButtons] = useState(false);
   const [isKakaoBrowser, setIsKakaoBrowser] = useState(false);
+  const [skipButtonState, setSkipButtonState] = useState(false);
   const settings = {
     dots: true,
     dotsClass: 'customDots',
@@ -27,6 +28,8 @@ function OrganizerOnboarding() {
 
   const goToLastSlide = () => {
     sliderRef.current?.slickGoTo(4);
+    setShowLoginButtons(true);
+    setSkipButtonState(true);
   };
 
   useEffect(() => {
@@ -35,8 +38,9 @@ function OrganizerOnboarding() {
   }, []);
 
   useEffect(() => {
-    if (oldSlide === 3 && currentDirection === 'left') {
+    if ((oldSlide === 3 && currentDirection === 'left') || skipButtonState) {
       setShowLoginButtons(true);
+      setSkipButtonState(false);
     } else {
       setShowLoginButtons(false);
     }
