@@ -38,12 +38,15 @@ function OrganizerOnboarding() {
   }, []);
 
   useEffect(() => {
-    if ((oldSlide === 3 && currentDirection === 'left') || skipButtonState) {
+    if (
+      (oldSlide === 3 && currentDirection === 'left') ||
+      (skipButtonState && !(oldSlide === 4 && currentDirection === 'right'))
+    ) {
       setShowLoginButtons(true);
-      setSkipButtonState(false);
     } else {
       setShowLoginButtons(false);
     }
+    setSkipButtonState(false);
   }, [currentDirection, oldSlide]);
 
   return (
