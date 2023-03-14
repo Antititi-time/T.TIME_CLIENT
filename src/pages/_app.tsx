@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import GlobalStyle from '@src/styles/globalStyle';
 import React from 'react';
+import LoginChecker from '@src/services/auth';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   import('../mocks');
@@ -21,7 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         <GlobalStyle />
-        <Component {...pageProps} />
+        <LoginChecker>
+          <Component {...pageProps} />
+        </LoginChecker>
       </RecoilRoot>
     </QueryClientProvider>
   );
