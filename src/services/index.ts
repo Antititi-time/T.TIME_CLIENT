@@ -104,3 +104,13 @@ export const getMyPage = async (token: string | null) => {
   });
   return data;
 };
+
+export const getTokenValidation = async (token: string | null) => {
+  const { data } = await api.get({
+    url: `/api/auth/token`,
+    headers: {
+      accesstoken: token,
+    },
+  });
+  return data;
+};

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
 import ImageDiv from '@src/components/common/ImageDiv';
+
 import {
   imgParticipantFirst,
   imgParticipantSecond,

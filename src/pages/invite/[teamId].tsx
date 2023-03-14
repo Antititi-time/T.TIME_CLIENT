@@ -31,6 +31,7 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
   useManageScroll();
   const [isConfirmed, setIsconfirmed] = useState<boolean>(false);
   const [modalState, setModalState] = useState<boolean>(false);
+
   return (
     <StConfirmInvite>
       <SEO
@@ -160,6 +161,6 @@ const StBtnWrapper = styled.div`
 `;
 
 const StConfirmBtn = styled.div`
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
   cursor: pointer;
 `;
