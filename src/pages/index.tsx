@@ -74,7 +74,8 @@ const StHome = styled.div`
     z-index: 2;
     position: relative;
     top: -14.8rem;
-    height: 6.1rem;
+    width: 12.2rem;
+    height: 6.2rem;
   }
 
   .mainBackground {
