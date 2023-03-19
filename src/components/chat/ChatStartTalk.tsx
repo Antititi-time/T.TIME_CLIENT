@@ -3,7 +3,7 @@ import ImageDiv from '../common/ImageDiv';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import AdminProfile from './AdminProfile';
-import { D_icon1 } from '@src/assets/images';
+import { D_icon1 } from 'public/assets/images';
 import { useRouter } from 'next/router';
 
 function ChatStartTalk() {

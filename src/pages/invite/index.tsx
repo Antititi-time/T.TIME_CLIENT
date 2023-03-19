@@ -1,7 +1,7 @@
 import SEO from '@src/components/common/SEO';
 import styled from 'styled-components';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { imgLetter } from '@src/assets/images/index';
+import { imgLetter } from 'public/assets/images/index';
 import TeamInput from '@src/components/invite/TeamInput';
 import TextTop from '@src/components/common/TextTop';
 import BottomButton from '@src/components/common/BottomButton';

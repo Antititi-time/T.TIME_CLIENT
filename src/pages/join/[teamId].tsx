@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import TextTop from '@src/components/common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { imgCenturyGothicLogo, imgJoin } from '@src/assets/images';
+import { imgCenturyGothicLogo, imgJoin } from 'public/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 

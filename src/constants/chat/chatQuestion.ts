@@ -10,7 +10,7 @@ import {
   E_icon1,
   E_icon2,
   End_icon,
-} from '@src/assets/images';
+} from 'public/assets/images';
 
 export const CHAT_QUESTION_LIST = [
   {

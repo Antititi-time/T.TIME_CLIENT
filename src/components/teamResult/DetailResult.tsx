@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import { TeamDetailResult } from '@src/services/types';
 import { filterQuestionCategory } from '@src/hooks/FilterQuestionType';
 import { QUESTION_TEXT } from '@src/constants/teamResult/questionText';
-import { imgCategoryA, imgCategoryB, imgCategoryC, imgCategoryD, imgCategoryE } from '@src/assets/images';
+import { imgCategoryA, imgCategoryB, imgCategoryC, imgCategoryD, imgCategoryE } from 'public/assets/images';
 import ImageDiv from '../common/ImageDiv';
 import { CategoryType, CATEGORY_LIST } from '@src/constants/teamResult/categoryList';
 

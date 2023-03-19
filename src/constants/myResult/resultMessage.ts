@@ -1,8 +1,8 @@
-import { imgCanele } from '@src/assets/images';
-import { imgEclair } from '@src/assets/images';
-import { imgTart } from '@src/assets/images';
-import { imgSaltbread } from '@src/assets/images';
-import { imgMakarong } from '@src/assets/images';
+import { imgCanele } from 'public/assets/images';
+import { imgEclair } from 'public/assets/images';
+import { imgTart } from 'public/assets/images';
+import { imgSaltbread } from 'public/assets/images';
+import { imgMakarong } from 'public/assets/images';
 export const RESULT_MESSAGE = [
   {
     input: 'A',

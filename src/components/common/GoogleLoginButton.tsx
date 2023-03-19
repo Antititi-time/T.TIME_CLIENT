@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
 import ImageDiv from './ImageDiv';
-import { icnGoogle } from '@src/assets/icons';
+import { icnGoogle } from 'public/assets/icons';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
 import { prevPathState } from '@src/atoms/login';

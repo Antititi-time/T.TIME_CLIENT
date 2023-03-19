@@ -14,7 +14,7 @@ import {
   imgParticipantFourth,
   imgParticipantTart,
   imgParticipantCanele,
-} from '@src/assets/images';
+} from 'public/assets/images';
 
 function ParticipantOnboarding() {
   const [teamId, setTeamId] = useState<string | null>('');

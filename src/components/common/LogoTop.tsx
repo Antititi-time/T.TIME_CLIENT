@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { imgTopLogo } from '@src/assets/images';
+import { imgTopLogo } from 'public/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import Link from 'next/link';
 

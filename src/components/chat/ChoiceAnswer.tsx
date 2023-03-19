@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Button1 } from '@src/assets/icons/index';
-import { Button2 } from '@src/assets/icons/index';
-import { Button3 } from '@src/assets/icons/index';
-import { Button4 } from '@src/assets/icons/index';
-import { Button5 } from '@src/assets/icons/index';
+import { Button1 } from 'public/assets/icons/index';
+import { Button2 } from 'public/assets/icons/index';
+import { Button3 } from 'public/assets/icons/index';
+import { Button4 } from 'public/assets/icons/index';
+import { Button5 } from 'public/assets/icons/index';
 import { COLOR } from '@src/styles/color';
 import { Dispatch, SetStateAction } from 'react';
 import { StaticImageData } from 'next/image';

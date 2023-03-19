@@ -3,7 +3,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Chart from './Chart';
 import DetailResult from './DetailResult';
-import { imgTopLogo } from '@src/assets/images';
+import { imgTopLogo } from 'public/assets/images';
 import SimpleResult from './SimpleResult';
 import ImageDiv from '@src/components/common/ImageDiv';
 

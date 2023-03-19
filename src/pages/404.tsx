@@ -1,6 +1,6 @@
 import SEO from '@src/components/common/SEO';
 import LogoTop from '@src/components/common/LogoTop';
-import { imgErrorChr } from '@src/assets/images';
+import { imgErrorChr } from 'public/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
