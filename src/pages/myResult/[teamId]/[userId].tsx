@@ -35,11 +35,15 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const [isVisitor, setIsVisitor] = useState(false);
+  const { isReady, push } = useRouter();
+
   const { data } = useQuery('userData', () => getMyResult(userId, teamId), {
     initialData: myResultData,
+    onSuccess: (data) => {
+      if (data.result.length < 10) push('/unfinished');
+    },
   });
   const [modalState, setModalState] = useState(false);
-  const { isReady } = useRouter();
   useEffect(() => {
     setResultData(data);
     const inputData = setConstantIndex(data?.result[4]?.questionType);

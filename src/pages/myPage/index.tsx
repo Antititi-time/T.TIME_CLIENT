@@ -44,40 +44,44 @@ function MyPage() {
         Logout
       </StLogoutBtn>
       <StMainContainer>
-        <StResultContainer>
+        <StResultWrapper>
           <StTitle>{data?.userName}의 지난 T.time</StTitle>
           {isNone && <NonePage />}
-          {data?.history.map(({ date, teamName, teamId }: myPageDataType) => {
-            const options: Intl.DateTimeFormatOptions = {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-            };
-            const dateObj = new Date(date);
-            const processDate = dateObj.toLocaleDateString('ko-kr', options).replaceAll(' ', '');
-            return (
-              <StResult key={teamName}>
-                <StDate>진행일 : {processDate}</StDate>
-                <StTeam>
-                  ‘{teamName}’ 팀의 <span>T</span>
-                  <span>.</span>time
-                </StTeam>
-                <StButtonWrapper>
-                  <StResultBtn onClick={() => router.push(`myResult/${teamId}/${userId}`)}>개인 결과 보기</StResultBtn>
-                  <StResultBtn
-                    onClick={() => {
-                      router.push(`teamResult/${teamId}/${userId}`);
-                    }}>
-                    팀 결과 보기
-                  </StResultBtn>
-                </StButtonWrapper>
-              </StResult>
-            );
-          })}
+          <StResultContainer>
+            {data?.history.map(({ date, teamName, teamId }: myPageDataType) => {
+              const options: Intl.DateTimeFormatOptions = {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+              };
+              const dateObj = new Date(date);
+              const processDate = dateObj.toLocaleDateString('ko-kr', options).replaceAll(' ', '');
+              return (
+                <StResult key={teamName}>
+                  <StDate>진행일 : {processDate}</StDate>
+                  <StTeam>
+                    ‘{teamName}’ 팀의 <span>T</span>
+                    <span>.</span>time
+                  </StTeam>
+                  <StButtonWrapper>
+                    <StResultBtn onClick={() => router.push(`myResult/${teamId}/${userId}`)}>
+                      개인 결과 보기
+                    </StResultBtn>
+                    <StResultBtn
+                      onClick={() => {
+                        router.push(`teamResult/${teamId}/${userId}`);
+                      }}>
+                      팀 결과 보기
+                    </StResultBtn>
+                  </StButtonWrapper>
+                </StResult>
+              );
+            })}
+          </StResultContainer>
           <StBtnWrapper onClick={() => router.push('/')}>
             <BottomButton color={COLOR.ORANGE_1} width={28.2} text="메인으로 돌아가기" />
           </StBtnWrapper>
-        </StResultContainer>
+        </StResultWrapper>
       </StMainContainer>
     </StMyPage>
   );
@@ -96,8 +100,14 @@ const StMainContainer = styled.main`
   flex-grow: 1;
   background-color: ${COLOR.IVORY_3};
 `;
-const StResultContainer = styled.div`
+const StResultWrapper = styled.div`
   width: 35.6rem;
+`;
+
+const StResultContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 `;
 const StResult = styled.div`
   width: 100%;
