@@ -13,18 +13,23 @@ import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
 
 function OrganizerOnboarding() {
   const sliderRef = useRef<Slider>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [oldSlide, setOldSlide] = useState(0);
+  const [currentDirection, setCurrentDirection] = useState('');
+  const [showLoginButtons, setShowLoginButtons] = useState(false);
   const [isKakaoBrowser, setIsKakaoBrowser] = useState(false);
+  const [skipButtonState, setSkipButtonState] = useState(false);
   const settings = {
     dots: true,
     dotsClass: 'customDots',
     infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    allows: false,
   };
+
   const goToLastSlide = () => {
     sliderRef.current?.slickGoTo(4);
+    setShowLoginButtons(true);
+    setSkipButtonState(true);
   };
 
   useEffect(() => {
@@ -32,13 +37,28 @@ function OrganizerOnboarding() {
     setIsKakaoBrowser(Boolean(isKakao));
   }, []);
 
+  useEffect(() => {
+    if (
+      (oldSlide === 3 && currentDirection === 'left') ||
+      (skipButtonState && !(oldSlide === 4 && currentDirection === 'right'))
+    ) {
+      setShowLoginButtons(true);
+    } else {
+      setShowLoginButtons(false);
+    }
+    setSkipButtonState(false);
+  }, [currentDirection, oldSlide]);
+
   return (
     <>
       <StSlider
         {...settings}
         ref={sliderRef}
-        afterChange={(newSlide) => {
-          setCurrentSlide(newSlide);
+        onSwipe={(direction) => {
+          setCurrentDirection(direction);
+        }}
+        beforeChange={(index) => {
+          setOldSlide(index);
         }}>
         {ORGANIZER_SLIDER_ITEMS.map((item, idx) => (
           <StOnboardingWrapper key={idx}>
@@ -54,7 +74,7 @@ function OrganizerOnboarding() {
           </StOnboardingWrapper>
         ))}
       </StSlider>
-      {currentSlide < 4 ? (
+      {!showLoginButtons ? (
         <StSkipButton>
           <BottomButton width={28.2} color={COLOR.BLUE_1} text={'건너뛰기'} handler={goToLastSlide} />
         </StSkipButton>

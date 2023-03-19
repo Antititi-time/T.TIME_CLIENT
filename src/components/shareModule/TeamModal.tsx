@@ -30,7 +30,7 @@ function TeamModal({ setModalState, teamName }: sharePropsType) {
             <CopyToClipboard text={teamLink}>
               <StCopyButton onClick={useCopyLink}>
                 <StButtonIcon src={icPaste.src} />
-                <StButtonText>링크 복사하기</StButtonText>
+                <StButtonText className="copyText">링크 복사하기</StButtonText>
               </StCopyButton>
             </CopyToClipboard>
             <StKakaoButton onClick={() => shareKakao(teamLink, teamName, '팀결과')}>
@@ -98,14 +98,18 @@ const StKakaoButton = styled.button`
 
 const StButtonIcon = styled.img`
   margin-left: 1.8rem;
-  margin-right: 4rem;
   width: 2.4rem;
   height: 2.4rem;
 `;
 
 const StButtonText = styled.span`
+  margin-left: 4.6rem;
   color: white;
   ${FONT_STYLES.PRETENDARD_B_16};
+
+  &.copyText {
+    margin-left: 6.4rem;
+  }
 `;
 const StFooter = styled.button`
   width: 100%;
