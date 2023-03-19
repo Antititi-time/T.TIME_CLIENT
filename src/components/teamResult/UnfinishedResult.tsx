@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { imgCenturyGothicLogo, imgErrorChr } from '@src/assets/images';
+import { imgCenturyGothicLogo, imgErrorChr } from 'public/assets/images';
 import BottomButton from '../common/BottomButton';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useCopyLink } from '../shareModule/ShareModule';

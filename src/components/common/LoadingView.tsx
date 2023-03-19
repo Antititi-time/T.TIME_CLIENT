@@ -1,4 +1,4 @@
-import { imgLoading } from '@src/assets/images';
+import { imgLoading } from 'public/assets/images';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import styled from 'styled-components';

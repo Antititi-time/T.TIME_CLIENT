@@ -1,4 +1,4 @@
-import { imgOnbarding1, imgOnbarding2, imgOnbarding3, imgOnbarding4, imgOnbarding5 } from '@src/assets/images';
+import { imgOnbarding1, imgOnbarding2, imgOnbarding3, imgOnbarding4, imgOnbarding5 } from 'public/assets/images';
 
 export const ORGANIZER_SLIDER_ITEMS = [
   {

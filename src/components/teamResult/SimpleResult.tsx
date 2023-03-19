@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { imgCenturyGothicLogo } from '@src/assets/images';
+import { imgCenturyGothicLogo } from 'public/assets/images';
 import { getTeamResult } from '@src/services';
 import { useQuery } from 'react-query';
 import { filterQuestionType } from '@src/hooks/FilterQuestionType';
@@ -16,7 +16,7 @@ import {
   imgCaneleNegative,
   imgSaltbreadPositive,
   imgSaltbreadNegative,
-} from '@src/assets/images';
+} from 'public/assets/images';
 interface TeamResultProps {
   teamId: number;
 }

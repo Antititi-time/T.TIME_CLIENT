@@ -1,6 +1,6 @@
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { KakaoLogin } from '@src/assets/icons';
+import { KakaoLogin } from 'public/assets/icons';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';

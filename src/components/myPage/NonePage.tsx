@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
-import { imgNoHistory } from '@src/assets/images';
+import { imgNoHistory } from 'public/assets/images';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 

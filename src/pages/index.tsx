@@ -3,7 +3,7 @@ import SEO from '@src/components/common/SEO';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from '@src/assets/images';
+import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from 'public/assets/images';
 import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useEffect, useState } from 'react';

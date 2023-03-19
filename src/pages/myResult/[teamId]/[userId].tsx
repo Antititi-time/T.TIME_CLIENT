@@ -6,18 +6,18 @@ import { useEffect, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import ImageDiv from '@src/components/common/ImageDiv';
-import { icDots } from '@src/assets/icons';
+import { icDots } from 'public/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
 import { setConstantIndex } from '@src/hooks/SetConstantIndex';
-import { imgTopLogo } from '@src/assets/images';
+import { imgTopLogo } from 'public/assets/images';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
 import LoadingView from '@src/components/common/LoadingView';
 import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
-import { imgCenturyGothicLogo } from '@src/assets/images';
+import { imgCenturyGothicLogo } from 'public/assets/images';
 import { DOMAIN } from '@src/constants/domain';
 interface ctxType {
   query: {
