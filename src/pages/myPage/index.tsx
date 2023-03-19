@@ -5,6 +5,11 @@ import { COLOR } from '@src/styles/color';
 import { useQuery } from 'react-query';
 import { getMyPage } from '@src/services';
 import router from 'next/router';
+import { AxiosError } from 'axios';
+import { useState } from 'react';
+import NonePage from '@src/components/myPage/NonePage';
+import BottomButton from '@src/components/common/BottomButton';
+
 interface myPageDataType {
   date: string;
   teamName: string;
@@ -12,11 +17,21 @@ interface myPageDataType {
 }
 function MyPage() {
   const { data } = useQuery('myPageData', () => getMyPage(localStorage.getItem('accessToken')), {
-    onError: () => {
-      alert('기록이 존재하지 않아요');
+    retry: false,
+    onError: (err: AxiosError) => {
+      if (err.request.status === 401) {
+        alert('토큰이 만료되었습니다.');
+        router.push('/organizerOnboarding');
+      }
+    },
+    onSuccess: ({ history }) => {
+      if (history.length === 0) {
+        setIsNone(true);
+      }
     },
   });
   const userId = data ? data.userId : null;
+  const [isNone, setIsNone] = useState(false);
   return (
     <StMyPage>
       <LogoTop />
@@ -31,6 +46,7 @@ function MyPage() {
       <StMainContainer>
         <StResultContainer>
           <StTitle>{data?.userName}의 지난 T.time</StTitle>
+          {isNone && <NonePage />}
           {data?.history.map(({ date, teamName, teamId }: myPageDataType) => {
             const options: Intl.DateTimeFormatOptions = {
               year: 'numeric',
@@ -58,6 +74,9 @@ function MyPage() {
               </StResult>
             );
           })}
+          <StBtnWrapper>
+            <BottomButton color={COLOR.ORANGE_1} width={28.2} text="메인으로 돌아가기" />
+          </StBtnWrapper>
         </StResultContainer>
       </StMainContainer>
     </StMyPage>
@@ -84,7 +103,6 @@ const StResult = styled.div`
   width: 100%;
   height: 12.7rem;
   padding: 1.2rem;
-  margin-top: 1.6rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -106,6 +124,7 @@ const StLogoutBtn = styled.button`
 `;
 const StTitle = styled.h2`
   margin-top: 2rem;
+  margin-bottom: 1.6rem;
   color: ${COLOR.BLACK};
   ${FONT_STYLES.PRETENDARD_B_20};
 `;
@@ -148,4 +167,10 @@ const StResultBtn = styled.button`
   &:nth-of-type(2) {
     background-color: ${COLOR.BLUE_TEXT};
   }
+`;
+
+const StBtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2.4rem;
 `;

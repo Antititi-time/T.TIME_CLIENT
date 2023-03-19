@@ -65,3 +65,4 @@ export { default as imgOnbarding4 } from './img_organizer_onboarding4.png';
 export { default as imgOnbarding5 } from './img_organizer_onboarding5.png';
 export { default as imgGoogleIcon } from './img_google_icon.png';
 export { default as imgKakaoIcon } from './img_kakao_icon.png';
+export { default as imgNoHistory } from './img_no_history.png';
