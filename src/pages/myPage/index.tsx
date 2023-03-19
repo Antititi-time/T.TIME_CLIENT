@@ -74,7 +74,7 @@ function MyPage() {
               </StResult>
             );
           })}
-          <StBtnWrapper>
+          <StBtnWrapper onClick={() => router.push('/')}>
             <BottomButton color={COLOR.ORANGE_1} width={28.2} text="메인으로 돌아가기" />
           </StBtnWrapper>
         </StResultContainer>
@@ -169,8 +169,9 @@ const StResultBtn = styled.button`
   }
 `;
 
-const StBtnWrapper = styled.div`
+const StBtnWrapper = styled.button`
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-top: 2.4rem;
 `;
