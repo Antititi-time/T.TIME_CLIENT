@@ -18,12 +18,12 @@ export const ORGANIZER_SLIDER_ITEMS = [
   },
   {
     id: 4,
-    text: '개인 혹은 팀 리포트를 통해\n우리팀의 생각을 엿볼 수 있어요.',
+    text: '개인 혹은 팀 리포트를 통해\n우리 팀의 생각을 엿볼 수 있어요.',
     image: imgOnbarding4,
   },
   {
     id: 5,
-    text: '팀원들과 차한잔 마시면서\n가볍게 이야기 시작해보세요!',
+    text: '팀원들과 차 한 잔 마시면서\n가볍게 이야기 시작해 보세요!',
     image: imgOnbarding5,
   },
 ];
