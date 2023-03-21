@@ -37,7 +37,7 @@ export const shareKakao = (route: string, name: string, shareType: string) => {
           description: '팀 결과를 팀원들과 공유해 깊은 이야기를 나눠보세요.☕️',
 
           imageUrl:
-            'https://github.com/Antititi-time/T.TIME_CLIENT/blob/develop/src/assets/images/img_kakao_teamShare.jpg?raw=true',
+            'https://github.com/Antititi-time/T.TIME_CLIENT/blob/develop/public/assets/images/img_kakao_teamShare.jpg?raw=true',
           link: {
             mobileWebUrl: route,
             webUrl: route,
@@ -61,7 +61,7 @@ export const shareKakao = (route: string, name: string, shareType: string) => {
           title: `${name}님의 개인결과를 확인해보세요.`,
           description: '개인결과는 링크가 있는 사람만 볼 수 있어요. ☕️',
           imageUrl:
-            'https://github.com/Antititi-time/T.TIME_CLIENT/blob/develop/src/assets/images/img_kakao_personalShare.jpg?raw=true',
+            'https://github.com/Antititi-time/T.TIME_CLIENT/blob/develop/public/assets/images/img_kakao_personalShare.jpg?raw=true',
           link: {
             mobileWebUrl: route,
             webUrl: route,
