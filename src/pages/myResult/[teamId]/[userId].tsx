@@ -40,7 +40,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   const { data } = useQuery('userData', () => getMyResult(userId, teamId), {
     initialData: myResultData,
     onSuccess: (data) => {
-      if (data.result.length < 10) push('/unfinished');
+      if (data.result.length < 5) push('/unfinished');
     },
   });
   const [modalState, setModalState] = useState(false);
