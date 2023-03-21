@@ -39,6 +39,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
 
   const { data } = useQuery('userData', () => getMyResult(userId, teamId), {
     initialData: myResultData,
+    enabled: !!userId,
     onSuccess: (data) => {
       if (data.result.length < 5) push('/unfinished');
     },
