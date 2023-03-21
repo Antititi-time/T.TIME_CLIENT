@@ -187,4 +187,5 @@ const StBtnWrapper = styled.button`
   justify-content: center;
   width: 100%;
   margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
 `;
