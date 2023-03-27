@@ -38,10 +38,7 @@ function OrganizerOnboarding() {
   }, []);
 
   useEffect(() => {
-    if (
-      (oldSlide === 3 && currentDirection === 'left') ||
-      (skipButtonState && !(oldSlide === 4 && currentDirection === 'right'))
-    ) {
+    if (((oldSlide === 3 || oldSlide === 4) && currentDirection === 'left') || (skipButtonState && oldSlide !== 4)) {
       setShowLoginButtons(true);
     } else {
       setShowLoginButtons(false);
