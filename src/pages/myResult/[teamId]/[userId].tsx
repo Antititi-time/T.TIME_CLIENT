@@ -113,7 +113,10 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
             </StResultDetail>
             <StRecommendText>
               {RESULT_MESSAGE[resultCharacter]?.recommendText.map((text: string) => (
-                <p key={text}>• {text}</p>
+                <p key={text}>
+                  • <> </>
+                  {text}
+                </p>
               ))}
             </StRecommendText>
             <article>
