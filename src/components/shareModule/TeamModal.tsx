@@ -105,12 +105,13 @@ const StButtonIcon = styled.img`
 const StButtonText = styled.span`
   margin-left: 4.6rem;
   color: white;
-  ${FONT_STYLES.PRETENDARD_B_16};
+  ${FONT_STYLES.NEXON_B_16};
 
   &.copyText {
-    margin-left: 6.4rem;
+    margin-left: 6.2rem;
   }
 `;
+
 const StFooter = styled.button`
   width: 100%;
   display: flex;
