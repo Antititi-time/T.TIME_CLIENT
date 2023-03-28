@@ -5,7 +5,7 @@ function ImageDiv(props: ImageProps) {
 
   return (
     <div className={className}>
-      <Image {...rest} alt={alt} />
+      <Image {...rest} alt={alt} priority={true} />
     </div>
   );
 }
