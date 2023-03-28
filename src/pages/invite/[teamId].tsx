@@ -4,7 +4,7 @@ import TextTop from '@src/components/common/TextTop';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { imgCenturyGothicLogo, imgJoinLogo } from 'public/assets/images';
+import { imgJoinLogo } from 'public/assets/images';
 import { imgInvitation } from 'public/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
