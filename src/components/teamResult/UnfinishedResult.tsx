@@ -88,7 +88,8 @@ const StTeamResultText = styled.div`
   .logo {
     position: relative;
     width: 7.2rem;
-    height: 2.4rem;
+    height: 2.8rem;
+    bottom: 0.3rem;
     margin: 0 0.4rem;
   }
 `;
