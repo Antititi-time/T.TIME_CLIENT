@@ -18,12 +18,6 @@ interface myPageDataType {
 function MyPage() {
   const { data } = useQuery('myPageData', () => getMyPage(localStorage.getItem('accessToken')), {
     retry: false,
-    onError: (err: AxiosError) => {
-      if (err.request.status === 401) {
-        alert('토큰이 만료되었습니다.');
-        router.push('/organizerOnboarding');
-      }
-    },
     onSuccess: ({ history }) => {
       if (history.length === 0) {
         setIsNone(true);

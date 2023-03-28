@@ -92,14 +92,14 @@ export default OrganizerOnboarding;
 
 const StSkipButton = styled.div`
   position: absolute;
-  top: 57.1rem;
+  bottom: 4rem;
   left: 50%;
   transform: translate(-50%);
 `;
 
 const StSocialLoginButton = styled.div`
   position: absolute;
-  top: 48.3rem;
+  bottom: 2rem;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
