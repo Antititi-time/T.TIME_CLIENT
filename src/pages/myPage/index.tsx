@@ -5,7 +5,6 @@ import { COLOR } from '@src/styles/color';
 import { useQuery } from 'react-query';
 import { getMyPage } from '@src/services';
 import router from 'next/router';
-import { AxiosError } from 'axios';
 import { useState } from 'react';
 import NonePage from '@src/components/myPage/NonePage';
 import BottomButton from '@src/components/common/BottomButton';
