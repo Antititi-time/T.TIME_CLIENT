@@ -76,7 +76,7 @@ function Join({ teamId, teamData }: JoinProps) {
   const { data: completedResult } = useQuery('getCompleted', () => getCompleted(teamId));
 
   const handleSubmit = () => {
-    if (completedResult.completed === true) {
+    if (completedResult?.completed === true) {
       alert('모든 팀원이 T.time에 참여했어요.');
       router.push('/');
     }
