@@ -4,7 +4,7 @@ import TextTop from '@src/components/common/TextTop';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import { imgCenturyGothicLogo } from 'public/assets/images';
+import { imgCenturyGothicLogo, imgJoinLogo } from 'public/assets/images';
 import { imgInvitation } from 'public/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
@@ -48,7 +48,7 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
         <StTeamName>&apos;{teamName}&apos;</StTeamName>
         <StRowContainer>
-          <ImageDiv src={imgCenturyGothicLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
+          <ImageDiv src={imgJoinLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
@@ -115,8 +115,9 @@ const StInvitationContainer = styled.article`
   box-shadow: 0 0.2rem 1.3rem rgba(100, 98, 94, 0.1);
   .imgCenturyGothicLogo {
     position: relative;
-    width: 7.2rem;
-    height: 2.4rem;
+    width: 5.2rem;
+    height: 3.2rem;
+    bottom: 0.4rem;
   }
 `;
 
