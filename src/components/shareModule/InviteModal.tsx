@@ -133,7 +133,7 @@ const StButtonIcon = styled.img`
 
 const StButtonText = styled.span`
   color: white;
-  ${FONT_STYLES.PRETENDARD_B_16};
+  ${FONT_STYLES.NEXON_B_16};
 `;
 const StFooter = styled.button`
   display: flex;
