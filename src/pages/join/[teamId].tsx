@@ -8,7 +8,7 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import BottomButton from '@src/components/common/BottomButton';
 
 import { useRouter } from 'next/router';
-import { enterChat } from '@src/services';
+import { enterChat, getCompleted } from '@src/services';
 import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
@@ -73,7 +73,13 @@ function Join({ teamId, teamData }: JoinProps) {
     },
   });
 
+  const { data: completedResult } = useQuery('getCompleted', () => getCompleted(teamId));
+
   const handleSubmit = () => {
+    if (completedResult.completed === true) {
+      alert('모든 팀원이 T.time에 참여했어요.');
+      router.push('/');
+    }
     getData.mutate();
   };
 
