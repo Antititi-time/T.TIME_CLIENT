@@ -26,7 +26,7 @@ interface ctxType {
   };
 }
 interface userIdType {
-  userId: number;
+  userId: string;
   teamId: number;
   myResultData: UserData;
 }
@@ -77,7 +77,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         <StMyResult>
           {modalState && (
             <MyResultModal
-              userId={String(userId)}
+              userId={userId}
               teamId={String(teamId)}
               userName={resultData.nickname}
               setModalState={setModalState}
@@ -134,16 +134,14 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
       ) : (
         <LoadingView />
       )}
-      {!isVisitor && (
-        <BottomBtnContainer teamId={String(teamId)} userId={String(userId)} setModalState={setModalState} />
-      )}
+      {!isVisitor && <BottomBtnContainer teamId={String(teamId)} userId={userId} setModalState={setModalState} />}
     </StmyResultPage>
   );
 }
 export default MyResult;
 
 export const getServerSideProps = async (ctx: ctxType) => {
-  const userId = parseInt(ctx.query.userId);
+  const userId = ctx.query.userId;
   const teamId = parseInt(ctx.query.teamId);
   const myResultData = await getMyResult(userId, teamId);
   return { props: { userId, teamId, myResultData } };
