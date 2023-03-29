@@ -13,6 +13,9 @@ import LoadingView from '@src/components/common/LoadingView';
 import { getTeamData } from '@src/services/index';
 import { TeamInfoData } from '@src/services/types';
 import { DOMAIN } from '@src/constants/domain';
+import Link from 'next/link';
+import { COLOR } from '@src/styles/color';
+import { FONT_STYLES } from '@src/styles/fontStyle';
 
 interface ctxType {
   query: {
@@ -58,6 +61,9 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
         url={DOMAIN + '/myResult/' + teamId + '/noUser'}
       />
       <LogoTop />
+      <Link href="/myPage">
+        <StMypageLink>지난 T.time 확인하기</StMypageLink>
+      </Link>
       {completeData ? (
         completeData.completed && !isLoading ? (
           <>
@@ -82,6 +88,14 @@ export const getServerSideProps = async (ctx: ctxType) => {
   const teamData = await getTeamData(teamId);
   return { props: { teamId, teamData } };
 };
+
+const StMypageLink = styled.p`
+  margin-top: 2.4rem;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_B_16};
+  text-decoration-line: underline;
+  text-underline-position: under;
+`;
 
 const StTeamResult = styled.div`
   display: flex;
