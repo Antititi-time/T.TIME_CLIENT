@@ -97,10 +97,10 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
             setQuestionIndex={setQuestionIndex}
             setInput={setInput}
             questionIndex={questionIndex}
-            teamId={teamId}
+            teamId={Number(teamId)}
             setChat={setChat}
             grade={grade}
-            userId={Number(userId)}
+            userId={userId}
           />
         ) : String(chat[chat.length - 1]).includes('이제') ? (
           <FirstChoiceAnswer

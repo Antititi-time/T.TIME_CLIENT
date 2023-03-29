@@ -44,7 +44,7 @@ export const enterChat = async (teamId: number, token: string | null): Promise<T
   return data;
 };
 
-export const getMyResult = async (userId: number, teamId: number) => {
+export const getMyResult = async (userId: string, teamId: number) => {
   const { data } = await api.get({ url: `/api/result/${userId}/${teamId}` });
 
   return data;
@@ -54,7 +54,7 @@ export const getCompleted = async (teamId: number) => {
 
   return data;
 };
-export const postAnswer = async (teamId: number, body: object, token: string | null) => {
+export const postAnswer = async (body: object, token: string | null) => {
   const { data } = await api.post({
     url: `/api/chat`,
     data: body,

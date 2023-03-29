@@ -18,7 +18,7 @@ export type TeamData = {
   teamName: string;
   teamMember: number;
   teamId: number;
-  userId: number;
+  userId: string;
 };
 export type ChatData = {
   status: number;

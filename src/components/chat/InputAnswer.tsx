@@ -15,13 +15,13 @@ interface InputQuestionType {
   setQuestionIndex: Dispatch<SetStateAction<number>>;
   questionIndex: number;
   setInput: Dispatch<SetStateAction<boolean>>;
-  teamId: string;
+  teamId: number;
   setChat: Dispatch<SetStateAction<(string | StaticImageData)[]>>;
   grade: number;
-  userId: number;
+  userId: string;
 }
 
-function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setChat, grade, userId }: InputQuestionType) {
+function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setChat, grade }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
@@ -47,13 +47,12 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
 
   const getData = useMutation(() =>
     postAnswer(
-      userId,
       {
         questionType: CHAT_QUESTION_LIST[questionIndex].questionType,
         questionNumber: CHAT_QUESTION_LIST[questionIndex].questionNumber,
         answer: value,
         grade: grade,
-        teamId: Number(teamId),
+        teamId: teamId,
       },
       localStorage.getItem('accessToken'),
     ),
