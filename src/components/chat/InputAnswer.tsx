@@ -21,7 +21,7 @@ interface InputQuestionType {
   userId: string;
 }
 
-function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setChat, grade, userId }: InputQuestionType) {
+function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setChat, grade }: InputQuestionType) {
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState('');
   const [text, setText] = useState(0);
