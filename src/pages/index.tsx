@@ -23,7 +23,7 @@ function Home() {
     <StHome>
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />
-      <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" />
+      <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" fill={true} />
       <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
       <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
       <StButtonContainer>
@@ -65,9 +65,11 @@ const StHome = styled.div`
   }
 
   .backgroundItems {
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     top: 3.6rem;
+    width: 237.14px;
+    height: 445.65px;
   }
 
   .logoIcon {
@@ -79,7 +81,6 @@ const StHome = styled.div`
   }
 
   .mainBackground {
-    z-index: 1;
     position: absolute;
     top: 0;
     width: 100vw;
