@@ -68,8 +68,8 @@ const StHome = styled.div`
     z-index: 1;
     position: absolute;
     top: 3.6rem;
-    width: 237.14px;
-    height: 445.65px;
+    width: 33.714rem;
+    height: 44.565rem;
   }
 
   .logoIcon {
