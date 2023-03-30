@@ -81,7 +81,6 @@ const StHome = styled.div`
   }
 
   .mainBackground {
-    z-index: 0;
     position: absolute;
     top: 0;
     width: 100vw;
