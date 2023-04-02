@@ -55,7 +55,7 @@ export const getCompleted = async (teamId: number) => {
   return data;
 };
 export const postAnswer = async (body: object, token: string | null) => {
-  const { data } = await api.post({
+  const { data } = await api.put({
     url: `/api/chat`,
     data: body,
     headers: { 'Content-Type': 'application/json', Authorization: token },
