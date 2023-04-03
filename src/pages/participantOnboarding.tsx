@@ -6,6 +6,7 @@ import Link from 'next/link';
 import LogoTop from '@src/components/common/LogoTop';
 import BottomButton from '@src/components/common/BottomButton';
 import ImageDiv from '@src/components/common/ImageDiv';
+import ToolTip from '@src/components/common/ToolTip';
 
 import {
   imgParticipantFirst,
@@ -34,6 +35,10 @@ function ParticipantOnboarding() {
       <StLogo>
         <LogoTop />
       </StLogo>
+
+      <StToolTip>
+        <ToolTip />
+      </StToolTip>
 
       <StFirstPart>
         <StFirstText>
@@ -97,6 +102,10 @@ function ParticipantOnboarding() {
 }
 
 export default ParticipantOnboarding;
+
+const StToolTip = styled.div`
+  margin-top: 5.8rem;
+`;
 
 const StWrapper = styled.div`
   max-width: 39rem;

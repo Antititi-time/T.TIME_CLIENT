@@ -16,6 +16,7 @@ import { DOMAIN } from '@src/constants/domain';
 import Link from 'next/link';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
+import ToolTip from '@src/components/common/ToolTip';
 
 interface ctxType {
   query: {
@@ -61,6 +62,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
         url={DOMAIN + '/myResult/' + teamId + '/noUser'}
       />
       <LogoTop />
+      <ToolTip />
       <Link href="/myPage">
         <StMypageLink>지난 T.time 확인하기</StMypageLink>
       </Link>

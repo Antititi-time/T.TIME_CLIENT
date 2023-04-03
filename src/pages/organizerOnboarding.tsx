@@ -10,6 +10,7 @@ import { FONT_STYLES } from '@src/styles/fontStyle';
 import { ORGANIZER_SLIDER_ITEMS } from '@src/constants/organizerOnboarding/organizerSliderItems';
 import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
 import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
+import ToolTip from '@src/components/common/ToolTip';
 
 function OrganizerOnboarding() {
   const sliderRef = useRef<Slider>(null);
@@ -48,6 +49,7 @@ function OrganizerOnboarding() {
 
   return (
     <>
+      <ToolTip />
       <StSlider
         {...settings}
         ref={sliderRef}
