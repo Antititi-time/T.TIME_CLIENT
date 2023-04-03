@@ -6,21 +6,29 @@ import { imgToolTipIcon, imgDeleteButton } from 'public/assets/images';
 
 function ToolTip() {
   return (
-    <>
-      <StToolTipIcon>
-        <ImageDiv src={imgToolTipIcon} alt="주최자 프로필 사진" className="imgToolTipIcon" fill={true} />
-      </StToolTipIcon>
-      <StMessageBox>
+    <StToolTip>
+      <a target="_blank" href="https://walla.my/t.time" rel="noreferrer">
+        <StToolTipIcon>
+          <ImageDiv src={imgToolTipIcon} alt="주최자 프로필 사진" className="imgToolTipIcon" fill={true} />
+        </StToolTipIcon>
+      </a>
+      <StMessageBox className="hi">
         <StMessage>T-time에 제안해주세요.</StMessage>
         <StDeleteButton>
           <ImageDiv src={imgDeleteButton} alt="주최자 프로필 사진" className="imgDeleteButton" fill={true} />
         </StDeleteButton>
       </StMessageBox>
-    </>
+    </StToolTip>
   );
 }
 
 export default ToolTip;
+
+const StToolTip = styled.div`
+  &:hover .hi {
+    display: block;
+  }
+`;
 
 const StDeleteButton = styled.div`
   .imgDeleteButton {
@@ -39,6 +47,7 @@ const StMessage = styled.p`
 `;
 
 const StMessageBox = styled.div`
+  display: none;
   position: fixed;
   top: 2.6rem;
   right: 3.2rem;
