@@ -8,6 +8,7 @@ import BottomButton from '@src/components/common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import ToolTip from '@src/components/common/ToolTip';
 
 function Home() {
   const [isLogin, setIsLogIn] = useState(false);
@@ -36,6 +37,7 @@ function Home() {
           </Link>
         )}
       </StButtonContainer>
+      <ToolTip />
     </StHome>
   );
 }
