@@ -8,6 +8,7 @@ import router from 'next/router';
 import { useState } from 'react';
 import NonePage from '@src/components/myPage/NonePage';
 import BottomButton from '@src/components/common/BottomButton';
+import ToolTip from '@src/components/common/ToolTip';
 
 interface myPageDataType {
   date: string;
@@ -28,6 +29,7 @@ function MyPage() {
   return (
     <StMyPage>
       <LogoTop />
+      <ToolTip top={5.8} />
       <StLogoutBtn
         onClick={() => {
           localStorage.removeItem('accessToken');

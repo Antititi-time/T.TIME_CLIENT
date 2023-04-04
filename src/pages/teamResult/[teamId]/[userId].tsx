@@ -62,7 +62,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
         url={DOMAIN + '/myResult/' + teamId + '/noUser'}
       />
       <LogoTop />
-      <ToolTip />
+      <ToolTip top={5.8} />
       <Link href="/myPage">
         <StMypageLink>지난 T.time 확인하기</StMypageLink>
       </Link>

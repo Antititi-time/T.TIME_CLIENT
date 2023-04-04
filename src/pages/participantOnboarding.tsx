@@ -35,10 +35,7 @@ function ParticipantOnboarding() {
       <StLogo>
         <LogoTop />
       </StLogo>
-
-      <StToolTip>
-        <ToolTip />
-      </StToolTip>
+      <ToolTip top={5.8} />
 
       <StFirstPart>
         <StFirstText>
@@ -102,10 +99,6 @@ function ParticipantOnboarding() {
 }
 
 export default ParticipantOnboarding;
-
-const StToolTip = styled.div`
-  margin-top: 5.8rem;
-`;
 
 const StWrapper = styled.div`
   max-width: 39rem;

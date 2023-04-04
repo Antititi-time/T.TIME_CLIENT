@@ -19,6 +19,9 @@ import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
 import { imgCenturyGothicLogo } from 'public/assets/images';
 import { DOMAIN } from '@src/constants/domain';
+import ToolTip from '@src/components/common/ToolTip';
+import Link from 'next/link';
+
 interface ctxType {
   query: {
     userId: string;
@@ -73,6 +76,10 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         url={DOMAIN + `/myResult/${teamId}/` + userId}
       />
       <LogoTop />
+      <ToolTip top={5.8} />
+      <Link href="/myPage">
+        <StMypageLink>지난 T.time 확인하기</StMypageLink>
+      </Link>
       {resultData ? (
         <StMyResult>
           {modalState && (
@@ -139,6 +146,16 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   );
 }
 export default MyResult;
+
+const StMypageLink = styled.p`
+  display: flex;
+  justify-content: center;
+  margin-top: 2.4rem;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_B_16};
+  text-decoration-line: underline;
+  text-underline-position: under;
+`;
 
 export const getServerSideProps = async (ctx: ctxType) => {
   const userId = ctx.query.userId;

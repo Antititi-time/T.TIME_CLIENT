@@ -20,6 +20,8 @@ import { useEffect, useState } from 'react';
 import { DOMAIN } from '@src/constants/domain';
 import { TeamInfoData } from '@src/services/types';
 
+import ToolTip from '@src/components/common/ToolTip';
+
 interface ctxType {
   query: {
     teamId: number;
@@ -99,6 +101,7 @@ function Join({ teamId, teamData }: JoinProps) {
       <TextTop text={'티타임 참여하기'} />
       <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
+        <ToolTip top={5.8} />
         <StTeamName>&apos;{data?.teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgJoinLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>

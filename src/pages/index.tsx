@@ -37,7 +37,7 @@ function Home() {
           </Link>
         )}
       </StButtonContainer>
-      <ToolTip />
+      <ToolTip top={0} />
     </StHome>
   );
 }

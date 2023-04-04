@@ -12,6 +12,7 @@ import router from 'next/router';
 import { useMutation } from 'react-query';
 import { getTeamInfo } from '@src/services';
 import { TeamInfoData } from '@src/services/types';
+import ToolTip from '@src/components/common/ToolTip';
 
 function Invite() {
   useManageScroll();
@@ -53,31 +54,34 @@ function Invite() {
     }
   };
   return (
-    <StInvite>
-      <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
-      <TextTop text="초대장 만들기" />
-      <ImageDiv src={imgLetter} alt="편지이미지" className="letterImg" />
-      <StForm action="post">
-        <TeamInput
-          label="프로젝트 또는 팀 이름"
-          placeholder="14자 이내로 입력해 주세요"
-          validation={validator.teamName.regEx}
-          alertMsg={validator.teamName.alertMsg}
-          inputVal={teamName}
-          setInput={setTeamName}
-        />
-        <TeamInput
-          label="팀 인원 수"
-          placeholder="팀의 인원 수를 입력해주세요"
-          validation={validator.teamMember.regEx}
-          alertMsg={validator.teamMember.alertMsg}
-          pattern="\d*"
-          inputVal={teamMember}
-          setInput={setTeamMember}
-        />
-      </StForm>
-      <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} handler={toNext} />
-    </StInvite>
+    <>
+      <ToolTip top={5.8} />
+      <StInvite>
+        <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
+        <TextTop text="초대장 만들기" />
+        <ImageDiv src={imgLetter} alt="편지이미지" className="letterImg" />
+        <StForm action="post">
+          <TeamInput
+            label="프로젝트 또는 팀 이름"
+            placeholder="14자 이내로 입력해 주세요"
+            validation={validator.teamName.regEx}
+            alertMsg={validator.teamName.alertMsg}
+            inputVal={teamName}
+            setInput={setTeamName}
+          />
+          <TeamInput
+            label="팀 인원 수"
+            placeholder="팀의 인원 수를 입력해주세요"
+            validation={validator.teamMember.regEx}
+            alertMsg={validator.teamMember.alertMsg}
+            pattern="\d*"
+            inputVal={teamMember}
+            setInput={setTeamMember}
+          />
+        </StForm>
+        <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'다음'} handler={toNext} />
+      </StInvite>
+    </>
   );
 }
 
