@@ -1,10 +1,10 @@
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import styled from 'styled-components';
-import ImageDiv from '@src/components/common/ImageDiv';
+import ImageDiv from '@common/ImageDiv';
 import { imgLetter } from 'public/assets/images/index';
 import TeamInput from '@src/components/invite/TeamInput';
-import TextTop from '@src/components/common/TextTop';
-import BottomButton from '@src/components/common/BottomButton';
+import TextTop from '@common/TextTop';
+import BottomButton from '@common/BottomButton';
 import { COLOR } from '@src/styles/color';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useState } from 'react';
@@ -12,7 +12,7 @@ import router from 'next/router';
 import { useMutation } from 'react-query';
 import { getTeamInfo } from '@src/services';
 import { TeamInfoData } from '@src/services/types';
-import ToolTip from '@src/components/common/ToolTip';
+import ToolTip from '@common/ToolTip';
 
 function Invite() {
   useManageScroll();

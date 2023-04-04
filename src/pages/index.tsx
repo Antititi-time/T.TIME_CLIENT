@@ -1,14 +1,14 @@
 import styled, { keyframes } from 'styled-components';
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
-import ImageDiv from '@src/components/common/ImageDiv';
+import ImageDiv from '@common/ImageDiv';
 import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from 'public/assets/images';
-import BottomButton from '@src/components/common/BottomButton';
+import BottomButton from '@common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import ToolTip from '@src/components/common/ToolTip';
+import ToolTip from '@common/ToolTip';
 
 function Home() {
   const [isLogin, setIsLogIn] = useState(false);

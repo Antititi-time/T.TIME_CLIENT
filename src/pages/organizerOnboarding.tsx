@@ -4,13 +4,13 @@ import Slider from 'react-slick';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import BottomButton from '@src/components/common/BottomButton';
-import ImageDiv from '@src/components/common/ImageDiv';
+import BottomButton from '@common/BottomButton';
+import ImageDiv from '@common/ImageDiv';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { ORGANIZER_SLIDER_ITEMS } from '@src/constants/organizerOnboarding/organizerSliderItems';
-import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
-import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
-import ToolTip from '@src/components/common/ToolTip';
+import GoogleLoginButton from '@common/GoogleLoginButton';
+import KakaoLoginButton from '@common/KakaoLoginButton';
+import ToolTip from '@common/ToolTip';
 
 function OrganizerOnboarding() {
   const sliderRef = useRef<Slider>(null);

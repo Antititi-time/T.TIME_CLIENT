@@ -1,11 +1,11 @@
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import TextTop from '@src/components/common/TextTop';
+import TextTop from '@common/TextTop';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgJoin, imgJoinLogo } from 'public/assets/images';
-import ImageDiv from '@src/components/common/ImageDiv';
-import BottomButton from '@src/components/common/BottomButton';
+import ImageDiv from '@common/ImageDiv';
+import BottomButton from '@common/BottomButton';
 
 import { useRouter } from 'next/router';
 import { enterChat, getCompleted } from '@src/services';
@@ -14,13 +14,13 @@ import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
 import { getTeamData } from '@src/services';
-import GoogleLoginButton from '@src/components/common/GoogleLoginButton';
-import KakaoLoginButton from '@src/components/common/KakaoLoginButton';
+import GoogleLoginButton from '@common/GoogleLoginButton';
+import KakaoLoginButton from '@common/KakaoLoginButton';
 import { useEffect, useState } from 'react';
 import { DOMAIN } from '@src/constants/domain';
 import { TeamInfoData } from '@src/services/types';
 
-import ToolTip from '@src/components/common/ToolTip';
+import ToolTip from '@common/ToolTip';
 
 interface ctxType {
   query: {

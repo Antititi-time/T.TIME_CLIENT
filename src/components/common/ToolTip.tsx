@@ -28,11 +28,11 @@ function ToolTip({ top }: StToolTipProps) {
           <ImageDiv src={imgToolTipIcon} alt="주최자 프로필 사진" className="imgToolTipIcon" fill={true} />
         </StToolTipIcon>
       </a>
-      {alert === true ? (
+      {alert && (
         <StMessageBox>
           <StMessage>T-time에 제안해주세요.</StMessage>
         </StMessageBox>
-      ) : null}
+      )}
     </StToolTip>
   );
 }

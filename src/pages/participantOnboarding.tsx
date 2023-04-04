@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import Link from 'next/link';
-import LogoTop from '@src/components/common/LogoTop';
-import BottomButton from '@src/components/common/BottomButton';
-import ImageDiv from '@src/components/common/ImageDiv';
-import ToolTip from '@src/components/common/ToolTip';
+import LogoTop from '@common/LogoTop';
+import BottomButton from '@common/BottomButton';
+import ImageDiv from '@common/ImageDiv';
+import ToolTip from '@common/ToolTip';
 
 import {
   imgParticipantFirst,

@@ -1,4 +1,4 @@
-import LogoTop from '@src/components/common/LogoTop';
+import LogoTop from '@common/LogoTop';
 import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
@@ -7,8 +7,8 @@ import { getMyPage } from '@src/services';
 import router from 'next/router';
 import { useState } from 'react';
 import NonePage from '@src/components/myPage/NonePage';
-import BottomButton from '@src/components/common/BottomButton';
-import ToolTip from '@src/components/common/ToolTip';
+import BottomButton from '@common/BottomButton';
+import ToolTip from '@common/ToolTip';
 
 interface myPageDataType {
   date: string;
