@@ -1,18 +1,19 @@
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import styled from 'styled-components';
-import TextTop from '@src/components/common/TextTop';
+import TextTop from '@common/TextTop';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { imgJoinLogo } from 'public/assets/images';
 import { imgInvitation } from 'public/assets/images';
-import ImageDiv from '@src/components/common/ImageDiv';
-import BottomButton from '@src/components/common/BottomButton';
+import ImageDiv from '@common/ImageDiv';
+import BottomButton from '@common/BottomButton';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
 import Link from 'next/link';
 import { DOMAIN } from '@src/constants/domain';
+import ToolTip from '@common/ToolTip';
 
 interface ctxType {
   query: {
@@ -44,6 +45,7 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
         <InviteModal teamName={teamName} setModalState={setModalState} teamId={String(router.query.teamId)} />
       ) : null}
       <TextTop text={'초대장 만들기'} />
+      <ToolTip top={5.8} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
         <StTeamName>&apos;{teamName}&apos;</StTeamName>

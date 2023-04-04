@@ -1,6 +1,6 @@
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import styled from 'styled-components';
-import LogoTop from '@src/components/common/LogoTop';
+import LogoTop from '@common/LogoTop';
 import ResultFrame from '@src/components/teamResult/ResultFrame';
 import BottomButtonContainer from '@src/components/teamResult/BottomButtonContainer';
 import { useState, useEffect } from 'react';
@@ -9,13 +9,14 @@ import UnfinishedResult from '../../../components/teamResult/UnfinishedResult';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getCompleted } from '../../../services/index';
-import LoadingView from '@src/components/common/LoadingView';
+import LoadingView from '@common/LoadingView';
 import { getTeamData } from '@src/services/index';
 import { TeamInfoData } from '@src/services/types';
 import { DOMAIN } from '@src/constants/domain';
 import Link from 'next/link';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
+import ToolTip from '@common/ToolTip';
 
 interface ctxType {
   query: {
@@ -61,6 +62,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
         url={DOMAIN + '/myResult/' + teamId + '/noUser'}
       />
       <LogoTop />
+      <ToolTip top={5.8} />
       <Link href="/myPage">
         <StMypageLink>지난 T.time 확인하기</StMypageLink>
       </Link>

@@ -1,4 +1,4 @@
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import TopBar from '@src/components/chat/TopBar';
 import ChatBody from '@src/components/chat/ChatBody';
 import { useRouter } from 'next/router';

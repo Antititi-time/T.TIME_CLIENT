@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import BottomButton from '@src/components/common/BottomButton';
 import router from 'next/router';
 import { COLOR } from '@src/styles/color';
-
 function Unfinished() {
   return (
     <>
