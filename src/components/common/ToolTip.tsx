@@ -43,7 +43,7 @@ const StToolTip = styled.div<StToolTipProps>`
   position: fixed;
   top: ${(props) => props.top}rem;
   right: 0;
-  z-index: 3;
+  z-index: 6;
 `;
 
 const StMessage = styled.p`
@@ -60,7 +60,7 @@ const StMessageBox = styled.div`
   height: 3.2rem;
   border-radius: 10rem;
   background-color: ${COLOR.WHITE_100};
-  z-index: 2;
+  z-index: 4;
 `;
 
 const StToolTipIcon = styled.div`
@@ -74,7 +74,7 @@ const StToolTipIcon = styled.div`
   height: 4.8rem;
   border-radius: 10rem;
   background-color: ${COLOR.ORANGE_1};
-  z-index: 3;
+  z-index: 5;
   .imgToolTipIcon {
     position: relative;
     width: 2.2rem;
