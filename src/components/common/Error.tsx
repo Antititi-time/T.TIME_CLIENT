@@ -5,7 +5,7 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
-import ToolTip from './ToolTip';
+import ToolTipIcon from '@common/ToolTIpIcon';
 
 interface Errorprops {
   title: string;
@@ -17,7 +17,7 @@ function ErrorPage({ title, desc }: Errorprops) {
     <>
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
       <LogoTop></LogoTop>
-      <ToolTip top={5.8} />
+      <ToolTipIcon top={5.8} />
       <StErrorPage>
         <ImageDiv src={imgErrorChr} alt="에러 캐릭터 사진" className="errorImg" fill />
         <StErrorTextTitle>{title}</StErrorTextTitle>

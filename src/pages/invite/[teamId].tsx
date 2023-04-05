@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
 import Link from 'next/link';
 import { DOMAIN } from '@src/constants/domain';
-import ToolTip from '@common/ToolTip';
+import ToolTipIcon from '@common/ToolTIpIcon';
 
 interface ctxType {
   query: {
@@ -45,7 +45,7 @@ function ConfirmInvite({ teamId, teamName }: ConfirmInviteProps) {
         <InviteModal teamName={teamName} setModalState={setModalState} teamId={String(router.query.teamId)} />
       ) : null}
       <TextTop text={'초대장 만들기'} />
-      <ToolTip top={5.8} />
+      <ToolTipIcon top={5.8} />
       <StInvitationContainer>
         <ImageDiv src={imgInvitation} alt="초대장이미지" className="invitationImg"></ImageDiv>
         <StTeamName>&apos;{teamName}&apos;</StTeamName>

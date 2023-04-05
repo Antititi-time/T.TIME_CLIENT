@@ -12,7 +12,7 @@ import router from 'next/router';
 import { useMutation } from 'react-query';
 import { getTeamInfo } from '@src/services';
 import { TeamInfoData } from '@src/services/types';
-import ToolTip from '@common/ToolTip';
+import ToolTipIcon from '@common/ToolTIpIcon';
 
 function Invite() {
   useManageScroll();
@@ -55,7 +55,7 @@ function Invite() {
   };
   return (
     <>
-      <ToolTip top={5.8} />
+      <ToolTipIcon top={5.8} />
       <StInvite>
         <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
         <TextTop text="초대장 만들기" />
