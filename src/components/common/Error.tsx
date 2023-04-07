@@ -5,7 +5,7 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import styled from 'styled-components';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import { COLOR } from '@src/styles/color';
-import ToolTipIcon from '@common/ToolTIpIcon';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface Errorprops {
   title: string;

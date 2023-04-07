@@ -20,7 +20,7 @@ import { useEffect, useState } from 'react';
 import { DOMAIN } from '@src/constants/domain';
 import { TeamInfoData } from '@src/services/types';
 
-import ToolTipIcon from '@common/ToolTIpIcon';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface ctxType {
   query: {

@@ -8,7 +8,7 @@ import router from 'next/router';
 import { useState } from 'react';
 import NonePage from '@src/components/myPage/NonePage';
 import BottomButton from '@common/BottomButton';
-import ToolTipIcon from '@common/ToolTIpIcon';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface myPageDataType {
   date: string;

@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import InviteModal from '@src/components/shareModule/InviteModal';
 import Link from 'next/link';
 import { DOMAIN } from '@src/constants/domain';
-import ToolTipIcon from '@common/ToolTIpIcon';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface ctxType {
   query: {

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import LogoTop from '@common/LogoTop';
 import BottomButton from '@common/BottomButton';
 import ImageDiv from '@common/ImageDiv';
-import ToolTipIcon from '@common/ToolTIpIcon';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 import {
   imgParticipantFirst,

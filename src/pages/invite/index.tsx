@@ -12,7 +12,7 @@ import router from 'next/router';
 import { useMutation } from 'react-query';
 import { getTeamInfo } from '@src/services';
 import { TeamInfoData } from '@src/services/types';
-import ToolTipIcon from '@common/ToolTIpIcon';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 function Invite() {
   useManageScroll();

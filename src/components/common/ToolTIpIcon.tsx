@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { COLOR } from '@src/styles/color';
-import ImageDiv from '../common/ImageDiv';
+import ImageDiv from './ImageDiv';
 import { imgToolTipIcon } from 'public/assets/images';
 
 interface StToolTipProps {
