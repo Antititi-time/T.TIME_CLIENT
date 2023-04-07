@@ -6,7 +6,7 @@ import Link from 'next/link';
 import LogoTop from '@common/LogoTop';
 import BottomButton from '@common/BottomButton';
 import ImageDiv from '@common/ImageDiv';
-import ToolTip from '@common/ToolTip';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 import {
   imgParticipantFirst,
@@ -35,7 +35,7 @@ function ParticipantOnboarding() {
       <StLogo>
         <LogoTop />
       </StLogo>
-      <ToolTip top={5.8} />
+      <ToolTipIcon top={5.8} />
 
       <StFirstPart>
         <StFirstText>
