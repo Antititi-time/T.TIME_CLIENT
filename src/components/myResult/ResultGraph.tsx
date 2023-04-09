@@ -64,7 +64,6 @@ const StGraphBar = styled.div<graphWidth>`
     background: ${COLOR.IVORY_6};
     border-radius: 1.4rem;
   }
-
   .progressValue {
     width: ${(props: graphWidth) => props.data * 1.84}rem;
     border-radius: 1.4rem;
