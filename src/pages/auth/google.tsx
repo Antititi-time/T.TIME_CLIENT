@@ -20,7 +20,7 @@ function Google() {
       }
     },
     onError: () => {
-      console.error('로그인 요청이 실패했습니다.');
+      alert('로그인 요청이 실패했습니다.');
       router.push(prevPath);
     },
     enabled: !!code,
