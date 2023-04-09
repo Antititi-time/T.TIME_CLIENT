@@ -8,12 +8,11 @@ import ImageDiv from '@common/ImageDiv';
 import BottomButton from '@common/BottomButton';
 
 import { useRouter } from 'next/router';
-import { enterChat, getCompleted } from '@src/services';
+import { enterChat, getTeamData } from '@src/services';
 import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useQuery } from 'react-query';
-import { getTeamData } from '@src/services';
 import GoogleLoginButton from '@common/GoogleLoginButton';
 import KakaoLoginButton from '@common/KakaoLoginButton';
 import { useEffect, useState } from 'react';
@@ -69,19 +68,14 @@ function Join({ teamId, teamData }: JoinProps) {
       });
     },
     onError: (error: IApiError) => {
-      if (error.response.data.message === '중복된 닉네임입니다.') {
-        alert('닉네임은 중복이 불가해요.');
+      if (error.response.data.status === 403) {
+        alert('모든 팀원이 T.time에 참여했어요.');
+        router.push('/');
       }
     },
   });
 
-  const { data: completedResult } = useQuery('getCompleted', () => getCompleted(teamId));
-
   const handleSubmit = () => {
-    if (completedResult?.completed === true) {
-      alert('모든 팀원이 T.time에 참여했어요.');
-      router.push('/');
-    }
     getData.mutate();
   };
 
