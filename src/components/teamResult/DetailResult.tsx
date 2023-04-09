@@ -51,7 +51,7 @@ function DetailResult({ teamId }: TeamResultProps) {
 
   const handleNickname = (nickname: string) => {
     if (nickname.length > 4) {
-      return nickname.slice(0, 3) + '...';
+      return nickname.slice(0, 3) + '..';
     } else {
       return nickname;
     }
@@ -110,7 +110,7 @@ function DetailResult({ teamId }: TeamResultProps) {
               {handleSorting(questionTwoList).map(({ grade, nickname, answer }, index) => (
                 <StAnswerItem key={index}>
                   <StName maxStyle={grade === 5} minStyle={grade === 1}>
-                    {nickname}
+                    {handleNickname(nickname)}
                   </StName>
                   <StAnswer>
                     <span>{grade}</span>
