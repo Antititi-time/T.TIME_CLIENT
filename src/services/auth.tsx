@@ -12,7 +12,16 @@ function LoginChecker({ children }: withLoginCheckerProps) {
 
   const currentURL = Router.asPath.split('/')[1];
   const [checkState, setCheckState] = useState(0);
-  const valid_paths = ['', 'myResult', 'teamResult', 'organizerOnboarding', 'auth'];
+  const valid_paths = [
+    '',
+    'myResult',
+    'teamResult',
+    'organizerOnboarding',
+    'auth',
+    '?utm_source=insta&utm_medium=banner&utm_id=1',
+    '?utm_source=kakaotalk&utm_medium=banner&utm_campaign=sopt&utm_id=2',
+    '?utm_source=email&utm_medium=email&utm_campaign=cold_mail&utm_id=2',
+  ];
   const token = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : '';
   useQuery(['isValid', token], () => getTokenValidation(token), {
     enabled: !valid_paths.includes(currentURL),
