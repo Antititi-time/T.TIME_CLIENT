@@ -32,7 +32,7 @@ function LoginChecker({ children }: withLoginCheckerProps) {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('nickName');
         Router.push('/organizerOnboarding');
-        alert('잘못된 접근입니다. 다시 로그인해주세요');
+        alert('온보딩 화면으로 이동합니다.');
       }
       if (currentURL === 'join' && token) {
         setCheckState(1);
