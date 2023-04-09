@@ -12,6 +12,7 @@ import WatchMyResultButton from './WatchMyResultButton';
 import { useState, useEffect, useRef, SetStateAction, Dispatch } from 'react';
 import { useRouter } from 'next/router';
 import { StaticImageData } from 'next/image';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface ChatBodyProps {
   questionIndex: number;
@@ -66,6 +67,7 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
   return (
     <StChatWrapper>
       <StChatBody ref={scrollRef}>
+        <ToolTipIcon top={7} />
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (

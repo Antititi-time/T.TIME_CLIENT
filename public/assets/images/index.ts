@@ -67,3 +67,5 @@ export { default as imgGoogleIcon } from './img_google_icon.png';
 export { default as imgKakaoIcon } from './img_kakao_icon.png';
 export { default as imgNoHistory } from './img_no_history.png';
 export { default as imgJoinLogo } from './img_logo_join_icon.png';
+
+export { default as imgToolTipIcon } from './img_tooltip_icon.png';

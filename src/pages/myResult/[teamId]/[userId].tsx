@@ -1,11 +1,11 @@
-import SEO from '@src/components/common/SEO';
+import SEO from '@common/SEO';
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
 import { useQuery } from 'react-query';
 import { useEffect, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import ImageDiv from '@src/components/common/ImageDiv';
+import ImageDiv from '@common/ImageDiv';
 import { icDots } from 'public/assets/icons';
 import { UserData } from '@src/mocks/types';
 import { RESULT_MESSAGE } from '@src/constants/myResult/resultMessage';
@@ -14,11 +14,14 @@ import { imgTopLogo } from 'public/assets/images';
 import ResultGraph from '@src/components/myResult/ResultGraph';
 import { getMyResult } from '@src/services';
 import BottomBtnContainer from '@src/components/myResult/BottomBtnContainer';
-import LoadingView from '@src/components/common/LoadingView';
+import LoadingView from '@common/LoadingView';
 import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
 import { imgCenturyGothicLogo } from 'public/assets/images';
 import { DOMAIN } from '@src/constants/domain';
+import ToolTip from '@common/ToolTip';
+import Link from 'next/link';
+
 interface ctxType {
   query: {
     userId: string;
@@ -73,6 +76,10 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         url={DOMAIN + `/myResult/${teamId}/` + userId}
       />
       <LogoTop />
+      <ToolTip top={5.8} />
+      <Link href="/myPage">
+        <StMypageLink>지난 T.time 확인하기</StMypageLink>
+      </Link>
       {resultData ? (
         <StMyResult>
           {modalState && (
@@ -139,6 +146,16 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   );
 }
 export default MyResult;
+
+const StMypageLink = styled.p`
+  display: flex;
+  justify-content: center;
+  margin-top: 2.4rem;
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_B_16};
+  text-decoration-line: underline;
+  text-underline-position: under;
+`;
 
 export const getServerSideProps = async (ctx: ctxType) => {
   const userId = ctx.query.userId;
