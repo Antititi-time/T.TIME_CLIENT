@@ -12,7 +12,6 @@ import { enterChat, getTeamData } from '@src/services';
 import { useMutation } from 'react-query';
 import { TeamData } from '@src/mocks/types';
 import useManageScroll from '@src/hooks/UseManageScroll';
-import { useQuery } from 'react-query';
 import GoogleLoginButton from '@common/GoogleLoginButton';
 import KakaoLoginButton from '@common/KakaoLoginButton';
 import { useEffect, useState } from 'react';
@@ -57,9 +56,6 @@ function Join({ teamId, teamData }: JoinProps) {
       localStorage.setItem('teamId', String(teamId));
     }
   }, [router]);
-  const { data } = useQuery('teamData', () => getTeamData(teamId), {
-    enabled: !!teamId,
-  });
   const getData = useMutation(() => enterChat(teamId, localStorage.getItem('accessToken')), {
     onSuccess: (response: TeamData) => {
       router.push({
@@ -96,13 +92,13 @@ function Join({ teamId, teamData }: JoinProps) {
       <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
         <ToolTipIcon top={5.8} />
-        <StTeamName>&apos;{data?.teamName}&apos;</StTeamName>
+        <StTeamName>&apos;{teamData?.teamName}&apos;</StTeamName>
         <StRowContainer>
           <ImageDiv src={imgJoinLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
           <StInviteComment>에 초대합니다</StInviteComment>
         </StRowContainer>
         <StListContainer>
-          <StList>총 {data?.teamMember}명</StList>
+          <StList>총 {teamData?.teamMember}명</StList>
           <StList>질문 개수: 10개</StList>
           <StList>예상 소요시간: 약 10분 이내</StList>
         </StListContainer>
