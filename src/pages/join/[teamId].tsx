@@ -49,13 +49,11 @@ function Join({ teamId, teamData }: JoinProps) {
   const [isKakaoBrowser, setIsKakaoBrowser] = useState(false);
   useEffect(() => {
     setIsLogin(localStorage.getItem('accessToken'));
+    const isKakao = navigator.userAgent.match('KAKAOTALK');
+    setIsKakaoBrowser(Boolean(isKakao));
+    localStorage.setItem('teamId', String(teamId));
   }, []);
 
-  useEffect(() => {
-    if (router.isReady) {
-      localStorage.setItem('teamId', String(teamId));
-    }
-  }, [router]);
   const getData = useMutation(() => enterChat(teamId, localStorage.getItem('accessToken')), {
     onSuccess: (response: TeamData) => {
       router.push({
@@ -74,11 +72,6 @@ function Join({ teamId, teamData }: JoinProps) {
   const handleSubmit = () => {
     getData.mutate();
   };
-
-  useEffect(() => {
-    const isKakao = navigator.userAgent.match('KAKAOTALK');
-    setIsKakaoBrowser(Boolean(isKakao));
-  }, []);
 
   return (
     <StJoin>
