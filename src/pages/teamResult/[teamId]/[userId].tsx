@@ -45,12 +45,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
       }
     }
   }, [userId]);
-  const { data: completeData, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
-    enabled: router.isReady,
-  });
-  const { data } = useQuery('getTeamData', () => getTeamData(teamId), {
-    initialData: teamData,
-  });
+  const { data: completeData, isLoading } = useQuery('completeData', () => getCompleted(teamId), {});
 
   return (
     <StTeamResult>
@@ -69,7 +64,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
       {completeData ? (
         completeData.completed && !isLoading ? (
           <>
-            {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
+            {modalState ? <TeamModal teamName={teamData?.teamName} setModalState={setModalState} /> : <></>}
             <ResultFrame teamId={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
