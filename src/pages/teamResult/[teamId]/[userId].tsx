@@ -30,6 +30,7 @@ interface TeamResultProps {
 
 function TeamResult({ teamId, teamData }: TeamResultProps) {
   const [modalState, setModalState] = useState(false);
+  const [completeState, setCompleteState] = useState(true);
   const [isUser, setIsUser] = useState(false);
   const router = useRouter();
   const [userId, setUserId] = useState('');
@@ -45,7 +46,14 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
       }
     }
   }, [userId]);
-  const { data: completeData, isLoading } = useQuery('completeData', () => getCompleted(teamId), {});
+  const { data: completeData, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
+    enabled: completeState,
+    onSuccess: (completeData) => {
+      if (completeData.completed) {
+        setCompleteState(false);
+      }
+    },
+  });
 
   return (
     <StTeamResult>
