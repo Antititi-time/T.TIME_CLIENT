@@ -1,7 +1,6 @@
 import SEO from '@common/SEO';
 import LogoTop from 'src/components/common/LogoTop';
 import styled from 'styled-components';
-import { useQuery } from 'react-query';
 import { useEffect, useState } from 'react';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
@@ -40,19 +39,14 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   const [isVisitor, setIsVisitor] = useState(false);
   const { isReady, push } = useRouter();
 
-  const { data } = useQuery('userData', () => getMyResult(userId, teamId), {
-    initialData: myResultData,
-    enabled: !!userId,
-    onSuccess: (data) => {
-      if (data.result.length < 5) push('/unfinished');
-    },
-  });
   const [modalState, setModalState] = useState(false);
   useEffect(() => {
-    setResultData(data);
-    const inputData = setConstantIndex(data?.result[4]?.questionType);
+    if (myResultData.result.length < 5) push('/unfinished');
+    setResultData(myResultData);
+    const inputData = setConstantIndex(myResultData?.result[4]?.questionType);
     setResultCharacter(inputData);
-  }, [data]);
+  }, []);
+
   useEffect(() => {
     if (!isReady) return;
     if (localStorage.getItem('accessToken')) {
@@ -77,9 +71,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-      <Link href="/myPage">
-        <StMypageLink>지난 T.time 확인하기</StMypageLink>
-      </Link>
+
       {resultData ? (
         <StMyResult>
           {modalState && (
@@ -90,6 +82,9 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
               setModalState={setModalState}
             />
           )}
+          <Link href="/myPage">
+            <StMypageLink>지난 T.time 확인하기</StMypageLink>
+          </Link>
           <StResultCard>
             <StInfoContainer>
               <p className="date">{handleDate(resultData.date)}</p>

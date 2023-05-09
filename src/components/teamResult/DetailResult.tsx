@@ -20,10 +20,11 @@ function DetailResult({ teamId }: TeamResultProps) {
   const [questionTwoList, setQuestionTwoList] = useState<TeamDetailResult[]>([]);
   const [currentTab, setCurrentTab] = useState<CategoryType>('협업');
   const { data } = useQuery(
-    ['teamDetailResult', currentTab],
+    ['teamDetailResult', teamId, currentTab],
     () => getTeamDetailResult(teamId, filterQuestionCategory(currentTab)),
     {
       enabled: !!teamId,
+      staleTime: 300000,
       keepPreviousData: true,
     },
   );

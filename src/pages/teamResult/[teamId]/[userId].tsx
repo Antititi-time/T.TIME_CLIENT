@@ -30,6 +30,7 @@ interface TeamResultProps {
 
 function TeamResult({ teamId, teamData }: TeamResultProps) {
   const [modalState, setModalState] = useState(false);
+  const [completeState, setCompleteState] = useState(true);
   const [isUser, setIsUser] = useState(false);
   const router = useRouter();
   const [userId, setUserId] = useState('');
@@ -46,10 +47,12 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
     }
   }, [userId]);
   const { data: completeData, isLoading } = useQuery('completeData', () => getCompleted(teamId), {
-    enabled: router.isReady,
-  });
-  const { data } = useQuery('getTeamData', () => getTeamData(teamId), {
-    initialData: teamData,
+    enabled: completeState,
+    onSuccess: (completeData) => {
+      if (completeData.completed) {
+        setCompleteState(false);
+      }
+    },
   });
 
   return (
@@ -63,13 +66,14 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-      <Link href="/myPage">
-        <StMypageLink>지난 T.time 확인하기</StMypageLink>
-      </Link>
+
       {completeData ? (
         completeData.completed && !isLoading ? (
           <>
-            {modalState ? <TeamModal teamName={data?.teamName} setModalState={setModalState} /> : <></>}
+            {modalState && <TeamModal teamName={teamData?.teamName} setModalState={setModalState} />}
+            <Link href="/myPage">
+              <StMypageLink>지난 T.time 확인하기</StMypageLink>
+            </Link>
             <ResultFrame teamId={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
