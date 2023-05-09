@@ -71,9 +71,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-      <Link href="/myPage">
-        <StMypageLink>지난 T.time 확인하기</StMypageLink>
-      </Link>
+
       {resultData ? (
         <StMyResult>
           {modalState && (
@@ -84,6 +82,9 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
               setModalState={setModalState}
             />
           )}
+          <Link href="/myPage">
+            <StMypageLink>지난 T.time 확인하기</StMypageLink>
+          </Link>
           <StResultCard>
             <StInfoContainer>
               <p className="date">{handleDate(resultData.date)}</p>

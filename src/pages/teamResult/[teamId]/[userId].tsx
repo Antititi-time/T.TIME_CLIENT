@@ -66,13 +66,14 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-      <Link href="/myPage">
-        <StMypageLink>지난 T.time 확인하기</StMypageLink>
-      </Link>
+
       {completeData ? (
         completeData.completed && !isLoading ? (
           <>
-            {modalState ? <TeamModal teamName={teamData?.teamName} setModalState={setModalState} /> : <></>}
+            {modalState && <TeamModal teamName={teamData?.teamName} setModalState={setModalState} />}
+            <Link href="/myPage">
+              <StMypageLink>지난 T.time 확인하기</StMypageLink>
+            </Link>
             <ResultFrame teamId={teamId} />
             <BottomButtonContainer teamId={teamId} userId={userId} isUser={isUser} setModalState={setModalState} />
             <StBackground />
