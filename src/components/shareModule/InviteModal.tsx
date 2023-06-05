@@ -138,7 +138,6 @@ const StArticleTitle = styled.div`
 `;
 const StArticleLink = styled.div`
   width: 100%;
-
   margin-top: 0.4rem;
   ${FONT_STYLES.NEXON_R_14};
   font-size: 1.6rem;
@@ -167,9 +166,9 @@ const StKakaoButton = styled.button`
 `;
 
 const StButtonIcon = styled.img`
+  width: 2.4rem;
   margin-left: 1.8rem;
   margin-right: 4rem;
-  width: 2.4rem;
 `;
 
 const StButtonText = styled.span`
