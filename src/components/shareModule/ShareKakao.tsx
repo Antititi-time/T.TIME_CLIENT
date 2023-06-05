@@ -11,7 +11,6 @@ export const shareKakao = (route: string, name: string, shareType: string) => {
         content: {
           title: `${name}팀 초대장이 도착했어요!`,
           description: '초대장을 열고, 티타임에 입장해보세요.☕️',
-
           imageUrl: process.env.NEXT_PUBLIC_KAKAO_SHARE_IMAGE,
           link: {
             mobileWebUrl: route,
