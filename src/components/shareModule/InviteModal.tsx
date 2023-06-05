@@ -65,6 +65,7 @@ const StBackground = styled.main`
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.2rem);
+  z-index: 6;
 `;
 const StModal = styled.section`
   position: relative;
@@ -73,12 +74,27 @@ const StModal = styled.section`
   margin: 7.6rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
+  z-index: 7;
+  @media screen and (min-width: 1920px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36rem;
+    height: 46.5rem;
+    margin-top: 20.1rem;
+  }
 `;
 const StModalHeader = styled.header`
   display: block;
-  width: 7rem;
-  margin: 2.4rem 12.9rem 0rem 12.9rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 2.4rem;
   ${FONT_STYLES.PRETENDARD_B_20};
+  @media screen and (min-width: 1920px) {
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+    font-size: 2.4rem;
+  }
 `;
 const StInviteArticle = styled.article`
   display: flex;
@@ -90,18 +106,26 @@ const StInviteArticle = styled.article`
   margin: 2.2rem 2.3rem 0 2.3rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_3};
+  @media screen and (min-width: 1920px) {
+    margin-top: 0;
+  }
 `;
 const StArticleTitle = styled.div`
-  width: 22.6rem;
-  text-align: center;
-  ${FONT_STYLES.PRETENDARD_B_14};
+  width: 100%;
+  text-align: left;
+  padding-left: 2.8rem;
+  ${FONT_STYLES.PRETENDARD_B_16};
+  @media screen and (min-width: 1920px) {
+    line-height: 160%;
+  }
 `;
 const StArticleLink = styled.div`
   width: 100%;
-  text-align: center;
+
   margin-top: 0.4rem;
   ${FONT_STYLES.NEXON_R_14};
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+  padding-left: 2.8rem;
 `;
 const StButtonContainer = styled.div`
   margin: 4rem 2.3rem 4rem 2.3rem;
@@ -144,4 +168,7 @@ const StFooter = styled.button`
   margin-top: 4rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_B_16};
+  @media screen and (min-width: 1920px) {
+    margin-top: 0;
+  }
 `;
