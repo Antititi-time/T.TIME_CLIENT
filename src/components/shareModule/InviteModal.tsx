@@ -68,6 +68,9 @@ const StBackground = styled.main`
   z-index: 6;
 `;
 const StModal = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   width: 32.8rem;
   height: 45.3rem;
@@ -75,6 +78,11 @@ const StModal = styled.section`
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   z-index: 7;
+  @media screen and (min-width: 766px) {
+    width: 41.5rem;
+    height: 46.5rem;
+    margin-top: 24.8rem;
+  }
   @media screen and (min-width: 1920px) {
     display: flex;
     flex-direction: column;
@@ -90,6 +98,11 @@ const StModalHeader = styled.header`
   text-align: center;
   margin-top: 2.4rem;
   ${FONT_STYLES.PRETENDARD_B_20};
+  @media screen and (min-width: 766px) {
+    margin-top: 2.8rem;
+    margin-bottom: 2.4rem;
+    font-size: 2.4rem;
+  }
   @media screen and (min-width: 1920px) {
     margin-top: 2.8rem;
     margin-bottom: 2.8rem;
@@ -106,7 +119,11 @@ const StInviteArticle = styled.article`
   margin: 2.2rem 2.3rem 0 2.3rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_3};
+  @media screen and (min-width: 766px) {
+    width: 35.5rem;
+  }
   @media screen and (min-width: 1920px) {
+    width: 28.2rem;
     margin-top: 0;
   }
 `;
@@ -165,10 +182,14 @@ const StFooter = styled.button`
   align-items: center;
   width: 100%;
   height: 6.8rem;
-  margin-top: 4rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
+  z-index: 7;
   ${FONT_STYLES.NEXON_B_16};
   @media screen and (min-width: 1920px) {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: 766px) {
     margin-top: 0;
   }
 `;
