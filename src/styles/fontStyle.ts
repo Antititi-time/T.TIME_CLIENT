@@ -97,6 +97,8 @@ export const FONT = ({ font, size, weight, height }: Font) => css`
 
 export const FONT_STYLES = {
   PRETENDARD_R_14: FONT({ font: 'Pretendard-REGULAR', size: 14, weight: 'R', height: 22 }),
+  PRETENDARD_R_20: FONT({ font: 'Pretendard-REGULAR', size: 20, weight: 'R', height: 30 }),
+  PRETENDARD_R_24: FONT({ font: 'Pretendard-REGULAR', size: 24, weight: 'R', height: 36 }),
   PRETENDARD_M_12: FONT({ font: 'Pretendard', size: 12, weight: 'M', height: 15.6 }),
   PRETENDARD_M_14: FONT({ font: 'Pretendard', size: 14, weight: 'M', height: 22 }),
   PRETENDARD_M_20: FONT({ font: 'Pretendard', size: 20, weight: 'M', height: 22 }),
@@ -106,6 +108,7 @@ export const FONT_STYLES = {
   PRETENDARD_B_14: FONT({ font: 'Pretendard-BOLD', size: 14, weight: 'B', height: 22 }),
   PRETENDARD_B_16: FONT({ font: 'Pretendard-BOLD', size: 16, weight: 'B', height: 22.4 }),
   PRETENDARD_B_20: FONT({ font: 'Pretendard-BOLD', size: 20, weight: 'B', height: 24 }),
+  PRETENDARD_B_24: FONT({ font: 'Pretendard-BOLD', size: 24, weight: 'B', height: 33.6 }),
   PRETENDARD_EB_20: FONT({ font: 'Pretendard-EXTRABOLD', size: 20, weight: 'EB', height: 24 }),
   NEXON_R_12: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 12, weight: 'R', height: 14 }),
   NEXON_R_13: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 13, weight: 'R', height: 14 }),
@@ -118,6 +121,8 @@ export const FONT_STYLES = {
   NEXON_B_16: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 16, weight: 'B', height: 14 }),
   NEXON_B_20: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 20, weight: 'B', height: 23 }),
   NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 22, weight: 'B', height: 25 }),
+  NEXON_B_24: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 24, weight: 'B', height: 36 }),
   NEXON_B_28: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 28, weight: 'B', height: 42 }),
+  NEXON_B_32: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 32, weight: 'B', height: 48 }),
   NEXON_B_40: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 40, weight: 'B', height: 60 }),
 };

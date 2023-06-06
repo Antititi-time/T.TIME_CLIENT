@@ -121,7 +121,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
                 </p>
               ))}
             </StRecommendText>
-            <article>
+            <article style={{ width: '100%' }}>
               <StGraphTitle>전체 항목 결과 그래프</StGraphTitle>
               <StGraphContainer>
                 <ResultGraph result={resultData?.result} />
@@ -150,6 +150,9 @@ const StMypageLink = styled.p`
   ${FONT_STYLES.PRETENDARD_B_16};
   text-decoration-line: underline;
   text-underline-position: under;
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+  }
 `;
 
 export const getServerSideProps = async (ctx: ctxType) => {
@@ -179,20 +182,26 @@ const StResultCard = styled.main`
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  @media screen and (min-width: 766px) {
+    width: 69.4rem;
+    min-height: 153.6rem;
+  }
   @media screen and (min-width: 1920px) {
     width: 120rem;
     min-height: 160.9rem;
     padding-top: 3.7rem;
     padding-left: 4rem;
+    padding-right: 4rem;
   }
 `;
 const StInfoContainer = styled.div`
   width: 100%;
+
   .date {
     ${FONT_STYLES.PRETENDARD_M_12};
     color: ${COLOR.GRAY_9E};
     line-height: 1.432rem;
-    @media screen and (min-width: 1920px) {
+    @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_M_20};
     }
   }
@@ -201,7 +210,7 @@ const StInfoContainer = styled.div`
     margin: 0.8rem 0 1.2rem 0;
     color: ${COLOR.GRAY_7E};
     line-height: 2.24rem;
-    @media screen and (min-width: 1920px) {
+    @media screen and (min-width: 766px) {
       ${FONT_STYLES.NEXON_B_28};
       margin-bottom: 0;
     }
@@ -210,16 +219,22 @@ const StInfoContainer = styled.div`
     ${FONT_STYLES.NEXON_B_22};
     color: ${COLOR.BLACK};
     line-height: 2.64rem;
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.NEXON_B_32};
+      margin-bottom: 0;
+    }
     @media screen and (min-width: 1920px) {
       ${FONT_STYLES.NEXON_B_40};
-      margin-bottom: 0;
     }
   }
   .resultTitle p {
     margin-bottom: 0.5rem;
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.NEXON_B_32};
+      margin-bottom: 0;
+    }
     @media screen and (min-width: 1920px) {
       ${FONT_STYLES.NEXON_B_40};
-      margin-bottom: 0;
     }
   }
   .userName {
@@ -237,6 +252,13 @@ const StTeamResultText = styled.div`
     height: 2.8rem;
     bottom: 0.3rem;
     margin: 0 0.4rem;
+    @media screen and (min-width: 766px) {
+      width: 10.2rem;
+      height: 3.9rem;
+      margin-left: 0.4rem;
+      magrin-right: 0.4rem;
+      top: 0.1rem;
+    }
     @media screen and (min-width: 1920px) {
       width: 12.4rem;
       height: 4.8rem;
@@ -248,8 +270,15 @@ const StTeamResultText = styled.div`
 `;
 const StDotsImage = styled.div`
   width: 2.2rem;
-  height: 0.4rem;
+  min-height: 0.4rem;
   margin: 2.3rem 0 1.2rem 0;
+  @media screen and (min-width: 766px) {
+    padding-top: 1.9rem;
+    margin-bottom: 2.5rem;
+  }
+  @media screen and (min-width: 1920px) {
+    padding-top: 3.9rem;
+  }
 `;
 const StUserImage = styled.img`
   .userImage img {
@@ -259,6 +288,10 @@ const StUserImage = styled.img`
   width: 30rem;
   height: 20rem;
   margin: 6.2rem 7.6rem 5rem 7.6rem;
+  @media screen and (min-width: 766px) {
+    width: 48rem;
+    height: 32rem;
+  }
 `;
 const StResultTitle = styled.div`
   display: flex;
@@ -268,11 +301,20 @@ const StResultTitle = styled.div`
   height: 4.2rem;
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.PRETENDARD_EB_20};
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_32};
+  }
   white-space: nowrap;
   .feedback {
     margin-bottom: 0.4rem;
     color: ${COLOR.BLUE_TEXT};
     ${FONT_STYLES.PRETENDARD_B_12};
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.PRETENDARD_B_20};
+    }
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.PRETENDARD_B_24};
+    }
   }
 `;
 const StResultDetail = styled.div`
@@ -282,13 +324,19 @@ const StResultDetail = styled.div`
   p {
     display: flex;
     justify-content: center;
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.PRETENDARD_R_20};
+    }
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.PRETENDARD_R_24};
+    }
   }
 `;
 const StRecommendText = styled.article`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 30.4rem;
+  width: 100%;
   height: auto;
   padding: 1.6rem 1.1rem 1.6rem 1.1rem;
   margin: 1.8rem 0 4.4rem 0;
@@ -299,6 +347,14 @@ const StRecommendText = styled.article`
   ${FONT_STYLES.PRETENDARD_M_12};
   line-height: 1.8rem;
   white-space: pre-wrap;
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_R_20};
+    padding-left: 2.4rem;
+  }
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.PRETENDARD_R_24};
+    padding-left: 3.5rem;
+  }
   p {
     margin: 0.35rem 0rem 0.35rem 0.9rem;
     text-indent: -0.9rem;
@@ -309,9 +365,12 @@ const StGraphTitle = styled.p`
   width: 30.4rem;
   ${FONT_STYLES.NEXON_B_16};
   white-space: nowrap;
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_24};
+  }
 `;
 const StGraphContainer = styled.article`
-  width: 30.4rem;
+  width: 100%;
   height: 15rem;
   padding: 2.5rem 1.5rem 2.5rem 2rem;
   margin: 1rem 0 4.6rem 0;
