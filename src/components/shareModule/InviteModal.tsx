@@ -184,10 +184,6 @@ const StFooter = styled.button`
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
   z-index: 7;
   ${FONT_STYLES.NEXON_B_16};
-  @media screen and (min-width: 1920px) {
-    margin-top: 0;
-  }
-
   @media screen and (min-width: 766px) {
     margin-top: 0;
   }
