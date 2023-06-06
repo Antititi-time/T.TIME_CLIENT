@@ -104,6 +104,8 @@ export const FONT_STYLES = {
   PRETENDARD_M_20: FONT({ font: 'Pretendard', size: 20, weight: 'M', height: 22 }),
   PRETENDARD_SB_12: FONT({ font: 'Pretendard-SEMIBOLD', size: 12, weight: 'SB', height: 14 }),
   PRETENDARD_SB_14: FONT({ font: 'Pretendard-SEMIBOLD', size: 14, weight: 'SB', height: 14 }),
+  PRETENDARD_SB_20: FONT({ font: 'Pretendard-SEMIBOLD', size: 20, weight: 'SB', height: 30 }),
+  PRETENDARD_SB_24: FONT({ font: 'Pretendard-SEMIBOLD', size: 24, weight: 'SB', height: 36 }),
   PRETENDARD_B_12: FONT({ font: 'Pretendard-BOLD', size: 12, weight: 'B', height: 14 }),
   PRETENDARD_B_14: FONT({ font: 'Pretendard-BOLD', size: 14, weight: 'B', height: 22 }),
   PRETENDARD_B_16: FONT({ font: 'Pretendard-BOLD', size: 16, weight: 'B', height: 22.4 }),

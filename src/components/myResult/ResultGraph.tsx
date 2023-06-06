@@ -39,7 +39,6 @@ export default ResultGraph;
 
 const StGraphContent = styled.div`
   display: flex;
-  justify-content: space-around;
   margin-bottom: 0.7rem;
 `;
 const StGraphName = styled.div`
@@ -47,6 +46,16 @@ const StGraphName = styled.div`
   width: 4.2rem;
   margin-right: 1rem;
   white-space: nowrap;
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_SB_20};
+    width: 7.1rem;
+    margin-right: 4rem;
+  }
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.PRETENDARD_SB_24};
+    width: 8.4rem;
+    margin-right: 4.8rem;
+  }
 `;
 
 const graphAnimation = () => keyframes`

@@ -382,6 +382,11 @@ const StGraphContainer = styled.article`
   background-color: ${COLOR.IVORY_5};
   @media screen and (min-width: 766px) {
     height: 24.3rem;
+    padding: 2.2rem 2.6rem 2rem 2.6rem;
+  }
+  @media screen and (min-width: 1920px) {
+    height: 24.3rem;
+    padding-left: 5.5rem;
   }
 `;
 const StCardFooter = styled.footer`
