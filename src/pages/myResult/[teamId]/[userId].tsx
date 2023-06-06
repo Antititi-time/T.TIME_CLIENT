@@ -359,6 +359,9 @@ const StRecommendText = styled.article`
     margin: 0.35rem 0rem 0.35rem 0.9rem;
     text-indent: -0.9rem;
     white-space: pre-wrap;
+    @media screen and (min-width: 766px) {
+      white-space: nowrap;
+    }
   }
 `;
 const StGraphTitle = styled.p`
