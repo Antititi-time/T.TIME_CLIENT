@@ -179,6 +179,12 @@ const StResultCard = styled.main`
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  @media screen and (min-width: 1920px) {
+    width: 120rem;
+    min-height: 160.9rem;
+    padding-top: 3.7rem;
+    padding-left: 4rem;
+  }
 `;
 const StInfoContainer = styled.div`
   width: 100%;
