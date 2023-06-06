@@ -72,6 +72,13 @@ const StGraphBar = styled.div<graphWidth>`
     margin-right: 1.4rem;
     background: ${COLOR.IVORY_6};
     border-radius: 1.4rem;
+    @media screen and (min-width: 766px) {
+      width: 42.6rem;
+      height: 1.2rem;
+    }
+    @media screen and (min-width: 1920px) {
+      width: 80.2rem;
+    }
   }
   .progressValue {
     width: ${(props: graphWidth) => props.data * 1.84}rem;
@@ -81,6 +88,13 @@ const StGraphBar = styled.div<graphWidth>`
     z-index: 1;
     animation-name: ${graphAnimation};
     animation-duration: 6s;
+    @media screen and (min-width: 766px) {
+      width: ${(props: graphWidth) => props.data * 4.26}rem;
+      height: 1.2rem;
+    }
+    @media screen and (min-width: 1920px) {
+      width: ${(props: graphWidth) => props.data * 8.02}rem;
+    }
   }
 `;
 const StGraphScore = styled.p`
@@ -89,4 +103,7 @@ const StGraphScore = styled.p`
   width: 1.4rem;
   ${FONT_STYLES.PRETENDARD_B_12};
   color: ${COLOR.BLUE_1};
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+  }
 `;
