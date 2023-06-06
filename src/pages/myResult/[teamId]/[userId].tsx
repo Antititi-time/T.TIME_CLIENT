@@ -368,6 +368,9 @@ const StGraphTitle = styled.p`
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_B_24};
   }
+  @media screen and (min-width: 1920px) {
+    margin-top: 5.3rem;
+  }
 `;
 const StGraphContainer = styled.article`
   width: 100%;
@@ -377,6 +380,9 @@ const StGraphContainer = styled.article`
   border-radius: 1.4rem;
   border: 0.2rem solid ${COLOR.IVORY_3};
   background-color: ${COLOR.IVORY_5};
+  @media screen and (min-width: 766px) {
+    height: 24.3rem;
+  }
 `;
 const StCardFooter = styled.footer`
   display: flex;
@@ -386,9 +392,17 @@ const StCardFooter = styled.footer`
   height: 5.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_R_12};
+  white-space: nowrap;
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_R_16};
+  }
   img {
     width: 5.8rem;
     height: 3rem;
     margin-bottom: 1.2rem;
+    @media screen and (min-width: 766px) {
+      width: 8.7rem;
+      height: 4.5rem;
+    }
   }
 `;
