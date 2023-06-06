@@ -47,12 +47,12 @@ const StGraphName = styled.div`
   margin-right: 1rem;
   white-space: nowrap;
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_SB_20};
+    ${FONT_STYLES.PRETENDARD_M_20};
     width: 7.1rem;
     margin-right: 4rem;
   }
   @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.PRETENDARD_SB_24};
+    ${FONT_STYLES.PRETENDARD_M_24};
     width: 8.4rem;
     margin-right: 4.8rem;
   }
@@ -105,5 +105,10 @@ const StGraphScore = styled.p`
   color: ${COLOR.BLUE_1};
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.PRETENDARD_B_24};
+    margin-left: 2.8rem;
+  }
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+    margin-left: 5.4rem;
   }
 `;
