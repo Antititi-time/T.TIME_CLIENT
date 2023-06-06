@@ -192,20 +192,35 @@ const StInfoContainer = styled.div`
     ${FONT_STYLES.PRETENDARD_M_12};
     color: ${COLOR.GRAY_9E};
     line-height: 1.432rem;
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.PRETENDARD_M_20};
+    }
   }
   .teamName {
     ${FONT_STYLES.NEXON_B_16};
     margin: 0.8rem 0 1.2rem 0;
     color: ${COLOR.GRAY_7E};
     line-height: 2.24rem;
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.NEXON_B_28};
+      margin-bottom: 0;
+    }
   }
   .resultTitle {
     ${FONT_STYLES.NEXON_B_22};
     color: ${COLOR.BLACK};
     line-height: 2.64rem;
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.NEXON_B_40};
+      margin-bottom: 0;
+    }
   }
   .resultTitle p {
     margin-bottom: 0.5rem;
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.NEXON_B_40};
+      margin-bottom: 0;
+    }
   }
   .userName {
     color: ${COLOR.BLUE_TEXT};
@@ -222,6 +237,13 @@ const StTeamResultText = styled.div`
     height: 2.8rem;
     bottom: 0.3rem;
     margin: 0 0.4rem;
+    @media screen and (min-width: 1920px) {
+      width: 12.4rem;
+      height: 4.8rem;
+      margin-left: 0.4rem;
+      magrin-right: 0.4rem;
+      top: 0.3rem;
+    }
   }
 `;
 const StDotsImage = styled.div`
