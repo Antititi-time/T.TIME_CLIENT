@@ -30,4 +30,9 @@ const StWatchMyResultButton = styled.div`
   bottom: 0;
   z-index: 1;
   background-color: ${COLOR.WHITE_100};
+
+  @media screen and (min-width: 1920px) {
+    margin: 0 -40rem;
+    padding: 0 60rem;
+  }
 `;

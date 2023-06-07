@@ -126,6 +126,10 @@ const StChatWrapper = styled.div`
   min-height: 100vh;
   background-color: ${COLOR.IVORY_1};
   z-index: 1;
+
+  @media screen and (min-width: 1920px) {
+    padding: 0 40rem;
+  }
 `;
 
 const StEmoticonWrapper = styled.div``;
@@ -180,7 +184,7 @@ const StInputQuestion = styled.div`
   display: inline-block;
   position: relative;
   top: -1.2rem;
-  width: auto;
+  width: fit-content;
   height: 100%;
   padding: 0.8rem 1.2rem;
   margin: 1rem 7.3rem 0rem 6.2rem;
@@ -214,10 +218,10 @@ const StPosition = styled.div`
 `;
 
 const StAnswer = styled.div`
-  display: inline-block;
+  display: table;
   position: relative;
   max-width: 23.1rem;
-  width: auto;
+  width: fit-content;
   height: auto;
   padding: 0.8rem 1.2rem;
   margin-bottom: 1.8rem;

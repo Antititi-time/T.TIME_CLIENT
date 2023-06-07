@@ -38,4 +38,8 @@ const StChoiceInput = styled.div`
   background-color: ${COLOR.WHITE_100};
   gap: 1.6rem;
   z-index: 3;
+
+  @media screen and (min-width: 1920px) {
+    margin: 0 -40rem;
+  }
 `;

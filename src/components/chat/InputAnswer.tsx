@@ -95,26 +95,28 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
 export default InputAnswer;
 
 const StSubmitButton = styled.button`
-  position: relative;
-  margin-bottom: 1.7rem;
+  /* position: relative; */
+  /* margin-bottom: 1rem; */
   .SubmitButton {
-    position: fixed;
-    bottom: 2.7rem;
-    right: 1.7rem;
+    /* position: fixed; */
+    /* bottom: 2.7rem; */
+    /* right: 1.7rem; */
   }
 `;
 
 const StCountTextNumber = styled.div`
-  position: absolute;
-  right: 1.8rem;
-  bottom: 0.6rem;
+  /* position: absolute; */
+  /* right: 1.8rem; */
+  /* bottom: 0.6rem; */
+  /* margin-bottom: 1rem; */
+
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
 `;
 
 const StForm = styled.form`
   display: flex;
-
+  justify-content: center;
   align-items: center;
   position: fixed;
   width: 100vw;
@@ -122,20 +124,25 @@ const StForm = styled.form`
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   z-index: 4;
+  padding: 1.5rem 0rem;
   .buttonLogo {
     position: relative;
     width: 2.4rem;
     height: 4rem;
-    margin: 0 0.8rem 2.5rem 1.6rem;
+    margin-right: 1rem;
+    /* margin: 0 0.8rem 2.5rem 1.6rem; */
+  }
+  @media screen and (min-width: 1920px) {
+    margin: 0 -40rem;
   }
 `;
 
 const StInput = styled.textarea`
   width: 71.9%;
   height: 4rem;
-  bottom: 2.4rem;
+  /* bottom: 2.4rem; */
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;
-  margin: 0.8rem 0 2.5rem 0;
+  /* margin: 0.8rem 0 0rem 0; */
   border: 0.1rem solid ${COLOR.GRAY_EC};
   border-radius: 2.6rem;
   color: ${COLOR.BLACK};
