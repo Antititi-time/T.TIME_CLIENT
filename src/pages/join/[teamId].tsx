@@ -82,19 +82,21 @@ function Join({ teamId, teamData }: JoinProps) {
         url={DOMAIN + '/join/' + teamId}
       />
       <TextTop text={'티타임 참여하기'} />
-      <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
       <StMainContainer>
-        <ToolTipIcon top={5.8} />
-        <StTeamName>&apos;{teamData?.teamName}&apos;</StTeamName>
-        <StRowContainer>
-          <ImageDiv src={imgJoinLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
-          <StInviteComment>에 초대합니다</StInviteComment>
-        </StRowContainer>
-        <StListContainer>
-          <StList>총 {teamData?.teamMember}명</StList>
-          <StList>질문 개수: 10개</StList>
-          <StList>예상 소요시간: 약 10분 이내</StList>
-        </StListContainer>
+        <ImageDiv src={imgJoin} alt="T.time_logo" className="imgJoin" fill></ImageDiv>
+        <StMainBox>
+          <ToolTipIcon top={5.8} />
+          <StTeamName>&apos;{teamData?.teamName}&apos;</StTeamName>
+          <StRowContainer>
+            <ImageDiv src={imgJoinLogo} alt="T.time_logo" className="imgCenturyGothicLogo" fill></ImageDiv>
+            <StInviteComment>에 초대합니다</StInviteComment>
+          </StRowContainer>
+          <StListContainer>
+            <StList>총 {teamData?.teamMember}명</StList>
+            <StList>질문 개수: 10개</StList>
+            <StList>예상 소요시간: 약 10분 이내</StList>
+          </StListContainer>
+        </StMainBox>
       </StMainContainer>
       {isLogin ? (
         <>
@@ -134,15 +136,56 @@ const StJoin = styled.div`
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
 
+  /* @media screen and (min-width: 766px) {
+    width: 41.5rem;
+    height: 46.5rem;
+    margin-top: 24.8rem;
+  }
+  @media screen and (min-width: 1920px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36rem;
+    height: 46.5rem;
+    margin-top: 20.1rem;
+  } */
+`;
+
+const StMainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   .imgJoin {
     position: relative;
     width: 16rem;
     height: 11rem;
     margin-top: 8.5rem;
+
+    @media screen and (min-width: 766px) {
+      width: 36rem;
+      height: 25rem;
+      margin-top: 14rem;
+    }
+  }
+
+  @media screen and (min-width: 766px) {
+    /* width: 41.5rem;
+    height: 46.5rem;
+    margin-top: 24.8rem; */
+  }
+  @media screen and (min-width: 1920px) {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: row;
+    /* width: 36rem;
+    height: 46.5rem;
+    margin-top: 20.1rem; */
   }
 `;
 
-const StMainContainer = styled.div`
+const StMainBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,11 +198,32 @@ const StMainContainer = styled.div`
   background-color: ${COLOR.WHITE_100};
   box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
 
+  @media screen and (min-width: 766px) {
+    width: 63.8rem;
+    height: 41.6rem;
+    margin-top: 4.2rem;
+  }
+  @media screen and (min-width: 1920px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120rem;
+    height: 70.2rem;
+    margin-top: 9.7rem;
+    padding-top: 23.3rem;
+    padding-bottom: 23.3rem;
+  }
+
   .imgCenturyGothicLogo {
     position: relative;
     width: 5.2rem;
     height: 3.2rem;
     bottom: 0.4rem;
+
+    @media screen and (min-width: 766px) {
+      width: 10.3rem;
+      height: 6.4rem;
+    }
   }
 `;
 
@@ -167,20 +231,39 @@ const StTeamName = styled.p`
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_16};
   line-height: 2.56rem;
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_24}
+  }
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.NEXON_B_24}
+  }
 `;
 
 const StRowContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 766px) {
+    margin-bottom: 6.6rem;
+  }
+  @media screen and (min-width: 1920px) {
+    margin-bottom: 4.6rem;
+  }
 `;
 
 const StInviteComment = styled.p`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_32}
+  }
 `;
 
 const StListContainer = styled.ol`
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   list-style-type: disc;
 `;
 
@@ -190,6 +273,10 @@ const StList = styled.li`
   }
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_R_16};
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_R_24}
+  }
 `;
 
 const StInfoText = styled.p<{ isLogin: string | null }>`
@@ -198,6 +285,10 @@ const StInfoText = styled.p<{ isLogin: string | null }>`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_M_12};
   text-align: center;
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_M_16};
+  }
 `;
 
 const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
