@@ -153,6 +153,9 @@ const StFifthPart = styled.div`
     width: 42.7rem;
     height: 28rem;
   }
+  @media ${({ theme }) => theme.media.tablet} {
+    color: aquamarine;
+  }
 `;
 
 const StFourthText = styled.p`

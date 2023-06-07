@@ -117,4 +117,5 @@ export const FONT_STYLES = {
   NEXON_B_16: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 16, weight: 'B', height: 14 }),
   NEXON_B_20: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 20, weight: 'B', height: 23 }),
   NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 22, weight: 'B', height: 25 }),
+  NEW_NEXON_B_24: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 24, weight: 'B', height: 36 }),
 };
