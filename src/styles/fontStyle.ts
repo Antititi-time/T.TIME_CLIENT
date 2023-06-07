@@ -111,10 +111,12 @@ export const FONT_STYLES = {
   NEXON_R_14: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 14, weight: 'R', height: 16 }),
   NEXON_R_16: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 16, weight: 'R', height: 18 }),
   NEXON_R_22: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 22, weight: 'R', height: 30.8 }),
+  NEXON_R_24: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 24, weight: 'R', height: 36 }),
   NEXON_OB_22: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 22, weight: 'B', height: 30.8 }),
   NEXON_B_12: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 12, weight: 'B', height: 14 }),
   NEXON_B_14: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 14, weight: 'B', height: 16 }),
   NEXON_B_16: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 16, weight: 'B', height: 14 }),
   NEXON_B_20: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 20, weight: 'B', height: 23 }),
   NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 22, weight: 'B', height: 25 }),
+  NEXON_B_24: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 24, weight: 'B', height: 36 }),
 };
