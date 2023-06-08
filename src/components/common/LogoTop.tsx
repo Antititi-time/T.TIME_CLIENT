@@ -18,7 +18,6 @@ export default LogoTop;
 const StLogoTop = styled.div`
   z-index: 2;
   display: flex;
-  justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
@@ -26,6 +25,15 @@ const StLogoTop = styled.div`
   height: 5.8rem;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(0.5rem);
+
+  @media screen and (max-width: 765px) {
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 766px) and (max-width: 1921px) {
+    justify-content: left;
+    padding-left: 4rem;
+  }
 
   .imgTopLogo {
     position: relative;

@@ -7,6 +7,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import type { ChartOptions } from 'chart.js';
 import { getTeamChartResult } from '@src/services';
+import { useEffect, useState } from 'react';
 
 ChartJS.register();
 
@@ -15,9 +16,21 @@ interface TeamResultProps {
 }
 
 function Chart({ teamId }: TeamResultProps) {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamId), {
     enabled: !!teamId,
   });
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setWindowSize(window.innerWidth);
+    });
+    return () => {
+      window.removeEventListener('resize', () => {
+        setWindowSize(window.innerWidth);
+      });
+    };
+  }, []);
 
   const setInOrder = (data: TeamScore[]) => {
     data.sort(function (a: TeamScore, b: TeamScore) {
@@ -64,7 +77,7 @@ function Chart({ teamId }: TeamResultProps) {
         },
         pointLabels: {
           font: {
-            size: 12,
+            size: windowSize < 766 ? 12 : 24,
             weight: '700',
             family: 'Pretendard',
           },
@@ -134,7 +147,7 @@ const StRadar = styled.div`
 
   @media screen and (min-width: 766px) and (max-width: 1921px) {
     width: 64.3rem;
-    height: 59.2rem;
+    height: 64.3rem;
     margin: 4.6rem 0 12rem 0;
   }
 
