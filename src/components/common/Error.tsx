@@ -39,19 +39,41 @@ const StErrorPage = styled.main`
 
   .errorImg {
     position: relative;
-    width: 23rem;
-    height: 23rem;
     margin-bottom: 2rem;
+
+    @media screen and (max-width: 765px) {
+      width: 23rem;
+      height: 23rem;
+    }
+
+    @media screen and (min-width: 766px) {
+      width: 32rem;
+      height: 32rem;
+    }
   }
 `;
 
 const StErrorTextTitle = styled.p`
-  ${FONT_STYLES.PRETENDARD_B_20}
   color: ${COLOR.ORANGE_TEXT};
   margin-bottom: 0.8rem;
+
+  @media screen and (max-width: 765px) {
+    ${FONT_STYLES.PRETENDARD_B_20}
+  }
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_32}
+  }
 `;
 
 const StErrorTextText = styled.p`
-  ${FONT_STYLES.PRETENDARD_B_14}
-  color: ${COLOR.GRAY_7E}
+  color: ${COLOR.GRAY_7E};
+
+  @media screen and (max-width: 765px) {
+    ${FONT_STYLES.PRETENDARD_B_14}
+  }
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_24}
+  }
 `;
