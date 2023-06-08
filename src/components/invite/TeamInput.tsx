@@ -67,15 +67,12 @@ const StInput = styled.input`
     transform: none;
   }
   width: 121.428571429%;
-  /* width: 29.4rem;
-  height: 4.8rem; */
   padding-top: 1.82142856rem;
   padding-bottom: 2.06428571rem;
   padding-left: 1.45714285rem;
   border: 0.1rem solid #7e7e7e;
   border-radius: 0.60714286rem;
   background: #ffffff;
-  font-size: 1.7rem;
   ${FONT_STYLES.NEXON_R_16};
   transform: scale(0.8235);
   transform-origin: left top;

@@ -102,8 +102,8 @@ export const getServerSideProps = async (ctx: ctxType) => {
 
 const StConfirmInvite = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   width: 100vw;
   min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
@@ -196,7 +196,7 @@ const StInviteComment = styled.p`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
   @media screen and (min-width: 766px) {
-    font-size: 3.2rem; //새로운 font
+    font-size: 3.2rem;
   }
 `;
 
