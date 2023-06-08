@@ -100,18 +100,20 @@ function Join({ teamId, teamData }: JoinProps) {
       </StMainContainer>
       {isLogin ? (
         <>
-          <StLoginButtonContainer onClick={handleSubmit} isKakaoBrowser={isKakaoBrowser}>
+          <StLoginContainer onClick={handleSubmit} isKakaoBrowser={isKakaoBrowser}>
             <StInfoText isLogin={isLogin}>지금 바로 T.time 시작해보세요!</StInfoText>
             <BottomButton width={28.2} color={COLOR.ORANGE_1} text={'시작하기'} />
-          </StLoginButtonContainer>
+          </StLoginContainer>
         </>
       ) : (
         <>
-          <StLoginButtonContainer isKakaoBrowser={isKakaoBrowser}>
+          <StLoginContainer isKakaoBrowser={isKakaoBrowser}>
             <StInfoText isLogin={isLogin}>T.time 참여를 위해 로그인이 필요해요!</StInfoText>
-            {!isKakaoBrowser && <GoogleLoginButton />}
-            <KakaoLoginButton />
-          </StLoginButtonContainer>
+            <StLoginButtonContainer isKakaoBrowser={isKakaoBrowser}>
+              {!isKakaoBrowser && <GoogleLoginButton />}
+              <KakaoLoginButton />
+            </StLoginButtonContainer>
+          </StLoginContainer>
         </>
       )}
     </StJoin>
@@ -280,6 +282,22 @@ const StInfoText = styled.p<{ isLogin: string | null }>`
   }
 `;
 
+const StLoginContainer = styled.div<{ isKakaoBrowser: boolean }>`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 1rem;
+  margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
+
+  button:first-child {
+    margin-bottom: 1.6rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    margin-top: 3.8rem;
+  }
+`;
+
 const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
   display: flex;
   flex-direction: column;
@@ -289,5 +307,11 @@ const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
 
   button:first-child {
     margin-bottom: 1.6rem;
+  }
+  @media screen and (min-width: 766px) {
+    flex-direction: row;
+    width: 62.8rem;
+    justify-content: space-around;
+    margin-top: 1.6rem;
   }
 `;
