@@ -107,41 +107,109 @@ export default SimpleResult;
 const StSimpleResult = styled.div``;
 
 const StDate = styled.p`
-  margin-bottom: 0.8rem;
   color: ${COLOR.GRAY_9E};
-  ${FONT_STYLES.PRETENDARD_M_12};
-  line-height: 1.432rem;
+
+  @media all and (max-width: 765px) {
+    ${FONT_STYLES.PRETENDARD_M_12};
+    margin-bottom: 0.8rem;
+    line-height: 1.56rem;
+  }
+
+  @media all and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_R_20};
+    margin-bottom: 1.2rem;
+    line-height: 2.2rem;
+  }
 `;
 
 const StTeamName = styled.p`
   margin-bottom: 0.8rem;
   color: ${COLOR.GRAY_7E};
-  ${FONT_STYLES.NEXON_B_16};
-  line-height: 2.24rem;
+
+  @media screen and (max-width: 765px) {
+    ${FONT_STYLES.NEXON_B_16};
+    line-height: 2.24rem;
+  }
+
+  @media screen and (min-width: 766px) and (max-width: 1921px) {
+    ${FONT_STYLES.NEXON_B_24};
+    line-height: 3.6rem;
+  }
+
+  @media screen and (min-width: 1922px) {
+    ${FONT_STYLES.NEXON_B_32};
+    line-height: 4.8rem;
+  }
 `;
 
 const StTeamResultText = styled.div`
   display: flex;
   color: ${COLOR.BLACK};
-  ${FONT_STYLES.NEXON_B_22}
   line-height: 2.64rem;
   .logo {
     position: relative;
-    width: 7.2rem;
-    height: 2.8rem;
     bottom: 0.3rem;
     margin: 0 0.4rem;
+
+    @media screen and (max-width: 765px) {
+      width: 7.2rem;
+      height: 2.8rem;
+    }
+
+    @media screen and (min-width: 766px) {
+      width: 14.1rem;
+      height: 4.7rem;
+    }
+  }
+
+  @media screen and (max-width: 765px) {
+    ${FONT_STYLES.NEXON_B_22}
+  }
+
+  @media screen and (min-width: 766px) and (max-width: 1921px) {
+    ${FONT_STYLES.NEXON_B_32}
+  }
+
+  @media screen and (min-width: 1922px) {
+    ${FONT_STYLES.NEXON_B_40};
+    line-height: 4.8rem;
   }
 `;
 
 const StImageContainer = styled.div`
   display: flex;
-  gap: 1.2rem;
-  margin: 5.2rem 0 2.8rem 2.1rem;
   .emoticon {
     position: relative;
-    width: 12.5rem;
-    height: 12.5rem;
+
+    @media screen and (max-width: 765px) {
+      width: 12.5rem;
+      height: 12.5rem;
+    }
+
+    @media screen and (min-width: 766px) and (max-width: 1921px) {
+      width: 24rem;
+      height: 24rem;
+    }
+
+    @media screen and (min-width: 1922px) {
+      width: 32rem;
+      height: 32rem;
+    }
+  }
+
+  @media screen and (max-width: 765px) {
+    margin: 5.2rem 0 2.8rem 2.1rem;
+    gap: 1.2rem;
+  }
+
+  @media screen and (min-width: 766px) and (max-width: 1921px) {
+    margin: 6.2rem 9.1rem 4rem 6.5rem;
+    gap: 3.2rem;
+  }
+
+  @media screen and (min-width: 1922px) {
+    margin: 3.8rem 26.4rem 4rem 22.4rem;
+    gap: 3.2rem;
   }
 `;
 
@@ -153,15 +221,26 @@ const StTeamInfoDetail = styled.div`
   margin-bottom: 5.2rem;
   text-align: center;
   & > p:first-of-type {
-    margin-bottom: 0.6rem;
     color: ${COLOR.BLACK};
-    ${FONT_STYLES.PRETENDARD_B_14};
+    @media screen and (max-width: 765px) {
+      margin-bottom: 0.6rem;
+      ${FONT_STYLES.PRETENDARD_B_14};
+    }
+
+    @media screen and (min-width: 766px) {
+      margin-bottom: 2.4rem;
+      ${FONT_STYLES.PRETENDARD_B_24};
+    }
   }
   & > p:nth-of-type(2) {
     color: ${COLOR.BLACK};
-    ${FONT_STYLES.PRETENDARD_B_20};
-    & > span {
-      ${FONT_STYLES.PRETENDARD_EB_20};
+
+    @media screen and (max-width: 765px) {
+      ${FONT_STYLES.PRETENDARD_B_20};
+    }
+
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.NEXON_B_32};
     }
   }
 `;
