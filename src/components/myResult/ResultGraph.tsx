@@ -39,7 +39,6 @@ export default ResultGraph;
 
 const StGraphContent = styled.div`
   display: flex;
-  justify-content: space-around;
   margin-bottom: 0.7rem;
 `;
 const StGraphName = styled.div`
@@ -47,6 +46,16 @@ const StGraphName = styled.div`
   width: 4.2rem;
   margin-right: 1rem;
   white-space: nowrap;
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_M_20};
+    width: 7.1rem;
+    margin-right: 4rem;
+  }
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.PRETENDARD_M_24};
+    width: 8.4rem;
+    margin-right: 4.8rem;
+  }
 `;
 
 const graphAnimation = () => keyframes`
@@ -63,6 +72,13 @@ const StGraphBar = styled.div<graphWidth>`
     margin-right: 1.4rem;
     background: ${COLOR.IVORY_6};
     border-radius: 1.4rem;
+    @media screen and (min-width: 766px) {
+      width: 42.6rem;
+      height: 1.2rem;
+    }
+    @media screen and (min-width: 1920px) {
+      width: 80.2rem;
+    }
   }
   .progressValue {
     width: ${(props: graphWidth) => props.data * 1.84}rem;
@@ -72,6 +88,13 @@ const StGraphBar = styled.div<graphWidth>`
     z-index: 1;
     animation-name: ${graphAnimation};
     animation-duration: 6s;
+    @media screen and (min-width: 766px) {
+      width: ${(props: graphWidth) => props.data * 4.26}rem;
+      height: 1.2rem;
+    }
+    @media screen and (min-width: 1920px) {
+      width: ${(props: graphWidth) => props.data * 8.02}rem;
+    }
   }
 `;
 const StGraphScore = styled.p`
@@ -80,4 +103,12 @@ const StGraphScore = styled.p`
   width: 1.4rem;
   ${FONT_STYLES.PRETENDARD_B_12};
   color: ${COLOR.BLUE_1};
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+    margin-left: 2.8rem;
+  }
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+    margin-left: 5.4rem;
+  }
 `;
