@@ -135,20 +135,6 @@ const StJoin = styled.div`
   min-height: calc(var(--vh) * 100);
   padding-bottom: 4rem;
   background-color: ${COLOR.IVORY_1};
-
-  /* @media screen and (min-width: 766px) {
-    width: 41.5rem;
-    height: 46.5rem;
-    margin-top: 24.8rem;
-  }
-  @media screen and (min-width: 1920px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 36rem;
-    height: 46.5rem;
-    margin-top: 20.1rem;
-  } */
 `;
 
 const StMainContainer = styled.div`
@@ -177,19 +163,10 @@ const StMainContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: 766px) {
-    /* width: 41.5rem;
-    height: 46.5rem;
-    margin-top: 24.8rem; */
-  }
   @media screen and (min-width: 1920px) {
     display: flex;
     align-items: center;
     flex-direction: row;
-    /* width: 36rem;
-    height: 46.5rem;
-    
-    margin-top: 20.1rem; */
     width: 120rem;
     height: 70.2rem;
     margin-top: 9.7rem;
@@ -276,7 +253,6 @@ const StInviteComment = styled.p`
 `;
 
 const StListContainer = styled.ol`
-  /* margin-top: 2rem; */
   list-style-type: disc;
 `;
 
