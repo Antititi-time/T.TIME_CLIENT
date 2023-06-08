@@ -47,7 +47,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
           <ImageDiv src={imgErrorChr} alt="error" fill={false} />
         </StUnfinishImage>
       </StTopContainer>
-      <div>
+      <StBottomContainer>
         <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
         <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
         <StCurrentStatus>
@@ -58,7 +58,7 @@ function UnfinishedResult({ completeData }: completeDataType) {
             <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
           </StButtonContainer>
         </CopyToClipboard>
-      </div>
+      </StBottomContainer>
     </StResultCard>
   );
 }
@@ -78,6 +78,8 @@ const StResultCard = styled.main`
   @media screen and (min-width: 766px) {
     width: 68.6rem;
     height: 87.9rem;
+    padding-top: 3.9rem;
+    padding-left: 4rem;
   }
   @media screen and (min-width: 1920px) {
     width: 120rem;
@@ -89,24 +91,37 @@ const StDate = styled.p`
   margin-bottom: 1.2rem;
   color: ${COLOR.GRAY_9E};
   ${FONT_STYLES.PRETENDARD_M_12}
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_R_20};
+  }
 `;
 
 const StTeamName = styled.p`
   margin-bottom: 1.2rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_B_16};
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_32};
+  }
 `;
 const StTeamResultText = styled.div`
   display: flex;
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_22}
-
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_40};
+  }
   .logo {
     position: relative;
     width: 7.2rem;
     height: 2.8rem;
     bottom: 0.3rem;
     margin: 0 0.4rem;
+    @media screen and (min-width: 766px) {
+      width: 11rem;
+      height: 4.7rem;
+      top: 0.4rem;
+    }
   }
 `;
 const StUnfinishImage = styled.div`
@@ -128,7 +143,15 @@ const StInfoTitle = styled.p`
   width: 100%;
   color: ${COLOR.BLACK};
   text-align: center;
+  white-space: nowrap;
   ${FONT_STYLES.PRETENDARD_B_20};
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_32};
+  }
+  @media screen and (min-width: 1920px) {
+    line-height: 4.8rem;
+  }
 `;
 const StInfoDetail = styled.p`
   display: flex;
@@ -139,6 +162,12 @@ const StInfoDetail = styled.p`
   margin-top: 0.8rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_B_14};
+  white-space: nowrap;
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+    margin-top: 1.6rem;
+  }
 `;
 const StCurrentStatus = styled.p`
   display: flex;
@@ -148,6 +177,10 @@ const StCurrentStatus = styled.p`
   margin: 3rem 0 1.3rem 0;
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.PRETENDARD_R_14}
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.PRETENDARD_B_24};
+    margin-bottom: 2.4rem;
+  }
 `;
 const StButtonContainer = styled.div`
   display: flex;
@@ -156,4 +189,12 @@ const StButtonContainer = styled.div`
 `;
 const StTopContainer = styled.div`
   width: 100%;
+`;
+const StBottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 1920px) {
+    min-width: 68rem;
+  }
 `;

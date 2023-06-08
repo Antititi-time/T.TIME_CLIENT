@@ -112,6 +112,7 @@ export const FONT_STYLES = {
   PRETENDARD_B_16: FONT({ font: 'Pretendard-BOLD', size: 16, weight: 'B', height: 22.4 }),
   PRETENDARD_B_20: FONT({ font: 'Pretendard-BOLD', size: 20, weight: 'B', height: 24 }),
   PRETENDARD_B_24: FONT({ font: 'Pretendard-BOLD', size: 24, weight: 'B', height: 33.6 }),
+  PRETENDARD_B_32: FONT({ font: 'Pretendard-BOLD', size: 32, weight: 'B', height: 38 }),
   PRETENDARD_EB_20: FONT({ font: 'Pretendard-EXTRABOLD', size: 20, weight: 'EB', height: 24 }),
   NEXON_R_12: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 12, weight: 'R', height: 14 }),
   NEXON_R_13: FONT({ font: 'NEXON Lv1 Gothic OTF', size: 13, weight: 'R', height: 14 }),
