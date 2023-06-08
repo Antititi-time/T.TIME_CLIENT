@@ -15,7 +15,7 @@ function TeamResult({ teamId }: TeamResultProps) {
   return (
     <StFrame>
       <SimpleResult teamId={teamId} />
-      <StDivder />
+      <StDivider />
       <Chart teamId={teamId} />
       <DetailResult teamId={teamId} />
       <StLogoContainer>
@@ -49,7 +49,7 @@ const StFrame = styled.div`
   }
 `;
 
-const StDivder = styled.div`
+const StDivider = styled.div`
   position: relative;
   left: -2.1rem;
   width: 34.7rem;

@@ -215,7 +215,7 @@ const StBtnWrapper = styled.button`
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 2.4rem 0 2.4rem 0;
+  margin-top: 2.4rem;
 
   @media screen and (min-width: 766px) {
     display: flex;

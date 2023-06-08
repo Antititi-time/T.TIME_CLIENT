@@ -59,8 +59,8 @@ const StNonePage = styled.div`
 const StNoneText = styled.p`
   width: 100%;
   color: ${COLOR.GRAY_9E};
-  text-align: center;
   ${FONT_STYLES.NEXON_B_16};
+  text-align: center;
   line-height: 140%;
 
   @media screen and (min-width: 766px) {
