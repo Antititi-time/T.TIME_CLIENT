@@ -168,6 +168,13 @@ const StMainContainer = styled.div`
       height: 25rem;
       margin-top: 14rem;
     }
+
+    @media screen and (min-width: 1920px) {
+      width: 36rem;
+      height: 25rem;
+      margin-top: 0rem;
+      margin-right: 8rem;
+    }
   }
 
   @media screen and (min-width: 766px) {
@@ -177,11 +184,19 @@ const StMainContainer = styled.div`
   }
   @media screen and (min-width: 1920px) {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     flex-direction: row;
     /* width: 36rem;
     height: 46.5rem;
+    
     margin-top: 20.1rem; */
+    width: 120rem;
+    height: 70.2rem;
+    margin-top: 9.7rem;
+    padding: 23.3rem 0rem;
+    background-color: ${COLOR.WHITE_100};
+    border-radius: 1.2rem;
+    box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
   }
 `;
 
@@ -207,11 +222,9 @@ const StMainBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 120rem;
-    height: 70.2rem;
-    margin-top: 9.7rem;
-    padding-top: 23.3rem;
-    padding-bottom: 23.3rem;
+    height: 65.2rem;
+    border-left: 3px solid ${COLOR.GRAY_EC};
+    box-shadow: none;
   }
 
   .imgCenturyGothicLogo {
