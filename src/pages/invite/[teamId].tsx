@@ -142,7 +142,7 @@ const StInvitationContainer = styled.article`
       width: 10.3rem;
     }
   }
-  @media screen and (min-width: 766px) and (max-width: 1919px) {
+  @media screen and (min-width: 766px) and (max-width: 1920px) {
     height: 70vh;
     width: 89vw;
     gap: 4rem;
@@ -248,7 +248,7 @@ const StBtnContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 1919px) {
+  @media screen and (max-width: 1920px) {
     gap: 2rem;
   }
 `;
