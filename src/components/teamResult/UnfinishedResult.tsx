@@ -204,6 +204,9 @@ const StButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  @media screen and (min-width: 766px) {
+    margin-bottom: 5.6rem;
+  }
   @media screen and (min-width: 1920px) {
     display: none;
   }
