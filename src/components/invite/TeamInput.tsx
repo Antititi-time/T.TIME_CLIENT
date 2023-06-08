@@ -67,8 +67,6 @@ const StInput = styled.input`
     transform: none;
   }
   width: 121.428571429%;
-  /* width: 29.4rem;
-  height: 4.8rem; */
   padding-top: 1.82142856rem;
   padding-bottom: 2.06428571rem;
   padding-left: 1.45714285rem;
