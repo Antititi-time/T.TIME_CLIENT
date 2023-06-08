@@ -95,28 +95,31 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
 export default InputAnswer;
 
 const StSubmitButton = styled.button`
-  /* position: relative; */
-  /* margin-bottom: 1rem; */
+  @media screen and (max-width: 1920px) {
+    position: relative;
+    margin-bottom: 1.7rem;
+  }
   .SubmitButton {
-    /* position: fixed; */
-    /* bottom: 2.7rem; */
-    /* right: 1.7rem; */
+    @media screen and (max-width: 1920px) {
+      position: fixed;
+      bottom: 2.7rem;
+      right: 1.7rem;
+    }
   }
 `;
 
 const StCountTextNumber = styled.div`
-  /* position: absolute; */
-  /* right: 1.8rem; */
-  /* bottom: 0.6rem; */
-  /* margin-bottom: 1rem; */
-
+  @media screen and (max-width: 1920px) {
+    position: absolute;
+    right: 1.8rem;
+    bottom: 0.6rem;
+  }
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
 `;
 
 const StForm = styled.form`
   display: flex;
-  justify-content: center;
   align-items: center;
   position: fixed;
   width: 100vw;
@@ -124,25 +127,32 @@ const StForm = styled.form`
   bottom: 0;
   background-color: ${COLOR.WHITE_100};
   z-index: 4;
-  padding: 1.5rem 0rem;
   .buttonLogo {
     position: relative;
     width: 2.4rem;
     height: 4rem;
-    margin-right: 1rem;
-    /* margin: 0 0.8rem 2.5rem 1.6rem; */
+    margin: 0 0.8rem 2.5rem 1.6rem;
+    @media screen and (min-width: 1920px) {
+      margin: 0rem 1rem;
+    }
   }
   @media screen and (min-width: 1920px) {
     margin: 0 -40rem;
+    justify-content: center;
+    padding: 1.5rem 0rem;
+  }
+  @media screen and (min-width: 744px) {
+    margin: 0 -3.5rem;
+    justify-content: center;
   }
 `;
 
 const StInput = styled.textarea`
-  width: 71.9%;
+  width: 71%;
   height: 4rem;
-  /* bottom: 2.4rem; */
+  bottom: 2.4rem;
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;
-  /* margin: 0.8rem 0 0rem 0; */
+  margin: 0.8rem 0 2.5rem 0;
   border: 0.1rem solid ${COLOR.GRAY_EC};
   border-radius: 2.6rem;
   color: ${COLOR.BLACK};
@@ -154,5 +164,13 @@ const StInput = styled.textarea`
   ${FONT_STYLES.NEXON_R_16};
   &::placeholder {
     color: ${COLOR.GRAY_7E};
+  }
+  @media screen and (min-width: 744px) {
+    width: 82%;
+  }
+  @media screen and (min-width: 1920px) {
+    width: 104rem;
+    bottom: 0rem;
+    margin: 0rem;
   }
 `;

@@ -95,4 +95,7 @@ const StChoiceInput = styled.div`
     margin: 0 -40rem;
     padding: 0 60rem;
   }
+  @media screen and (min-width: 744px) {
+    margin: 0 -3.5rem;
+  }
 `;
