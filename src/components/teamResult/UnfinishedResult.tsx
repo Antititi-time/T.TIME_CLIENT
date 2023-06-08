@@ -35,32 +35,39 @@ function UnfinishedResult({ completeData }: completeDataType) {
 
   return (
     <StResultCard>
-      <StDate>{year + '.' + month + '.' + day}</StDate>
-      <StTeamName>‘{completeData?.teamName}’</StTeamName>
-      <StTeamResultText>
-        <p>팀</p>
-        <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
-        <p>결과</p>
-      </StTeamResultText>
-      <StUnfinishImage>
-        <ImageDiv src={imgErrorChr} alt="error" fill={false} />
-      </StUnfinishImage>
-      <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
-      <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
-      <StCurrentStatus>
-        현재 완료한 팀원 수: {completeData?.completedNumber}/{completeData?.totalNumber}명
-      </StCurrentStatus>
-      <CopyToClipboard text={resultLink}>
-        <StButtonContainer onClick={useCopyLink}>
-          <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
-        </StButtonContainer>
-      </CopyToClipboard>
+      <StTopContainer>
+        <StDate>{year + '.' + month + '.' + day}</StDate>
+        <StTeamName>‘{completeData?.teamName}’</StTeamName>
+        <StTeamResultText>
+          <p>팀</p>
+          <ImageDiv src={imgCenturyGothicLogo} alt="logo" className="logo" fill={true} />
+          <p>결과</p>
+        </StTeamResultText>
+        <StUnfinishImage>
+          <ImageDiv src={imgErrorChr} alt="error" fill={false} />
+        </StUnfinishImage>
+      </StTopContainer>
+      <div>
+        <StInfoTitle>전체 팀 결과를 볼 수 없습니다.</StInfoTitle>
+        <StInfoDetail>아직 다른 팀원들이 티타임 중이에요..!</StInfoDetail>
+        <StCurrentStatus>
+          현재 완료한 팀원 수: {completeData?.completedNumber}/{completeData?.totalNumber}명
+        </StCurrentStatus>
+        <CopyToClipboard text={resultLink}>
+          <StButtonContainer onClick={useCopyLink}>
+            <BottomButton width={27.3} color={COLOR.ORANGE_1} text={'링크 복사하기'} />
+          </StButtonContainer>
+        </CopyToClipboard>
+      </div>
     </StResultCard>
   );
 }
 export default UnfinishedResult;
 
 const StResultCard = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 34.6rem;
   height: 53.7rem;
   padding: 2.5rem 2.1rem 0.8rem 2.1rem;
@@ -68,6 +75,15 @@ const StResultCard = styled.main`
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  @media screen and (min-width: 766px) {
+    width: 68.6rem;
+    height: 87.9rem;
+  }
+  @media screen and (min-width: 1920px) {
+    width: 120rem;
+    height: 72.7rem;
+    flex-direction: row;
+  }
 `;
 const StDate = styled.p`
   margin-bottom: 1.2rem;
@@ -94,10 +110,18 @@ const StTeamResultText = styled.div`
   }
 `;
 const StUnfinishImage = styled.div`
+  display: flex;
+  justify-content: center;
   div img {
     width: 17.9rem;
     height: 17.9rem;
     margin: 3.4rem 6.2rem 2.8rem 6.2rem;
+    @media screen and (min-width: 766px) {
+      width: 32rem;
+      height: 32rem;
+      margin-top: 6.8rem;
+      margin-bottom: 2rem;
+    }
   }
 `;
 const StInfoTitle = styled.p`
@@ -128,5 +152,8 @@ const StCurrentStatus = styled.p`
 const StButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
+`;
+const StTopContainer = styled.div`
   width: 100%;
 `;
