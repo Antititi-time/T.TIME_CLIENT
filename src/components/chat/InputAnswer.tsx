@@ -141,7 +141,7 @@ const StForm = styled.form`
     justify-content: center;
     padding: 1.5rem 0rem;
   }
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 766px) {
     margin: 0 -3.5rem;
     justify-content: center;
   }
@@ -165,7 +165,7 @@ const StInput = styled.textarea`
   &::placeholder {
     color: ${COLOR.GRAY_7E};
   }
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 766px) {
     width: 82%;
   }
   @media screen and (min-width: 1920px) {

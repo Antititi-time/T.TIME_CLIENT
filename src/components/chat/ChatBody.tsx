@@ -130,7 +130,7 @@ const StChatWrapper = styled.div`
   @media screen and (min-width: 1920px) {
     padding: 0 40rem;
   }
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 766px) {
     padding: 0 3.5rem;
   }
 `;

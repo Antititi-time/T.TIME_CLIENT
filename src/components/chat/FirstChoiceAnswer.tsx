@@ -42,7 +42,7 @@ const StChoiceInput = styled.div`
   @media screen and (min-width: 1920px) {
     margin: 0 -40rem;
   }
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 766px) {
     margin: 0 -3.5rem;
   }
 `;

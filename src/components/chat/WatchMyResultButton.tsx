@@ -36,7 +36,7 @@ const StWatchMyResultButton = styled.div`
     padding: 0 60rem;
   }
 
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 766px) {
     margin: 0 -3.5rem;
   }
 `;
