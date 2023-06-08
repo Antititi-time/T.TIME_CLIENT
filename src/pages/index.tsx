@@ -61,32 +61,61 @@ const StHome = styled.div`
     z-index: 2;
     position: relative;
     top: 8.1rem;
-    width: 34.4rem;
-    height: 39.3rem;
     animation: ${characterAnimation} 3s infinite linear alternate;
+
+    @media all and (max-width: 765px) {
+      width: 34.4rem;
+      height: 39.3rem;
+    }
+    @media all and (min-width: 766px) {
+      width: 69rem;
+      height: 72rem;
+    }
   }
 
   .backgroundItems {
     z-index: 1;
     position: absolute;
     top: 3.6rem;
-    width: 33.714rem;
-    height: 44.565rem;
+
+    @media all and (max-width: 765px) {
+      width: 33.714rem;
+      height: 44.565rem;
+    }
+    @media all and (min-width: 766px) {
+      width: 59rem;
+      height: 72rem;
+    }
   }
 
   .logoIcon {
     z-index: 2;
     position: relative;
-    top: -14.8rem;
-    width: 12.2rem;
-    height: 6.2rem;
+
+    @media all and (max-width: 765px) {
+      width: 12.2rem;
+      height: 6.2rem;
+      top: -14.8rem;
+    }
+    @media all and (min-width: 766px) {
+      width: 17.4rem;
+      height: 9.1rem;
+      top: -37.7rem;
+    }
   }
 
   .mainBackground {
     position: absolute;
     top: 0;
     width: 100vw;
-    min-height: calc(var(--vh) * 100);
+
+    @media all and (max-width: 765px) {
+      min-height: calc(var(--vh) * 100);
+    }
+    @media all and (min-width: 766px) {
+      //임의값.
+      height: calc(100vh * 2 - 70rem);
+    }
   }
 `;
 
@@ -95,8 +124,17 @@ const StButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1.6rem;
   position: absolute;
-  top: 50.7rem;
   z-index: 2;
+
+  @media all and (max-width: 765px) {
+    top: 50.7rem;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  @media all and (min-width: 766px) {
+    top: 90.1rem;
+    flex-direction: row;
+    gap: 6.8rem;
+  }
 `;
