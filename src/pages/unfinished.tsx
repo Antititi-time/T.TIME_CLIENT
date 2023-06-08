@@ -16,13 +16,10 @@ function Unfinished() {
 const StBtnWrapper = styled.button`
   display: flex;
   justify-content: center;
+  position: absolute;
+  bottom: 3.4rem;
   width: 100%;
-
-  @media screen and (max-width: 766px) {
-    position: absolute;
-    bottom: 3.4rem;
-    margin: 2.4rem 0 2.4rem 0;
-  }
+  margin-top: 2.4rem;
 
   @media screen and (min-width: 766px) {
     display: flex;

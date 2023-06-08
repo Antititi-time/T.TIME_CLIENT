@@ -96,21 +96,18 @@ export const getServerSideProps = async (ctx: ctxType) => {
 };
 
 const StMypageLink = styled.p`
+  margin-top: 2.4rem;
   color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_B_16};
   text-decoration-line: underline;
   text-underline-position: under;
 
-  @media screen and (max-width: 765px) {
-    margin-top: 2.4rem;
-    ${FONT_STYLES.PRETENDARD_B_16};
-  }
-
-  @media screen and (min-width: 766px) and (max-width: 1921px) {
+  @media screen and (min-width: 766px) {
     margin-top: 3.2rem;
     ${FONT_STYLES.PRETENDARD_B_24};
   }
 
-  @media screen and (min-width: 1922px) {
+  @media screen and (min-width: 1920px) {
     margin-top: 4rem;
     ${FONT_STYLES.PRETENDARD_B_34};
   }

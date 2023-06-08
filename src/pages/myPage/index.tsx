@@ -108,15 +108,12 @@ const StResultContainer = styled.div`
   gap: 1.4rem;
 `;
 const StResult = styled.div`
+  width: 35.6rem;
+  height: 12.9rem;
+  padding: 1.2rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-
-  @media screen and (max-width: 766px) {
-    width: 35.6rem;
-    height: 12.9rem;
-    padding: 1.2rem;
-  }
 
   @media screen and (min-width: 766px) {
     width: 64rem;
@@ -143,27 +140,21 @@ const StTitle = styled.h2`
   margin-top: 2rem;
   margin-bottom: 1.6rem;
   color: ${COLOR.BLACK};
+  ${FONT_STYLES.PRETENDARD_B_20};
 
-  @media screen and (max-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_20};
-  }
-
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) {
     ${FONT_STYLES.PRETENDARD_B_24};
   }
 
-  @media screen and (min-width: 1921px) {
+  @media screen and (min-width: 1920px) {
     ${FONT_STYLES.PRETENDARD_B_32};
   }
 `;
 const StDate = styled.div`
   height: 1.4rem;
+  margin-bottom: 0.8rem;
   color: ${COLOR.GRAY_7E};
-
-  @media screen and (max-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_M_12}
-    margin-bottom: 0.8rem;
-  }
+  ${FONT_STYLES.PRETENDARD_M_12}
 
   @media screen and (min-width: 766px) {
     margin-bottom: 1.2rem;
@@ -174,6 +165,7 @@ const StDate = styled.div`
 const StTeam = styled.h4`
   height: 2.2rem;
   color: ${COLOR.BLACK};
+  ${FONT_STYLES.NEXON_B_16};
   line-height: 140%;
 
   span:first-child {
@@ -183,21 +175,14 @@ const StTeam = styled.h4`
     color: ${COLOR.BLUE_TEXT};
   }
 
-  @media screen and (max-width: 766px) {
-    ${FONT_STYLES.NEXON_B_16};
-  }
-
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_B_20};
   }
 `;
 const StButtonWrapper = styled.div`
   display: flex;
-
-  @media screen and (max-width: 766px) {
-    gap: 1.2rem;
-    margin-top: 2.5rem;
-  }
+  gap: 1.2rem;
+  margin-top: 2.5rem;
 
   @media screen and (min-width: 766px) and (max-width: 1920px) {
     gap: 4rem;
@@ -208,6 +193,8 @@ const StResultBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 16rem;
+  height: 3.4rem;
   border-radius: 2rem;
   color: ${COLOR.WHITE_100};
   ${FONT_STYLES.PRETENDARD_B_16}
@@ -218,12 +205,7 @@ const StResultBtn = styled.button`
     background-color: ${COLOR.BLUE_TEXT};
   }
 
-  @media screen and (max-width: 766px) {
-    width: 16rem;
-    height: 3.4rem;
-  }
-
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) {
     width: 28rem;
     height: 4.8rem;
   }
@@ -233,10 +215,7 @@ const StBtnWrapper = styled.button`
   display: flex;
   justify-content: center;
   width: 100%;
-
-  @media screen and (max-width: 766px) {
-    margin: 2.4rem 0 2.4rem 0;
-  }
+  margin: 2.4rem 0 2.4rem 0;
 
   @media screen and (min-width: 766px) {
     display: flex;

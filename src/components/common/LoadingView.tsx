@@ -17,20 +17,16 @@ const StLoadingView = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 17.9rem;
   touch-action: none;
-  @media screen and (max-width: 765px) {
-    margin-top: 17.9rem;
-  }
 
   @media screen and (min-width: 766px) {
     margin-top: 22.1rem;
   }
 
   img {
-    @media screen and (max-width: 765px) {
-      width: 20rem;
-      height: 20rem;
-    }
+    width: 20rem;
+    height: 20rem;
 
     @media screen and (min-width: 766px) {
       width: 32rem;
@@ -40,10 +36,7 @@ const StLoadingView = styled.div`
 `;
 const StLoadingText = styled.p`
   color: ${COLOR.BLUE_TEXT};
-
-  @media screen and (max-width: 765px) {
-    ${FONT_STYLES.NEXON_B_20};
-  }
+  ${FONT_STYLES.NEXON_B_20};
 
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_B_24};
