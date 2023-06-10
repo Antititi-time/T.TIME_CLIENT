@@ -255,15 +255,12 @@ const StTeamResultText = styled.div`
     @media screen and (min-width: 766px) {
       width: 10.2rem;
       height: 3.9rem;
-      margin-left: 0.4rem;
-      magrin-right: 0.4rem;
+      margin: 0 0.4rem;
       top: 0.1rem;
     }
     @media screen and (min-width: 1920px) {
       width: 12.4rem;
       height: 4.8rem;
-      margin-left: 0.4rem;
-      magrin-right: 0.4rem;
       top: 0.3rem;
     }
   }
