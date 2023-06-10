@@ -106,7 +106,7 @@ const StHome = styled.div`
 
     @media all and (min-width: 766px) {
       //임의값.
-      height: calc(100vh * 2 - 70rem);
+      height: 100rem;
     }
   }
 `;
