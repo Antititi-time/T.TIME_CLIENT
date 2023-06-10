@@ -109,13 +109,13 @@ const StSubmitButton = styled.button`
 `;
 
 const StCountTextNumber = styled.div`
+  color: ${COLOR.GRAY_7E};
+  ${FONT_STYLES.PRETENDARD_SB_12};
   @media screen and (max-width: 1920px) {
     position: absolute;
     right: 1.8rem;
     bottom: 0.6rem;
   }
-  color: ${COLOR.GRAY_7E};
-  ${FONT_STYLES.PRETENDARD_SB_12};
 `;
 
 const StForm = styled.form`
@@ -136,14 +136,15 @@ const StForm = styled.form`
       margin: 0rem 1rem;
     }
   }
+
+  @media screen and (min-width: 766px) {
+    margin: 0 -3.5rem;
+    justify-content: center;
+  }
   @media screen and (min-width: 1920px) {
     margin: 0 -40rem;
     justify-content: center;
     padding: 1.5rem 0rem;
-  }
-  @media screen and (min-width: 766px) {
-    margin: 0 -3.5rem;
-    justify-content: center;
   }
 `;
 
