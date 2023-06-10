@@ -7,6 +7,7 @@ import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
 import type { ChartOptions } from 'chart.js';
 import { getTeamChartResult } from '@src/services';
+import { useEffect, useState } from 'react';
 
 ChartJS.register();
 
@@ -15,9 +16,21 @@ interface TeamResultProps {
 }
 
 function Chart({ teamId }: TeamResultProps) {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { data } = useQuery('teamChartResult', () => getTeamChartResult(teamId), {
     enabled: !!teamId,
   });
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setWindowSize(window.innerWidth);
+    });
+    return () => {
+      window.removeEventListener('resize', () => {
+        setWindowSize(window.innerWidth);
+      });
+    };
+  }, []);
 
   const setInOrder = (data: TeamScore[]) => {
     data.sort(function (a: TeamScore, b: TeamScore) {
@@ -41,6 +54,7 @@ function Chart({ teamId }: TeamResultProps) {
         label: '팀 점수',
         data: data && setInChartOrder(setInOrder(data.data)),
         backgroundColor: 'rgba(255, 108, 61, 0.2)',
+        pointBackgroundColor: COLOR.ORANGE_1,
       },
     ],
   };
@@ -50,9 +64,6 @@ function Chart({ teamId }: TeamResultProps) {
       line: {
         borderWidth: 2,
         borderColor: COLOR.ORANGE_1,
-      },
-      point: {
-        pointBackgroundColor: COLOR.ORANGE_1,
       },
     },
     scales: {
@@ -66,7 +77,7 @@ function Chart({ teamId }: TeamResultProps) {
         },
         pointLabels: {
           font: {
-            size: 12,
+            size: windowSize < 766 ? 12 : 24,
             weight: '700',
             family: 'Pretendard',
           },
@@ -112,10 +123,32 @@ const StTitle = styled.h2`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_16};
   line-height: 2.24rem;
+
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_24};
+    line-height: 3.6rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    ${FONT_STYLES.NEXON_B_32};
+    line-height: 4.8rem;
+  }
 `;
 
 const StRadar = styled.div`
   width: 30.2rem;
   height: 30.2rem;
   margin: 3rem 0 6rem 0;
+
+  @media screen and (min-width: 766px) {
+    width: 64.3rem;
+    height: 64.3rem;
+    margin: 4.6rem 0 12rem 0;
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 80rem;
+    height: 73.6rem;
+    margin: 6rem 0 13.9rem 0;
+  }
 `;

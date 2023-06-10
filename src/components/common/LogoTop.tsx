@@ -27,6 +27,11 @@ const StLogoTop = styled.div`
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(0.5rem);
 
+  @media screen and (min-width: 766px) {
+    justify-content: left;
+    padding-left: 4rem;
+  }
+
   .imgTopLogo {
     position: relative;
     width: 5.8rem;

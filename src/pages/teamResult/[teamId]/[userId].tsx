@@ -101,6 +101,16 @@ const StMypageLink = styled.p`
   ${FONT_STYLES.PRETENDARD_B_16};
   text-decoration-line: underline;
   text-underline-position: under;
+
+  @media screen and (min-width: 766px) {
+    margin-top: 3.2rem;
+    ${FONT_STYLES.PRETENDARD_B_24};
+  }
+
+  @media screen and (min-width: 1920px) {
+    margin-top: 4rem;
+    ${FONT_STYLES.PRETENDARD_B_34};
+  }
 `;
 
 const StTeamResult = styled.div`

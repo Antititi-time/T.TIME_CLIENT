@@ -201,7 +201,7 @@ const StPageText = styled.p`
 
   @media (min-width: 766px) {
     margin-bottom: 3rem;
-    ${FONT_STYLES.NEW_NEXON_B_24}
+    ${FONT_STYLES.NEXON_B_24}
   }
 `;
 
