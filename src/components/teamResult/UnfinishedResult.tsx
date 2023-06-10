@@ -114,9 +114,8 @@ const StTeamName = styled.p`
     ${FONT_STYLES.NEXON_B_32};
   }
   @media screen and (min-width: 1920px) {
+    margin: 1.2rem 0 0 0;
     line-height: 3.6rem;
-    margin-bottom: 0;
-    margin-top: 1.2rem;
   }
 `;
 const StTeamResultText = styled.div`
@@ -217,8 +216,7 @@ const StOutsideButton = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 9rem;
-    margin-bottom: 4rem;
+    margin: 9rem 0 4rem 0;
   }
 `;
 const StTopContainer = styled.div`
@@ -239,9 +237,9 @@ const StLine = styled.div`
   display: none;
 
   @media screen and (min-width: 1920px) {
+    display: block;
     width: 0rem;
     height: 100%;
     border: 0.2rem solid #ece7db;
-    display: block;
   }
 `;

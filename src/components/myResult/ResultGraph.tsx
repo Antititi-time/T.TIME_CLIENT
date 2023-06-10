@@ -108,7 +108,6 @@ const StGraphScore = styled.p`
     margin-left: 2.8rem;
   }
   @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.PRETENDARD_B_24};
     margin-left: 5.4rem;
   }
 `;
