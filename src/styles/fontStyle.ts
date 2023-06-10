@@ -99,6 +99,7 @@ export const FONT_STYLES = {
   PRETENDARD_R_14: FONT({ font: 'Pretendard-REGULAR', size: 14, weight: 'R', height: 22 }),
   PRETENDARD_M_12: FONT({ font: 'Pretendard', size: 12, weight: 'M', height: 15.6 }),
   PRETENDARD_M_14: FONT({ font: 'Pretendard', size: 14, weight: 'M', height: 22 }),
+  PRETENDARD_M_16: FONT({ font: 'Pretendard', size: 16, weight: 'M', height: 22 }),
   PRETENDARD_SB_12: FONT({ font: 'Pretendard-SEMIBOLD', size: 12, weight: 'SB', height: 14 }),
   PRETENDARD_SB_14: FONT({ font: 'Pretendard-SEMIBOLD', size: 14, weight: 'SB', height: 14 }),
   PRETENDARD_B_12: FONT({ font: 'Pretendard-BOLD', size: 12, weight: 'B', height: 14 }),
@@ -120,4 +121,5 @@ export const FONT_STYLES = {
   NEXON_B_22: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 22, weight: 'B', height: 25 }),
   NEXON_B_24: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 24, weight: 'B', height: 36 }),
   NEXON_B_40: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 40, weight: 'B', height: 60 }),
+  NEXON_B_32: FONT({ font: 'NEXON Lv1 Gothic Bold', size: 32, weight: 'B', height: 48 }),
 };

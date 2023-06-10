@@ -95,26 +95,31 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
 export default InputAnswer;
 
 const StSubmitButton = styled.button`
-  position: relative;
-  margin-bottom: 1.7rem;
+  @media screen and (max-width: 1920px) {
+    position: relative;
+    margin-bottom: 1.7rem;
+  }
   .SubmitButton {
-    position: fixed;
-    bottom: 2.7rem;
-    right: 1.7rem;
+    @media screen and (max-width: 1920px) {
+      position: fixed;
+      bottom: 2.7rem;
+      right: 1.7rem;
+    }
   }
 `;
 
 const StCountTextNumber = styled.div`
-  position: absolute;
-  right: 1.8rem;
-  bottom: 0.6rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
+  @media screen and (max-width: 1920px) {
+    position: absolute;
+    right: 1.8rem;
+    bottom: 0.6rem;
+  }
 `;
 
 const StForm = styled.form`
   display: flex;
-
   align-items: center;
   position: fixed;
   width: 100vw;
@@ -127,11 +132,24 @@ const StForm = styled.form`
     width: 2.4rem;
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
+    @media screen and (min-width: 1920px) {
+      margin: 0rem 1rem;
+    }
+  }
+
+  @media screen and (min-width: 766px) {
+    margin: 0 -3.5rem;
+    justify-content: center;
+  }
+  @media screen and (min-width: 1920px) {
+    margin: 0 -40rem;
+    justify-content: center;
+    padding: 1.5rem 0rem;
   }
 `;
 
 const StInput = styled.textarea`
-  width: 71.9%;
+  width: 71%;
   height: 4rem;
   bottom: 2.4rem;
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;
@@ -147,5 +165,13 @@ const StInput = styled.textarea`
   ${FONT_STYLES.NEXON_R_16};
   &::placeholder {
     color: ${COLOR.GRAY_7E};
+  }
+  @media screen and (min-width: 766px) {
+    width: 82%;
+  }
+  @media screen and (min-width: 1920px) {
+    width: 104rem;
+    bottom: 0rem;
+    margin: 0rem;
   }
 `;
