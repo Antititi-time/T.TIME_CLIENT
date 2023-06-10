@@ -231,9 +231,9 @@ const StOnboardingWrapper = styled.div`
 
     @media (min-width: 766px) {
       position: relative;
-      width: 450px;
-      height: 322px;
-      margin: 110px 0 151px 0;
+      width: 45rem;
+      height: 32.2rem;
+      margin: 11rem 0 15.1rem 0;
     }
   }
 `;
