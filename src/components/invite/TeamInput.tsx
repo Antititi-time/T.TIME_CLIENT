@@ -39,6 +39,10 @@ const StTeamInput = styled.div`
   gap: 0.8rem;
   width: 29.4rem;
   height: 7.9rem;
+  @media screen and (min-width: 766px) {
+    width: auto;
+    height: auto;
+  }
 `;
 const StLabelWrapper = styled.div`
   display: flex;
@@ -47,11 +51,21 @@ const StLabelWrapper = styled.div`
 `;
 
 const StText = styled.p`
+  @media screen and (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_24}
+  }
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_16};
 `;
 
 const StInput = styled.input`
+  @media screen and (min-width: 766px) {
+    width: 41.6rem;
+    height: 5.4rem;
+    padding-top: unset;
+    padding-bottom: unset;
+    transform: none;
+  }
   width: 121.428571429%;
   padding-top: 1.82142856rem;
   padding-bottom: 2.06428571rem;
@@ -59,7 +73,6 @@ const StInput = styled.input`
   border: 0.1rem solid #7e7e7e;
   border-radius: 0.60714286rem;
   background: #ffffff;
-  font-size: 1.7rem;
   ${FONT_STYLES.NEXON_R_16};
   transform: scale(0.8235);
   transform-origin: left top;

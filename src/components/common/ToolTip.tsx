@@ -44,6 +44,14 @@ const StToolTip = styled.div<StToolTipProps>`
   top: ${(props) => props.top}rem;
   right: 0;
   z-index: 6;
+  @media (min-width: 766px) {
+    top: 4rem;
+    right: 4rem;
+  }
+  @media (min-width: 1920px) {
+    top: 4.5rem;
+    right: 26.4rem;
+  }
 `;
 
 const StMessage = styled.p`

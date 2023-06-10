@@ -97,6 +97,10 @@ const StSkipButton = styled.div`
   top: 55rem;
   left: 50%;
   transform: translate(-50%);
+  margin-top: 7.9rem;
+  @media (min-width: 766px) {
+    margin-top: 40rem;
+  }
 `;
 
 const StSocialLoginButton = styled.div`
@@ -105,6 +109,10 @@ const StSocialLoginButton = styled.div`
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+  margin-top: 7.9rem;
+  @media (min-width: 766px) {
+    margin-top: 40rem;
+  }
 `;
 
 const StSlider = styled(Slider)`
@@ -188,8 +196,13 @@ const StPageText = styled.p`
   position: relative;
   margin-top: 7.2rem;
   text-align: center;
-  ${FONT_STYLES.PRETENDARD_B_16};
+  ${FONT_STYLES.NEXON_B_20};
   white-space: pre-wrap;
+
+  @media (min-width: 766px) {
+    margin-bottom: 3rem;
+    ${FONT_STYLES.NEXON_B_24}
+  }
 `;
 
 const StFlex = styled.div`
@@ -215,6 +228,13 @@ const StOnboardingWrapper = styled.div`
     width: 35rem;
     height: 25rem;
     margin: 2.4rem 0 11.9rem 0;
+
+    @media (min-width: 766px) {
+      position: relative;
+      width: 45rem;
+      height: 32.2rem;
+      margin: 11rem 0 15.1rem 0;
+    }
   }
 `;
 
