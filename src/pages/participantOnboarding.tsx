@@ -151,16 +151,14 @@ const StSixthPart = styled.div`
     margin-top: 3rem;
     margin-left: -19.9rem;
   }
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
-    .imgParticipantTart {
+  .imgParticipantTart {
+    @media screen and (min-width: 766px) and (max-width: 1920px) {
       scale: 1.4;
       left: 0;
       margin: 8.5rem auto 0 auto;
       transform: translateX(11rem);
     }
-  }
-  @media screen and (min-width: 1920px) {
-    .imgParticipantTart {
+    @media screen and (min-width: 1920px) {
       scale: 1.5;
       left: 0;
       margin: 10rem auto 0 auto;
