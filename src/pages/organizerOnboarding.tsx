@@ -45,7 +45,7 @@ function OrganizerOnboarding() {
       setShowLoginButtons(false);
     }
     setSkipButtonState(false);
-  }, [currentDirection, oldSlide]);
+  }, [currentDirection, oldSlide, skipButtonState]);
 
   return (
     <>
