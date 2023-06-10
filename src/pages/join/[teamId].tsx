@@ -227,9 +227,6 @@ const StTeamName = styled.p`
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_B_24}
   }
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.NEXON_B_24}
-  }
 `;
 
 const StRowContainer = styled.div`
