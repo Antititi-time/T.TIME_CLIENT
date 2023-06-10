@@ -97,6 +97,12 @@ const StInvite = styled.div`
   background-color: ${COLOR.IVORY_1};
   text-align: center;
   .letterImg img {
+    @media screen and (min-width: 766px) {
+      width: 25vh;
+      height: 25vh;
+      margin-top: 15rem;
+      margin-bottom: 8rem;
+    }
     width: 16.8rem;
     height: 16.8rem;
     margin-top: 9rem;

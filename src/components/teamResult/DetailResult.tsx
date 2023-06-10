@@ -138,6 +138,16 @@ const StTitle = styled.h2`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_16};
   line-height: 2.24rem;
+
+  @media screen and (min-width: 766px) {
+    margin-bottom: 4rem;
+    ${FONT_STYLES.NEXON_B_32}
+  }
+
+  @media screen and (min-width: 1920px) {
+    margin-bottom: 3.3rem;
+    ${FONT_STYLES.NEXON_B_32}
+  }
 `;
 
 const StResultContainer = styled.div`
@@ -148,6 +158,14 @@ const StResultContainer = styled.div`
   padding-bottom: 1.8rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.WHITE_100};
+
+  @media screen and (min-width: 766px) {
+    width: 64.4rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 112rem;
+  }
 `;
 
 const StTab = styled.ul`
@@ -158,22 +176,48 @@ const StTabItem = styled.li<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6.2rem;
+  width: 100%;
   height: 4.4rem;
   border-bottom: 0.2rem solid transparent;
   ${FONT_STYLES.PRETENDARD_M_12};
   cursor: pointer;
+
+  @media screen and (min-width: 766px) {
+    height: 6.4rem;
+    ${FONT_STYLES.PRETENDARD_M_20};
+  }
+
+  @media screen and (min-width: 1920px) {
+    height: 12rem;
+    ${FONT_STYLES.PRETENDARD_M_32};
+  }
 
   ${({ isActive }) =>
     isActive &&
     css`
       border-bottom: 0.2rem solid ${COLOR.BLUE_TEXT};
       color: ${COLOR.BLUE_TEXT};
+
+      @media screen and (min-width: 766px) {
+        border-bottom: 0.4rem solid ${COLOR.BLUE_TEXT};
+      }
+
+      @media screen and (min-width: 1920px) {
+        border-bottom: 0.8rem solid ${COLOR.BLUE_TEXT};
+      }
     `}
 `;
 
 const StTextContainer = styled.div`
   margin: 3.1rem 1.05rem 1.8rem 1.05rem;
+
+  @media screen and (min-width: 766px) {
+    margin: 3.3rem 3.1rem 10.4rem 3.1rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    margin: 6rem 5rem 3.9rem 5rem;
+  }
 `;
 
 const StCategoryTitleContainer = styled.div`
@@ -182,6 +226,14 @@ const StCategoryTitleContainer = styled.div`
     margin-bottom: 2rem;
     color: ${COLOR.BLUE_TEXT};
     ${FONT_STYLES.NEXON_B_20};
+
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.NEXON_B_32};
+    }
+
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.NEXON_B_32};
+    }
   }
 
   .emoticon {
@@ -189,6 +241,16 @@ const StCategoryTitleContainer = styled.div`
     width: 2.4rem;
     height: 2.4rem;
     margin-right: 0.5rem;
+
+    @media screen and (min-width: 766px) {
+      width: 4.7rem;
+      height: 4.7rem;
+    }
+
+    @media screen and (min-width: 1920px) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
 `;
 
@@ -203,15 +265,34 @@ const StQuestion = styled.p`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_14};
   line-height: 2rem;
+
+  @media screen and (min-width: 766px) {
+    margin-bottom: 2.4rem;
+    ${FONT_STYLES.NEXON_B_24};
+    line-height: 3.6rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    margin-bottom: 4rem;
+    ${FONT_STYLES.NEXON_B_32};
+    line-height: 4.8rem;
+  }
 `;
 
 const StAnswerList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  width: 28.9rem;
   height: 100%;
   color: ${COLOR.BLACK};
+
+  @media screen and (min-width: 766px) {
+    gap: 1.6rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    gap: 2.4rem;
+  }
 `;
 
 const StAnswerItem = styled.div`
@@ -229,6 +310,18 @@ const StName = styled.p<{ maxStyle: boolean; minStyle: boolean }>`
   background-color: ${({ maxStyle }) => maxStyle && COLOR.ORANGE_2};
   background-color: ${({ minStyle }) => minStyle && COLOR.BLUE_2};
   ${FONT_STYLES.PRETENDARD_SB_12};
+
+  @media screen and (min-width: 766px) {
+    width: 8.6rem;
+    height: 3.8rem;
+    ${FONT_STYLES.PRETENDARD_B_20};
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 10.7rem;
+    height: 5rem;
+    ${FONT_STYLES.PRETENDARD_B_24};
+  }
 `;
 
 const StAnswer = styled.div`
@@ -240,16 +333,42 @@ const StAnswer = styled.div`
   border-radius: 0.8rem;
   background-color: ${COLOR.GRAY_F9};
 
+  @media screen and (min-width: 766px) {
+    width: 46.8rem;
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 88.5rem;
+  }
+
   & > span {
     height: 100%;
     padding: 0.4rem 0;
     margin-left: 0.8rem;
     ${FONT_STYLES.PRETENDARD_B_12};
+
+    @media screen and (min-width: 766px) {
+      margin: 0.8rem 0 0 1.2rem;
+      ${FONT_STYLES.PRETENDARD_B_20};
+    }
+
+    @media screen and (min-width: 1920px) {
+      margin: 0.9rem 0 0 1.2rem;
+      ${FONT_STYLES.PRETENDARD_B_24};
+    }
   }
 
   & > p {
     padding: 0.4rem 0.8rem 0.4rem 0;
     margin-left: 0.8rem;
     ${FONT_STYLES.PRETENDARD_M_12};
+
+    @media screen and (min-width: 766px) {
+      ${FONT_STYLES.PRETENDARD_M_20};
+    }
+
+    @media screen and (min-width: 1920px) {
+      ${FONT_STYLES.PRETENDARD_M_24};
+    }
   }
 `;
