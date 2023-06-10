@@ -90,4 +90,12 @@ const StChoiceInput = styled.div`
   background-color: ${COLOR.WHITE_100};
   z-index: 1;
   ${FONT_STYLES.NEXON_R_13};
+
+  @media screen and (min-width: 1920px) {
+    margin: 0 -40rem;
+    padding: 0 60rem;
+  }
+  @media screen and (min-width: 766px) {
+    margin: 0 -3.5rem;
+  }
 `;
