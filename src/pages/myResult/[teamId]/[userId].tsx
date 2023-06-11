@@ -323,6 +323,7 @@ const StResultDetail = styled.div`
     justify-content: center;
     @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_R_20};
+      line-height: 3.6rem;
     }
     @media screen and (min-width: 1920px) {
       ${FONT_STYLES.PRETENDARD_R_24};
@@ -347,6 +348,7 @@ const StRecommendText = styled.article`
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.PRETENDARD_R_20};
     padding-left: 2.4rem;
+    line-height: 3.6rem;
   }
   @media screen and (min-width: 1920px) {
     ${FONT_STYLES.PRETENDARD_R_24};

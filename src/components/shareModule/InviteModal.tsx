@@ -81,7 +81,7 @@ const StModal = styled.section`
   @media screen and (min-width: 766px) {
     width: 41.5rem;
     height: 46.5rem;
-    margin-top: 24.8rem;
+    margin-top: 20.1rem;
   }
   @media screen and (min-width: 1920px) {
     display: flex;
@@ -89,7 +89,6 @@ const StModal = styled.section`
     align-items: center;
     width: 36rem;
     height: 46.5rem;
-    margin-top: 20.1rem;
   }
 `;
 const StModalHeader = styled.header`
