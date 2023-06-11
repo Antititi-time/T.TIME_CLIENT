@@ -94,24 +94,24 @@ export default OrganizerOnboarding;
 
 const StSkipButton = styled.div`
   position: absolute;
-  top: 55rem;
+  bottom: 18rem;
   left: 50%;
   transform: translate(-50%);
-  margin-top: 7.9rem;
+  margin-top: 11.9rem;
   @media (min-width: 766px) {
-    margin-top: 40rem;
+    margin: 19.4rem 0 4rem 0;
   }
 `;
 
 const StSocialLoginButton = styled.div`
   position: absolute;
-  top: 46.5rem;
+  bottom: 15rem;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
-  margin-top: 7.9rem;
+  margin-top: 11.9rem;
   @media (min-width: 766px) {
-    margin-top: 40rem;
+    margin: 19.4rem 0 4rem 0;
   }
 `;
 
@@ -120,7 +120,7 @@ const StSlider = styled(Slider)`
   flex-direction: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: calc(var(--vh) * 100);
   background-color: ${COLOR.IVORY_1};
   .slick-prev::before,
   .slick-next::before {
@@ -193,14 +193,15 @@ const StSlider = styled(Slider)`
 `;
 
 const StPageText = styled.p`
-  position: relative;
-  margin-top: 7.2rem;
+  position: absolute;
+  top: 32rem;
+  /* margin-top: 7.2rem; */
   text-align: center;
   ${FONT_STYLES.NEXON_B_20};
   white-space: pre-wrap;
 
   @media (min-width: 766px) {
-    margin-bottom: 3rem;
+    /* margin-top: 3rem; */
     ${FONT_STYLES.NEW_NEXON_B_24}
   }
 `;
@@ -213,7 +214,7 @@ const StFlex = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -7.2rem;
+  top: -20.7rem;
 `;
 
 const StOnboardingWrapper = styled.div`
@@ -223,17 +224,19 @@ const StOnboardingWrapper = styled.div`
   align-content: center;
   flex-direction: column;
   overflow: hidden;
+  height: 100vh;
   .organizerEmoticon {
     position: relative;
     width: 35rem;
     height: 25rem;
-    margin: 2.4rem 0 11.9rem 0;
+    top: 44rem;
+    /* margin: 2.4rem 0 11.9rem 0; */
 
     @media (min-width: 766px) {
       position: relative;
       width: 45rem;
       height: 32.2rem;
-      margin: 11rem 0 15.1rem 0;
+      /* margin: 11rem 0 15.1rem 0; */
     }
   }
 `;
