@@ -96,8 +96,8 @@ const StSkipButton = styled.div`
   position: absolute;
   bottom: 18rem;
   left: 50%;
-  transform: translate(-50%);
   margin-top: 11.9rem;
+  transform: translate(-50%);
   @media (min-width: 766px) {
     bottom: 4rem;
   }
@@ -107,9 +107,9 @@ const StSocialLoginButton = styled.div`
   position: absolute;
   bottom: 15rem;
   left: 50%;
-  transform: translate(-50%);
-  text-align: center;
   margin-top: 11.9rem;
+  text-align: center;
+  transform: translate(-50%);
   @media (min-width: 766px) {
     bottom: 4rem;
     margin: 0;
@@ -230,15 +230,15 @@ const StOnboardingWrapper = styled.div`
   height: 100vh;
   .organizerEmoticon {
     position: relative;
+    top: 44rem;
     width: 35rem;
     height: 25rem;
-    top: 44rem;
 
     @media (min-width: 766px) {
       position: relative;
+      top: 41.2rem;
       width: 45rem;
       height: 32.2rem;
-      top: 41.2rem;
     }
   }
   @media (min-width: 766px) {
@@ -253,10 +253,10 @@ const StInfor = styled.p`
 `;
 
 const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
-  position: relative;
-  bottom: 1rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  bottom: 1rem;
   margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
   @media (min-width: 766px) {
     bottom: -2rem;
