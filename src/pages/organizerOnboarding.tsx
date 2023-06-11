@@ -99,7 +99,7 @@ const StSkipButton = styled.div`
   transform: translate(-50%);
   margin-top: 11.9rem;
   @media (min-width: 766px) {
-    margin: 19.4rem 0 4rem 0;
+    bottom: 4rem;
   }
 `;
 
@@ -111,7 +111,8 @@ const StSocialLoginButton = styled.div`
   text-align: center;
   margin-top: 11.9rem;
   @media (min-width: 766px) {
-    margin: 19.4rem 0 4rem 0;
+    bottom: 4rem;
+    margin: 0;
   }
 `;
 
@@ -195,13 +196,12 @@ const StSlider = styled(Slider)`
 const StPageText = styled.p`
   position: absolute;
   top: 32rem;
-  /* margin-top: 7.2rem; */
   text-align: center;
   ${FONT_STYLES.NEXON_B_20};
   white-space: pre-wrap;
 
   @media (min-width: 766px) {
-    /* margin-top: 3rem; */
+    top: 25rem;
     ${FONT_STYLES.NEW_NEXON_B_24}
   }
 `;
@@ -215,6 +215,9 @@ const StFlex = styled.div`
   align-items: center;
   position: relative;
   top: -20.7rem;
+  @media (min-width: 766px) {
+    top: -11.7rem;
+  }
 `;
 
 const StOnboardingWrapper = styled.div`
@@ -230,14 +233,16 @@ const StOnboardingWrapper = styled.div`
     width: 35rem;
     height: 25rem;
     top: 44rem;
-    /* margin: 2.4rem 0 11.9rem 0; */
 
     @media (min-width: 766px) {
       position: relative;
       width: 45rem;
       height: 32.2rem;
-      /* margin: 11rem 0 15.1rem 0; */
+      top: 41.2rem;
     }
+  }
+  @media (min-width: 766px) {
+    height: 120vh;
   }
 `;
 
@@ -253,7 +258,9 @@ const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
   display: flex;
   flex-direction: column;
   margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
-
+  @media (min-width: 766px) {
+    bottom: -2rem;
+  }
   button:first-child {
     margin-bottom: 1.6rem;
   }
