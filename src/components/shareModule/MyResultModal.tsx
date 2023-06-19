@@ -64,7 +64,7 @@ const StTeamModal = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 36rem;
+  width: 32.8rem;
   height: 29.7rem;
   margin: 11.8rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
