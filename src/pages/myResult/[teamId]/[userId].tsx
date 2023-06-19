@@ -71,8 +71,8 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-
-      {resultData ? (
+      <LoadingView />
+      {/* {resultData ? (
         <StMyResult>
           {modalState && (
             <MyResultModal
@@ -135,7 +135,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         </StMyResult>
       ) : (
         <LoadingView />
-      )}
+      )} */}
       {!isVisitor && <BottomBtnContainer teamId={String(teamId)} userId={userId} setModalState={setModalState} />}
     </StmyResultPage>
   );

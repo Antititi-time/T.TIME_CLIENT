@@ -21,16 +21,18 @@ const StLoadingView = styled.div`
   touch-action: none;
 
   @media screen and (min-width: 766px) {
-    margin-top: 22.1rem;
+    margin-top: 8rem;
   }
 
   img {
     width: 20rem;
     height: 20rem;
+    margin-top: 2.1rem;
 
     @media screen and (min-width: 766px) {
-      width: 32rem;
-      height: 32rem;
+      width: 24rem;
+      height: 24rem;
+      margin-top: 0.8rem;
     }
   }
 `;
