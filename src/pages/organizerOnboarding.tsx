@@ -99,7 +99,7 @@ const StSkipButton = styled.div`
   margin-top: 11.9rem;
   transform: translate(-50%);
   @media (min-width: 766px) {
-    bottom: 4rem;
+    bottom: 6.4rem;
   }
 `;
 
@@ -111,7 +111,7 @@ const StSocialLoginButton = styled.div`
   text-align: center;
   transform: translate(-50%);
   @media (min-width: 766px) {
-    bottom: 4rem;
+    bottom: 6.4rem;
     margin: 0;
   }
 `;
@@ -201,8 +201,7 @@ const StPageText = styled.p`
   white-space: pre-wrap;
 
   @media (min-width: 766px) {
-    top: 25rem;
-    ${FONT_STYLES.NEW_NEXON_B_24}
+    ${FONT_STYLES.NEXON_B_20}
   }
 `;
 
@@ -216,7 +215,7 @@ const StFlex = styled.div`
   position: relative;
   top: -20.7rem;
   @media (min-width: 766px) {
-    top: -11.7rem;
+    top: -18.3rem;
   }
 `;
 
@@ -236,13 +235,13 @@ const StOnboardingWrapper = styled.div`
 
     @media (min-width: 766px) {
       position: relative;
-      top: 41.2rem;
-      width: 45rem;
-      height: 32.2rem;
+      width: 36rem;
+      height: 26rem;
+      margin: -4rem 0 -8rem 0;
     }
   }
   @media (min-width: 766px) {
-    height: 120vh;
+    height: 72rem;
   }
 `;
 
