@@ -3,7 +3,13 @@ import SEO from '@common/SEO';
 import { COLOR } from '@src/styles/color';
 import Link from 'next/link';
 import ImageDiv from '@common/ImageDiv';
-import { imgMainBackground, imgBackgroundItems, imgMainCharacters, imgMainLogo } from 'public/assets/images';
+import {
+  imgMainBackground,
+  imgBackgroundItems,
+  imgMainCharacters,
+  imgMainCharactersBig,
+  imgMainLogo,
+} from 'public/assets/images';
 import BottomButton from '@common/BottomButton';
 import useManageScroll from '@src/hooks/UseManageScroll';
 import { useEffect, useState } from 'react';
@@ -23,7 +29,8 @@ function Home() {
   return (
     <StHome>
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
-      <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />
+      <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />{' '}
+      <ImageDiv src={imgMainCharactersBig} alt="배경" className="mainCharacters big" fill={true} />
       <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" fill={true} />
       <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />
       <ImageDiv src={imgMainBackground} alt="배경" className="mainBackground" fill={true} />
@@ -65,9 +72,18 @@ const StHome = styled.div`
     height: 39.3rem;
     animation: ${characterAnimation} 3s infinite linear alternate;
 
-    @media all and (min-width: 766px) {
-      width: 69rem;
-      height: 72rem;
+    @media screen and (min-width: 766px) {
+      display: none;
+    }
+  }
+
+  .big {
+    display: none;
+
+    @media screen and (min-width: 766px) {
+      display: block;
+      width: 42.8rem;
+      height: 41.2rem;
     }
   }
 
@@ -78,9 +94,9 @@ const StHome = styled.div`
     width: 33.714rem;
     height: 44.565rem;
 
-    @media all and (min-width: 766px) {
-      width: 59rem;
-      height: 72rem;
+    @media screen and (min-width: 766px) {
+      width: 36.8rem;
+      height: 44.9rem;
     }
   }
 
@@ -92,9 +108,9 @@ const StHome = styled.div`
     height: 6.2rem;
 
     @media all and (min-width: 766px) {
-      top: -37.7rem;
-      width: 17.4rem;
-      height: 9.1rem;
+      top: -18rem;
+      width: 10.8rem;
+      height: 5.6rem;
     }
   }
 
@@ -103,11 +119,6 @@ const StHome = styled.div`
     top: 0;
     width: 100vw;
     min-height: calc(var(--vh) * 100);
-
-    @media all and (min-width: 766px) {
-      //임의값.
-      height: 100rem;
-    }
   }
 `;
 
@@ -122,7 +133,7 @@ const StButtonContainer = styled.div`
   z-index: 2;
 
   @media all and (min-width: 766px) {
-    top: 90.1rem;
+    top: 55rem;
     flex-direction: row;
     gap: 6.8rem;
   }
