@@ -93,15 +93,14 @@ const StInvite = styled.div`
   flex-direction: column;
   width: 100vw;
   min-height: calc(var(--vh) * 100);
-  padding-bottom: 4rem;
+  padding-bottom: 8rem;
   background-color: ${COLOR.IVORY_1};
   text-align: center;
   .letterImg img {
     @media screen and (min-width: 766px) {
-      width: 25vh;
-      height: 25vh;
-      margin-top: 15rem;
-      margin-bottom: 8rem;
+      width: 16rem;
+      height: 16rem;
+      margin-top: 9.8rem;
     }
     width: 16.8rem;
     height: 16.8rem;
@@ -114,5 +113,8 @@ const StForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin-bottom: 8.6rem;
+  margin-bottom: 4rem;
+  @media screen and (min-width: 766px) {
+    margin-bottom: auto;
+  }
 `;
