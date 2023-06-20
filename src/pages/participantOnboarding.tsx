@@ -131,6 +131,9 @@ const StartButton = styled.div`
     > div {
       width: 40rem;
       height: 8rem;
+      > p {
+        font-size: 3.2rem;
+      }
     }
   }
 `;
@@ -152,16 +155,10 @@ const StSixthPart = styled.div`
     margin-left: -19.9rem;
   }
   .imgParticipantTart {
-    @media screen and (min-width: 766px) and (max-width: 1920px) {
-      scale: 1.4;
+    @media screen and (min-width: 766px) {
+      scale: 1.15;
       left: 0;
       margin: 8.5rem auto 0 auto;
-      transform: translateX(11rem);
-    }
-    @media screen and (min-width: 1920px) {
-      scale: 1.5;
-      left: 0;
-      margin: 10rem auto 0 auto;
       transform: translateX(11rem);
     }
   }
@@ -179,18 +176,11 @@ const StFifthPart = styled.div`
     height: 28rem;
   }
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) {
     left: 0;
     margin: 0;
     .imgParticipantCanele {
-      scale: 1.4;
-    }
-  }
-  @media screen and (min-width: 1920px) {
-    left: 0;
-    margin: 0;
-    .imgParticipantCanele {
-      scale: 1.5;
+      scale: 1.15;
     }
   }
 `;
@@ -201,12 +191,9 @@ const StFourthText = styled.p`
   ${FONT_STYLES.NEXON_B_22};
   line-height: 3.08rem;
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
-    margin-top: 13.9rem;
-    margin-bottom: 2.5rem;
-  }
-  @media screen and (min-width: 1920px) {
-    margin-top: 14.2rem;
+  @media screen and (min-width: 766px) {
+    margin-top: 10rem;
+    margin-bottom: 6.4rem;
   }
 `;
 
@@ -219,16 +206,9 @@ const StFourthPart = styled.div`
     height: 32.9rem;
     margin-left: -16.45rem;
 
-    @media screen and (min-width: 766px) and (max-width: 1920px) {
-      width: 83.2rem;
-      height: 83.2rem;
-      left: auto;
-      margin: 0 auto;
-    }
-
-    @media screen and (min-width: 1920px) {
-      width: 76.325rem;
-      height: 76.325rem;
+    @media screen and (min-width: 766px) {
+      width: 68.6rem;
+      height: 68.6rem;
       left: auto;
       margin: 0 auto;
     }
@@ -242,13 +222,8 @@ const StThirdText = styled.p`
   margin-right: -8.25rem;
   ${FONT_STYLES.NEXON_B_22};
   line-height: 3.08rem;
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
-    top: 13.3rem;
-    left: auto;
-    margin-right: 4rem;
-  }
-  @media screen and (min-width: 1920px) {
-    top: 19.7rem;
+  @media screen and (min-width: 766px) {
+    top: -1rem;
     left: auto;
     margin-right: 4rem;
   }
@@ -266,22 +241,13 @@ const StThirdPart = styled.div`
     margin-top: -14.011rem;
     margin-left: -1.2rem;
   }
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) {
     left: auto;
     margin: 0 auto;
     .imgParticipantThird {
-      height: 68rem;
-      width: 75rem;
+      width: 67.4rem;
+      height: 61.1rem;
       margin-left: -3rem;
-    }
-  }
-
-  @media screen and (min-width: 1920px) {
-    left: auto;
-    margin: 0 auto;
-    .imgParticipantThird {
-      height: 89.3rem;
-      width: 98.6rem;
     }
   }
 `;
@@ -291,11 +257,11 @@ const StSecondText = styled.p`
   ${FONT_STYLES.NEXON_B_22};
   line-height: 3.08rem;
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) and (max-width: 1200px) {
     margin-top: 18.4rem;
     margin-left: 4rem;
   }
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     margin-top: 20rem;
   }
 `;
@@ -313,24 +279,13 @@ const StSecondPart = styled.div`
     margin-left: 4.4rem;
   }
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) {
     left: auto;
     margin: 0;
     .imgParticipantSecond {
       margin: 0 auto;
-      transform: translateX(11.3rem);
-      width: 75.97rem;
-      height: 71.18rem;
-    }
-  }
-
-  @media screen and (min-width: 1920px) {
-    left: auto;
-    margin: 0;
-    .imgParticipantSecond {
-      margin: 0 auto;
-      width: 82.8rem;
-      height: 77.5rem;
+      width: 78.9rem;
+      height: 75.5rem;
     }
   }
 `;
@@ -349,12 +304,12 @@ const StFirstText = styled.p`
   ${FONT_STYLES.NEXON_B_22};
   line-height: 3.08rem;
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) and (max-width: 1200px) {
     margin: 10.8rem auto 0 4rem;
     text-align: left;
   }
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) and (max-width: 1200px) {
     margin: 11.1rem auto 0 auto;
   }
 `;
@@ -365,21 +320,21 @@ const StFirstPart = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
+
+  @media screen and (min-width: 766px) {
+    margin-top: 4.8rem;
+  }
+
   .imgParticipantFirst {
     position: relative;
     width: 30.1rem;
     height: 24.6rem;
     margin-top: 3.3rem;
 
-    @media screen and (min-width: 766px) and (max-width: 1920px) {
+    @media screen and (min-width: 766px) {
       width: 59.9rem;
       height: 46.4rem;
       margin-top: 8.8rem;
-    }
-    @media screen and (min-width: 1920px) {
-      width: 71.4rem;
-      height: 55.4rem;
-      margin-top: 6.8rem;
     }
   }
 `;
@@ -388,20 +343,15 @@ const StParticipantOnboarding = styled.div`
   width: 100vw;
   overflow: hidden;
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
-    width: 77.6rem;
-    .font {
-      ${FONT_STYLES.NEXON_B_24};
-    }
-  }
-  @media screen and (min-width: 1920px) {
-    width: 98.6rem;
+  @media screen and (min-width: 766px) {
+    overflow: hidden;
+    width: 76rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
 
     .font {
-      ${FONT_STYLES.NEXON_B_40};
+      ${FONT_STYLES.NEXON_B_24};
     }
   }
 `;
