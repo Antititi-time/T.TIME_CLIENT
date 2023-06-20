@@ -132,6 +132,7 @@ const StJoin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   min-width: 39rem;
   width: 100vw;
   min-height: calc(var(--vh) * 100);
@@ -169,7 +170,7 @@ const StMainContainer = styled.div`
     flex-direction: row;
     width: 68.6rem;
     height: 37.6rem;
-    margin-top: 9.5rem;
+    margin-top: 15rem;
     background-color: ${COLOR.WHITE_100};
     border-radius: 1.4rem;
     box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
@@ -278,7 +279,7 @@ const StLoginContainer = styled.div<{ isKakaoBrowser: boolean }>`
   position: relative;
   bottom: 1rem;
   margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
-
+  margin-bottom: 8rem;
   button:first-child {
     margin-bottom: 1.6rem;
   }
