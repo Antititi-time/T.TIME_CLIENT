@@ -217,9 +217,6 @@ const StInfoContainer = styled.div`
       ${FONT_STYLES.NEXON_B_24};
       margin-bottom: 0;
     }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.NEXON_B_40};
-    }
   }
   .resultTitle p {
     margin-bottom: 0.5rem;
@@ -360,6 +357,9 @@ const StGraphContainer = styled.article`
     height: 24.3rem;
     margin-top: 2.5rem;
     padding: 1.5rem 2.4rem 1.5rem 2.4rem;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 1.5rem 4rem 1.5rem 4rem;
   }
 `;
 const StCardFooter = styled.footer`

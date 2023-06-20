@@ -91,8 +91,8 @@ const StGraphBar = styled.div<graphWidth>`
       width: ${(props: graphWidth) => props.data * 4.32}rem;
       height: 1.2rem;
     }
-    @media screen and (min-width: 1920px) {
-      width: ${(props: graphWidth) => props.data * 8.02}rem;
+    @media screen and (min-width: 1200px) {
+      width: ${(props: graphWidth) => props.data * 5.46}rem;
     }
   }
 `;
