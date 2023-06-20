@@ -151,7 +151,7 @@ const StMypageLink = styled.p`
   text-decoration-line: underline;
   text-underline-position: under;
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_24};
+    ${FONT_STYLES.PRETENDARD_B_18};
   }
 `;
 
@@ -183,12 +183,13 @@ const StResultCard = styled.main`
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   @media screen and (min-width: 766px) {
-    width: 69.4rem;
-    min-height: 153.6rem;
+    width: 68.6rem;
+    min-height: 146rem;
+    padding-top: 7.3rem;
   }
   @media screen and (min-width: 1920px) {
-    width: 120rem;
-    min-height: 160.9rem;
+    width: 84.8rem;
+    min-height: 146rem;
     padding-top: 3.7rem;
     padding-left: 4rem;
     padding-right: 4rem;
