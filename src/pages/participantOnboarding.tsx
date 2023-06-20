@@ -257,12 +257,9 @@ const StSecondText = styled.p`
   ${FONT_STYLES.NEXON_B_22};
   line-height: 3.08rem;
 
-  @media screen and (min-width: 766px) and (max-width: 1200px) {
-    margin-top: 18.4rem;
-    margin-left: 4rem;
-  }
-  @media screen and (min-width: 1200px) {
-    margin-top: 20rem;
+  @media screen and (min-width: 766px) {
+    margin-top: 12.9rem;
+    margin-left: 2rem;
   }
 `;
 
@@ -304,13 +301,8 @@ const StFirstText = styled.p`
   ${FONT_STYLES.NEXON_B_22};
   line-height: 3.08rem;
 
-  @media screen and (min-width: 766px) and (max-width: 1200px) {
-    margin: 10.8rem auto 0 4rem;
-    text-align: left;
-  }
-
-  @media screen and (min-width: 766px) and (max-width: 1200px) {
-    margin: 11.1rem auto 0 auto;
+  @media screen and (min-width: 766px) {
+    margin: 5.8rem auto 0 auto;
   }
 `;
 
@@ -344,12 +336,10 @@ const StParticipantOnboarding = styled.div`
   overflow: hidden;
 
   @media screen and (min-width: 766px) {
-    overflow: hidden;
-    width: 76rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    width: 76rem;
     .font {
       ${FONT_STYLES.NEXON_B_24};
     }
