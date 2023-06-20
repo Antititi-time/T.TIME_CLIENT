@@ -197,7 +197,7 @@ const StOutsideButton = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 6.1rem 0 6rem 0;
+    margin: 8rem 0 6rem 0;
   }
 `;
 const StTopContainer = styled.div`
