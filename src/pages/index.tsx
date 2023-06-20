@@ -29,7 +29,7 @@ function Home() {
   return (
     <StHome>
       <SEO title="T.time | 팀과 내가 함께 성장하는 시간" description="T.time | 팀과 내가 함께 성장하는 시간" />
-      <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />{' '}
+      <ImageDiv src={imgMainCharacters} alt="배경 메인 캐릭터 5종" className="mainCharacters" fill={true} />
       <ImageDiv src={imgMainCharactersBig} alt="배경" className="mainCharacters big" fill={true} />
       <ImageDiv src={imgBackgroundItems} alt="배경 아이템" className="backgroundItems" fill={true} />
       <ImageDiv src={imgMainLogo} alt="티타임 로고" className="logoIcon" fill={true} />

@@ -153,11 +153,6 @@ const StTeamResultText = styled.div`
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_B_24}
   }
-
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.NEXON_B_40};
-    line-height: 4.8rem;
-  }
 `;
 
 const StImageContainer = styled.div`
@@ -170,8 +165,8 @@ const StImageContainer = styled.div`
     gap: 3.2rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    margin: 3.8rem 26.4rem 4rem 22.4rem;
+  @media screen and (min-width: 1200px) {
+    margin: 6rem 0rem 3.6rem 12.8rem;
     gap: 3.2rem;
   }
 

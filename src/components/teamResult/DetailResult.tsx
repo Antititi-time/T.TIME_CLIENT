@@ -158,8 +158,8 @@ const StResultContainer = styled.div`
     width: 64.4rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    width: 112rem;
+  @media screen and (min-width: 1200px) {
+    width: 76.8rem;
   }
 `;
 
@@ -182,6 +182,11 @@ const StTabItem = styled.li<{ isActive: boolean }>`
     ${FONT_STYLES.PRETENDARD_M_20};
   }
 
+  @media screen and (min-width: 1200px) {
+    height: 8rem;
+    ${FONT_STYLES.PRETENDARD_M_24};
+  }
+
   ${({ isActive }) =>
     isActive &&
     css`
@@ -201,8 +206,8 @@ const StTextContainer = styled.div`
     margin: 3.3rem 3.1rem 10.4rem 3.1rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    margin: 6rem 5rem 3.9rem 5rem;
+  @media screen and (min-width: 1200px) {
+    margin: 2.4rem 2.4rem 4.8rem 2.4rem;
   }
 `;
 
@@ -260,10 +265,6 @@ const StAnswerList = styled.div`
   @media screen and (min-width: 766px) {
     gap: 1.6rem;
   }
-
-  @media screen and (min-width: 1920px) {
-    gap: 2.4rem;
-  }
 `;
 
 const StAnswerItem = styled.div`
@@ -287,6 +288,11 @@ const StName = styled.p<{ maxStyle: boolean; minStyle: boolean }>`
     height: 3.8rem;
     ${FONT_STYLES.PRETENDARD_B_20};
   }
+
+  @media screen and (min-width: 1200px) {
+    width: 9.4rem;
+    height: 4rem;
+  }
 `;
 
 const StAnswer = styled.div`
@@ -300,6 +306,12 @@ const StAnswer = styled.div`
 
   @media screen and (min-width: 766px) {
     width: 46.8rem;
+    margin-left: 1.2rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 61rem;
+    margin-left: 1.6rem;
   }
 
   & > span {

@@ -140,4 +140,8 @@ const StRadar = styled.div`
     height: 53rem;
     margin: 2.4rem 0 8rem 5.1rem;
   }
+
+  @media all and (min-width: 1200px) {
+    margin: 2.4rem 0 8rem 13.2rem;
+  }
 `;

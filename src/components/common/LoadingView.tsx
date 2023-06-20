@@ -21,7 +21,7 @@ const StLoadingView = styled.div`
   touch-action: none;
 
   @media screen and (min-width: 766px) {
-    margin-top: 8rem;
+    margin-top: 13.8rem;
   }
 
   img {

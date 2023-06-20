@@ -43,9 +43,9 @@ const StFrame = styled.div`
     padding: 3.2rem 2.2rem 4rem 2.1rem;
   }
 
-  @media all and (min-width: 1920px) {
-    width: 120rem;
-    padding: 4.2rem 0 4.8rem 4.1rem;
+  @media all and (min-width: 1200px) {
+    width: 84.8rem;
+    padding: 3.2rem 0 4rem 4rem;
   }
 `;
 
