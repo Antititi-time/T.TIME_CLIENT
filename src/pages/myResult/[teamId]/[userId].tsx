@@ -141,7 +141,12 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   );
 }
 export default MyResult;
-
+export const getServerSideProps = async (ctx: ctxType) => {
+  const userId = ctx.query.userId;
+  const teamId = parseInt(ctx.query.teamId);
+  const myResultData = await getMyResult(userId, teamId);
+  return { props: { userId, teamId, myResultData } };
+};
 const StMypageLink = styled.p`
   display: flex;
   justify-content: center;
@@ -154,13 +159,6 @@ const StMypageLink = styled.p`
     ${FONT_STYLES.PRETENDARD_B_18};
   }
 `;
-
-export const getServerSideProps = async (ctx: ctxType) => {
-  const userId = ctx.query.userId;
-  const teamId = parseInt(ctx.query.teamId);
-  const myResultData = await getMyResult(userId, teamId);
-  return { props: { userId, teamId, myResultData } };
-};
 
 const StmyResultPage = styled.div``;
 
@@ -185,14 +183,11 @@ const StResultCard = styled.main`
   @media screen and (min-width: 766px) {
     width: 68.6rem;
     min-height: 146rem;
-    padding-top: 7.3rem;
+    padding-top: 3.2rem;
+    padding-left: 4rem;
   }
   @media screen and (min-width: 1920px) {
     width: 84.8rem;
-    min-height: 146rem;
-    padding-top: 3.7rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
   }
 `;
 const StInfoContainer = styled.div`
@@ -203,7 +198,8 @@ const StInfoContainer = styled.div`
     color: ${COLOR.GRAY_9E};
     line-height: 1.432rem;
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.PRETENDARD_M_20};
+      ${FONT_STYLES.PRETENDARD_M_14};
+      line-height: 2.2rem;
     }
   }
   .teamName {
@@ -211,17 +207,13 @@ const StInfoContainer = styled.div`
     margin: 0.8rem 0 1.2rem 0;
     color: ${COLOR.GRAY_7E};
     line-height: 2.24rem;
-    @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_28};
-      margin-bottom: 0;
-    }
   }
   .resultTitle {
     ${FONT_STYLES.NEXON_B_22};
     color: ${COLOR.BLACK};
     line-height: 2.64rem;
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
       margin-bottom: 0;
     }
     @media screen and (min-width: 1920px) {
@@ -231,11 +223,8 @@ const StInfoContainer = styled.div`
   .resultTitle p {
     margin-bottom: 0.5rem;
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
       margin-bottom: 0;
-    }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.NEXON_B_40};
     }
   }
   .userName {
@@ -254,15 +243,10 @@ const StTeamResultText = styled.div`
     bottom: 0.3rem;
     margin: 0 0.4rem;
     @media screen and (min-width: 766px) {
-      width: 10.2rem;
-      height: 3.9rem;
+      width: 8rem;
+      height: 3.2rem;
       margin: 0 0.4rem;
-      top: 0.1rem;
-    }
-    @media screen and (min-width: 1920px) {
-      width: 12.4rem;
-      height: 4.8rem;
-      top: 0.3rem;
+      top: 0rem;
     }
   }
 `;
@@ -271,11 +255,8 @@ const StDotsImage = styled.div`
   min-height: 0.4rem;
   margin: 2.3rem 0 1.2rem 0;
   @media screen and (min-width: 766px) {
-    padding-top: 1.9rem;
-    margin-bottom: 2.5rem;
-  }
-  @media screen and (min-width: 1920px) {
-    padding-top: 3.9rem;
+    padding-top: 3rem;
+    margin-bottom: 1%.6;
   }
 `;
 const StUserImage = styled.img`
@@ -285,10 +266,10 @@ const StUserImage = styled.img`
   }
   width: 30rem;
   height: 20rem;
-  margin: 6.2rem 7.6rem 5rem 7.6rem;
+  margin: 6.2rem 7.6rem 4rem 7.6rem;
   @media screen and (min-width: 766px) {
-    width: 48rem;
-    height: 32rem;
+    width: 36rem;
+    height: 24rem;
   }
 `;
 const StResultTitle = styled.div`
@@ -300,7 +281,7 @@ const StResultTitle = styled.div`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.PRETENDARD_EB_20};
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_32};
+    ${FONT_STYLES.NEXON_B_24};
   }
   white-space: nowrap;
   .feedback {
@@ -309,9 +290,6 @@ const StResultTitle = styled.div`
     ${FONT_STYLES.PRETENDARD_B_12};
     @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_B_20};
-    }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.PRETENDARD_B_24};
     }
   }
 `;
