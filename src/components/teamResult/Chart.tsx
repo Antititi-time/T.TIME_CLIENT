@@ -77,7 +77,7 @@ function Chart({ teamId }: TeamResultProps) {
         },
         pointLabels: {
           font: {
-            size: windowSize < 766 ? 12 : 24,
+            size: windowSize < 766 ? 12 : 20,
             weight: '700',
             family: 'Pretendard',
           },
@@ -128,11 +128,6 @@ const StTitle = styled.h2`
     ${FONT_STYLES.NEXON_B_24};
     line-height: 3.6rem;
   }
-
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.NEXON_B_32};
-    line-height: 4.8rem;
-  }
 `;
 
 const StRadar = styled.div`
@@ -141,14 +136,8 @@ const StRadar = styled.div`
   margin: 3rem 0 6rem 0;
 
   @media screen and (min-width: 766px) {
-    width: 64.3rem;
-    height: 64.3rem;
-    margin: 4.6rem 0 12rem 0;
-  }
-
-  @media screen and (min-width: 1920px) {
-    width: 80rem;
-    height: 73.6rem;
-    margin: 6rem 0 13.9rem 0;
+    width: 58rem;
+    height: 53rem;
+    margin: 2.4rem 0 8rem 5.1rem;
   }
 `;

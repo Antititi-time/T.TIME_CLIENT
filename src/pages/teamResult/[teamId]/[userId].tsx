@@ -103,13 +103,12 @@ const StMypageLink = styled.p`
   text-underline-position: under;
 
   @media screen and (min-width: 766px) {
-    margin-top: 3.2rem;
-    ${FONT_STYLES.PRETENDARD_B_24};
+    margin-top: 2.4rem;
+    ${FONT_STYLES.PRETENDARD_B_18};
   }
 
-  @media screen and (min-width: 1920px) {
-    margin-top: 4rem;
-    ${FONT_STYLES.PRETENDARD_B_34};
+  @media screen and (min-width: 1200px) {
+    ${FONT_STYLES.PRETENDARD_B_18};
   }
 `;
 

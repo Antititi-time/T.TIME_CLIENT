@@ -146,7 +146,7 @@ const StTitle = styled.h2`
     ${FONT_STYLES.PRETENDARD_B_24};
   }
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     ${FONT_STYLES.PRETENDARD_B_32};
   }
 `;
@@ -184,7 +184,7 @@ const StButtonWrapper = styled.div`
   gap: 1.2rem;
   margin-top: 2.5rem;
 
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
+  @media screen and (min-width: 766px) and (max-width: 1200px) {
     gap: 4rem;
     margin-top: 2.3rem;
   }

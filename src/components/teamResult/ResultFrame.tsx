@@ -40,7 +40,7 @@ const StFrame = styled.div`
 
   @media all and (min-width: 766px) {
     width: 69.4rem;
-    padding: 5.3rem 2.7rem 4rem 2.6rem;
+    padding: 3.2rem 2.2rem 4rem 2.1rem;
   }
 
   @media all and (min-width: 1920px) {

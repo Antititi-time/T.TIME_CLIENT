@@ -140,13 +140,8 @@ const StTitle = styled.h2`
   line-height: 2.24rem;
 
   @media screen and (min-width: 766px) {
-    margin-bottom: 4rem;
-    ${FONT_STYLES.NEXON_B_32}
-  }
-
-  @media screen and (min-width: 1920px) {
-    margin-bottom: 3.3rem;
-    ${FONT_STYLES.NEXON_B_32}
+    margin-bottom: 2.4rem;
+    ${FONT_STYLES.NEXON_B_24}
   }
 `;
 
@@ -187,11 +182,6 @@ const StTabItem = styled.li<{ isActive: boolean }>`
     ${FONT_STYLES.PRETENDARD_M_20};
   }
 
-  @media screen and (min-width: 1920px) {
-    height: 12rem;
-    ${FONT_STYLES.PRETENDARD_M_32};
-  }
-
   ${({ isActive }) =>
     isActive &&
     css`
@@ -200,10 +190,6 @@ const StTabItem = styled.li<{ isActive: boolean }>`
 
       @media screen and (min-width: 766px) {
         border-bottom: 0.4rem solid ${COLOR.BLUE_TEXT};
-      }
-
-      @media screen and (min-width: 1920px) {
-        border-bottom: 0.8rem solid ${COLOR.BLUE_TEXT};
       }
     `}
 `;
@@ -228,11 +214,7 @@ const StCategoryTitleContainer = styled.div`
     ${FONT_STYLES.NEXON_B_20};
 
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
-    }
-
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
     }
   }
 
@@ -243,13 +225,8 @@ const StCategoryTitleContainer = styled.div`
     margin-right: 0.5rem;
 
     @media screen and (min-width: 766px) {
-      width: 4.7rem;
-      height: 4.7rem;
-    }
-
-    @media screen and (min-width: 1920px) {
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 3.5rem;
+      height: 3.5rem;
     }
   }
 `;
@@ -270,12 +247,6 @@ const StQuestion = styled.p`
     margin-bottom: 2.4rem;
     ${FONT_STYLES.NEXON_B_24};
     line-height: 3.6rem;
-  }
-
-  @media screen and (min-width: 1920px) {
-    margin-bottom: 4rem;
-    ${FONT_STYLES.NEXON_B_32};
-    line-height: 4.8rem;
   }
 `;
 
@@ -316,12 +287,6 @@ const StName = styled.p<{ maxStyle: boolean; minStyle: boolean }>`
     height: 3.8rem;
     ${FONT_STYLES.PRETENDARD_B_20};
   }
-
-  @media screen and (min-width: 1920px) {
-    width: 10.7rem;
-    height: 5rem;
-    ${FONT_STYLES.PRETENDARD_B_24};
-  }
 `;
 
 const StAnswer = styled.div`
@@ -337,10 +302,6 @@ const StAnswer = styled.div`
     width: 46.8rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    width: 88.5rem;
-  }
-
   & > span {
     height: 100%;
     padding: 0.4rem 0;
@@ -351,11 +312,6 @@ const StAnswer = styled.div`
       margin: 0.8rem 0 0 1.2rem;
       ${FONT_STYLES.PRETENDARD_B_20};
     }
-
-    @media screen and (min-width: 1920px) {
-      margin: 0.9rem 0 0 1.2rem;
-      ${FONT_STYLES.PRETENDARD_B_24};
-    }
   }
 
   & > p {
@@ -365,10 +321,6 @@ const StAnswer = styled.div`
 
     @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_M_20};
-    }
-
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.PRETENDARD_M_24};
     }
   }
 `;
