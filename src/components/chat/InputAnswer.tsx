@@ -95,12 +95,12 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
 export default InputAnswer;
 
 const StSubmitButton = styled.button`
-  @media screen and (max-width: 1920px) {
+  @media screen and (max-width: 1200px) {
     position: relative;
     margin-bottom: 1.7rem;
   }
   .SubmitButton {
-    @media screen and (max-width: 1920px) {
+    @media screen and (max-width: 1200px) {
       position: fixed;
       bottom: 2.7rem;
       right: 1.7rem;
@@ -111,7 +111,7 @@ const StSubmitButton = styled.button`
 const StCountTextNumber = styled.div`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_SB_12};
-  @media screen and (max-width: 1920px) {
+  @media screen and (max-width: 1200px) {
     position: absolute;
     right: 1.8rem;
     bottom: 0.6rem;
@@ -132,24 +132,24 @@ const StForm = styled.form`
     width: 2.4rem;
     height: 4rem;
     margin: 0 0.8rem 2.5rem 1.6rem;
-    @media screen and (min-width: 1920px) {
+    @media screen and (min-width: 1200px) {
       margin: 0rem 1rem;
     }
   }
 
   @media screen and (min-width: 766px) {
-    margin: 0 -3.5rem;
+    margin: 0 -4rem;
     justify-content: center;
   }
-  @media screen and (min-width: 1920px) {
-    margin: 0 -40rem;
+  @media screen and (min-width: 1200px) {
+    margin: 0 -25.7rem;
     justify-content: center;
     padding: 1.5rem 0rem;
   }
 `;
 
 const StInput = styled.textarea`
-  width: 71%;
+  width: 73%;
   height: 4rem;
   bottom: 2.4rem;
   padding: 1.2rem 5.2rem 1.2rem 1.4rem;
@@ -169,7 +169,7 @@ const StInput = styled.textarea`
   @media screen and (min-width: 766px) {
     width: 82%;
   }
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     width: 104rem;
     bottom: 0rem;
     margin: 0rem;
