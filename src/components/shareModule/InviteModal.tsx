@@ -112,7 +112,7 @@ const StInviteArticle = styled.article`
 const StArticleTitle = styled.div`
   width: 100%;
   text-align: left;
-  padding-left: 2.8rem;
+  padding-left: 1.5rem;
   ${FONT_STYLES.PRETENDARD_B_16};
   @media screen and (min-width: 1920px) {
     line-height: 160%;
@@ -120,10 +120,12 @@ const StArticleTitle = styled.div`
 `;
 const StArticleLink = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 0.4rem;
   ${FONT_STYLES.NEXON_R_14};
   font-size: 1.6rem;
-  padding-left: 2.8rem;
+
   white-space: nowrap;
 `;
 const StButtonContainer = styled.div`
