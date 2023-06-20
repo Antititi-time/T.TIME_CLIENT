@@ -40,6 +40,10 @@ export default ResultGraph;
 const StGraphContent = styled.div`
   display: flex;
   margin-bottom: 0.7rem;
+  @media screen and (min-width: 766px) {
+    align-items: center;
+    margin-top: 1.1rem;
+  }
 `;
 const StGraphName = styled.div`
   ${FONT_STYLES.PRETENDARD_SB_12};
@@ -48,13 +52,8 @@ const StGraphName = styled.div`
   white-space: nowrap;
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.PRETENDARD_M_20};
-    width: 7.1rem;
-    margin-right: 4rem;
-  }
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.PRETENDARD_M_24};
-    width: 8.4rem;
-    margin-right: 4.8rem;
+    min-width: 7.1rem;
+    margin-right: 1.6rem;
   }
 `;
 
@@ -73,11 +72,11 @@ const StGraphBar = styled.div<graphWidth>`
     background: ${COLOR.IVORY_6};
     border-radius: 1.4rem;
     @media screen and (min-width: 766px) {
-      width: 42.6rem;
+      width: 43.2rem;
       height: 1.2rem;
     }
-    @media screen and (min-width: 1920px) {
-      width: 80.2rem;
+    @media screen and (min-width: 1200px) {
+      width: 54.6rem;
     }
   }
   .progressValue {
@@ -89,7 +88,7 @@ const StGraphBar = styled.div<graphWidth>`
     animation-name: ${graphAnimation};
     animation-duration: 6s;
     @media screen and (min-width: 766px) {
-      width: ${(props: graphWidth) => props.data * 4.26}rem;
+      width: ${(props: graphWidth) => props.data * 4.32}rem;
       height: 1.2rem;
     }
     @media screen and (min-width: 1920px) {
@@ -104,10 +103,10 @@ const StGraphScore = styled.p`
   ${FONT_STYLES.PRETENDARD_B_12};
   color: ${COLOR.BLUE_1};
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_24};
-    margin-left: 2.8rem;
+    ${FONT_STYLES.PRETENDARD_B_20};
+    margin-left: 1rem;
   }
-  @media screen and (min-width: 1920px) {
-    margin-left: 5.4rem;
+  @media screen and (min-width: 1200px) {
+    margin-left: 2rem;
   }
 `;

@@ -185,8 +185,9 @@ const StResultCard = styled.main`
     min-height: 146rem;
     padding-top: 3.2rem;
     padding-left: 4rem;
+    padding-right: 4rem;
   }
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     width: 84.8rem;
   }
 `;
@@ -256,7 +257,7 @@ const StDotsImage = styled.div`
   margin: 2.3rem 0 1.2rem 0;
   @media screen and (min-width: 766px) {
     padding-top: 3rem;
-    margin-bottom: 1%.6;
+    margin-bottom: 1.6rem;
   }
 `;
 const StUserImage = styled.img`
@@ -304,9 +305,6 @@ const StResultDetail = styled.div`
       ${FONT_STYLES.PRETENDARD_R_20};
       line-height: 3.6rem;
     }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.PRETENDARD_R_24};
-    }
   }
 `;
 const StRecommendText = styled.article`
@@ -328,10 +326,8 @@ const StRecommendText = styled.article`
     ${FONT_STYLES.PRETENDARD_R_20};
     padding-left: 2.4rem;
     line-height: 3.6rem;
-  }
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.PRETENDARD_R_24};
-    padding-left: 3.5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
   p {
     margin: 0.35rem 0rem 0.35rem 0.9rem;
@@ -347,27 +343,23 @@ const StGraphTitle = styled.p`
   ${FONT_STYLES.NEXON_B_16};
   white-space: nowrap;
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_24};
-  }
-  @media screen and (min-width: 1920px) {
-    margin-top: 5.3rem;
+    ${FONT_STYLES.NEXON_B_20};
   }
 `;
 const StGraphContainer = styled.article`
   width: 100%;
   height: 15rem;
-  padding: 2.5rem 1.5rem 2.5rem 2rem;
+  padding: 2.2rem 1.5rem 2.2rem 2rem;
   margin: 1rem 0 4.6rem 0;
   border-radius: 1.4rem;
   border: 0.2rem solid ${COLOR.IVORY_3};
   background-color: ${COLOR.IVORY_5};
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: 766px) {
     height: 24.3rem;
-    padding: 2.2rem 2.6rem 2rem 2.6rem;
-  }
-  @media screen and (min-width: 1920px) {
-    height: 24.3rem;
-    padding-left: 5.5rem;
+    margin-top: 2.5rem;
+    padding: 1.5rem 2.4rem 1.5rem 2.4rem;
   }
 `;
 const StCardFooter = styled.footer`
@@ -379,8 +371,10 @@ const StCardFooter = styled.footer`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_R_12};
   white-space: nowrap;
+
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_R_16};
+    margin-bottom: 3rem;
   }
   img {
     width: 5.8rem;
