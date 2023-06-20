@@ -146,36 +146,36 @@ const StInvitationContainer = styled.article`
   @media screen and (min-width: 766px) {
     flex-direction: row;
     gap: unset;
-    width: 686px;
-    height: 376px;
+    width: 68.6rem;
+    height: 37.6rem;
     padding: 0;
     margin-top: 9.8rem;
     & > div:first-child {
-      width: 272px;
+      width: 27.2rem;
       text-align: center;
     }
     & > div:last-child {
-      width: 414px;
       display: flex;
       justify-content: center;
+      width: 41.4rem;
     }
   }
 
   @media screen and (min-width: 1200px) {
-    width: 848px;
+    width: 84.8rem;
     & > div:first-child {
-      width: 377px;
+      width: 37.7rem;
     }
     & > div:last-child {
-      width: 471px;
+      width: 47.1rem;
     }
   }
 `;
 
 const StLine = styled.div`
   display: none;
-  height: calc(100% - 31px);
   width: 0.2rem;
+  height: calc(100% - 3.1rem);
   background-color: ${COLOR.IVORY_3};
   @media screen and (min-width: 766px) {
     display: block;
