@@ -239,10 +239,10 @@ const StBtnContainer = styled.div`
 
   &.flex-container {
     flex-direction: column;
-    gap: 6.8rem;
     margin-top: 3.9rem;
     @media screen and (min-width: 766px) {
       flex-direction: row-reverse;
+      gap: 6.8rem;
       align-items: flex-end;
       margin-top: 0;
     }
