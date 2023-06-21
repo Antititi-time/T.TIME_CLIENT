@@ -36,6 +36,24 @@ const StButtomBtnContainer = styled.div`
   height: 8.4rem;
   border-radius: 1.2rem 1.2rem 0 0;
   background-color: white;
+  @media screen and (min-width: 766px) {
+    a div {
+      width: 28rem;
+      margin-right: 1rem;
+    }
+    div div {
+      width: 28rem;
+      margin-left: 1rem;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    a div {
+      margin-right: 6rem;
+    }
+    div div {
+      margin-left: 6rem;
+    }
+  }
 `;
 const StButtonContainer = styled.div`
   cursor: pointer;
