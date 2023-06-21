@@ -44,8 +44,9 @@ const StErrorPage = styled.main`
     margin-bottom: 2rem;
 
     @media screen and (min-width: 766px) {
-      width: 32rem;
-      height: 32rem;
+      width: 24rem;
+      height: 24rem;
+      margin-bottom: 4rem;
     }
   }
 `;
