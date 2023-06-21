@@ -140,13 +140,8 @@ const StTitle = styled.h2`
   line-height: 2.24rem;
 
   @media screen and (min-width: 766px) {
-    margin-bottom: 4rem;
-    ${FONT_STYLES.NEXON_B_32}
-  }
-
-  @media screen and (min-width: 1920px) {
-    margin-bottom: 3.3rem;
-    ${FONT_STYLES.NEXON_B_32}
+    margin-bottom: 2.4rem;
+    ${FONT_STYLES.NEXON_B_24}
   }
 `;
 
@@ -163,8 +158,8 @@ const StResultContainer = styled.div`
     width: 64.4rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    width: 112rem;
+  @media screen and (min-width: 1200px) {
+    width: 76.8rem;
   }
 `;
 
@@ -187,9 +182,9 @@ const StTabItem = styled.li<{ isActive: boolean }>`
     ${FONT_STYLES.PRETENDARD_M_20};
   }
 
-  @media screen and (min-width: 1920px) {
-    height: 12rem;
-    ${FONT_STYLES.PRETENDARD_M_32};
+  @media screen and (min-width: 1200px) {
+    height: 8rem;
+    ${FONT_STYLES.PRETENDARD_M_24};
   }
 
   ${({ isActive }) =>
@@ -201,10 +196,6 @@ const StTabItem = styled.li<{ isActive: boolean }>`
       @media screen and (min-width: 766px) {
         border-bottom: 0.4rem solid ${COLOR.BLUE_TEXT};
       }
-
-      @media screen and (min-width: 1920px) {
-        border-bottom: 0.8rem solid ${COLOR.BLUE_TEXT};
-      }
     `}
 `;
 
@@ -215,8 +206,8 @@ const StTextContainer = styled.div`
     margin: 3.3rem 3.1rem 10.4rem 3.1rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    margin: 6rem 5rem 3.9rem 5rem;
+  @media screen and (min-width: 1200px) {
+    margin: 2.4rem 2.4rem 4.8rem 2.4rem;
   }
 `;
 
@@ -228,11 +219,7 @@ const StCategoryTitleContainer = styled.div`
     ${FONT_STYLES.NEXON_B_20};
 
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
-    }
-
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
     }
   }
 
@@ -243,13 +230,8 @@ const StCategoryTitleContainer = styled.div`
     margin-right: 0.5rem;
 
     @media screen and (min-width: 766px) {
-      width: 4.7rem;
-      height: 4.7rem;
-    }
-
-    @media screen and (min-width: 1920px) {
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 3.5rem;
+      height: 3.5rem;
     }
   }
 `;
@@ -271,12 +253,6 @@ const StQuestion = styled.p`
     ${FONT_STYLES.NEXON_B_24};
     line-height: 3.6rem;
   }
-
-  @media screen and (min-width: 1920px) {
-    margin-bottom: 4rem;
-    ${FONT_STYLES.NEXON_B_32};
-    line-height: 4.8rem;
-  }
 `;
 
 const StAnswerList = styled.div`
@@ -288,10 +264,6 @@ const StAnswerList = styled.div`
 
   @media screen and (min-width: 766px) {
     gap: 1.6rem;
-  }
-
-  @media screen and (min-width: 1920px) {
-    gap: 2.4rem;
   }
 `;
 
@@ -317,10 +289,9 @@ const StName = styled.p<{ maxStyle: boolean; minStyle: boolean }>`
     ${FONT_STYLES.PRETENDARD_B_20};
   }
 
-  @media screen and (min-width: 1920px) {
-    width: 10.7rem;
-    height: 5rem;
-    ${FONT_STYLES.PRETENDARD_B_24};
+  @media screen and (min-width: 1200px) {
+    width: 9.4rem;
+    height: 4rem;
   }
 `;
 
@@ -335,10 +306,12 @@ const StAnswer = styled.div`
 
   @media screen and (min-width: 766px) {
     width: 46.8rem;
+    margin-left: 1.2rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    width: 88.5rem;
+  @media screen and (min-width: 1200px) {
+    width: 61rem;
+    margin-left: 1.6rem;
   }
 
   & > span {
@@ -351,11 +324,6 @@ const StAnswer = styled.div`
       margin: 0.8rem 0 0 1.2rem;
       ${FONT_STYLES.PRETENDARD_B_20};
     }
-
-    @media screen and (min-width: 1920px) {
-      margin: 0.9rem 0 0 1.2rem;
-      ${FONT_STYLES.PRETENDARD_B_24};
-    }
   }
 
   & > p {
@@ -365,10 +333,6 @@ const StAnswer = styled.div`
 
     @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_M_20};
-    }
-
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.PRETENDARD_M_24};
     }
   }
 `;

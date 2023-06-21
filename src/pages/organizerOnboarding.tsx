@@ -94,24 +94,25 @@ export default OrganizerOnboarding;
 
 const StSkipButton = styled.div`
   position: absolute;
-  top: 55rem;
+  bottom: 18rem;
   left: 50%;
+  margin-top: 11.9rem;
   transform: translate(-50%);
-  margin-top: 7.9rem;
   @media (min-width: 766px) {
-    margin-top: 40rem;
+    bottom: 6.4rem;
   }
 `;
 
 const StSocialLoginButton = styled.div`
   position: absolute;
-  top: 46.5rem;
+  bottom: 15rem;
   left: 50%;
-  transform: translate(-50%);
+  margin-top: 11.9rem;
   text-align: center;
-  margin-top: 7.9rem;
+  transform: translate(-50%);
   @media (min-width: 766px) {
-    margin-top: 40rem;
+    bottom: 6.4rem;
+    margin: 0;
   }
 `;
 
@@ -120,7 +121,7 @@ const StSlider = styled(Slider)`
   flex-direction: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: calc(var(--vh) * 100);
   background-color: ${COLOR.IVORY_1};
   .slick-prev::before,
   .slick-next::before {
@@ -193,15 +194,15 @@ const StSlider = styled(Slider)`
 `;
 
 const StPageText = styled.p`
-  position: relative;
-  margin-top: 7.2rem;
+  position: absolute;
+  top: 32rem;
   text-align: center;
   ${FONT_STYLES.NEXON_B_20};
   white-space: pre-wrap;
 
   @media (min-width: 766px) {
+    ${FONT_STYLES.NEXON_B_20}
     margin-bottom: 3rem;
-    ${FONT_STYLES.NEXON_B_24}
   }
 `;
 
@@ -213,7 +214,10 @@ const StFlex = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -7.2rem;
+  top: -20.7rem;
+  @media (min-width: 766px) {
+    top: -18.3rem;
+  }
 `;
 
 const StOnboardingWrapper = styled.div`
@@ -223,18 +227,22 @@ const StOnboardingWrapper = styled.div`
   align-content: center;
   flex-direction: column;
   overflow: hidden;
+  height: 100vh;
   .organizerEmoticon {
     position: relative;
+    top: 44rem;
     width: 35rem;
     height: 25rem;
-    margin: 2.4rem 0 11.9rem 0;
 
     @media (min-width: 766px) {
       position: relative;
-      width: 45rem;
-      height: 32.2rem;
-      margin: 11rem 0 15.1rem 0;
+      width: 36rem;
+      height: 26rem;
+      margin: -4rem 0 -8rem 0;
     }
+  }
+  @media (min-width: 766px) {
+    height: 72rem;
   }
 `;
 
@@ -245,12 +253,14 @@ const StInfor = styled.p`
 `;
 
 const StLoginButtonContainer = styled.div<{ isKakaoBrowser: boolean }>`
-  position: relative;
-  bottom: 1rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  bottom: 1rem;
   margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
-
+  @media (min-width: 766px) {
+    bottom: -2rem;
+  }
   button:first-child {
     margin-bottom: 1.6rem;
   }

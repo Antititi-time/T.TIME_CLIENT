@@ -106,15 +106,15 @@ const StConfirmInvite = styled.div`
   align-items: center;
   width: 100vw;
   min-height: calc(var(--vh) * 100);
-  padding-bottom: 4rem;
+  padding-bottom: 8rem;
   .invitationImg img {
     width: 12.8rem;
     height: 12.8rem;
     margin-bottom: 1rem;
 
     @media screen and (min-width: 766px) {
-      width: 23vh;
-      height: 23vh;
+      width: 16rem;
+      height: 16rem;
     }
   }
 `;
@@ -138,42 +138,46 @@ const StInvitationContainer = styled.article`
     height: 3.2rem;
     bottom: 0.4rem;
     @media screen and (min-width: 766px) {
-      height: 6.4rem;
-      width: 10.3rem;
+      height: 2.4rem;
+      width: 4rem;
+      bottom: 0;
     }
   }
-  @media screen and (min-width: 766px) and (max-width: 1920px) {
-    height: 70vh;
-    width: 89vw;
-    gap: 4rem;
-  }
-
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 766px) {
     flex-direction: row;
     gap: unset;
-    width: 62.5vw;
-    max-width: 1200px;
-    height: 71vh;
-    max-height: 727px;
+    width: 68.6rem;
+    height: 37.6rem;
     padding: 0;
+    margin-top: 9.8rem;
     & > div:first-child {
-      flex-grow: 1;
+      width: 27.2rem;
       text-align: center;
     }
     & > div:last-child {
-      flex-grow: 1.34;
       display: flex;
       justify-content: center;
+      width: 41.4rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 84.8rem;
+    & > div:first-child {
+      width: 37.7rem;
+    }
+    & > div:last-child {
+      width: 47.1rem;
     }
   }
 `;
 
 const StLine = styled.div`
   display: none;
-  height: calc(100% - 74px);
   width: 0.2rem;
+  height: calc(100% - 3.1rem);
   background-color: ${COLOR.IVORY_3};
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 766px) {
     display: block;
   }
 `;
@@ -183,7 +187,7 @@ const StTeamName = styled.p`
   ${FONT_STYLES.NEXON_B_16};
   line-height: 2.56rem;
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_24}
+    ${FONT_STYLES.NEXON_B_20}
   }
 `;
 
@@ -195,9 +199,6 @@ const StRowContainer = styled.div`
 const StInviteComment = styled.p`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
-  @media screen and (min-width: 766px) {
-    font-size: 3.2rem;
-  }
 `;
 
 const StListContainer = styled.ol`
@@ -215,7 +216,7 @@ const StList = styled.li`
     margin-bottom: 1.2rem;
   }
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_R_24}
+    ${FONT_STYLES.NEXON_R_18};
   }
 `;
 
@@ -234,21 +235,20 @@ const StBtnContainer = styled.div`
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  gap: 1.8rem;
+  gap: 1.6rem;
 
   &.flex-container {
-    flex-direction: row;
+    flex-direction: column;
+    gap: 6.8rem;
     margin-top: 3.9rem;
-    @media screen and (max-width: 765px) {
-      flex-direction: column;
-    }
     @media screen and (min-width: 766px) {
+      flex-direction: row-reverse;
       align-items: flex-end;
       margin-top: 0;
     }
   }
 
-  @media screen and (max-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     gap: 2rem;
   }
 `;
