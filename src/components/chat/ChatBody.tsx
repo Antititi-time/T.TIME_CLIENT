@@ -127,11 +127,12 @@ const StChatWrapper = styled.div`
   background-color: ${COLOR.IVORY_1};
   z-index: 1;
 
-  @media screen and (min-width: 1920px) {
-    padding: 0 40rem;
-  }
   @media screen and (min-width: 766px) {
-    padding: 0 3.5rem;
+    padding: 0rem 4rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 0rem 25.7rem;
   }
 `;
 
