@@ -113,8 +113,8 @@ const StDate = styled.p`
   line-height: 1.56rem;
 
   @media all and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_R_20};
-    margin-bottom: 1.2rem;
+    ${FONT_STYLES.PRETENDARD_R_14};
+    margin-bottom: 0.4rem;
     line-height: 2.2rem;
   }
 `;
@@ -126,13 +126,8 @@ const StTeamName = styled.p`
   line-height: 2.24rem;
 
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_24};
-    line-height: 3.6rem;
-  }
-
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.NEXON_B_32};
-    line-height: 4.8rem;
+    margin-bottom: 1.6rem;
+    ${FONT_STYLES.NEXON_B_16};
   }
 `;
 
@@ -141,6 +136,7 @@ const StTeamResultText = styled.div`
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_22}
   line-height: 2.64rem;
+
   .logo {
     position: relative;
     width: 7.2rem;
@@ -149,18 +145,13 @@ const StTeamResultText = styled.div`
     margin: 0 0.4rem;
 
     @media screen and (min-width: 766px) {
-      width: 14.1rem;
-      height: 4.7rem;
+      width: 9.6rem;
+      height: 3.6rem;
     }
   }
 
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_32}
-  }
-
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.NEXON_B_40};
-    line-height: 4.8rem;
+    ${FONT_STYLES.NEXON_B_24}
   }
 `;
 
@@ -174,8 +165,8 @@ const StImageContainer = styled.div`
     gap: 3.2rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    margin: 3.8rem 26.4rem 4rem 22.4rem;
+  @media screen and (min-width: 1200px) {
+    margin: 6rem 0rem 3.6rem 12.8rem;
     gap: 3.2rem;
   }
 
@@ -187,11 +178,6 @@ const StImageContainer = styled.div`
     @media screen and (min-width: 766px) {
       width: 24rem;
       height: 24rem;
-    }
-
-    @media screen and (min-width: 1920px) {
-      width: 32rem;
-      height: 32rem;
     }
   }
 `;
@@ -210,7 +196,7 @@ const StTeamInfoDetail = styled.div`
 
     @media screen and (min-width: 766px) {
       margin-bottom: 2.4rem;
-      ${FONT_STYLES.PRETENDARD_B_24};
+      ${FONT_STYLES.PRETENDARD_B_20};
     }
   }
   & > p:nth-of-type(2) {
@@ -218,7 +204,7 @@ const StTeamInfoDetail = styled.div`
     ${FONT_STYLES.PRETENDARD_B_20};
 
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
     }
   }
 `;

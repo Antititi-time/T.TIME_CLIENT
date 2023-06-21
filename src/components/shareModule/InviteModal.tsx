@@ -79,16 +79,12 @@ const StModal = styled.section`
   background-color: ${COLOR.IVORY_1};
   z-index: 7;
   @media screen and (min-width: 766px) {
-    width: 41.5rem;
-    height: 46.5rem;
-    margin-top: 20.1rem;
+    margin-top: 10.2rem;
   }
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 36rem;
-    height: 46.5rem;
   }
 `;
 const StModalHeader = styled.header`
@@ -99,12 +95,6 @@ const StModalHeader = styled.header`
   ${FONT_STYLES.PRETENDARD_B_20};
   @media screen and (min-width: 766px) {
     margin-top: 2.8rem;
-    margin-bottom: 2.4rem;
-    font-size: 2.4rem;
-  }
-  @media screen and (min-width: 1920px) {
-    margin-top: 2.8rem;
-    margin-bottom: 2.8rem;
     font-size: 2.4rem;
   }
 `;
@@ -114,22 +104,15 @@ const StInviteArticle = styled.article`
   align-items: center;
   flex-direction: column;
   width: 28.2rem;
-  height: 12.4rem;
+  height: 12.8rem;
   margin: 2.2rem 2.3rem 0 2.3rem;
   border-radius: 1.2rem;
   background-color: ${COLOR.IVORY_3};
-  @media screen and (min-width: 766px) {
-    width: 35.5rem;
-  }
-  @media screen and (min-width: 1920px) {
-    width: 28.2rem;
-    margin-top: 0;
-  }
 `;
 const StArticleTitle = styled.div`
   width: 100%;
   text-align: left;
-  padding-left: 2.8rem;
+  padding-left: 1.5rem;
   ${FONT_STYLES.PRETENDARD_B_16};
   @media screen and (min-width: 1920px) {
     line-height: 160%;
@@ -137,13 +120,16 @@ const StArticleTitle = styled.div`
 `;
 const StArticleLink = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 0.4rem;
   ${FONT_STYLES.NEXON_R_14};
   font-size: 1.6rem;
-  padding-left: 2.8rem;
+
+  white-space: nowrap;
 `;
 const StButtonContainer = styled.div`
-  margin: 4rem 2.3rem 4rem 2.3rem;
+  margin: 4rem 2.3rem 3.6rem 2.3rem;
 `;
 const StCopyButton = styled.button`
   display: flex;
@@ -183,7 +169,4 @@ const StFooter = styled.button`
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
   z-index: 7;
   ${FONT_STYLES.NEXON_B_16};
-  @media screen and (min-width: 766px) {
-    margin-top: 0;
-  }
 `;

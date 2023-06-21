@@ -71,7 +71,6 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-
       {resultData ? (
         <StMyResult>
           {modalState && (
@@ -141,7 +140,12 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   );
 }
 export default MyResult;
-
+export const getServerSideProps = async (ctx: ctxType) => {
+  const userId = ctx.query.userId;
+  const teamId = parseInt(ctx.query.teamId);
+  const myResultData = await getMyResult(userId, teamId);
+  return { props: { userId, teamId, myResultData } };
+};
 const StMypageLink = styled.p`
   display: flex;
   justify-content: center;
@@ -151,16 +155,9 @@ const StMypageLink = styled.p`
   text-decoration-line: underline;
   text-underline-position: under;
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_24};
+    ${FONT_STYLES.PRETENDARD_B_18};
   }
 `;
-
-export const getServerSideProps = async (ctx: ctxType) => {
-  const userId = ctx.query.userId;
-  const teamId = parseInt(ctx.query.teamId);
-  const myResultData = await getMyResult(userId, teamId);
-  return { props: { userId, teamId, myResultData } };
-};
 
 const StmyResultPage = styled.div``;
 
@@ -183,15 +180,14 @@ const StResultCard = styled.main`
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   @media screen and (min-width: 766px) {
-    width: 69.4rem;
-    min-height: 153.6rem;
-  }
-  @media screen and (min-width: 1920px) {
-    width: 120rem;
-    min-height: 160.9rem;
-    padding-top: 3.7rem;
+    width: 68.6rem;
+    min-height: 146rem;
+    padding-top: 3.2rem;
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 84.8rem;
   }
 `;
 const StInfoContainer = styled.div`
@@ -202,7 +198,8 @@ const StInfoContainer = styled.div`
     color: ${COLOR.GRAY_9E};
     line-height: 1.432rem;
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.PRETENDARD_M_20};
+      ${FONT_STYLES.PRETENDARD_M_14};
+      line-height: 2.2rem;
     }
   }
   .teamName {
@@ -210,31 +207,21 @@ const StInfoContainer = styled.div`
     margin: 0.8rem 0 1.2rem 0;
     color: ${COLOR.GRAY_7E};
     line-height: 2.24rem;
-    @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_28};
-      margin-bottom: 0;
-    }
   }
   .resultTitle {
     ${FONT_STYLES.NEXON_B_22};
     color: ${COLOR.BLACK};
     line-height: 2.64rem;
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
       margin-bottom: 0;
-    }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.NEXON_B_40};
     }
   }
   .resultTitle p {
     margin-bottom: 0.5rem;
     @media screen and (min-width: 766px) {
-      ${FONT_STYLES.NEXON_B_32};
+      ${FONT_STYLES.NEXON_B_24};
       margin-bottom: 0;
-    }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.NEXON_B_40};
     }
   }
   .userName {
@@ -253,15 +240,10 @@ const StTeamResultText = styled.div`
     bottom: 0.3rem;
     margin: 0 0.4rem;
     @media screen and (min-width: 766px) {
-      width: 10.2rem;
-      height: 3.9rem;
+      width: 8rem;
+      height: 3.2rem;
       margin: 0 0.4rem;
-      top: 0.1rem;
-    }
-    @media screen and (min-width: 1920px) {
-      width: 12.4rem;
-      height: 4.8rem;
-      top: 0.3rem;
+      top: 0rem;
     }
   }
 `;
@@ -270,11 +252,8 @@ const StDotsImage = styled.div`
   min-height: 0.4rem;
   margin: 2.3rem 0 1.2rem 0;
   @media screen and (min-width: 766px) {
-    padding-top: 1.9rem;
-    margin-bottom: 2.5rem;
-  }
-  @media screen and (min-width: 1920px) {
-    padding-top: 3.9rem;
+    padding-top: 3rem;
+    margin-bottom: 1.6rem;
   }
 `;
 const StUserImage = styled.img`
@@ -284,10 +263,10 @@ const StUserImage = styled.img`
   }
   width: 30rem;
   height: 20rem;
-  margin: 6.2rem 7.6rem 5rem 7.6rem;
+  margin: 6.2rem 7.6rem 4rem 7.6rem;
   @media screen and (min-width: 766px) {
-    width: 48rem;
-    height: 32rem;
+    width: 36rem;
+    height: 24rem;
   }
 `;
 const StResultTitle = styled.div`
@@ -299,7 +278,7 @@ const StResultTitle = styled.div`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.PRETENDARD_EB_20};
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_32};
+    ${FONT_STYLES.NEXON_B_24};
   }
   white-space: nowrap;
   .feedback {
@@ -308,9 +287,6 @@ const StResultTitle = styled.div`
     ${FONT_STYLES.PRETENDARD_B_12};
     @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_B_20};
-    }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.PRETENDARD_B_24};
     }
   }
 `;
@@ -324,9 +300,6 @@ const StResultDetail = styled.div`
     @media screen and (min-width: 766px) {
       ${FONT_STYLES.PRETENDARD_R_20};
       line-height: 3.6rem;
-    }
-    @media screen and (min-width: 1920px) {
-      ${FONT_STYLES.PRETENDARD_R_24};
     }
   }
 `;
@@ -349,10 +322,8 @@ const StRecommendText = styled.article`
     ${FONT_STYLES.PRETENDARD_R_20};
     padding-left: 2.4rem;
     line-height: 3.6rem;
-  }
-  @media screen and (min-width: 1920px) {
-    ${FONT_STYLES.PRETENDARD_R_24};
-    padding-left: 3.5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
   p {
     margin: 0.35rem 0rem 0.35rem 0.9rem;
@@ -368,27 +339,26 @@ const StGraphTitle = styled.p`
   ${FONT_STYLES.NEXON_B_16};
   white-space: nowrap;
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_24};
-  }
-  @media screen and (min-width: 1920px) {
-    margin-top: 5.3rem;
+    ${FONT_STYLES.NEXON_B_20};
   }
 `;
 const StGraphContainer = styled.article`
   width: 100%;
   height: 15rem;
-  padding: 2.5rem 1.5rem 2.5rem 2rem;
+  padding: 2.2rem 1.5rem 2.2rem 2rem;
   margin: 1rem 0 4.6rem 0;
   border-radius: 1.4rem;
   border: 0.2rem solid ${COLOR.IVORY_3};
   background-color: ${COLOR.IVORY_5};
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: 766px) {
     height: 24.3rem;
-    padding: 2.2rem 2.6rem 2rem 2.6rem;
+    margin-top: 2.5rem;
+    padding: 1.5rem 2.4rem 1.5rem 2.4rem;
   }
-  @media screen and (min-width: 1920px) {
-    height: 24.3rem;
-    padding-left: 5.5rem;
+  @media screen and (min-width: 1200px) {
+    padding: 1.5rem 4rem 1.5rem 4rem;
   }
 `;
 const StCardFooter = styled.footer`
@@ -400,8 +370,10 @@ const StCardFooter = styled.footer`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_R_12};
   white-space: nowrap;
+
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.NEXON_R_16};
+    margin-bottom: 3rem;
   }
   img {
     width: 5.8rem;

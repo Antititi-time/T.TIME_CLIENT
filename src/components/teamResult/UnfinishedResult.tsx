@@ -81,17 +81,16 @@ const StResultCard = styled.main`
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+
   @media screen and (min-width: 766px) {
     width: 68.6rem;
-    height: 87.9rem;
-    padding-top: 3.9rem;
-    padding-left: 4rem;
-  }
-  @media screen and (min-width: 1920px) {
-    width: 120rem;
-    height: 72.7rem;
+    height: 37.6rem;
+    margin-top: 4.3rem;
     flex-direction: row;
     padding-bottom: 3.7rem;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 84.8rem;
   }
 `;
 const StDate = styled.p`
@@ -99,10 +98,7 @@ const StDate = styled.p`
   color: ${COLOR.GRAY_9E};
   ${FONT_STYLES.PRETENDARD_M_12}
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_R_20};
-  }
-  @media screen and (min-width: 1920px) {
-    margin-bottom: 0;
+    ${FONT_STYLES.PRETENDARD_R_14};
   }
 `;
 
@@ -110,20 +106,13 @@ const StTeamName = styled.p`
   margin-bottom: 1.2rem;
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_B_16};
-  @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_32};
-  }
-  @media screen and (min-width: 1920px) {
-    margin: 1.2rem 0 0 0;
-    line-height: 3.6rem;
-  }
 `;
 const StTeamResultText = styled.div`
   display: flex;
   color: ${COLOR.BLACK};
   ${FONT_STYLES.NEXON_B_22}
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_40};
+    ${FONT_STYLES.NEXON_B_24};
   }
   .logo {
     position: relative;
@@ -132,9 +121,9 @@ const StTeamResultText = styled.div`
     bottom: 0.3rem;
     margin: 0 0.4rem;
     @media screen and (min-width: 766px) {
-      width: 11rem;
-      height: 4.7rem;
-      top: 0.4rem;
+      width: 7.5rem;
+      height: 3.2rem;
+      top: 0rem;
     }
   }
 `;
@@ -146,9 +135,9 @@ const StUnfinishImage = styled.div`
     height: 17.9rem;
     margin: 3.4rem 6.2rem 2.8rem 6.2rem;
     @media screen and (min-width: 766px) {
-      width: 32rem;
-      height: 32rem;
-      margin-top: 6.8rem;
+      width: 16rem;
+      height: 16rem;
+      margin-top: 4rem;
       margin-bottom: 2rem;
     }
   }
@@ -161,10 +150,7 @@ const StInfoTitle = styled.p`
   ${FONT_STYLES.PRETENDARD_B_20};
 
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_32};
-  }
-  @media screen and (min-width: 1920px) {
-    line-height: 4.8rem;
+    ${FONT_STYLES.PRETENDARD_B_24};
   }
 `;
 const StInfoDetail = styled.p`
@@ -177,10 +163,8 @@ const StInfoDetail = styled.p`
   color: ${COLOR.GRAY_7E};
   ${FONT_STYLES.PRETENDARD_B_14};
   white-space: nowrap;
-
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_24};
-    margin-top: 1.6rem;
+    ${FONT_STYLES.PRETENDARD_B_16};
   }
 `;
 const StCurrentStatus = styled.p`
@@ -192,31 +176,29 @@ const StCurrentStatus = styled.p`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.PRETENDARD_R_14}
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.PRETENDARD_B_24};
-    margin-bottom: 2.4rem;
-  }
-  @media screen and (min-width: 1920px) {
-    margin-top: 6.4rem;
+    ${FONT_STYLES.PRETENDARD_B_20};
+    margin-top: 4rem;
   }
 `;
 const StButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 1.2rem;
   @media screen and (min-width: 766px) {
     margin-bottom: 5.6rem;
   }
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 766px) {
     display: none;
   }
 `;
 const StOutsideButton = styled.div`
   display: none;
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 766px) {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 9rem 0 4rem 0;
+    margin: 8rem 0 6rem 0;
   }
 `;
 const StTopContainer = styled.div`
@@ -229,17 +211,20 @@ const StBottomContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 1920px) {
-    min-width: 68rem;
+  @media screen and (min-width: 766px) {
+    min-width: 38.9rem;
+  }
+  @media screen and (min-width: 1200px) {
+    min-width: 47.1rem;
   }
 `;
 const StLine = styled.div`
   display: none;
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 766px) {
     display: block;
     width: 0rem;
     height: 100%;
-    border: 0.2rem solid #ece7db;
+    border: 0.1rem solid #ece7db;
   }
 `;
