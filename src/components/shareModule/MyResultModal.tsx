@@ -61,25 +61,31 @@ const StBackground = styled.main`
   backdrop-filter: blur(0.2rem);
 `;
 const StTeamModal = styled.section`
-  width: 32.8rem;
-  height: 29.7rem;
-  margin: 11.5rem 3.1rem 0rem 3.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 36rem;
+  height: 31.7rem;
+  margin: 27.6rem 3.1rem 0rem 3.1rem;
   border-radius: 1.4rem;
   background-color: ${COLOR.IVORY_1};
+  @media screen and (min-width: 1920px) {
+    margin: 24.5rem 3.1rem 0rem 3.1rem;
+  }
 `;
 const StModalHeader = styled.header`
   width: 100%;
   text-align: center;
   margin-top: 2.4rem;
-  ${FONT_STYLES.PRETENDARD_B_20};
+  ${FONT_STYLES.PRETENDARD_B_24};
 `;
 const StButtonContainer = styled.div`
-  margin: 4rem 2.3rem 3rem 2.3rem;
+  margin: 4rem 2.3rem 4rem 2.3rem;
 `;
 const StCopyButton = styled.button`
   display: flex;
   align-items: center;
-  width: 28.2rem;
+  width: 28rem;
   height: 4.8rem;
   border-radius: 10rem;
   background-color: ${COLOR.BLUE_1};
@@ -88,7 +94,7 @@ const StCopyButton = styled.button`
 const StKakaoButton = styled.button`
   display: flex;
   align-items: center;
-  width: 28.2rem;
+  width: 28rem;
   height: 4.8rem;
   margin-top: 1.6rem;
   border-radius: 10rem;
@@ -117,7 +123,6 @@ const StFooter = styled.button`
   align-items: center;
   width: 100%;
   height: 6.8rem;
-  margin-top: 3rem;
   border-top: 0.1rem solid ${COLOR.GRAY_7E};
   ${FONT_STYLES.NEXON_B_16};
 `;

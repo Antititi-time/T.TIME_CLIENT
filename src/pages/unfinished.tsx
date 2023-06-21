@@ -20,5 +20,16 @@ const StBtnWrapper = styled.button`
   bottom: 3.4rem;
   width: 100%;
   margin-top: 2.4rem;
+
+  @media screen and (min-width: 766px) {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 8.4rem;
+    border-radius: 1.2rem 1.2rem 0 0;
+    background-color: ${COLOR.WHITE_100};
+  }
 `;
 export default Unfinished;
