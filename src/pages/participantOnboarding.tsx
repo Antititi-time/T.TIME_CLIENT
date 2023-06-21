@@ -124,10 +124,12 @@ const StartButton = styled.div`
   left: 50%;
   filter: drop-shadow(0 0.2rem 1rem rgba(255, 108, 61, 0.5));
   z-index: 2;
-  transform: translateX(-50%);
-
+  margin: 23rem 0 0 -13.5rem;
   @media screen and (min-width: 766px) {
     top: 85%;
+    margin: 0;
+    transform: translateX(-50%);
+
     > div {
       width: 40rem;
       height: 8rem;
