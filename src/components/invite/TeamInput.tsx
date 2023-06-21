@@ -52,7 +52,7 @@ const StLabelWrapper = styled.div`
 
 const StText = styled.p`
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_24}
+    ${FONT_STYLES.NEXON_B_20}
   }
   color: ${COLOR.BLUE_TEXT};
   ${FONT_STYLES.NEXON_B_16};
@@ -61,7 +61,7 @@ const StText = styled.p`
 const StInput = styled.input`
   @media screen and (min-width: 766px) {
     width: 41.6rem;
-    height: 5.4rem;
+    height: 4.6rem;
     padding-top: unset;
     padding-bottom: unset;
     transform: none;

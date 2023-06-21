@@ -71,7 +71,6 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
       />
       <LogoTop />
       <ToolTip top={5.8} />
-
       {resultData ? (
         <StMyResult>
           {modalState && (
