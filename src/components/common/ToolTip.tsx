@@ -47,8 +47,9 @@ const StToolTip = styled.div<StToolTipProps>`
   @media (min-width: 766px) {
     right: 4rem;
   }
-  @media (min-width: 1920px) {
-    right: 26.4rem;
+
+  @media (min-width: 1200px) {
+    right: 8.8rem;
   }
 `;
 
