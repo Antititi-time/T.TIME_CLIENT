@@ -106,10 +106,6 @@ const StMypageLink = styled.p`
     margin-top: 2.4rem;
     ${FONT_STYLES.PRETENDARD_B_18};
   }
-
-  @media screen and (min-width: 1200px) {
-    ${FONT_STYLES.PRETENDARD_B_18};
-  }
 `;
 
 const StTeamResult = styled.div`
