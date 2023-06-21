@@ -132,6 +132,7 @@ const StJoin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   min-width: 39rem;
   width: 100vw;
   min-height: calc(var(--vh) * 100);
@@ -152,30 +153,30 @@ const StMainContainer = styled.div`
     margin-top: 8.5rem;
 
     @media screen and (min-width: 766px) {
-      width: 36rem;
-      height: 25rem;
-      margin-top: 14rem;
+      width: 22.4rem;
+      height: 15.4rem;
+      margin-top: 0rem;
+      margin-right: 2.4rem;
     }
 
-    @media screen and (min-width: 1920px) {
-      width: 36rem;
-      height: 25rem;
-      margin-top: 0rem;
-      margin-right: 8rem;
+    @media screen and (min-width: 1200px) {
+      margin-right: 7.7rem;
     }
   }
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 766px) {
     display: flex;
     align-items: center;
     flex-direction: row;
-    width: 120rem;
-    height: 70.2rem;
-    margin-top: 9.7rem;
-    padding: 23.3rem 0rem;
+    width: 68.6rem;
+    height: 37.6rem;
+    margin-top: 15rem;
     background-color: ${COLOR.WHITE_100};
-    border-radius: 1.2rem;
+    border-radius: 1.4rem;
     box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
+  }
+  @media screen and (min-width: 1200px) {
+    width: 84.8rem;
   }
 `;
 
@@ -193,17 +194,16 @@ const StMainBox = styled.div`
   box-shadow: 0rem 0.2rem 1.3rem rgba(0, 0, 0, 0.05);
 
   @media screen and (min-width: 766px) {
-    width: 63.8rem;
-    height: 41.6rem;
-    margin-top: 4.2rem;
-  }
-  @media screen and (min-width: 1920px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 65.2rem;
-    border-left: 3px solid ${COLOR.GRAY_EC};
+    width: 35rem;
+    height: 35rem;
+    border-left: 2px solid ${COLOR.GRAY_EC};
     box-shadow: none;
+    border-radius: 0;
+    padding: 0rem;
+    margin: 0rem;
   }
 
   .imgCenturyGothicLogo {
@@ -211,11 +211,6 @@ const StMainBox = styled.div`
     width: 5.2rem;
     height: 3.2rem;
     bottom: 0.4rem;
-
-    @media screen and (min-width: 766px) {
-      width: 10.3rem;
-      height: 6.4rem;
-    }
   }
 `;
 
@@ -225,7 +220,9 @@ const StTeamName = styled.p`
   line-height: 2.56rem;
 
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_24}
+    ${FONT_STYLES.NEXON_B_20}
+    align-self:flex-start;
+    margin-left: 5.6rem;
   }
 `;
 
@@ -236,19 +233,14 @@ const StRowContainer = styled.div`
 
   @media screen and (min-width: 766px) {
     margin-bottom: 6.6rem;
-  }
-  @media screen and (min-width: 1920px) {
-    margin-bottom: 4.6rem;
+    align-self: flex-start;
+    margin-left: 5.6rem;
   }
 `;
 
 const StInviteComment = styled.p`
   color: ${COLOR.ORANGE_TEXT};
   ${FONT_STYLES.NEXON_B_20};
-
-  @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_B_32}
-  }
 `;
 
 const StListContainer = styled.ol`
@@ -263,7 +255,7 @@ const StList = styled.li`
   ${FONT_STYLES.NEXON_R_16};
 
   @media screen and (min-width: 766px) {
-    ${FONT_STYLES.NEXON_R_24}
+    ${FONT_STYLES.NEXON_R_18}
   }
 `;
 
@@ -276,6 +268,8 @@ const StInfoText = styled.p<{ isLogin: string | null }>`
 
   @media screen and (min-width: 766px) {
     ${FONT_STYLES.PRETENDARD_M_16};
+    margin-bottom: 1.6rem;
+    margin-top: ${(props) => props.isLogin && '2.3rem'};
   }
 `;
 
@@ -285,13 +279,13 @@ const StLoginContainer = styled.div<{ isKakaoBrowser: boolean }>`
   position: relative;
   bottom: 1rem;
   margin-top: ${(props) => (props.isKakaoBrowser ? '7.6rem' : '1rem')};
-
+  margin-bottom: 8rem;
   button:first-child {
     margin-bottom: 1.6rem;
   }
 
-  @media screen and (min-width: 1920px) {
-    margin-top: 3.8rem;
+  @media screen and (min-width: 766px) {
+    margin-top: 3rem;
   }
 `;
 
