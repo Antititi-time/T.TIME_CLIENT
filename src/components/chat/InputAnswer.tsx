@@ -70,6 +70,12 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
+    }
+  };
+
   return (
     <StForm onSubmit={(e) => handleSubmit(e)}>
       <ImageDiv src={imgChatLogo} alt="Logo Icon" className="buttonLogo" fill={true} />
@@ -77,6 +83,7 @@ function InputAnswer({ setQuestionIndex, questionIndex, setInput, teamId, setCha
         ref={textarea}
         rows={1}
         maxLength={100}
+        onKeyDown={handleKeyDown as unknown as React.KeyboardEventHandler<HTMLTextAreaElement>}
         onChange={(event) => {
           handleResizeTextHeight();
           handleCountText(event);
