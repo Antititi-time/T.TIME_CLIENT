@@ -106,6 +106,10 @@ const StResultContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+
+  @media screen and (min-width: 766px) {
+    margin-bottom: 10rem;
+  }
 `;
 const StResult = styled.div`
   width: 35.6rem;
