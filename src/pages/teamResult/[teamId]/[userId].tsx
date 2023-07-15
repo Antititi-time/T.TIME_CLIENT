@@ -16,7 +16,7 @@ import { DOMAIN } from '@src/constants/domain';
 import Link from 'next/link';
 import { COLOR } from '@src/styles/color';
 import { FONT_STYLES } from '@src/styles/fontStyle';
-import ToolTip from '@common/ToolTip';
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface ctxType {
   query: {
@@ -65,7 +65,7 @@ function TeamResult({ teamId, teamData }: TeamResultProps) {
         url={DOMAIN + '/myResult/' + teamId + '/noUser'}
       />
       <LogoTop />
-      <ToolTip top={5.8} />
+      <ToolTipIcon top={5.8} />
 
       {completeData ? (
         completeData.completed && !isLoading ? (

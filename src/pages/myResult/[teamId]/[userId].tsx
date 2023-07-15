@@ -18,9 +18,8 @@ import MyResultModal from '@src/components/shareModule/MyResultModal';
 import { useRouter } from 'next/router';
 import { imgCenturyGothicLogo } from 'public/assets/images';
 import { DOMAIN } from '@src/constants/domain';
-import ToolTip from '@common/ToolTip';
 import Link from 'next/link';
-
+import ToolTipIcon from '@src/components/common/ToolTipIcon';
 interface ctxType {
   query: {
     userId: string;
@@ -70,7 +69,7 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
         url={DOMAIN + `/myResult/${teamId}/` + userId}
       />
       <LogoTop />
-      <ToolTip top={5.8} />
+      <ToolTipIcon top={5.8} />
       {resultData ? (
         <StMyResult>
           {modalState && (
