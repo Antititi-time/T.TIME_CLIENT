@@ -37,11 +37,11 @@ function MyResult({ userId, teamId, myResultData }: userIdType) {
   const [resultData, setResultData] = useState<UserData>();
   const [resultCharacter, setResultCharacter] = useState(0);
   const [isVisitor, setIsVisitor] = useState(false);
-  const { isReady, push } = useRouter();
+  const { isReady, replace } = useRouter();
 
   const [modalState, setModalState] = useState(false);
   useEffect(() => {
-    if (myResultData.result.length < 5) push('/unfinished');
+    if (myResultData.result.length < 5) replace('/unfinished');
     setResultData(myResultData);
     const inputData = setConstantIndex(myResultData?.result[4]?.questionType);
     setResultCharacter(inputData);
