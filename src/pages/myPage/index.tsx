@@ -29,7 +29,7 @@ function MyPage() {
   return (
     <StMyPage>
       <LogoTop />
-      <ToolTipIcon top={5.8} />
+      <ToolTipIcon top={4.8} />
       <StLogoutBtn
         onClick={() => {
           localStorage.removeItem('accessToken');
