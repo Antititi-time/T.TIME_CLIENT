@@ -122,13 +122,10 @@ const StSocialLoginButton = styled.div`
   @media (max-height: 750px) and (max-width: 766px) {
     top: 35rem;
   }
-  /* @media (max-height: 600px) {
-    bottom: 3rem; */
   @media (min-width: 766px) {
     top: 37rem;
     bottom: 6.4rem;
   }
-  /* } */
 `;
 
 const StSlider = styled(Slider)`
