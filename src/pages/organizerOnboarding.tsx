@@ -95,24 +95,36 @@ export default OrganizerOnboarding;
 const StSkipButton = styled.div`
   position: absolute;
   bottom: 18rem;
+  top: 48rem;
   left: 50%;
   margin-top: 11.9rem;
   transform: translate(-50%);
-  @media (min-width: 766px) {
-    bottom: 6.4rem;
+
+  @media (max-height: 750px) and (max-width: 766px) {
+    top: 43rem;
+  }
+  @media (max-height: 600px) {
+    bottom: 3rem;
+    @media (min-width: 766px) {
+      top: 0;
+      bottom: 6.4rem;
+    }
   }
 `;
 
 const StSocialLoginButton = styled.div`
   position: absolute;
-  bottom: 15rem;
+  top: 42rem;
   left: 50%;
   margin-top: 11.9rem;
   text-align: center;
   transform: translate(-50%);
+  @media (max-height: 750px) and (max-width: 766px) {
+    top: 35rem;
+  }
   @media (min-width: 766px) {
+    top: 37rem;
     bottom: 6.4rem;
-    margin: 0;
   }
 `;
 
