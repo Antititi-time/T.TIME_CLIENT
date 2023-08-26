@@ -1,14 +1,14 @@
 import {
   A_icon1,
-  A_icon2,
+  // A_icon2,
   B_icon1,
-  B_icon2,
+  // B_icon2,
   C_icon1,
-  C_icon2,
+  // C_icon2,
   D_icon2,
-  D_icon3,
+  // D_icon3,
   E_icon1,
-  E_icon2,
+  // E_icon2,
   End_icon,
 } from 'public/assets/images';
 
