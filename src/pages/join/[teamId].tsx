@@ -93,7 +93,7 @@ function Join({ teamId, teamData }: JoinProps) {
           </StRowContainer>
           <StListContainer>
             <StList>총 {teamData?.teamMember}명</StList>
-            <StList>질문 개수: 10개</StList>
+            <StList>질문 개수: 5개</StList>
             <StList>예상 소요시간: 약 10분 이내</StList>
           </StListContainer>
         </StMainBox>
