@@ -37,21 +37,21 @@ export const CHAT_QUESTION_LIST = [
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
-  {
-    questionType: 'd',
-    questionNumber: 2,
-    questions: [
-      D_icon3,
-      '그렇게 느끼셨군요!',
-      '그렇다면 충분한 휴식시간을 갖고 있나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'd',
-    questionNumber: 2,
-    questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
-  },
+  // {
+  //   questionType: 'd',
+  //   questionNumber: 2,
+  //   questions: [
+  //     D_icon3,
+  //     '그렇게 느끼셨군요!',
+  //     '그렇다면 충분한 휴식시간을 갖고 있나요?',
+  //     `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+  //   ],
+  // },
+  // {
+  //   questionType: 'd',
+  //   questionNumber: 2,
+  //   questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  // },
   {
     questionType: 'e',
     questionNumber: 1,
@@ -67,20 +67,20 @@ export const CHAT_QUESTION_LIST = [
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
-  {
-    questionType: 'e',
-    questionNumber: 1,
-    questions: [
-      E_icon2,
-      '그렇다면 본인만의 스트레스를 잘 해소하고 있다고 생각하시나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'e',
-    questionNumber: 2,
-    questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
-  },
+  // {
+  //   questionType: 'e',
+  //   questionNumber: 1,
+  //   questions: [
+  //     E_icon2,
+  //     '그렇다면 본인만의 스트레스를 잘 해소하고 있다고 생각하시나요?',
+  //     `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+  //   ],
+  // },
+  // {
+  //   questionType: 'e',
+  //   questionNumber: 2,
+  //   questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  // },
   {
     questionType: 'c',
     questionNumber: 1,
@@ -95,20 +95,20 @@ export const CHAT_QUESTION_LIST = [
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
-  {
-    questionType: 'c',
-    questionNumber: 2,
-    questions: [
-      C_icon2,
-      '최근에 작업한 결과물에 만족하고 있나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'c',
-    questionNumber: 2,
-    questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
-  },
+  // {
+  //   questionType: 'c',
+  //   questionNumber: 2,
+  //   questions: [
+  //     C_icon2,
+  //     '최근에 작업한 결과물에 만족하고 있나요?',
+  //     `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+  //   ],
+  // },
+  // {
+  //   questionType: 'c',
+  //   questionNumber: 2,
+  //   questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  // },
   {
     questionType: 'b',
     questionNumber: 1,
@@ -123,20 +123,20 @@ export const CHAT_QUESTION_LIST = [
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
-  {
-    questionType: 'b',
-    questionNumber: 2,
-    questions: [
-      B_icon2,
-      '현재 업무를 더 잘하기 위한 노력을 한적이 있나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'b',
-    questionNumber: 2,
-    questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
-  },
+  // {
+  //   questionType: 'b',
+  //   questionNumber: 2,
+  //   questions: [
+  //     B_icon2,
+  //     '현재 업무를 더 잘하기 위한 노력을 한적이 있나요?',
+  //     `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+  //   ],
+  // },
+  // {
+  //   questionType: 'b',
+  //   questionNumber: 2,
+  //   questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
+  // },
   {
     questionType: 'a',
     questionNumber: 1,
@@ -151,20 +151,20 @@ export const CHAT_QUESTION_LIST = [
     questionNumber: 1,
     questions: [`그렇게 생각한 이유가 무엇인가요? \n 간단하게 한문장 정도로 작성부탁드려요 :)`],
   },
-  {
-    questionType: 'a',
-    questionNumber: 2,
-    questions: [
-      A_icon2,
-      '팀을 위해 본인의 의견을 자주 내시나요?',
-      `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
-    ],
-  },
-  {
-    questionType: 'a',
-    questionNumber: 2,
-    questions: [`그렇게 생각한 이유가 무엇인가요?\n간단하게 한문장 정도로 작성부탁드려요 :)`],
-  },
+  // {
+  //   questionType: 'a',
+  //   questionNumber: 2,
+  //   questions: [
+  //     A_icon2,
+  //     '팀을 위해 본인의 의견을 자주 내시나요?',
+  //     `1점 - 전혀 그렇지 않다. \n 2점 - 그렇지 않다.\n 3점 - 보통이다. \n 4점 - 그렇다. \n 5점 - 매우 그렇다. \n 질문에 대해 본인이 느끼는 정도를 점수로 선택해주세요!`,
+  //   ],
+  // },
+  // {
+  //   questionType: 'a',
+  //   questionNumber: 2,
+  //   questions: [`그렇게 생각한 이유가 무엇인가요?\n간단하게 한문장 정도로 작성부탁드려요 :)`],
+  // },
   {
     questionType: 'End',
     questionNumber: 0,

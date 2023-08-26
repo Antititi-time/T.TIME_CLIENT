@@ -87,7 +87,7 @@ function Chart({ teamId }: TeamResultProps) {
           display: false,
         },
         suggestedMin: 0,
-        suggestedMax: 10,
+        suggestedMax: 5,
         backgroundColor: 'white',
       },
     },

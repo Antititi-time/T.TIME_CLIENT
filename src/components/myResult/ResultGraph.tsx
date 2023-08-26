@@ -23,7 +23,7 @@ function ResultGraph({ result }: graphData) {
       {result?.map((data) => (
         <StGraphContent key={data.questionType}>
           <StGraphName>{filterQuestionType(data.questionType)}</StGraphName>
-          <StGraphBar data={data.grade}>
+          <StGraphBar data={data.grade * 2}>
             <div className="progress">
               <div className="progressValue"></div>
             </div>
