@@ -23,7 +23,7 @@ function ToolTip({ top }: StToolTipProps) {
   }, []);
   return (
     <StToolTip top={top}>
-      <a target="_blank" href="https://walla.my/t.time" rel="noreferrer">
+      <a target="_blank" href="https://walla.my/survey/3ySdJv8PjZTUq51XAFsz" rel="noreferrer">
         <StToolTipIcon>
           <ImageDiv src={imgToolTipIcon} alt="주최자 프로필 사진" className="imgToolTipIcon" fill={true} />
         </StToolTipIcon>
