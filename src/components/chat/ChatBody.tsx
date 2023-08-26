@@ -12,7 +12,7 @@ import WatchMyResultButton from './WatchMyResultButton';
 import { useState, useEffect, useRef, SetStateAction, Dispatch } from 'react';
 import { useRouter } from 'next/router';
 import { StaticImageData } from 'next/image';
-import ToolTipIcon from '@src/components/common/ToolTipIcon';
+// import ToolTipIcon from '@src/components/common/ToolTipIcon';
 
 interface ChatBodyProps {
   questionIndex: number;
