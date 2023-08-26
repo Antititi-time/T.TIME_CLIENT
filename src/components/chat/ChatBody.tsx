@@ -67,7 +67,7 @@ function ChatBody({ setQuestionIndex, questionIndex }: ChatBodyProps) {
   return (
     <StChatWrapper>
       <StChatBody ref={scrollRef}>
-        <ToolTipIcon top={7} />
+        {/* <ToolTipIcon top={5} /> */}
         <ChatStartTalk />
         {chat.map((questions: string | StaticImageData, index: number) => {
           return typeof questions === 'object' ? (
