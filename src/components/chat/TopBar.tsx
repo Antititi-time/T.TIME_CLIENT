@@ -25,7 +25,7 @@ function TopBar({ teamName, questionIndex }: props) {
   return (
     <StTopBar>
       <StProgress>
-        <StProBar range={range(questionIndex) * 2} />
+        <StProBar range={range(questionIndex)} />
       </StProgress>
       <StTopBox>
         <StTopBarText>&apos;{teamName}&apos; 의 티타임</StTopBarText>
